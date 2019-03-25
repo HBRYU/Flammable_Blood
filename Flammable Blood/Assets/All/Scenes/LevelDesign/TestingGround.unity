@@ -164,7 +164,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.38679248, g: 0.3320346, b: 0.3046903, a: 0}
   m_projectionMatrixMode: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -1212,6 +1212,11 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8528759017965620769, guid: 1ac991a6017ca2e4d9cbc9c0d743dd34,
+        type: 3}
+      propertyPath: walkSpeed
+      value: 175
+      objectReference: {fileID: 0}
     - target: {fileID: 6654551699799477906, guid: 1ac991a6017ca2e4d9cbc9c0d743dd34,
         type: 3}
       propertyPath: m_LocalRotation.w
@@ -1231,11 +1236,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.000052747197
-      objectReference: {fileID: 0}
-    - target: {fileID: 8528759017965620769, guid: 1ac991a6017ca2e4d9cbc9c0d743dd34,
-        type: 3}
-      propertyPath: walkSpeed
-      value: 175
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ac991a6017ca2e4d9cbc9c0d743dd34, type: 3}
