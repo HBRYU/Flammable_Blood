@@ -23,7 +23,7 @@ public class PlayerMove : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //////////////////////////////////// 좌우 움직임
         moveInput = Input.GetAxis("Horizontal");
@@ -32,7 +32,7 @@ public class PlayerMove : MonoBehaviour
         else { speed = walkSpeed; }
 
 
-        rb.velocity = new Vector2(moveInput * speed * Time.deltaTime, rb.velocity.y);
+        rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
         
         /////////////////////////////////// 좌우 반전
         if(facingRight && moveInput < 0)
