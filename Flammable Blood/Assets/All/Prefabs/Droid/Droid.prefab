@@ -250,7 +250,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3800470514424294567}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.85, y: 0.89, z: 0}
+  m_LocalPosition: {x: 1.8, y: 0.89, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6654551699162335451}
@@ -1976,7 +1976,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.022595316, y: -0.04390514}
+  m_Offset: {x: -0.022595316, y: -0.07945377}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1987,7 +1987,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.49433672, y: 1.0990987}
+  m_Size: {x: 0.40587306, y: 1.1701959}
   m_EdgeRadius: 0
 --- !u!58 &5891095008236420064
 CircleCollider2D:
@@ -2002,9 +2002,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.02259532, y: -0.61}
+  m_Offset: {x: -0.02259532, y: -0.66}
   serializedVersion: 2
-  m_Radius: 0.25
+  m_Radius: 0.2
 --- !u!50 &3115451408533407211
 Rigidbody2D:
   serializedVersion: 4
@@ -2038,7 +2038,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3cb87d470cdab94f82e26ceb71f44d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 10
+  runSpeed: 7
   walkSpeed: 5
   jumpForce: 10
   groundCheck: {fileID: 3767988285500113068}

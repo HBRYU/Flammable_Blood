@@ -16,6 +16,7 @@ public class PlayerMove : MonoBehaviour
     public float groundCheckRadius;
     public LayerMask whatIsGround;
 
+    Collider2D onGround;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,14 +46,17 @@ public class PlayerMove : MonoBehaviour
         }
 
         //////////////////////////////////// 점프
-        Collider2D onGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
+        onGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
 
+    }
+
+    private void Update()
+    {
         if (Input.GetKeyDown("w") && onGround == true)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
     }
-
     /////////////////////////////////// 좌우 반전 함수
     void Flip()
     {
