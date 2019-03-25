@@ -26,10 +26,10 @@ public class PlayerMove : MonoBehaviour
     void FixedUpdate()
     {
         //////////////////////////////////// 좌우 움직임
-        moveInput = Input.GetAxis("Horizontal");
+        moveInput = Input.GetAxis("Horizontal");    //D 누르면 1, A 누르면 -1
 
-        if(Input.GetKey("left shift")) { speed = runSpeed; }
-        else { speed = walkSpeed; }
+        if(Input.GetKey("left shift")) { speed = runSpeed; }    //Shift 누르면 스피드는 달리기 속도
+        else { speed = walkSpeed; } //아니면 스피드는 일반 속도
 
 
         rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
@@ -37,7 +37,7 @@ public class PlayerMove : MonoBehaviour
         /////////////////////////////////// 좌우 반전
         if(facingRight && moveInput < 0)
         {
-            Flip();
+            Flip();     //
         }
         else if (!facingRight && moveInput > 0)
         {
