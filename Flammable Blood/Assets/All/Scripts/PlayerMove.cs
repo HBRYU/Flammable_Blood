@@ -5,7 +5,9 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     private Rigidbody2D rb;
-    public float speed;
+    public float runSpeed;
+    public float walkSpeed;
+    private float speed;
     public float jumpForce;
     private bool facingRight = true;
     private float moveInput;
@@ -25,6 +27,11 @@ public class PlayerMove : MonoBehaviour
     {
         //////////////////////////////////// 좌우 움직임
         moveInput = Input.GetAxis("Horizontal");
+
+        if(Input.GetKey("left shift")) { speed = runSpeed; }
+        else { speed = walkSpeed; }
+
+
         rb.velocity = new Vector2(moveInput * speed * Time.deltaTime, rb.velocity.y);
         
         /////////////////////////////////// 좌우 반전

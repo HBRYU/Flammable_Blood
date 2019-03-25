@@ -18,7 +18,7 @@ public class CameraMan : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        movePos = Vector3.Lerp(transform.position, target.transform.position, speed);
+        movePos = Vector3.Lerp(transform.position, target.transform.position, speed * Time.deltaTime);
         movePos.z = transform.position.z;
         transform.position = movePos;
     }

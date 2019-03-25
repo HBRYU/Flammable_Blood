@@ -226,6 +226,36 @@ MonoBehaviour:
     m_RestoreDefaultPose: 1
     targetPosition: {x: -0.14851445, y: -0.8304273, z: 0.006591797}
     flip: 1
+--- !u!1 &3800470514424294567
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2342779276540820189}
+  m_Layer: 8
+  m_Name: Droid_CameraPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2342779276540820189
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3800470514424294567}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.85, y: 1.19, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6654551699162335451}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3874542498587394381
 GameObject:
   m_ObjectHideFlags: 0
@@ -880,14 +910,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6654551698136253168}
-  m_LocalRotation: {x: 0, y: 0, z: 0.033240985, w: 0.9994474}
+  m_LocalRotation: {x: 0, y: 0, z: 0.07312335, w: 0.997323}
   m_LocalPosition: {x: 0.29420203, y: 0.0000000013969839, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6654551698168413986}
   m_Father: {fileID: 6654551698101919692}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 3.8100002}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 8.387}
 --- !u!114 &6654551698136253170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -901,7 +931,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 0.3}
-  m_Length: 0.19909872
+  m_Length: 0.19909874
   m_ChildTransform: {fileID: 6654551698168413986}
   m_AttachedIK: {fileID: 0}
 --- !u!1 &6654551698168413987
@@ -928,13 +958,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6654551698168413987}
-  m_LocalRotation: {x: 0, y: 0, z: 0.00000003753919, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.044357512, w: 0.99901575}
   m_LocalPosition: {x: 0.19909856, y: -2.9883296e-10, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6654551698136253171}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 5.085}
 --- !u!114 &6654551698168413989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1156,13 +1186,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6654551698700776734}
-  m_LocalRotation: {x: 0, y: 0, z: 0.613951, w: 0.78934413}
+  m_LocalRotation: {x: 0, y: 0, z: 0.59840876, w: 0.80119103}
   m_LocalPosition: {x: 0.18296969, y: 1.421087e-13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6654551699495731574}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 75.75101}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 73.512}
 --- !u!114 &6654551698700776720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1822,6 +1852,7 @@ Transform:
   - {fileID: 4628017677980359673}
   - {fileID: 2725817741180575871}
   - {fileID: 3767988285500113068}
+  - {fileID: 2342779276540820189}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1882,7 +1913,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 3
+  m_GravityScale: 2.5
   m_Material: {fileID: 6200000, guid: 2337a01c1643fb546b5c29a4a16c34c4, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -1900,10 +1931,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3cb87d470cdab94f82e26ceb71f44d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 500
+  runSpeed: 400
+  walkSpeed: 175
   jumpForce: 10
   groundCheck: {fileID: 3767988285500113068}
-  groundCheckRadius: 0.2
+  groundCheckRadius: 0.35
   whatIsGround:
     serializedVersion: 2
     m_Bits: 23
@@ -2167,7 +2199,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6654551699224524419}
   m_LocalRotation: {x: -0, y: -0, z: 0.70710677, w: 0.7071069}
-  m_LocalPosition: {x: 0.25083828, y: -0.23337609, z: 0.006591797}
+  m_LocalPosition: {x: 0.2508383, y: -0.23337609, z: 0.006591797}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6654551699799477906}
