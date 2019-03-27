@@ -34,16 +34,14 @@ public class PlayerAnimControl : MonoBehaviour
         else { anim.SetInteger("Speed", 0); }
 
         ///////////////////////// Jump Input    점프 인풋
-        if (Input.GetKeyDown("w"))
+        bool onGround;
+        if (pm.onGround != null) { onGround = true; }
+        else { onGround = false; }
+
+        if (Input.GetKeyDown("w") && pm.onGround == true)
         {
             anim.SetTrigger("Jump");
         }
-        
-        Debug.Log(pm.onGround);
-
-        bool onGround;
-        if(pm.onGround != null) {onGround = true;}
-        else {onGround = false;}
 
         anim.SetBool("OnGround", onGround);
         anim.SetFloat("YVel", rb.velocity.y);
