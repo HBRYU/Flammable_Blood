@@ -38,7 +38,7 @@ public class PlayerAnimControl : MonoBehaviour
         if (pm.onGround != null) { onGround = true; }
         else { onGround = false; }
 
-        if (Input.GetKeyDown("w") && pm.onGround == true)
+        if (Input.GetKeyDown("w") && onGround == true)
         {
             anim.SetTrigger("Jump");
         }

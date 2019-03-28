@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c10c0be6d28fe4d539c4a39822fe301c, type: 3}
-  m_Name: l17_Droid-01
+  m_Name: Eyes
   m_EditorClassIdentifier: 
   m_ApiVersion: 4
   m_Sprite: {fileID: 21300000, guid: 21255aef3c8aa0e488b5260db409803f, type: 3}
