@@ -3854,27 +3854,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 6654551699275547740, guid: 1ac991a6017ca2e4d9cbc9c0d743dd34,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2120352837, guid: 1ac991a6017ca2e4d9cbc9c0d743dd34, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.22363
-      objectReference: {fileID: 0}
-    - target: {fileID: 2120352837, guid: 1ac991a6017ca2e4d9cbc9c0d743dd34, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.56251
-      objectReference: {fileID: 0}
-    - target: {fileID: 2120352836, guid: 1ac991a6017ca2e4d9cbc9c0d743dd34, type: 3}
-      propertyPath: m_Name
-      value: Eyes[SPRITE]
-      objectReference: {fileID: 0}
-    - target: {fileID: 2120352836, guid: 1ac991a6017ca2e4d9cbc9c0d743dd34, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ac991a6017ca2e4d9cbc9c0d743dd34, type: 3}
 --- !u!1 &6654551699414345418 stripped
