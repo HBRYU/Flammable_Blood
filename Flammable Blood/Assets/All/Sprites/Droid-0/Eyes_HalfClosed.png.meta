@@ -1,10 +1,8 @@
 fileFormatVersion: 2
-guid: 913958d51297b1a469cf9ca422d4f4d9
+guid: 475fe653270e5f94291bfaa576256ce7
 TextureImporter:
   fileIDToRecycleName:
-    21300000: FB_AssaultRifle_0
-    21300002: FB_AssaultRifle_1
-    21300004: FB_AssaultRifle_2
+    21300000: Eyes_HalfClosed_0
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -87,13 +85,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FB_AssaultRifle_0
+      name: Eyes_HalfClosed_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 100
-        width: 100
-        height: 100
+        x: 44
+        y: 79
+        width: 12
+        height: 1
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -101,47 +99,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 487b9e4d237679c4a9bde9e41d2a3f43
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: FB_AssaultRifle_1
-      rect:
-        serializedVersion: 2
-        x: 100
-        y: 100
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 96d363e6dfc33214f8a0c811ec238720
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: FB_AssaultRifle_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7174d09eb44b8724aae7164261f00e98
+      spriteID: f0397a0172f49f146a8c2a49de7eebbd
       vertices: []
       indices: 
       edges: []
@@ -149,7 +107,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 7bfd1af8967c6c94885b12bb9cc30fc8
+    spriteID: c1f2c4581fb9c7f4aa136eda7c1e0fbc
     vertices: []
     indices: 
     edges: []
