@@ -30,7 +30,6 @@ public class Gun_Rifle : MonoBehaviour
     void Update()
     {
         fire_Timer += Time.deltaTime;
-        Debug.Log(fire_Timer);
         if(fire_Timer >= fireRate)
         {
             if (Input.GetMouseButton(0))
