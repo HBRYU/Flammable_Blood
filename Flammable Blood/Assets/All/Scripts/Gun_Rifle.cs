@@ -22,6 +22,7 @@ public class Gun_Rifle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _GM_ = GameObject.FindGameObjectWithTag("GM").GetComponent<GM>();
         player = _GM_.player;
     }
 

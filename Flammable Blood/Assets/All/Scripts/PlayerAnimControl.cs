@@ -43,6 +43,17 @@ public class PlayerAnimControl : MonoBehaviour
             anim.SetTrigger("Jump");
         }
 
+        //////////////////////// Mouse Input    마우스 인풋
+        if (Input.GetMouseButton(0))
+        {
+            anim.SetBool("Shooting", true);
+        }
+        else
+        {
+            anim.SetBool("Shooting", false);
+        }
+
+
         anim.SetBool("OnGround", onGround);
         anim.SetFloat("YVel", rb.velocity.y);
     }
