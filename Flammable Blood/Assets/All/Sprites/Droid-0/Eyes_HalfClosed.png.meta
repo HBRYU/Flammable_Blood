@@ -88,12 +88,12 @@ TextureImporter:
       name: Eyes_HalfClosed_0
       rect:
         serializedVersion: 2
-        x: 44
-        y: 79
-        width: 12
-        height: 1
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 37
+        y: 72
+        width: 25.7
+        height: 16.20002
+      alignment: 9
+      pivot: {x: 0.50583655, y: -1.358023}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
