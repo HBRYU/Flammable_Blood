@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerGunManager : MonoBehaviour
+public class PlayerWeaponManager : MonoBehaviour
 {
+    public GameObject gunFolder;
     public int maxGunCount;
     public List<GameObject> guns;
     // Start is called before the first frame update

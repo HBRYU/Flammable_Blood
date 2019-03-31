@@ -9,6 +9,7 @@ public class WeaponStats : MonoBehaviour
     public int ID;
 
     public float pickUpRadius;
+    public LayerMask playerLayer;
 
     // Start is called before the first frame update
     void Start()
@@ -23,12 +24,13 @@ public class WeaponStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Collider2D checkArea = Physics2D.OverlapCircle(transform.position, pickUpRadius, LayerMask.NameToLayer("Player/Hitbox"));
-        if (checkArea != null && checkArea.gameObject.CompareTag("Player/Hitbox"))
+        Collider2D checkArea = Physics2D.OverlapCircle(transform.position, pickUpRadius, playerLayer);
+        if (checkArea == true)
         {
+            Debug.Log("Contact");
             if (Input.GetKeyDown("r"))
             {
-                PickUp(_GM_.player.transform);
+                PickUp(_GM_.player.GetComponent<PlayerWeaponManager>().gunFolder.transform);
             }
         }
     }
@@ -43,6 +45,8 @@ public class WeaponStats : MonoBehaviour
     public void PickUp(Transform parent)
     {
         transform.parent = parent;
+        transform.position = new Vector2(0, 0);
+        transform.rotation = Quaternion.identity;
         GetComponent<Rigidbody2D>().simulated = false;
         GetComponent<PolygonCollider2D>().enabled = false;
     }

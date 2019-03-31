@@ -3404,6 +3404,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9168635345387689232, guid: 51ad68d2f1bcc5643a6adf93785a4dbf,
+        type: 3}
+      propertyPath: pickUpRadius
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9168635345387689232, guid: 51ad68d2f1bcc5643a6adf93785a4dbf,
+        type: 3}
+      propertyPath: playerLayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51ad68d2f1bcc5643a6adf93785a4dbf, type: 3}
 --- !u!1 &792193867
@@ -3644,6 +3654,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 841742393}
   m_CullTransparentMesh: 0
+--- !u!1 &986655285 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5880651571092497434, guid: 1ac991a6017ca2e4d9cbc9c0d743dd34,
+    type: 3}
+  m_PrefabInstance: {fileID: 6654551699414345417}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1115790033 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6654551699162335448, guid: 1ac991a6017ca2e4d9cbc9c0d743dd34,
@@ -3865,6 +3881,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6654551699162335451, guid: 1ac991a6017ca2e4d9cbc9c0d743dd34,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6654551699162335451, guid: 1ac991a6017ca2e4d9cbc9c0d743dd34,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6654551697762701116, guid: 1ac991a6017ca2e4d9cbc9c0d743dd34,
         type: 3}
       propertyPath: m_Mesh
@@ -3955,6 +3981,21 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8528759017965620769, guid: 1ac991a6017ca2e4d9cbc9c0d743dd34,
+        type: 3}
+      propertyPath: jumpForce
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5192574596349168025, guid: 1ac991a6017ca2e4d9cbc9c0d743dd34,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6852296338917623934, guid: 1ac991a6017ca2e4d9cbc9c0d743dd34,
+        type: 3}
+      propertyPath: gunFolder
+      value: 
+      objectReference: {fileID: 986655285}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ac991a6017ca2e4d9cbc9c0d743dd34, type: 3}
 --- !u!1 &6654551699414345418 stripped
