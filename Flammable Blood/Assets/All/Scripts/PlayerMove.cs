@@ -33,6 +33,11 @@ public class PlayerMove : MonoBehaviour
         if(Input.GetKey("left shift")) { speed = runSpeed; }    //Shift 누르면 스피드는 달리기 속도
         else { speed = walkSpeed; } //아니면 스피드는 일반 속도
 
+        if(Input.GetKey("a") && Input.GetKey("d"))      //A랑 D 같이 누르면 멈추기
+        {
+            speed = 0;
+        }
+
 
         rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
         
