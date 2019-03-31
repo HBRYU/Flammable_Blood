@@ -31,6 +31,8 @@ public class WeaponStats : MonoBehaviour
             if (Input.GetKeyDown("r"))
             {
                 PickUp(_GM_.player.GetComponent<PlayerWeaponManager>().gunFolder.transform);
+                transform.position = Vector2.zero;
+                transform.rotation = Quaternion.identity;
             }
         }
     }
@@ -45,9 +47,8 @@ public class WeaponStats : MonoBehaviour
     public void PickUp(Transform parent)
     {
         transform.parent = parent;
-        transform.position = new Vector2(0, 0);
-        transform.rotation = Quaternion.identity;
         GetComponent<Rigidbody2D>().simulated = false;
         GetComponent<PolygonCollider2D>().enabled = false;
+        
     }
 }
