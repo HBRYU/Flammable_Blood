@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1603397538876135331}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: BarrelEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 9168635345387689232}
   - component: {fileID: 6259814728530220971}
   - component: {fileID: 5150104150689436769}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Frontier_AR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -150,6 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Frontier_AR
   ID: 1
+  pickUpRadius: 1
 --- !u!50 &6259814728530220971
 Rigidbody2D:
   serializedVersion: 4
