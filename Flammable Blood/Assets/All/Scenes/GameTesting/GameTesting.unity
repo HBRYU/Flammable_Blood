@@ -3519,16 +3519,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9168635345387689232, guid: 51ad68d2f1bcc5643a6adf93785a4dbf,
-        type: 3}
-      propertyPath: pickUpRadius
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9168635345387689232, guid: 51ad68d2f1bcc5643a6adf93785a4dbf,
-        type: 3}
-      propertyPath: playerLayer.m_Bits
-      value: 256
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51ad68d2f1bcc5643a6adf93785a4dbf, type: 3}
 --- !u!1 &792193867
@@ -3921,6 +3911,16 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1115790033}
+    - target: {fileID: 6568621632076280715, guid: 2b45686db9c760a46b5edc94d507eb7c,
+        type: 3}
+      propertyPath: gunIndex.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568621632076280715, guid: 2b45686db9c760a46b5edc94d507eb7c,
+        type: 3}
+      propertyPath: gunIndex.Array.data[0]
+      value: Frontier_AR
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b45686db9c760a46b5edc94d507eb7c, type: 3}
 --- !u!1001 &6654551699414345417

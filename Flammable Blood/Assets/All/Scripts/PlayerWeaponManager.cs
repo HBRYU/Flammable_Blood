@@ -6,7 +6,10 @@ public class PlayerWeaponManager : MonoBehaviour
 {
     public GameObject gunFolder;
     public int maxGunCount;
+    private Animator anim;
+
     public List<GameObject> guns;
+    public GameObject activeGun;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +27,15 @@ public class PlayerWeaponManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown("q"))
+        {
+
+        }
+    }
+
+    public void Arm(GameObject gun)
+    {
+        activeGun = gun;
+
     }
 }

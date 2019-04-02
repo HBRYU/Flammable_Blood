@@ -2277,6 +2277,8 @@ MonoBehaviour:
   runSpeed: 6
   walkSpeed: 3
   jumpForce: 10
+  jumped: 0
+  hadJumped: 0
   groundCheck: {fileID: 3767988285500113068}
   groundCheckRadius: 0.15
   whatIsGround:

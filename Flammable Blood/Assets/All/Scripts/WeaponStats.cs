@@ -5,8 +5,10 @@ using UnityEngine;
 public class WeaponStats : MonoBehaviour
 {
     private GM _GM_;
+    private MasterWeaponManagement _WM_;
+
     public string name;
-    public int ID;
+    private int ID;
 
     public float pickUpRadius;
     public LayerMask playerLayer;
@@ -15,6 +17,10 @@ public class WeaponStats : MonoBehaviour
     void Start()
     {
         _GM_ = GameObject.FindGameObjectWithTag("GM").GetComponent<GM>();
+        _WM_ = _GM_.gameObject.GetComponent<MasterWeaponManagement>();
+
+        ID = _WM_.gunIndex.IndexOf(name);
+
         if(transform.parent == null || transform.parent.tag != "Player/Inventory/Weapons")
         {
             Drop();
@@ -30,7 +36,7 @@ public class WeaponStats : MonoBehaviour
             if (Input.GetKeyDown("r"))
             {
                 PickUp(_GM_.player.GetComponent<PlayerWeaponManager>().gunFolder.transform);
-
+                _GM_.player.GetComponent<PlayerWeaponManager>().guns.Add(gameObject);
             }
         }
     }
@@ -40,6 +46,7 @@ public class WeaponStats : MonoBehaviour
         transform.parent = null;
         GetComponent<Rigidbody2D>().simulated = true;
         GetComponent<PolygonCollider2D>().enabled = true;
+        
     }
 
     public void PickUp(Transform parent)

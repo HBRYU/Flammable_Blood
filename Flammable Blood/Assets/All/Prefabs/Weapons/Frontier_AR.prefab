@@ -149,8 +149,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Frontier_AR
-  ID: 1
   pickUpRadius: 1
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!50 &6259814728530220971
 Rigidbody2D:
   serializedVersion: 4

@@ -43,7 +43,7 @@ public class Gun_Rifle : MonoBehaviour
 
     void Fire()
     {
-        Debug.Log("FIRED");
+        //Debug.Log("FIRED");
         Bullet thisBullet = bullet;
         thisBullet.damage = damage;
         thisBullet.accuracy = accuracy;
