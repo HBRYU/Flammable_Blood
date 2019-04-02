@@ -3522,7 +3522,7 @@ PrefabInstance:
     - target: {fileID: 9168635345387689232, guid: 51ad68d2f1bcc5643a6adf93785a4dbf,
         type: 3}
       propertyPath: pickUpRadius
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9168635345387689232, guid: 51ad68d2f1bcc5643a6adf93785a4dbf,
         type: 3}

@@ -5,10 +5,16 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     private Rigidbody2D rb;
+    private PlayerAnimControl anim;
+
     public float runSpeed;
     public float walkSpeed;
     private float speed;
     public float jumpForce;
+
+    [HideInInspector]
+    public bool jumped, hadJumped;
+
     private bool facingRight = true;
     private float moveInput;
 
@@ -22,6 +28,7 @@ public class PlayerMove : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<PlayerAnimControl>();
     }
 
     // Update is called once per frame
@@ -44,7 +51,7 @@ public class PlayerMove : MonoBehaviour
         /////////////////////////////////// 좌우 반전
         if(facingRight && moveInput < 0)
         {
-            Flip();     //
+            Flip();     
         }
         else if (!facingRight && moveInput > 0)
         {
@@ -60,7 +67,15 @@ public class PlayerMove : MonoBehaviour
         if (Input.GetKeyDown("w") && onGround == true)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            jumped = true;
+            anim.Jump();
         }
+
+        if(rb.velocity.y == 0 && onGround == true)
+        {
+            jumped = false;
+        }
+
     }
     /////////////////////////////////// 좌우 반전 함수
     void Flip()

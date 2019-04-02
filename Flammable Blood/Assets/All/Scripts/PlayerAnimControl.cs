@@ -8,7 +8,9 @@ public class PlayerAnimControl : MonoBehaviour
     private Rigidbody2D rb;
 
     private PlayerMove pm;
-    // Start is called before the first frame update
+
+    private bool hadJumped;
+
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -16,7 +18,7 @@ public class PlayerAnimControl : MonoBehaviour
         pm = GetComponent<PlayerMove>();
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         //////////////////////////// Movement Input     좌 우 움직임 인풋
@@ -38,10 +40,17 @@ public class PlayerAnimControl : MonoBehaviour
         if (pm.onGround != null) { onGround = true; }
         else { onGround = false; }
 
-        if (Input.GetKeyDown("w") && onGround == true)
+        /*
+        if (pm.jumped == true && hadJumped == false)
         {
             anim.SetTrigger("Jump");
+            hadJumped = true;
         }
+        if(onGround == true && rb.velocity.y == 0)
+        {
+            hadJumped = false;
+        }
+        */
 
         //////////////////////// Mouse Input    마우스 인풋
         if (Input.GetMouseButton(0))
@@ -56,5 +65,10 @@ public class PlayerAnimControl : MonoBehaviour
 
         anim.SetBool("OnGround", onGround);
         anim.SetFloat("YVel", rb.velocity.y);
+    }
+
+    public void Jump()
+    {
+        anim.SetTrigger("Jump");
     }
 }

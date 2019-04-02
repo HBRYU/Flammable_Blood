@@ -27,12 +27,10 @@ public class WeaponStats : MonoBehaviour
         Collider2D checkArea = Physics2D.OverlapCircle(transform.position, pickUpRadius, playerLayer);
         if (checkArea == true)
         {
-            Debug.Log("Contact");
             if (Input.GetKeyDown("r"))
             {
                 PickUp(_GM_.player.GetComponent<PlayerWeaponManager>().gunFolder.transform);
-                transform.position = Vector2.zero;
-                transform.rotation = Quaternion.identity;
+
             }
         }
     }
@@ -46,7 +44,11 @@ public class WeaponStats : MonoBehaviour
 
     public void PickUp(Transform parent)
     {
-        transform.parent = parent;
+        transform.SetParent(parent, true);
+        transform.position = parent.position;
+        transform.rotation = parent.rotation;
+        transform.localScale = parent.localScale;
+        Debug.Log(transform.parent);
         GetComponent<Rigidbody2D>().simulated = false;
         GetComponent<PolygonCollider2D>().enabled = false;
         
