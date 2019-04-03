@@ -8,7 +8,9 @@ public class WeaponStats : MonoBehaviour
     private MasterWeaponManagement _WM_;
 
     public string name;
-    private int ID;
+
+    [HideInInspector]
+    public int ID;
 
     public float pickUpRadius;
     public LayerMask playerLayer;
@@ -37,6 +39,7 @@ public class WeaponStats : MonoBehaviour
             {
                 PickUp(_GM_.player.GetComponent<PlayerWeaponManager>().gunFolder.transform);
                 _GM_.player.GetComponent<PlayerWeaponManager>().guns.Add(gameObject);
+                _GM_.player.GetComponent<PlayerWeaponManager>().Arm(gameObject);
             }
         }
     }

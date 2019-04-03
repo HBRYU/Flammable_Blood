@@ -14,6 +14,8 @@ public class PlayerWeaponManager : MonoBehaviour
     void Start()
     {
 
+        anim = GetComponent<Animator>();
+
         if(guns.Count > maxGunCount)
         {
             while(guns.Count > maxGunCount)
@@ -27,15 +29,57 @@ public class PlayerWeaponManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("q"))
-        {
+        if(guns.Count == 0) { activeGun = null; }
 
+        if(activeGun == null)
+        {
+            anim.SetLayerWeight(anim.GetLayerIndex("Default [Type-0]"), 100);
+            for(int i = 0;  i < anim.layerCount; i++)
+            {
+                if(anim.GetLayerIndex("Default [Type-0]") != i)
+                {
+                    anim.SetLayerWeight(i, 0);
+                }
+            }
         }
+        else
+        {
+            SwitchWeapons();
+        }
+
     }
 
     public void Arm(GameObject gun)
     {
         activeGun = gun;
+    }
 
+    void SwitchWeapons()
+    {
+        if (Input.GetKeyDown("q"))
+        {
+            if (activeGun != guns[guns.Count - 1])
+            {
+                activeGun.SetActive(false);
+                activeGun = guns[guns.IndexOf(activeGun) + 1];
+                activeGun.SetActive(true);
+            }
+            else
+            {
+                activeGun.SetActive(false);
+                activeGun = guns[0];
+                activeGun.SetActive(true);
+            }
+            SetTypeAnimWeight(activeGun.GetComponent<WeaponStats>().ID);
+        }
+    }
+
+    void SetTypeAnimWeight(int ID)
+    {
+        for (int i = 0; i < anim.layerCount; i++)
+        {
+            anim.SetLayerWeight(i, 0);
+        }
+        anim.SetLayerWeight(ID, 100);
     }
 }
