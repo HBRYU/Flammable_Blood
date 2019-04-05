@@ -40,19 +40,10 @@ public class PlayerAnimControl : MonoBehaviour
         if (pm.onGround != null) { onGround = true; }
         else { onGround = false; }
 
-        /*
-        if (pm.jumped == true && hadJumped == false)
-        {
-            anim.SetTrigger("Jump");
-            hadJumped = true;
-        }
-        if(onGround == true && rb.velocity.y == 0)
-        {
-            hadJumped = false;
-        }
-        */
 
         //////////////////////// Mouse Input    마우스 인풋
+
+        /*
         if (Input.GetMouseButton(0))
         {
             anim.SetBool("Shooting", true);
@@ -62,13 +53,37 @@ public class PlayerAnimControl : MonoBehaviour
             anim.SetBool("Shooting", false);
         }
 
-
+        */
         anim.SetBool("OnGround", onGround);
         anim.SetFloat("YVel", rb.velocity.y);
     }
+    
 
     public void Jump()
     {
         anim.SetTrigger("Jump");
     }
+
+    public void Shoot(GameObject gun,bool shoot, bool repeat)
+    {
+        if (repeat)
+        {
+            if(shoot == true)
+            {
+                gun.GetComponent<Animator>().SetBool("Shooting", true);
+                anim.SetBool("Shooting", true);
+            }
+            else
+            {
+                gun.GetComponent<Animator>().SetBool("Shooting", false);
+                anim.SetBool("Shooting", false);
+            }
+        }
+        else
+        {
+            gun.GetComponent<Animator>().SetTrigger("Shooting");
+            anim.SetTrigger("Shooting");
+        }
+    }
+
 }

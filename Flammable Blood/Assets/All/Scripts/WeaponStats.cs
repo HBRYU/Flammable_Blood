@@ -8,10 +8,17 @@ public class WeaponStats : MonoBehaviour
     private MasterWeaponManagement _WM_;
 
     public string name;
+
+    [Header("Melee, AR, SMG, SG, SR, etc")]
+    public string category;
     public GameObject gun;
+
 
     [HideInInspector]
     public int ID;
+
+    [HideInInspector]
+    public bool is_shooting;
 
     public float pickUpRadius;
     public LayerMask playerLayer;

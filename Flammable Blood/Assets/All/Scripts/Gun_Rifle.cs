@@ -6,6 +6,7 @@ public class Gun_Rifle : MonoBehaviour
 {
     private GM _GM_;
     private GameObject player;
+    public WeaponStats ws;
 
     public Bullet bullet;
     public GameObject barrelEnd;
@@ -36,6 +37,12 @@ public class Gun_Rifle : MonoBehaviour
             {
                 Fire();
                 fire_Timer = 0;
+
+                ws.is_shooting = true;
+            }
+            else
+            {
+                ws.is_shooting = false;
             }
             
         }

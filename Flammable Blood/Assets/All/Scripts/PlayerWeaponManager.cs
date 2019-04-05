@@ -9,6 +9,7 @@ public class PlayerWeaponManager : MonoBehaviour
     public GameObject gunFolder;
     public int maxGunCount;
     private Animator anim;
+    private PlayerAnimControl ac;
 
     public List<GameObject> guns;
     public GameObject activeGun;
@@ -16,8 +17,8 @@ public class PlayerWeaponManager : MonoBehaviour
     void Start()
     {
         _WM_ = GameObject.FindGameObjectWithTag("GM").GetComponent<MasterWeaponManagement>();
-
         anim = GetComponent<Animator>();
+        ac = GetComponent<PlayerAnimControl>();
 
         if(guns.Count > maxGunCount)
         {
@@ -27,6 +28,11 @@ public class PlayerWeaponManager : MonoBehaviour
                 guns.Remove(guns[guns.Count - 1]);
             }
         }
+
+        if (activeGun == null)
+        {
+            SetTypeAnimWeight(anim.GetLayerIndex("Default [Type-0]"), false);
+        }
     }
 
     // Update is called once per frame
@@ -34,27 +40,25 @@ public class PlayerWeaponManager : MonoBehaviour
     {
         if(guns.Count == 0) { activeGun = null; }
 
-        if(activeGun == null)
-        {
-            anim.SetLayerWeight(anim.GetLayerIndex("Default [Type-0]"), 100);
-            for(int i = 0;  i < anim.layerCount; i++)
-            {
-                if(anim.GetLayerIndex("Default [Type-0]") != i)
-                {
-                    anim.SetLayerWeight(i, 0);
-                }
-            }
-        }
-        else
+        if(activeGun != null)
         {
             SwitchWeapons();
+            if (activeGun.GetComponent<WeaponStats>().is_shooting == true)
+            {
+                ac.Shoot(activeGun, true, true);
+            }
+            else
+            {
+                ac.Shoot(activeGun, false, true);
+            }
         }
-
     }
 
     public void Arm(GameObject gun)
     {
         activeGun = gun;
+        SetTypeAnimWeight(anim.GetLayerIndex(activeGun.GetComponent<WeaponStats>().category), true);
+        Debug.Log(activeGun.GetComponent<WeaponStats>().category);
     }
 
     void SwitchWeapons()
@@ -73,16 +77,19 @@ public class PlayerWeaponManager : MonoBehaviour
                 activeGun = guns[0];
                 activeGun.SetActive(true);
             }
-            SetTypeAnimWeight(activeGun.GetComponent<WeaponStats>().ID + _WM_.gunIndexOffset);
+            Debug.Log(activeGun.GetComponent<WeaponStats>().category);
+            SetTypeAnimWeight(anim.GetLayerIndex(activeGun.GetComponent<WeaponStats>().category), true);
         }
     }
 
-    void SetTypeAnimWeight(int ID)
+    void SetTypeAnimWeight(int index, bool useLegs)
     {
         for (int i = 0; i < anim.layerCount; i++)
         {
             anim.SetLayerWeight(i, 0);
         }
-        anim.SetLayerWeight(ID, 100);
+        anim.SetLayerWeight(index, 100);
+        Debug.Log("Fuck you");
+        if(useLegs == true) { anim.SetLayerWeight(anim.GetLayerIndex("Legs Only"), 100); }
     }
 }

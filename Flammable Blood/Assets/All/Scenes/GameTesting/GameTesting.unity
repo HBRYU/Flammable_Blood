@@ -4008,7 +4008,7 @@ PrefabInstance:
     - target: {fileID: 6568621632076280715, guid: 2b45686db9c760a46b5edc94d507eb7c,
         type: 3}
       propertyPath: gunIndexOffset
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b45686db9c760a46b5edc94d507eb7c, type: 3}
