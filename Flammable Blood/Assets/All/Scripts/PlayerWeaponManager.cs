@@ -7,78 +7,75 @@ public class PlayerWeaponManager : MonoBehaviour
     private MasterWeaponManagement _WM_;
 
     public GameObject gunFolder;
-    public int maxGunCount;
+    public int maxWeaponCount;
     private Animator anim;
     private PlayerAnimControl ac;
 
-    public List<GameObject> guns;
-    public GameObject activeGun;
+    public List<GameObject> weapons;
+    public GameObject activeWeapon;
     // Start is called before the first frame update
     void Start()
     {
-        _WM_ = GameObject.FindGameObjectWithTag("GM").GetComponent<MasterWeaponManagement>();
-        anim = GetComponent<Animator>();
-        ac = GetComponent<PlayerAnimControl>();
+        _WM_ = GameObject.FindGameObjectWithTag("GM").GetComponent<MasterWeaponManagement>();   //  마스터 무기 매니저 스크립트
+        anim = GetComponent<Animator>();    // 플레이어 애니메이터
+        ac = GetComponent<PlayerAnimControl>();     // 플레이어 애니메이션 매니저 스크립트
 
-        if(guns.Count > maxGunCount)
+        //  무기 수 제한
+        while(weapons.Count > maxWeaponCount)
         {
-            while(guns.Count > maxGunCount)
-            {
-                guns[guns.Count - 1].GetComponent<WeaponStats>().Drop();
-                guns.Remove(guns[guns.Count - 1]);
-            }
+            weapons[weapons.Count - 1].GetComponent<WeaponStats>().Drop();
+            weapons.Remove(weapons[weapons.Count - 1]);
         }
 
-        if (activeGun == null)
+        // 총이 없을 때
+        if (activeWeapon == null)
         {
             SetTypeAnimWeight(anim.GetLayerIndex("Default [Type-0]"), false);
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    void Update()   ///////////////////////     업데이트        /////////////////////////
     {
-        if(guns.Count == 0) { activeGun = null; }
+        if(weapons.Count == 0) { activeWeapon = null; }
 
-        if(activeGun != null)
+        // 총 발사하고 있다면 발사 애니메이션 플레이
+        if(activeWeapon != null)
         {
             SwitchWeapons();
-            if (activeGun.GetComponent<WeaponStats>().is_shooting == true)
+            if (activeWeapon.GetComponent<WeaponStats>().is_shooting == true)
             {
-                ac.Shoot(activeGun, true, true);
+                ac.Shoot(activeWeapon, true, true);
             }
             else
             {
-                ac.Shoot(activeGun, false, true);
+                ac.Shoot(activeWeapon, false, true);
             }
         }
     }
 
-    public void Arm(GameObject gun)
+    public void Arm(GameObject weapon)
     {
-        activeGun = gun;
-        SetTypeAnimWeight(anim.GetLayerIndex(activeGun.GetComponent<WeaponStats>().category), true);
-        Debug.Log(activeGun.GetComponent<WeaponStats>().category);
+        activeWeapon = weapon;
+        SetTypeAnimWeight(anim.GetLayerIndex(activeWeapon.GetComponent<WeaponStats>().category), true);
     }
 
     void SwitchWeapons()
     {
         if (Input.GetKeyDown("q"))
         {
-            if (activeGun != guns[guns.Count - 1])
+            if (activeWeapon != weapons[weapons.Count - 1])
             {
-                activeGun.SetActive(false);
-                activeGun = guns[guns.IndexOf(activeGun) + 1];
-                activeGun.SetActive(true);
+                activeWeapon.SetActive(false);
+                activeWeapon = weapons[weapons.IndexOf(activeWeapon) + 1];
+                activeWeapon.SetActive(true);
             }
             else
             {
-                activeGun.SetActive(false);
-                activeGun = guns[0];
-                activeGun.SetActive(true);
+                activeWeapon.SetActive(false);
+                activeWeapon = weapons[0];
+                activeWeapon.SetActive(true);
             }
-            Debug.Log(activeGun.GetComponent<WeaponStats>().category);
-            SetTypeAnimWeight(anim.GetLayerIndex(activeGun.GetComponent<WeaponStats>().category), true);
+            SetTypeAnimWeight(anim.GetLayerIndex(activeWeapon.GetComponent<WeaponStats>().category), true);
         }
     }
 
@@ -89,7 +86,6 @@ public class PlayerWeaponManager : MonoBehaviour
             anim.SetLayerWeight(i, 0);
         }
         anim.SetLayerWeight(index, 100);
-        Debug.Log("Fuck you");
         if(useLegs == true) { anim.SetLayerWeight(anim.GetLayerIndex("Legs Only"), 100); }
     }
 }
