@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerWeaponManager : MonoBehaviour
 {
+    private MasterWeaponManagement _WM_;
+
     public GameObject gunFolder;
     public int maxGunCount;
     private Animator anim;
@@ -13,6 +15,7 @@ public class PlayerWeaponManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _WM_ = GameObject.FindGameObjectWithTag("GM").GetComponent<MasterWeaponManagement>();
 
         anim = GetComponent<Animator>();
 
@@ -70,7 +73,7 @@ public class PlayerWeaponManager : MonoBehaviour
                 activeGun = guns[0];
                 activeGun.SetActive(true);
             }
-            SetTypeAnimWeight(activeGun.GetComponent<WeaponStats>().ID);
+            SetTypeAnimWeight(activeGun.GetComponent<WeaponStats>().ID + _WM_.gunIndexOffset);
         }
     }
 

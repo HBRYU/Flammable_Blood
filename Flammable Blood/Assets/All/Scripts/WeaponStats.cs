@@ -8,6 +8,7 @@ public class WeaponStats : MonoBehaviour
     private MasterWeaponManagement _WM_;
 
     public string name;
+    public GameObject gun;
 
     [HideInInspector]
     public int ID;
@@ -49,7 +50,7 @@ public class WeaponStats : MonoBehaviour
         transform.parent = null;
         GetComponent<Rigidbody2D>().simulated = true;
         GetComponent<PolygonCollider2D>().enabled = true;
-        
+        gun.SetActive(false);
     }
 
     public void PickUp(Transform parent)
@@ -61,6 +62,6 @@ public class WeaponStats : MonoBehaviour
         Debug.Log(transform.parent);
         GetComponent<Rigidbody2D>().simulated = false;
         GetComponent<PolygonCollider2D>().enabled = false;
-        
+        gun.SetActive(true);
     }
 }
