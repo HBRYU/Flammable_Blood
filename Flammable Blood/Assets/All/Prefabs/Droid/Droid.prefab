@@ -502,6 +502,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4baac30b937dfab42b510dff46f85166, type: 2}
   - {fileID: 11400000, guid: c13bac0d09c4b56439f457df8b64f740, type: 2}
   - {fileID: 11400000, guid: a447d4f496d2ca840add25070e11163d, type: 2}
+  - {fileID: 11400000, guid: ea36f83bf6c66ed41b9c57942994a610, type: 2}
+  - {fileID: 11400000, guid: e7fa172f71148f546941c675370328d2, type: 2}
 --- !u!1 &4988329664906830284
 GameObject:
   m_ObjectHideFlags: 0
@@ -683,7 +685,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2784348391783028970}
   m_Layer: 10
-  m_Name: Gun
+  m_Name: Weapon
   m_TagString: Player/Inventory/Weapons
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1448,7 +1450,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 0.3}
-  m_Length: 0.3854184
+  m_Length: 0.38541827
   m_ChildTransform: {fileID: 6654551699407882575}
   m_AttachedIK: {fileID: 0}
 --- !u!1 &6654551698570992188
@@ -1594,7 +1596,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 0.3}
-  m_Length: 0.4000004
+  m_Length: 0.40000027
   m_ChildTransform: {fileID: 6654551698438022697}
   m_AttachedIK: {fileID: 0}
 --- !u!1 &6654551698745361997
@@ -2167,10 +2169,11 @@ GameObject:
   - component: {fileID: 3440588014731138119}
   - component: {fileID: 5891095008236420064}
   - component: {fileID: 3115451408533407211}
+  - component: {fileID: 1937338112582711738}
   - component: {fileID: 8528759017965620769}
   - component: {fileID: 2429159295200029096}
-  - component: {fileID: 1937338112582711738}
   - component: {fileID: 6852296338917623934}
+  - component: {fileID: 687805806359358798}
   m_Layer: 8
   m_Name: Droid
   m_TagString: Player
@@ -2262,6 +2265,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!95 &1937338112582711738
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6654551699162335448}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ff10b6d89f450f343a392d1a11f8c0a0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &8528759017965620769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2297,25 +2319,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df676377b3e6e8e4c90d0410f56525bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &1937338112582711738
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6654551699162335448}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ff10b6d89f450f343a392d1a11f8c0a0, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &6852296338917623934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2329,9 +2332,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunFolder: {fileID: 5880651571092497434}
-  maxGunCount: 2
-  guns: []
-  activeGun: {fileID: 0}
+  maxWeaponCount: 2
+  weapons: []
+  activeWeapon: {fileID: 0}
+--- !u!114 &687805806359358798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6654551699162335448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cee02b210456bc94586f4bf3e6b0e366, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickUpRadius: 2
+  pickUp_layer:
+    serializedVersion: 2
+    m_Bits: 2048
+  weaponsFolder: {fileID: 5880651571092497434}
 --- !u!1 &6654551699180748116
 GameObject:
   m_ObjectHideFlags: 0
@@ -2583,7 +2603,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 0.3}
-  m_Length: 0.25098854
+  m_Length: 0.25098866
   m_ChildTransform: {fileID: 6654551699799477906}
   m_AttachedIK: {fileID: 0}
 --- !u!1 &6654551699275291555
@@ -2631,7 +2651,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 0.3}
-  m_Length: 0.38541824
+  m_Length: 0.38541812
   m_ChildTransform: {fileID: 6654551699350182991}
   m_AttachedIK: {fileID: 0}
 --- !u!1 &6654551699275547740
@@ -3060,7 +3080,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6654551699495731575}
   m_LocalRotation: {x: 0, y: 0, z: -0.0000519274, w: 1}
-  m_LocalPosition: {x: 0.2988701, y: -2.8422e-13, z: 0}
+  m_LocalPosition: {x: 0.29887015, y: -2.8422002e-13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6654551698700776721}
@@ -3081,7 +3101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 0.3}
-  m_Length: 0.18296981
+  m_Length: 0.18296975
   m_ChildTransform: {fileID: 6654551698700776721}
   m_AttachedIK: {fileID: 0}
 --- !u!1 &6654551699524049494
@@ -3483,7 +3503,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 0.3}
-  m_Length: 0.40000033
+  m_Length: 0.4000002
   m_ChildTransform: {fileID: 6654551699275291554}
   m_AttachedIK: {fileID: 0}
 --- !u!1 &6654551699799477907

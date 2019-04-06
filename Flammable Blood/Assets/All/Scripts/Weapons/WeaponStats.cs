@@ -37,19 +37,19 @@ public class WeaponStats : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
+        /*
         Collider2D checkArea = Physics2D.OverlapCircle(transform.position, pickUpRadius, playerLayer);
         if (checkArea == true)
         {
             if (Input.GetKeyDown("e"))
             {
                 PickUp(_GM_.player.GetComponent<PlayerWeaponManager>().gunFolder.transform);
-                _GM_.player.GetComponent<PlayerWeaponManager>().weapons.Add(gameObject);
-                _GM_.player.GetComponent<PlayerWeaponManager>().Arm(gameObject);
+                
             }
         }
+        */
     }
 
     public void Drop()
@@ -70,5 +70,7 @@ public class WeaponStats : MonoBehaviour
         GetComponent<Rigidbody2D>().simulated = false;
         GetComponent<PolygonCollider2D>().enabled = false;
         gun.SetActive(true);
+        _GM_.player.GetComponent<PlayerWeaponManager>().weapons.Add(gameObject);
+        _GM_.player.GetComponent<PlayerWeaponManager>().Arm(gameObject);
     }
 }
