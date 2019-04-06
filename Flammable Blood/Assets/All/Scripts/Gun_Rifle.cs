@@ -17,32 +17,58 @@ public class Gun_Rifle : MonoBehaviour
     public float magSize;
     public float reloadSpeed;
     
+    //[HideInInspector]
+    public float fire_Timer, reload_Timer, ammo;
+
     [HideInInspector]
-    public float fire_Timer, reload_Timer;
+    public bool reloading;
 
     // Start is called before the first frame update
     void Start()
     {
         _GM_ = GameObject.FindGameObjectWithTag("GM").GetComponent<GM>();
         player = _GM_.player;
+        ammo = magSize;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0))
+        if(reloading == true)
         {
-            fire_Timer += Time.deltaTime;
-            if(fire_Timer >= fireRate)
+            ws.is_reloading = true;
+            ws.is_shooting = false;
+            reload_Timer += Time.deltaTime;
+            if(reload_Timer >= reloadSpeed)
             {
-                Fire();
-                fire_Timer = 0;
+                ammo = magSize;
+                reload_Timer = 0;
+                reloading = false;
+                ws.is_reloading = false;
             }
-            ws.is_shooting = true;
         }
         else
         {
-            ws.is_shooting = false;
+            if (Input.GetMouseButton(0) && ammo > 0)
+            {
+                fire_Timer += Time.deltaTime;
+                if (fire_Timer >= fireRate)
+                {
+                    Fire();
+                    fire_Timer = 0;
+                    ammo -= 1;
+                }
+                ws.is_shooting = true;
+            }
+            else
+            {
+                ws.is_shooting = false;
+            }
+
+            if (Input.GetKeyDown("r"))
+            {
+                reloading = true;
+            }
         }
     }
 

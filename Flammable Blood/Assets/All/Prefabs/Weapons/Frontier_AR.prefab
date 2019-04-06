@@ -77,13 +77,15 @@ MonoBehaviour:
   bullet: {fileID: 1646669890229493766, guid: 83027b3672232174693e1d42facae6a1, type: 3}
   barrelEnd: {fileID: 1603397538876135330}
   bulletSpeed: 30
-  fireRate: 0.2
+  fireRate: 0.1
   accuracy: 1
   damage: 5
-  magSize: 0
-  reloadSpeed: 0
+  magSize: 35
+  reloadSpeed: 1.5
   fire_Timer: 0
   reload_Timer: 0
+  ammo: 0
+  reloading: 0
 --- !u!1 &4145413342430660310
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,6 +188,7 @@ MonoBehaviour:
   gun: {fileID: 3070206328322173236}
   ID: 0
   is_shooting: 0
+  is_reloading: 0
   pickUpRadius: 1
   playerLayer:
     serializedVersion: 2

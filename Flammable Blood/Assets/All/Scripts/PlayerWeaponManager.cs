@@ -13,6 +13,8 @@ public class PlayerWeaponManager : MonoBehaviour
 
     public List<GameObject> weapons;
     public GameObject activeWeapon;
+
+    private bool reloading;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +51,19 @@ public class PlayerWeaponManager : MonoBehaviour
             else
             {
                 ac.Shoot(activeWeapon, false, true);
+            }
+
+            if (activeWeapon.GetComponent<WeaponStats>().is_reloading == true)
+            {
+                if (reloading == false)
+                {
+                    ac.Reload();
+                }
+                reloading = true;
+            }
+            else
+            {
+                reloading = false;
             }
         }
     }

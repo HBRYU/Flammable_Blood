@@ -9,7 +9,7 @@ public class PlayerAnimControl : MonoBehaviour
 
     private PlayerMove pm;
 
-    private bool hadJumped;
+    private bool hadJumpeds;
 
     void Start()
     {
@@ -84,6 +84,11 @@ public class PlayerAnimControl : MonoBehaviour
             gun.GetComponent<Animator>().SetTrigger("Shooting");
             anim.SetTrigger("Shooting");
         }
+    }
+
+    public void Reload()
+    {
+        anim.SetTrigger("Reload");
     }
 
 }

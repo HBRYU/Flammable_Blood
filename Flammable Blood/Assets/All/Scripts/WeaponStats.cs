@@ -18,7 +18,7 @@ public class WeaponStats : MonoBehaviour
     public int ID;
 
     [HideInInspector]
-    public bool is_shooting;
+    public bool is_shooting, is_reloading;
 
     public float pickUpRadius;
     public LayerMask playerLayer;
@@ -43,7 +43,7 @@ public class WeaponStats : MonoBehaviour
         Collider2D checkArea = Physics2D.OverlapCircle(transform.position, pickUpRadius, playerLayer);
         if (checkArea == true)
         {
-            if (Input.GetKeyDown("r"))
+            if (Input.GetKeyDown("e"))
             {
                 PickUp(_GM_.player.GetComponent<PlayerWeaponManager>().gunFolder.transform);
                 _GM_.player.GetComponent<PlayerWeaponManager>().weapons.Add(gameObject);
