@@ -18,6 +18,7 @@ public class Bullet : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         transform.Rotate(0, 0, Random.Range(-1, 1) * accuracy);
         //Debug.Log("SCALE: " + wielder.transform.localScale.x);
+        transform.localScale = wielder.transform.localScale;
         rb.velocity = transform.right * wielder.transform.localScale.x * speed;
     }
 

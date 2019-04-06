@@ -77,7 +77,7 @@ MonoBehaviour:
   bullet: {fileID: 1646669890229493766, guid: 83027b3672232174693e1d42facae6a1, type: 3}
   barrelEnd: {fileID: 1603397538876135330}
   bulletSpeed: 30
-  fireRate: 0.1
+  fireRate: 0.2
   accuracy: 1
   damage: 5
   magSize: 0

@@ -30,21 +30,19 @@ public class Gun_Rifle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        fire_Timer += Time.deltaTime;
-        if(fire_Timer >= fireRate)
+        if (Input.GetMouseButton(0))
         {
-            if (Input.GetMouseButton(0))
+            fire_Timer += Time.deltaTime;
+            if(fire_Timer >= fireRate)
             {
                 Fire();
                 fire_Timer = 0;
-
-                ws.is_shooting = true;
             }
-            else
-            {
-                ws.is_shooting = false;
-            }
-            
+            ws.is_shooting = true;
+        }
+        else
+        {
+            ws.is_shooting = false;
         }
     }
 

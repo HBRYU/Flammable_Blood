@@ -46,7 +46,7 @@ public class WeaponStats : MonoBehaviour
             if (Input.GetKeyDown("r"))
             {
                 PickUp(_GM_.player.GetComponent<PlayerWeaponManager>().gunFolder.transform);
-                _GM_.player.GetComponent<PlayerWeaponManager>().guns.Add(gameObject);
+                _GM_.player.GetComponent<PlayerWeaponManager>().weapons.Add(gameObject);
                 _GM_.player.GetComponent<PlayerWeaponManager>().Arm(gameObject);
             }
         }
