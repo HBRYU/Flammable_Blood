@@ -7,6 +7,7 @@ TagManager:
   - Player/Hitbox
   - GM
   - Player/Inventory/Weapons
+  - Ground
   layers:
   - Default
   - TransparentFX

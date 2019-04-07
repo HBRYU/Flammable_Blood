@@ -12,6 +12,9 @@ public class Bullet : MonoBehaviour
 
     public float life;
 
+    public List<string> particleName;
+    public List<GameObject> particles;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,5 +30,33 @@ public class Bullet : MonoBehaviour
     {
         life -= Time.deltaTime;
         if(life <= 0) { Destroy(gameObject); }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        EmitParticle(other);
+    }
+
+    void EmitParticle(Collider2D other)
+    {
+        switch (other.tag)
+        {
+            case "Ground":
+                switch (other.GetComponent<GroundStats>().particle)
+                {
+                    case "Default":
+                        Instantiate(particles[particleName.IndexOf("Default")], transform.position, Quaternion.identity);
+                        break;
+
+                    default:
+                        Debug.Log("ERR: Unknown particle name [" + other.GetComponent<GroundStats>().particle + "]");
+                        Instantiate(particles[particleName.IndexOf("Default")], transform.position, Quaternion.identity);
+                        break;
+                }
+                Destroy(gameObject);
+                break;
+            default:
+                break;
+        }
     }
 }
