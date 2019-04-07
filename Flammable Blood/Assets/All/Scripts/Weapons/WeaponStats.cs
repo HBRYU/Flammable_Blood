@@ -20,9 +20,6 @@ public class WeaponStats : MonoBehaviour
     [HideInInspector]
     public bool is_shooting, is_reloading;
 
-    public float pickUpRadius;
-    public LayerMask playerLayer;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -35,21 +32,6 @@ public class WeaponStats : MonoBehaviour
         {
             Drop();
         }
-    }
-
-    void Update()
-    {
-        /*
-        Collider2D checkArea = Physics2D.OverlapCircle(transform.position, pickUpRadius, playerLayer);
-        if (checkArea == true)
-        {
-            if (Input.GetKeyDown("e"))
-            {
-                PickUp(_GM_.player.GetComponent<PlayerWeaponManager>().gunFolder.transform);
-                
-            }
-        }
-        */
     }
 
     public void Drop()

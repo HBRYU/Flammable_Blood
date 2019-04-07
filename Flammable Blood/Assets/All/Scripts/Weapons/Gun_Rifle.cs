@@ -16,12 +16,19 @@ public class Gun_Rifle : MonoBehaviour
     public float damage;
     public float magSize;
     public float reloadSpeed;
-    
-    //[HideInInspector]
-    public float fire_Timer, reload_Timer, ammo;
+
+    public GameObject bulletShell;
+    public Transform bulletShellSpawnPoint;
+    public float bs_RAO;
+    public float bs_MS;
+    public float bs_RS;
+
+//[HideInInspector]
+public float fire_Timer, reload_Timer, ammo;
 
     [HideInInspector]
     public bool reloading;
+
 
     // Start is called before the first frame update
     void Start()
@@ -81,5 +88,20 @@ public class Gun_Rifle : MonoBehaviour
         thisBullet.speed = bulletSpeed;
         thisBullet.wielder = player;
         Instantiate(thisBullet, barrelEnd.transform.position, Quaternion.identity);
+
+        SpawnBulletShell();
+    }
+
+    void SpawnBulletShell()
+    {
+        GameObject thisBulletShell = bulletShell;
+        BulletShell script = thisBulletShell.GetComponent<BulletShell>();
+
+        script.wielder = player;
+        script.randomAngleOffset = bs_RAO;
+        script.minSpeed = bs_MS;
+        script.randomSpeed = bs_RS;
+
+        Instantiate(thisBulletShell, bulletShellSpawnPoint.transform.position, Quaternion.identity);
     }
 }

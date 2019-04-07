@@ -82,6 +82,12 @@ MonoBehaviour:
   damage: 5
   magSize: 35
   reloadSpeed: 1.5
+  bulletShell: {fileID: 3641742128729214545, guid: 34f4e9ddfa25b1d48bc2de483c8b831e,
+    type: 3}
+  bulletShellSpawnPoint: {fileID: 8288919612896382276}
+  bs_RAO: 90
+  bs_MS: 5
+  bs_RS: 3
   fire_Timer: 0
   reload_Timer: 0
   ammo: 0
@@ -121,6 +127,7 @@ Transform:
   - {fileID: 1603397538876135331}
   - {fileID: 6397013093317813407}
   - {fileID: 1810239613}
+  - {fileID: 8288919612896382276}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -271,6 +278,36 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &6466091896848426966
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8288919612896382276}
+  m_Layer: 9
+  m_Name: BulletShell_SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8288919612896382276
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6466091896848426966}
+  m_LocalRotation: {x: -0, y: -0, z: 0.89987475, w: 0.43614838}
+  m_LocalPosition: {x: -0.006, y: 0.101, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5646231361646874412}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 128.283}
 --- !u!1001 &4205701248117105174
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -337,11 +374,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 74940449052052183, guid: f561580a2f1178b418d7b3625e0f5e3b,
-        type: 3}
-      propertyPath: category
-      value: Gun
       objectReference: {fileID: 0}
     - target: {fileID: 74940449052052183, guid: f561580a2f1178b418d7b3625e0f5e3b,
         type: 3}

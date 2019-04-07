@@ -21,7 +21,7 @@ TagManager:
   - Droppable
   - Player/Hitbox
   - Droppable/PickUp
-  - 
+  - Particles
   - 
   - 
   - 
@@ -47,4 +47,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3401767649
+    locked: 0
+  - name: Particles
+    uniqueID: 1272334493
     locked: 0

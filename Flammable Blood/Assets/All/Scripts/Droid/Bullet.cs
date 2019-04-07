@@ -22,7 +22,7 @@ public class Bullet : MonoBehaviour
         transform.Rotate(0, 0, Random.Range(-1, 1) * accuracy);
         //Debug.Log("SCALE: " + wielder.transform.localScale.x);
         transform.localScale = wielder.transform.localScale;
-        rb.velocity = transform.right * wielder.transform.localScale.x * speed;
+        rb.velocity = transform.right * transform.localScale.x * speed;
     }
 
     // Update is called once per frame
