@@ -68,7 +68,22 @@ public class PlayerWeaponManager : MonoBehaviour
 
     public void Arm(GameObject weapon)
     {
-        if (activeWeapon != null) { activeWeapon.SetActive(false); }
+        if(weapons.Count > maxWeaponCount)
+        {
+            if (activeWeapon != null)
+            {
+                activeWeapon.SetActive(true);
+                activeWeapon.GetComponent<WeaponStats>().Drop();
+                weapons.Remove(activeWeapon);
+            }
+            else
+            {
+                lastActiveWeapon.SetActive(true);
+                lastActiveWeapon.GetComponent<WeaponStats>().Drop();
+                weapons.Remove(lastActiveWeapon);
+            }
+        }
+        else if (activeWeapon != null) { activeWeapon.SetActive(false); }
         activeWeapon = weapon;
         SetCategoryAnimWeight(anim.GetLayerIndex(activeWeapon.GetComponent<WeaponStats>().category), true);
     }
