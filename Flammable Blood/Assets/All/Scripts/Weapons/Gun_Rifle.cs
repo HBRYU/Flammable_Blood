@@ -23,8 +23,8 @@ public class Gun_Rifle : MonoBehaviour
     public float bs_MS;
     public float bs_RS;
 
-//[HideInInspector]
-public float fire_Timer, reload_Timer, ammo;
+    [HideInInspector]
+    public float fire_Timer, reload_Timer, ammo;
 
     [HideInInspector]
     public bool reloading;

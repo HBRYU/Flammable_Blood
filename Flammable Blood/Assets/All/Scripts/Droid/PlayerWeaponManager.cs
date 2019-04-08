@@ -13,6 +13,7 @@ public class PlayerWeaponManager : MonoBehaviour
 
     public List<GameObject> weapons;
     public GameObject activeWeapon;
+    private GameObject lastActiveWeapon;
 
     private bool reloading;
     // Start is called before the first frame update
@@ -32,7 +33,7 @@ public class PlayerWeaponManager : MonoBehaviour
         // 총이 없을 때
         if (activeWeapon == null)
         {
-            SetTypeAnimWeight(anim.GetLayerIndex("Default [Type-0]"), false);
+            SetCategoryAnimWeight(anim.GetLayerIndex("Default [Type-0]"), false);
         }
     }
 
@@ -44,34 +45,32 @@ public class PlayerWeaponManager : MonoBehaviour
         if(activeWeapon != null)
         {
             SwitchWeapons();
-            if (activeWeapon.GetComponent<WeaponStats>().is_shooting == true)
-            {
-                ac.Shoot(activeWeapon, true, true);
-            }
-            else
-            {
-                ac.Shoot(activeWeapon, false, true);
-            }
+            Animate();
 
-            if (activeWeapon.GetComponent<WeaponStats>().is_reloading == true)
+            if (Input.GetKeyDown("`"))
             {
-                if (reloading == false)
-                {
-                    ac.Reload();
-                }
-                reloading = true;
+                lastActiveWeapon = activeWeapon;
+                activeWeapon.SetActive(false);
+                activeWeapon = null;
+                SetCategoryAnimWeight(anim.GetLayerIndex("Default [Type-0]"), false);
             }
-            else
+        }
+        else
+        {
+            if (Input.GetKeyDown("`"))
             {
-                reloading = false;
+                activeWeapon = lastActiveWeapon;
+                activeWeapon.SetActive(true);
+                SetCategoryAnimWeight(anim.GetLayerIndex(activeWeapon.GetComponent<WeaponStats>().category), true);
             }
         }
     }
 
     public void Arm(GameObject weapon)
     {
+        if (activeWeapon != null) { activeWeapon.SetActive(false); }
         activeWeapon = weapon;
-        SetTypeAnimWeight(anim.GetLayerIndex(activeWeapon.GetComponent<WeaponStats>().category), true);
+        SetCategoryAnimWeight(anim.GetLayerIndex(activeWeapon.GetComponent<WeaponStats>().category), true);
     }
 
     void SwitchWeapons()
@@ -90,11 +89,11 @@ public class PlayerWeaponManager : MonoBehaviour
                 activeWeapon = weapons[0];
                 activeWeapon.SetActive(true);
             }
-            SetTypeAnimWeight(anim.GetLayerIndex(activeWeapon.GetComponent<WeaponStats>().category), true);
+            SetCategoryAnimWeight(anim.GetLayerIndex(activeWeapon.GetComponent<WeaponStats>().category), true);
         }
     }
 
-    void SetTypeAnimWeight(int index, bool useLegs)
+    void SetCategoryAnimWeight(int index, bool useLegs)
     {
         for (int i = 0; i < anim.layerCount; i++)
         {
@@ -102,5 +101,30 @@ public class PlayerWeaponManager : MonoBehaviour
         }
         anim.SetLayerWeight(index, 100);
         if(useLegs == true) { anim.SetLayerWeight(anim.GetLayerIndex("Legs Only"), 100); }
+    }
+
+    void Animate()
+    {
+        if (activeWeapon.GetComponent<WeaponStats>().is_shooting == true)
+        {
+            ac.Shoot(activeWeapon, true, true);
+        }
+        else
+        {
+            ac.Shoot(activeWeapon, false, true);
+        }
+
+        if (activeWeapon.GetComponent<WeaponStats>().is_reloading == true)
+        {
+            if (reloading == false)
+            {
+                ac.Reload();
+            }
+            reloading = true;
+        }
+        else
+        {
+            reloading = false;
+        }
     }
 }
