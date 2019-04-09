@@ -120,7 +120,9 @@ public class PlayerWeaponManager : MonoBehaviour
 
     void Animate()
     {
-        if (activeWeapon.GetComponent<WeaponStats>().is_shooting == true)
+        WeaponStats ws = activeWeapon.GetComponent<WeaponStats>();
+
+        if (ws.is_shooting == true)
         {
             ac.Shoot(activeWeapon, true, true);
         }
@@ -129,7 +131,7 @@ public class PlayerWeaponManager : MonoBehaviour
             ac.Shoot(activeWeapon, false, true);
         }
 
-        if (activeWeapon.GetComponent<WeaponStats>().is_reloading == true)
+        if (ws.is_reloading == true)
         {
             if (reloading == false)
             {
@@ -141,5 +143,19 @@ public class PlayerWeaponManager : MonoBehaviour
         {
             reloading = false;
         }
+
+        if(ws.is_aiming == true)
+        {
+            ac.Aim(true);
+        }
+        else
+        {
+            ac.Aim(false);
+        }
+    }
+
+    public void Shoot()
+    {
+        ac.Shoot(activeWeapon, true, false);
     }
 }

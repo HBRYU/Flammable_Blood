@@ -8,6 +8,8 @@ public class Gun_Rifle : MonoBehaviour
     private GameObject player;
     public WeaponStats ws;
 
+    public bool useAim, oneClickFire;
+
     public Bullet bullet;
     public GameObject barrelEnd;
     public float bulletSpeed;
@@ -56,25 +58,23 @@ public class Gun_Rifle : MonoBehaviour
         }
         else
         {
-            if (Input.GetMouseButton(0) && ammo > 0)
-            {
-                fire_Timer += Time.deltaTime;
-                if (fire_Timer >= fireRate)
-                {
-                    Fire();
-                    fire_Timer = 0;
-                    ammo -= 1;
-                }
-                ws.is_shooting = true;
-            }
-            else
-            {
-                ws.is_shooting = false;
-            }
+            fire_Timer += Time.deltaTime;
 
             if (Input.GetKeyDown("r"))
             {
                 reloading = true;
+            }
+        }
+
+        if(useAim == true)
+        {
+            if (Input.GetMouseButton(2))
+            {
+                ws.is_aiming = true;
+            }
+            else
+            {
+                ws.is_aiming = false;
             }
         }
     }
@@ -103,5 +103,41 @@ public class Gun_Rifle : MonoBehaviour
         script.randomSpeed = bs_RS;
 
         Instantiate(thisBulletShell, bulletShellSpawnPoint.transform.position, Quaternion.identity);
+    }
+
+    void AR()
+    {
+        if (Input.GetMouseButton(0) && ammo > 0)
+        {
+            if (fire_Timer >= fireRate)
+            {
+                Fire();
+                fire_Timer = 0;
+                ammo -= 1;
+            }
+            ws.is_shooting = true;
+        }
+        else
+        {
+            ws.is_shooting = false;
+        }
+    }
+
+    void SR()
+    {
+        if (Input.GetMouseButtonDown(0) && ammo > 0)
+        {
+            if (fire_Timer >= fireRate)
+            {
+                Fire();
+                fire_Timer = 0;
+                ammo -= 1;
+            }
+            ws.is_shooting = true;
+        }
+        else
+        {
+            ws.is_shooting = false;
+        }
     }
 }

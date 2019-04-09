@@ -18,7 +18,7 @@ public class WeaponStats : MonoBehaviour
     public int ID;
 
     [HideInInspector]
-    public bool is_shooting, is_reloading;
+    public bool is_shooting, is_reloading, is_aiming;
 
     // Start is called before the first frame update
     void Start()
@@ -54,5 +54,10 @@ public class WeaponStats : MonoBehaviour
         gun.SetActive(true);
         _GM_.player.GetComponent<PlayerWeaponManager>().weapons.Add(gameObject);
         _GM_.player.GetComponent<PlayerWeaponManager>().Arm(gameObject);
+    }
+
+    public void Shoot()
+    {
+        _GM_.player.GetComponent<PlayerWeaponManager>().Shoot();
     }
 }
