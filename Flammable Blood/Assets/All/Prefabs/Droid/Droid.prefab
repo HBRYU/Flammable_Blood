@@ -2234,6 +2234,7 @@ MonoBehaviour:
   maxWeaponCount: 2
   weapons: []
   activeWeapon: {fileID: 0}
+  rapidFire: 1
 --- !u!114 &687805806359358798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2598,7 +2599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ec17ceaa560940e9bf0dbeafc3a1971, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SpriteMesh: {fileID: 11400000, guid: bf2f62351c837be4fa7f3643d2e80335, type: 2}
+  m_SpriteMesh: {fileID: 11400000, guid: ea8a03e7713b5b64ba9a9311ea0dc094, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}

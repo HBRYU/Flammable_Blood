@@ -75,7 +75,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ws: {fileID: 9168635345387689232}
   useAim: 0
-  oneClickFire: 0
+  autoReload: 0
   bullet: {fileID: 1646669890229493766, guid: 83027b3672232174693e1d42facae6a1, type: 3}
   barrelEnd: {fileID: 1603397538876135330}
   bulletSpeed: 30
@@ -84,6 +84,7 @@ MonoBehaviour:
   damage: 5
   magSize: 35
   reloadSpeed: 1.5
+  spawnBulletShell: 1
   bulletShell: {fileID: 3641742128729214545, guid: 34f4e9ddfa25b1d48bc2de483c8b831e,
     type: 3}
   bulletShellSpawnPoint: {fileID: 8288919612896382276}
@@ -196,6 +197,7 @@ MonoBehaviour:
   name: Frontier_AR
   category: AR
   gun: {fileID: 3070206328322173236}
+  rapidFire: 1
   ID: 0
   is_shooting: 0
   is_reloading: 0

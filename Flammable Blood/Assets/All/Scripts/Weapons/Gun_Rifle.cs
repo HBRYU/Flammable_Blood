@@ -8,7 +8,7 @@ public class Gun_Rifle : MonoBehaviour
     private GameObject player;
     public WeaponStats ws;
 
-    public bool useAim;
+    public bool useAim, autoReload;
 
     public Bullet bullet;
     public GameObject barrelEnd;
@@ -19,6 +19,7 @@ public class Gun_Rifle : MonoBehaviour
     public float magSize;
     public float reloadSpeed;
 
+    public bool spawnBulletShell;
     public GameObject bulletShell;
     public Transform bulletShellSpawnPoint;
     public float bs_RAO;
@@ -58,22 +59,13 @@ public class Gun_Rifle : MonoBehaviour
 
         if(reloading == true)
         {
-            ws.is_reloading = true;
-            ws.is_shooting = false;
-            reload_Timer += Time.deltaTime;
-            if(reload_Timer >= reloadSpeed)
-            {
-                ammo = magSize;
-                reload_Timer = 0;
-                reloading = false;
-                ws.is_reloading = false;
-            }
+            Reload();
         }
         else
         {
             fire_Timer += Time.deltaTime;
 
-            if (Input.GetKeyDown("r"))
+            if (Input.GetKeyDown("r") || autoReload == true && ammo <= 0)
             {
                 reloading = true;
             }
@@ -81,7 +73,7 @@ public class Gun_Rifle : MonoBehaviour
 
         if(useAim == true)
         {
-            if (Input.GetMouseButton(2))
+            if (Input.GetMouseButton(1))
             {
                 ws.is_aiming = true;
             }
@@ -102,10 +94,24 @@ public class Gun_Rifle : MonoBehaviour
         thisBullet.wielder = player;
         Instantiate(thisBullet, barrelEnd.transform.position, Quaternion.identity);
 
-        SpawnBulletShell();
+        if (spawnBulletShell) { SpawnBulletShell(); }
     }
 
-    void SpawnBulletShell()
+    void Reload()
+    {
+        ws.is_reloading = true;
+        ws.is_shooting = false;
+        reload_Timer += Time.deltaTime;
+        if (reload_Timer >= reloadSpeed)
+        {
+            ammo = magSize;
+            reload_Timer = 0;
+            reloading = false;
+            ws.is_reloading = false;
+        }
+    }
+
+    public void SpawnBulletShell()
     {
         GameObject thisBulletShell = bulletShell;
         BulletShell script = thisBulletShell.GetComponent<BulletShell>();
@@ -145,6 +151,7 @@ public class Gun_Rifle : MonoBehaviour
             {
                 Fire();
                 Debug.Log("Shot(SR)");
+                ws.Shoot();
                 fire_Timer = 0;
                 ammo -= 1;
             }

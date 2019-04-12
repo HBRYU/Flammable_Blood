@@ -74,9 +74,14 @@ public class PlayerAnimControl : MonoBehaviour
         }
     }
 
-    public void Reload()
+    public void Reload(bool reload)
     {
+        Debug.Log("Reload(ac)");
         anim.SetTrigger("Reload");
+        /*
+        if (reload) { anim.SetBool("Reloading", true); }
+        else { anim.SetBool("Reloading", false); }
+        */
     }
 
     public void Aim(bool aim)

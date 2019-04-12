@@ -61,4 +61,17 @@ public class WeaponStats : MonoBehaviour
     {
         _GM_.player.GetComponent<PlayerWeaponManager>().Shoot();
     }
+
+    public void SpawnBulletShell(string script)
+    {
+        switch (script)
+        {
+            case "Gun_Rifle":
+                gun.GetComponent<Gun_Rifle>().SpawnBulletShell();
+                break;
+            default:
+                Debug.Log("ERR: Unknown gun script (" + script + ")");
+                break;
+        }
+    }
 }

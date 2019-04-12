@@ -133,11 +133,12 @@ public class PlayerWeaponManager : MonoBehaviour
         
         if (ws.is_reloading == true)
         {
-            if (reloading == false) { ac.Reload(); }
+            if (reloading == false) { ac.Reload(true); }
             reloading = true;
         }
         else
         {
+            //ac.Reload(false);
             reloading = false;
         }
 
