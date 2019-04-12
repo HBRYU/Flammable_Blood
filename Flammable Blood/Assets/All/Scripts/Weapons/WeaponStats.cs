@@ -13,6 +13,7 @@ public class WeaponStats : MonoBehaviour
     public string category;
     public GameObject gun;
 
+    public bool rapidFire;
 
     [HideInInspector]
     public int ID;

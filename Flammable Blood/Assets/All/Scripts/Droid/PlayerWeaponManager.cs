@@ -16,6 +16,8 @@ public class PlayerWeaponManager : MonoBehaviour
     private GameObject lastActiveWeapon;
 
     private bool reloading;
+
+    public bool rapidFire = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,8 +46,9 @@ public class PlayerWeaponManager : MonoBehaviour
         // 총 발사하고 있다면 발사 애니메이션 플레이
         if(activeWeapon != null)
         {
-            SwitchWeapons();
+            rapidFire =  activeWeapon.GetComponent<WeaponStats>().rapidFire;
             Animate();
+            SwitchWeapons();
 
             if (Input.GetKeyDown("`"))
             {
@@ -93,6 +96,7 @@ public class PlayerWeaponManager : MonoBehaviour
         if (Input.GetKeyDown("q"))
         {
             if (activeWeapon != weapons[weapons.Count - 1])
+
             {
                 activeWeapon.SetActive(false);
                 activeWeapon = weapons[weapons.IndexOf(activeWeapon) + 1];
@@ -121,22 +125,15 @@ public class PlayerWeaponManager : MonoBehaviour
     void Animate()
     {
         WeaponStats ws = activeWeapon.GetComponent<WeaponStats>();
-
-        if (ws.is_shooting == true)
+        if(rapidFire == true)
         {
-            ac.Shoot(activeWeapon, true, true);
+            if (ws.is_shooting == true)     { ac.Shoot(activeWeapon, true, true); }
+            else                                             { ac.Shoot(activeWeapon, false, true); }
         }
-        else
-        {
-            ac.Shoot(activeWeapon, false, true);
-        }
-
+        
         if (ws.is_reloading == true)
         {
-            if (reloading == false)
-            {
-                ac.Reload();
-            }
+            if (reloading == false) { ac.Reload(); }
             reloading = true;
         }
         else
@@ -144,14 +141,9 @@ public class PlayerWeaponManager : MonoBehaviour
             reloading = false;
         }
 
-        if(ws.is_aiming == true)
-        {
-            ac.Aim(true);
-        }
-        else
-        {
-            ac.Aim(false);
-        }
+        if(ws.is_aiming == true)     { ac.Aim(true); }
+        else                                        {ac.Aim(false);}
+
     }
 
     public void Shoot()

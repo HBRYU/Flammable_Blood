@@ -50,9 +50,10 @@ public class PlayerAnimControl : MonoBehaviour
         anim.SetTrigger("Jump");
     }
 
-    public void Shoot(GameObject gun,bool shoot, bool repeat)
+    public void Shoot(GameObject gun, bool shoot, bool repeat)
     {
-        if (repeat)
+        Debug.Log("Shoot(ac)");
+        if (repeat == true)
         {
             if(shoot == true)
             {
@@ -67,6 +68,7 @@ public class PlayerAnimControl : MonoBehaviour
         }
         else
         {
+            Debug.Log("Triggered");
             gun.GetComponent<Animator>().SetTrigger("Shoot");
             anim.SetTrigger("Shoot");
         }

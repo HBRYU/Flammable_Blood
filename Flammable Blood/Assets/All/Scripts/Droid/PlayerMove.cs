@@ -7,6 +7,8 @@ public class PlayerMove : MonoBehaviour
     private Rigidbody2D rb;
     private PlayerAnimControl anim;
 
+    public bool rawMovement;
+
     public float runSpeed;
     public float walkSpeed;
     private float speed;
@@ -35,7 +37,15 @@ public class PlayerMove : MonoBehaviour
     void FixedUpdate()
     {
         //////////////////////////////////// 좌우 움직임
-        moveInput = Input.GetAxis("Horizontal");    //D 누르면 1, A 누르면 -1
+        if(rawMovement == true)
+        {
+            moveInput = Input.GetAxisRaw("Horizontal");    //D 누르면 1, A 누르면 -1
+        }
+        else
+        {
+            moveInput = Input.GetAxis("Horizontal");    //D 누르면 1로 서서히 변환, A 누르면 -1로 서서히 변환
+        }
+        
 
         if(Input.GetKey("left shift")) { speed = runSpeed; }    //Shift 누르면 스피드는 달리기 속도
         else { speed = walkSpeed; } //아니면 스피드는 일반 속도
