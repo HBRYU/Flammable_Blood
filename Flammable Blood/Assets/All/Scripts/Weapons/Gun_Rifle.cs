@@ -8,7 +8,7 @@ public class Gun_Rifle : MonoBehaviour
     private GameObject player;
     public WeaponStats ws;
 
-    public bool useAim, oneClickFire;
+    public bool useAim;
 
     public Bullet bullet;
     public GameObject barrelEnd;
@@ -43,6 +43,19 @@ public class Gun_Rifle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        switch (ws.category)
+        {
+            case "AR":
+                AR();
+                break;
+            case "SR":
+                SR();
+                break;
+            default:
+                Debug.Log("ERR: Unknown wsapon category (" + ws.category + "). Using AR function instead");
+                break;
+        }
+
         if(reloading == true)
         {
             ws.is_reloading = true;
@@ -127,9 +140,11 @@ public class Gun_Rifle : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && ammo > 0)
         {
+            Debug.Log("Mouse Pressed(SR)");
             if (fire_Timer >= fireRate)
             {
                 Fire();
+                Debug.Log("Shot(SR)");
                 fire_Timer = 0;
                 ammo -= 1;
             }
