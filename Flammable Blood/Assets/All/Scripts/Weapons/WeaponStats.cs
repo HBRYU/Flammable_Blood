@@ -14,12 +14,15 @@ public class WeaponStats : MonoBehaviour
     public GameObject gun;
 
     public bool rapidFire;
+    public float reloadAnimDelay;
 
     [HideInInspector]
     public int ID;
 
     [HideInInspector]
     public bool is_shooting, is_reloading, is_aiming;
+
+
 
     // Start is called before the first frame update
     void Start()

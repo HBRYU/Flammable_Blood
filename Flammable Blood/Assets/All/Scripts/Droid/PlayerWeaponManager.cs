@@ -17,7 +17,11 @@ public class PlayerWeaponManager : MonoBehaviour
 
     private bool reloading;
 
-    public bool rapidFire = true;
+    private WeaponStats AW_WS;
+    private string AW_category;
+    public bool AW_rapidFire = true;
+    private float AW_reloadDelay;
+    private float AW_reloadDelayTimer;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,7 +50,7 @@ public class PlayerWeaponManager : MonoBehaviour
         // 총 발사하고 있다면 발사 애니메이션 플레이
         if(activeWeapon != null)
         {
-            rapidFire =  activeWeapon.GetComponent<WeaponStats>().rapidFire;
+            SetVariables();
             Animate();
             SwitchWeapons();
 
@@ -64,7 +68,7 @@ public class PlayerWeaponManager : MonoBehaviour
             {
                 activeWeapon = lastActiveWeapon;
                 activeWeapon.SetActive(true);
-                SetCategoryAnimWeight(anim.GetLayerIndex(activeWeapon.GetComponent<WeaponStats>().category), true);
+                SetCategoryAnimWeight(anim.GetLayerIndex(AW_category), true);
             }
         }
     }
@@ -88,7 +92,8 @@ public class PlayerWeaponManager : MonoBehaviour
         }
         else if (activeWeapon != null) { activeWeapon.SetActive(false); }
         activeWeapon = weapon;
-        SetCategoryAnimWeight(anim.GetLayerIndex(activeWeapon.GetComponent<WeaponStats>().category), true);
+        SetVariables();
+        SetCategoryAnimWeight(anim.GetLayerIndex(AW_category), true);
     }
 
     void SwitchWeapons()
@@ -108,7 +113,7 @@ public class PlayerWeaponManager : MonoBehaviour
                 activeWeapon = weapons[0];
                 activeWeapon.SetActive(true);
             }
-            SetCategoryAnimWeight(anim.GetLayerIndex(activeWeapon.GetComponent<WeaponStats>().category), true);
+            SetCategoryAnimWeight(anim.GetLayerIndex(AW_category), true);
         }
     }
 
@@ -124,17 +129,26 @@ public class PlayerWeaponManager : MonoBehaviour
 
     void Animate()
     {
-        WeaponStats ws = activeWeapon.GetComponent<WeaponStats>();
-        if(rapidFire == true)
+        if(AW_rapidFire == true)
         {
-            if (ws.is_shooting == true)     { ac.Shoot(activeWeapon, true, true); }
-            else                                             { ac.Shoot(activeWeapon, false, true); }
+            if (AW_WS.is_shooting == true)          { ac.Shoot(activeWeapon, true, true); }
+            else                                                           { ac.Shoot(activeWeapon, false, true); }
         }
         
-        if (ws.is_reloading == true)
+        if (AW_WS.is_reloading == true)
         {
-            if (reloading == false) { ac.Reload(true); }
-            reloading = true;
+            if (reloading == false)
+            {
+                AW_reloadDelayTimer += Time.deltaTime;
+                if (AW_reloadDelayTimer >= AW_reloadDelay)
+                {
+                    ac.Reload(true);
+                    reloading = true;
+                    AW_reloadDelayTimer = 0.0f;
+                }
+            }
+            
+            
         }
         else
         {
@@ -142,13 +156,21 @@ public class PlayerWeaponManager : MonoBehaviour
             reloading = false;
         }
 
-        if(ws.is_aiming == true)     { ac.Aim(true); }
-        else                                        {ac.Aim(false);}
+        if(AW_WS.is_aiming == true)       { ac.Aim(true); }
+        else                                                    {ac.Aim(false);}
 
     }
 
     public void Shoot()
     {
         ac.Shoot(activeWeapon, true, false);
+    }
+
+    void SetVariables()
+    {
+        AW_WS = activeWeapon.GetComponent<WeaponStats>();
+        AW_category = AW_WS.category;
+        AW_rapidFire = AW_WS.rapidFire;
+        AW_reloadDelay = AW_WS.reloadAnimDelay;
     }
 }
