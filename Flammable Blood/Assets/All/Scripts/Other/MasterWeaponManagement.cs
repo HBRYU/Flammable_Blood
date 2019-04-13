@@ -5,5 +5,4 @@ using UnityEngine;
 public class MasterWeaponManagement : MonoBehaviour
 {
     public List<string> gunIndex;
-    public int gunIndexOffset;
 }

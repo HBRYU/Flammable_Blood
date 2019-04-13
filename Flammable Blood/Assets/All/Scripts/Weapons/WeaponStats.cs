@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class WeaponStats : MonoBehaviour
 {
+    /// <summary>
+    /// PlayerWeaponManager에서 필요한 정보를 담는 스크립트
+    /// -무기 이름
+    /// -무기 종류
+    /// -무기 특성
+    /// -무기 아이템화, 무기화
+    /// -해당 무기 스크립트와 PlayerWeaponManager 사이의 통로 역할
+    /// </summary>
+
     private GM _GM_;
     private MasterWeaponManagement _WM_;
 
@@ -52,7 +61,6 @@ public class WeaponStats : MonoBehaviour
         transform.position = parent.position;
         transform.rotation = parent.rotation;
         transform.localScale = parent.localScale;
-        Debug.Log(transform.parent);
         GetComponent<Rigidbody2D>().simulated = false;
         GetComponent<PolygonCollider2D>().enabled = false;
         gun.SetActive(true);

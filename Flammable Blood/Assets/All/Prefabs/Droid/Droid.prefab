@@ -2234,7 +2234,7 @@ MonoBehaviour:
   maxWeaponCount: 2
   weapons: []
   activeWeapon: {fileID: 0}
-  rapidFire: 1
+  AW_rapidFire: 1
 --- !u!114 &687805806359358798
 MonoBehaviour:
   m_ObjectHideFlags: 0

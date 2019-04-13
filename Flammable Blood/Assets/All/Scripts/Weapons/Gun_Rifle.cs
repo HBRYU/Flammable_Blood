@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Gun_Rifle : MonoBehaviour
 {
+    /// <summary>
+    /// 실제 총알을 발사하는 무기 스크립트
+    /// -AR, SR 담당
+    /// -데미지, 정확도, 연사 속도, 재장전 속도, 탄창 크기 등
+    /// -WeaponStats 에 필요한 정보 가지고 있음
+    /// </summary>
     private GM _GM_;
     private GameObject player;
     public WeaponStats ws;
@@ -31,7 +37,6 @@ public class Gun_Rifle : MonoBehaviour
 
     [HideInInspector]
     public bool reloading;
-
 
     // Start is called before the first frame update
     void Start()
@@ -146,11 +151,9 @@ public class Gun_Rifle : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && ammo > 0)
         {
-            Debug.Log("Mouse Pressed(SR)");
             if (fire_Timer >= fireRate)
             {
                 Fire();
-                Debug.Log("Shot(SR)");
                 ws.Shoot();
                 fire_Timer = 0;
                 ammo -= 1;

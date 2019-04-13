@@ -60,4 +60,4 @@ MonoBehaviour:
   gunIndex:
   - Frontier_AR
   - Millitary_AR
-  gunIndexOffset: 3
+  - HuntingRifle_SR

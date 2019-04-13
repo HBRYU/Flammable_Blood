@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class PlayerWeaponManager : MonoBehaviour
 {
+    /// <summary>
+    /// 플레이어 무기 매니저 스크립트
+    /// -무기 전환
+    /// -무기 줍기
+    /// -무기/플레이어 애니메이션 싱크로
+    /// -WeaponStats 와 PlayerAnimControl 사이의 통로 역할
+    /// </summary>
+
     private MasterWeaponManagement _WM_;
 
     public GameObject gunFolder;
@@ -17,13 +25,15 @@ public class PlayerWeaponManager : MonoBehaviour
 
     private bool reloading;
 
+    //각 무기 애니메이션 변수 설정
     private WeaponStats AW_WS;
     private string AW_category;
     public bool AW_rapidFire = true;
     private float AW_reloadDelay;
     private float AW_reloadDelayTimer;
-    // Start is called before the first frame update
-    void Start()
+
+
+    void Start()    ////////////////////////    셋업      //////////////////////////
     {
         _WM_ = GameObject.FindGameObjectWithTag("GM").GetComponent<MasterWeaponManagement>();   //  마스터 무기 매니저 스크립트
         anim = GetComponent<Animator>();    // 플레이어 애니메이터
@@ -73,7 +83,7 @@ public class PlayerWeaponManager : MonoBehaviour
         }
     }
 
-    public void Arm(GameObject weapon)
+    public void Arm(GameObject weapon)      //무기 줍기
     {
         if(weapons.Count > maxWeaponCount)
         {
@@ -96,7 +106,7 @@ public class PlayerWeaponManager : MonoBehaviour
         SetCategoryAnimWeight(anim.GetLayerIndex(AW_category), true);
     }
 
-    void SwitchWeapons()
+    void SwitchWeapons()        //무기 전환
     {
         if (Input.GetKeyDown("q"))
         {
@@ -117,42 +127,36 @@ public class PlayerWeaponManager : MonoBehaviour
         }
     }
 
-    void SetCategoryAnimWeight(int index, bool useLegs)
+    void SetCategoryAnimWeight(int index, bool useLegs)     //애니메이션 종류 설정
     {
         for (int i = 0; i < anim.layerCount; i++)
         {
             anim.SetLayerWeight(i, 0);
         }
         anim.SetLayerWeight(index, 100);
-        if(useLegs == true) { anim.SetLayerWeight(anim.GetLayerIndex("Legs Only"), 100); }
+        if(useLegs == true) { anim.SetLayerWeight(anim.GetLayerIndex("Legs Only"), 100); }      //다리는 따로 움직이게
     }
 
     void Animate()
     {
-        if(AW_rapidFire == true)
+        if(AW_rapidFire == true)        //연사 발사 애니메이션 플레이
         {
             if (AW_WS.is_shooting == true)          { ac.Shoot(activeWeapon, true, true); }
             else                                                           { ac.Shoot(activeWeapon, false, true); }
         }
         
-        if (AW_WS.is_reloading == true)
+        if (AW_WS.is_reloading == true && reloading == false)       //일정 딜레이 후 재장전 애니메이션 플레이
         {
-            if (reloading == false)
+            AW_reloadDelayTimer += Time.deltaTime;
+            if (AW_reloadDelayTimer >= AW_reloadDelay)
             {
-                AW_reloadDelayTimer += Time.deltaTime;
-                if (AW_reloadDelayTimer >= AW_reloadDelay)
-                {
-                    ac.Reload(true);
-                    reloading = true;
-                    AW_reloadDelayTimer = 0.0f;
-                }
+                ac.Reload();
+                reloading = true;
+                AW_reloadDelayTimer = 0.0f;
             }
-            
-            
         }
         else
         {
-            //ac.Reload(false);
             reloading = false;
         }
 
@@ -161,12 +165,12 @@ public class PlayerWeaponManager : MonoBehaviour
 
     }
 
-    public void Shoot()
+    public void Shoot()     //한번 쏘는 애니메이션 플레이
     {
         ac.Shoot(activeWeapon, true, false);
     }
 
-    void SetVariables()
+    void SetVariables()     //변수 설정
     {
         AW_WS = activeWeapon.GetComponent<WeaponStats>();
         AW_category = AW_WS.category;

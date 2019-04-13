@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class PlayerAnimControl : MonoBehaviour
 {
+    /// <summary>
+    /// 플레이어 애니메이션 담당
+    /// -플레이어 움직임
+    /// -플레이어와 해당 아이템 애니메이션 싱크로 맞춰 실제 플레이
+    /// -PlayerMove 와 PlayerWeaponManager 등의 스크립트에서 명령하여 애니메이션 플레이
+    /// </summary>
+
     private Animator anim;
     private Rigidbody2D rb;
 
     private PlayerMove pm;
-
-    private bool hadJumpeds;
 
     void Start()
     {
@@ -52,7 +57,6 @@ public class PlayerAnimControl : MonoBehaviour
 
     public void Shoot(GameObject gun, bool shoot, bool repeat)
     {
-        Debug.Log("Shoot(ac)");
         if (repeat == true)
         {
             if(shoot == true)
@@ -68,20 +72,13 @@ public class PlayerAnimControl : MonoBehaviour
         }
         else
         {
-            Debug.Log("Triggered");
             gun.GetComponent<Animator>().SetTrigger("Shoot");
-            anim.SetTrigger("Shoot");
         }
     }
 
-    public void Reload(bool reload)
+    public void Reload()
     {
-        Debug.Log("Reload(ac)");
         anim.SetTrigger("Reload");
-        /*
-        if (reload) { anim.SetBool("Reloading", true); }
-        else { anim.SetBool("Reloading", false); }
-        */
     }
 
     public void Aim(bool aim)
