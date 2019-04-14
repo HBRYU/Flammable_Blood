@@ -123,6 +123,7 @@ public class PlayerWeaponManager : MonoBehaviour
                 activeWeapon = weapons[0];
                 activeWeapon.SetActive(true);
             }
+            SetVariables();
             SetCategoryAnimWeight(anim.GetLayerIndex(AW_category), true);
         }
     }
@@ -145,14 +146,17 @@ public class PlayerWeaponManager : MonoBehaviour
             else                                                           { ac.Shoot(activeWeapon, false, true); }
         }
         
-        if (AW_WS.is_reloading == true && reloading == false)       //일정 딜레이 후 재장전 애니메이션 플레이
+        if (AW_WS.is_reloading == true)       //일정 딜레이 후 재장전 애니메이션 플레이
         {
-            AW_reloadDelayTimer += Time.deltaTime;
-            if (AW_reloadDelayTimer >= AW_reloadDelay)
+            if(reloading == false)
             {
-                ac.Reload();
-                reloading = true;
-                AW_reloadDelayTimer = 0.0f;
+                AW_reloadDelayTimer += Time.deltaTime;
+                if (AW_reloadDelayTimer >= AW_reloadDelay)
+                {
+                    ac.Reload();
+                    reloading = true;
+                    AW_reloadDelayTimer = 0.0f;
+                }
             }
         }
         else

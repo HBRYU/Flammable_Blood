@@ -146,7 +146,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: 0, y: 0, z: 234.318}
+        value: {x: 0, y: 0, z: 154.96}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -155,7 +155,7 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 0.05
-        value: {x: 0, y: 0, z: 247.87799}
+        value: {x: 0, y: 0, z: 150.386}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -180,7 +180,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: 0, y: 0, z: 47.9}
+        value: {x: 0, y: 0, z: 67.896}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -189,9 +189,9 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 0.05
-        value: {x: 0, y: 0, z: 9.02}
-        inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 46.957}
+        inSlope: {x: 0, y: 0, z: -228.16801}
+        outSlope: {x: 0, y: 0, z: -228.16801}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -1910,7 +1910,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 234.318
+        value: 154.96
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -1919,7 +1919,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.05
-        value: 247.87799
+        value: 150.386
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -2021,7 +2021,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 47.9
+        value: 67.896
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -2030,9 +2030,9 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.05
-        value: 9.02
-        inSlope: 0
-        outSlope: 0
+        value: 46.957
+        inSlope: -228.16801
+        outSlope: -228.16801
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
@@ -3795,7 +3795,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Bones/PoseManager/Bone_Hip/Bone_Torso/Bone_L_Shoudler/Bone_L_Arm
+    path: Bones/PoseManager/Bone_Hip/Bone_Torso/Bone_L_Shoudler
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3805,7 +3805,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Bones/PoseManager/Bone_Hip/Bone_Torso/Bone_L_Shoudler/Bone_L_Arm
+    path: Bones/PoseManager/Bone_Hip/Bone_Torso/Bone_L_Shoudler
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3815,7 +3815,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Bones/PoseManager/Bone_Hip/Bone_Torso/Bone_L_Shoudler/Bone_L_Arm
+    path: Bones/PoseManager/Bone_Hip/Bone_Torso/Bone_L_Shoudler
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4065,7 +4065,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Bones/PoseManager/Bone_Hip/Bone_Torso/Bone_L_Shoudler
+    path: Bones/PoseManager/Bone_Hip/Bone_R_Thigh/Bone__R_Leg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4075,7 +4075,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Bones/PoseManager/Bone_Hip/Bone_Torso/Bone_L_Shoudler
+    path: Bones/PoseManager/Bone_Hip/Bone_R_Thigh/Bone__R_Leg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4085,7 +4085,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Bones/PoseManager/Bone_Hip/Bone_Torso/Bone_L_Shoudler
+    path: Bones/PoseManager/Bone_Hip/Bone_R_Thigh/Bone__R_Leg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4245,7 +4245,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Bones/PoseManager/Bone_Hip/Bone_R_Thigh/Bone__R_Leg
+    path: Bones/PoseManager/Bone_Hip/Bone_Torso/Bone_L_Shoudler/Bone_L_Arm
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4255,7 +4255,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Bones/PoseManager/Bone_Hip/Bone_R_Thigh/Bone__R_Leg
+    path: Bones/PoseManager/Bone_Hip/Bone_Torso/Bone_L_Shoudler/Bone_L_Arm
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4265,7 +4265,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Bones/PoseManager/Bone_Hip/Bone_R_Thigh/Bone__R_Leg
+    path: Bones/PoseManager/Bone_Hip/Bone_Torso/Bone_L_Shoudler/Bone_L_Arm
     classID: 4
     script: {fileID: 0}
   m_HasGenericRootTransform: 0
