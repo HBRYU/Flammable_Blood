@@ -73,6 +73,7 @@ public class PlayerAnimControl : MonoBehaviour
         else
         {
             gun.GetComponent<Animator>().SetTrigger("Shoot");
+            anim.SetTrigger("Shoot");
         }
     }
 

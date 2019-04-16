@@ -82,17 +82,15 @@ public class Gun_SG : MonoBehaviour
 
     void Fire()
     {
-        //Debug.Log("FIRED");
-        Bullet thisBullet = bullet;
-        thisBullet.damage = damagePerPellet;
-        thisBullet.accuracy = accuracy;
-        thisBullet.speed = bulletSpeed;
-        thisBullet.wielder = player;
-
         int pelletCount = Random.Range(minPelletCount, maxPelletCount);
         
         for(int i = 0; i < pelletCount; i++)
         {
+            Bullet thisBullet = bullet;
+            thisBullet.damage = damagePerPellet;
+            thisBullet.accuracy = accuracy;
+            thisBullet.speed = bulletSpeed;
+            thisBullet.wielder = player;
             Instantiate(thisBullet, barrelEnd.transform.position, Quaternion.identity);
         }
 

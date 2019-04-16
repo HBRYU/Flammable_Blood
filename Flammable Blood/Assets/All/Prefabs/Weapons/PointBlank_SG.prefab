@@ -74,19 +74,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ws: {fileID: 8935129091349932214}
-  useAim: 0
+  useAim: 1
   autoReload: 0
   bullet: {fileID: 1646669890229493766, guid: 83027b3672232174693e1d42facae6a1, type: 3}
   maxPelletCount: 6
   minPelletCount: 4
   barrelEnd: {fileID: 8935129090296667514}
-  bulletSpeed: 15
-  fireRate: 1
-  accuracy: 6
+  bulletSpeed: 25
+  fireRate: 0.5
+  accuracy: 13
   damagePerPellet: 5
   magSize: 4
   reloadSpeed: 2
-  autoSpawnBulletShell: 0
+  autoSpawnBulletShell: 1
   bulletShell: {fileID: 3641742128729214545, guid: 34f4e9ddfa25b1d48bc2de483c8b831e,
     type: 3}
   bulletShellSpawnPoint: {fileID: 8935129089518959944}
@@ -200,9 +200,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -893199647
+  m_SortingLayer: 1
+  m_SortingOrder: 7
   m_Sprite: {fileID: 21300000, guid: bb6ae99c6b6bc31409c8248b86faf89c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -284,7 +284,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: 
   category: SG
-  gun: {fileID: 0}
+  gun: {fileID: 8935129090241572052}
   rapidFire: 0
   reloadAnimDelay: 0
   ID: 0
@@ -325,12 +325,12 @@ PrefabInstance:
     - target: {fileID: 4205701249611985515, guid: f561580a2f1178b418d7b3625e0f5e3b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.5045438
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4205701249611985515, guid: f561580a2f1178b418d7b3625e0f5e3b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.415523
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4205701249611985515, guid: f561580a2f1178b418d7b3625e0f5e3b,
         type: 3}
@@ -340,22 +340,22 @@ PrefabInstance:
     - target: {fileID: 4205701249611985515, guid: f561580a2f1178b418d7b3625e0f5e3b,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4205701249611985515, guid: f561580a2f1178b418d7b3625e0f5e3b,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4205701249611985515, guid: f561580a2f1178b418d7b3625e0f5e3b,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.14652738
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4205701249611985515, guid: f561580a2f1178b418d7b3625e0f5e3b,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9892067
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4205701249611985515, guid: f561580a2f1178b418d7b3625e0f5e3b,
         type: 3}
@@ -386,6 +386,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 0.081400014
+      objectReference: {fileID: 0}
+    - target: {fileID: 4205701249611985514, guid: f561580a2f1178b418d7b3625e0f5e3b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 74940449052052183, guid: f561580a2f1178b418d7b3625e0f5e3b,
+        type: 3}
+      propertyPath: targetScript
+      value: WeaponStats
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f561580a2f1178b418d7b3625e0f5e3b, type: 3}
