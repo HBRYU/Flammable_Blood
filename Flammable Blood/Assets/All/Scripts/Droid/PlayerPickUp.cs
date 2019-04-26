@@ -7,6 +7,9 @@ public class PlayerPickUp : MonoBehaviour
     public float pickUpRadius;
     public LayerMask pickUp_layer;
 
+    public float coolDown;
+    private float coolDown_Timer;
+
     public GameObject weaponsFolder;
     // Start is called before the first frame update
     void Start()
@@ -16,6 +19,19 @@ public class PlayerPickUp : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {
+        if(coolDown_Timer >= coolDown)
+        {
+            PickUp();
+        }
+        else
+        {
+            coolDown_Timer += Time.deltaTime;
+        }
+        
+    }
+
+    void PickUp()
     {
         if (Input.GetKeyDown("e"))
         {
@@ -32,6 +48,10 @@ public class PlayerPickUp : MonoBehaviour
                         closestItem = item.gameObject;
                         minDistance = distance;
                     }
+                }
+
+                if (closestItem != null)
+                {
                     switch (closestItem.GetComponent<ItemPickUp>().targetScript)
                     {
                         case "WeaponStats":
@@ -41,10 +61,10 @@ public class PlayerPickUp : MonoBehaviour
                             closestItem.GetComponent<ItemPickUp>().PickUp(transform);
                             break;
                     }
-                    
                 }
+
+                coolDown_Timer = 0.0f;
             }
         }
-        
     }
 }
