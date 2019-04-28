@@ -85,7 +85,7 @@ MonoBehaviour:
   accuracy: 13
   damagePerPellet: 5
   magSize: 4
-  reloadSpeed: 2
+  reloadSpeed: 1.5
   autoSpawnBulletShell: 1
   bulletShell: {fileID: 3641742128729214545, guid: 34f4e9ddfa25b1d48bc2de483c8b831e,
     type: 3}
