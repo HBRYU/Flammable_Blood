@@ -5422,6 +5422,10 @@ PrefabInstance:
       propertyPath: patrol_Delay
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 7006193446129127, guid: 6e15dfedc8681fa45b0a6c6426b9d322, type: 3}
+      propertyPath: patrol_Timeout
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 7006194815925861, guid: 6e15dfedc8681fa45b0a6c6426b9d322, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.12
