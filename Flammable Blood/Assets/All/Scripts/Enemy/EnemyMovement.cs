@@ -14,17 +14,16 @@ public class EnemyMovement : MonoBehaviour
     public float speed_Patrol;
     public float speed_Chase;
 
-    public Transform[] patrol_MovePos;
-    Vector2 patrol_ActiveMovePos;
-    public bool patrol_Axis_x;
+    public List<Transform> patrol_MovePos;
+    private Transform patrol_ActiveMovePos;
     public float patrol_Delay;
     private float patrol_Delay_Timer;
+    public float patrol_Timeout;
+    private float patrol_Timeout_Timer;
+    private bool patrol_Moving = true;
 
-    int state_Idle = 0;
-    int state_Patrol = 1;
-    int state_Chase = 2;
-
-    public int state;
+    [Header("Idle, Patrol, Chase")]
+    public string state;
 
     Vector2 movePos;
 
@@ -34,7 +33,7 @@ public class EnemyMovement : MonoBehaviour
         _GM_ = GameObject.FindGameObjectWithTag("GM").GetComponent<GM>();
         player = _GM_.player;
 
-        patrol_ActiveMovePos = patrol_MovePos[0].position;
+        patrol_ActiveMovePos = patrol_MovePos[0];
 
         rb = GetComponent<Rigidbody2D>();
     }
@@ -42,11 +41,11 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (state == state_Idle)
+        if (state == "Idle")
             Idle();
-        if (state == state_Patrol)
+        if (state == "Patrol")
             Patrol();
-        if (state == state_Chase)
+        if (state == "Chase")
             Chase();
 
     }
@@ -87,34 +86,67 @@ public class EnemyMovement : MonoBehaviour
 
     void Patrol()
     {
-        if(Vector2.Distance(transform.position, patrol_ActiveMovePos) <= 0.1f)
+        if(Vector2.Distance(transform.position, patrol_ActiveMovePos.position) <= 0.3f)
         {
-            patrol_Delay_Timer += 1;
-            if(patrol_Delay_Timer >= patrol_Delay)
-            {
-
-            }
-        }
-
-        if(patrol_ActiveMovePos.x > transform.position.x)
-        {
-            FaceDirection(true);
-            TravelInDirection(speed_Patrol, true);
+            patrol_Moving = false;
         }
         else
         {
-            FaceDirection(false);
-            TravelInDirection(speed_Patrol, false);
+            patrol_Moving = true;
+        }
+        if(patrol_Moving)
+        {
+            if (patrol_ActiveMovePos.position.x > transform.position.x)
+            {
+                FaceDirection(true);
+                TravelInDirection(speed_Patrol, true);
+            }
+            else
+            {
+                FaceDirection(false);
+                TravelInDirection(speed_Patrol, false);
+            }
+        }
+        else
+        {
+            rb.velocity = new Vector2(0, rb.velocity.y);
+            if (patrol_Delay_Timer >= patrol_Delay)
+            {
+                SetNextMovePos();
+                ResetVariables();
+            }
+            else
+            {
+                patrol_Delay_Timer += 1;
+            }
         }
 
-        if (patrol_Axis_x)
+        patrol_Timeout_Timer += 1;
+
+        if(patrol_Timeout_Timer >= patrol_Timeout)
         {
-            
+            SetNextMovePos();
+            ResetVariables();
+        }
+        
+        void SetNextMovePos()
+        {
+            if (patrol_MovePos.IndexOf(patrol_ActiveMovePos) == patrol_MovePos.Count - 1)
+                patrol_ActiveMovePos = patrol_MovePos[0];
+            else
+                patrol_ActiveMovePos = patrol_MovePos[patrol_MovePos.IndexOf(patrol_ActiveMovePos) + 1];
+        }
+
+        void ResetVariables()
+        {
+            patrol_Moving = true;
+            patrol_Delay_Timer = 0.0f;
+            patrol_Timeout_Timer = 0.0f;
         }
     }
 
     void Chase()
     {
-
+        
     }
 }

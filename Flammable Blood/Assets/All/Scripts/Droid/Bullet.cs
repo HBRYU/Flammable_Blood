@@ -34,10 +34,10 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        EmitParticle(other);
+        BulletCollision(other);
     }
 
-    void EmitParticle(Collider2D other)
+    void BulletCollision(Collider2D other)
     {
         switch (other.tag)
         {
@@ -56,6 +56,7 @@ public class Bullet : MonoBehaviour
                 Destroy(gameObject);
                 break;
             default:
+                Destroy(gameObject);
                 break;
         }
     }
