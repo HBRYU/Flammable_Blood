@@ -145,6 +145,7 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
+
     void Chase()
     {
         
