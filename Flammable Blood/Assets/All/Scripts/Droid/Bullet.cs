@@ -12,6 +12,8 @@ public class Bullet : MonoBehaviour
 
     public float life;
 
+    public List<string> ignoreCollisionTags;
+
     public List<string> particleName;
     public List<GameObject> particles;
 
@@ -56,7 +58,8 @@ public class Bullet : MonoBehaviour
                 Destroy(gameObject);
                 break;
             default:
-                Destroy(gameObject);
+                if (!ignoreCollisionTags.Contains(other.tag))
+                    Destroy(gameObject);
                 break;
         }
     }

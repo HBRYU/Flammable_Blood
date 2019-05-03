@@ -10,6 +10,14 @@ public class EnemyMovement : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    public Collider2D radar;
+    public Collider2D cliffCheck;
+    public LayerMask whatIsGround;
+
+    public bool move = true;
+
+    public float attackDistance;
+
     public float speed_Idle;
     public float speed_Patrol;
     public float speed_Chase;
@@ -27,7 +35,6 @@ public class EnemyMovement : MonoBehaviour
 
     Vector2 movePos;
 
-    // Start is called before the first frame update
     void Start()
     {
         _GM_ = GameObject.FindGameObjectWithTag("GM").GetComponent<GM>();
@@ -38,16 +45,32 @@ public class EnemyMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
+    void Update()
+    {
+        if (radar.IsTouching(player.GetComponent<Collider2D>()))
+        {
+            state = "Chase";
+        }
+        else
+        {
+            if (state == "Chase")
+                state = "Idle";
+            else
+                state = "Patrol";
+        }
+    }
+
     void FixedUpdate()
     {
-        if (state == "Idle")
-            Idle();
-        if (state == "Patrol")
-            Patrol();
-        if (state == "Chase")
-            Chase();
-
+        if (move)
+        {
+            if (state == "Idle")
+                Idle();
+            if (state == "Patrol")
+                Patrol();
+            if (state == "Chase")
+                Chase();
+        }
     }
 
     void FaceDirection(bool faceRight)
@@ -86,11 +109,11 @@ public class EnemyMovement : MonoBehaviour
 
     void Patrol()
     {
-        if(Vector2.Distance(transform.position, patrol_ActiveMovePos.position) <= 0.3f)
+        if(Mathf.Abs(transform.position.x - patrol_ActiveMovePos.position.x) <= 0.3f)
         {
             patrol_Moving = false;
         }
-        else
+        if(Mathf.Abs(transform.position.x - patrol_ActiveMovePos.position.x) > 0.3f)
         {
             patrol_Moving = true;
         }
@@ -148,6 +171,25 @@ public class EnemyMovement : MonoBehaviour
 
     void Chase()
     {
-        
+        if (player.transform.position.x > transform.position.x)
+        {
+            FaceDirection(true);
+            FollowPlayer(true);
+        }
+        else
+        {
+            FaceDirection(false);
+            FollowPlayer(false);
+        }
+
+        void FollowPlayer(bool faceRight)
+        {
+            if (cliffCheck.IsTouchingLayers(whatIsGround) && Vector2.Distance(transform.position, player.transform.position) > attackDistance)
+                TravelInDirection(speed_Chase, faceRight);
+            else
+                rb.velocity = new Vector2(0, rb.velocity.y);
+        }
     }
+
+    
 }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2115595534189357352}
   m_Layer: 12
   m_Name: BulletShell
-  m_TagString: Untagged
+  m_TagString: Particles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

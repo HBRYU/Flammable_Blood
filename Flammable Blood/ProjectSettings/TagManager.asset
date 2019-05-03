@@ -10,6 +10,8 @@ TagManager:
   - Ground
   - Weapons
   - Enemy
+  - Bullet
+  - Particles
   layers:
   - Default
   - TransparentFX
@@ -25,9 +27,9 @@ TagManager:
   - Droppable/PickUp
   - Particles
   - Bullet
-  - 
-  - 
-  - 
+  - Enemy/1
+  - Enemy/Radar
+  - Ground
   - 
   - 
   - 

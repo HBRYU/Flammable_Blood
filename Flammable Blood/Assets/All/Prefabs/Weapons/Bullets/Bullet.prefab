@@ -253,6 +253,13 @@ MonoBehaviour:
   speed: 0
   damage: 0
   life: 2
+  ignoreCollisionTags:
+  - Player
+  - Player/Hitbox
+  - Bullet
+  - Weapons
+  - Bullet
+  - Particles
   particleName:
   - Default
   particles:
