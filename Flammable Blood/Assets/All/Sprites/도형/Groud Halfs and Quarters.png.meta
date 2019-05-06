@@ -94,7 +94,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 100
+        y: 50
         width: 50
         height: 50
       alignment: 0
@@ -104,7 +104,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f2b8ab1b4b7ab2644aca88d651b2a685
+      spriteID: e3e2de9ff6f98bc46803feb00f06790a
       vertices: []
       indices: 
       edges: []
@@ -114,7 +114,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 50
-        y: 100
+        y: 50
         width: 50
         height: 50
       alignment: 0
@@ -124,7 +124,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b1009c05be8837941b1011d43e018f63
+      spriteID: be5606ba939ed974fb09e6a5b25bde52
       vertices: []
       indices: 
       edges: []
@@ -134,7 +134,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 50
+        y: 0
         width: 50
         height: 50
       alignment: 0
@@ -144,7 +144,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5a91a294e70dc142beb85a10a1a2708
+      spriteID: b688038d269632c499d4254f8faccb46
       vertices: []
       indices: 
       edges: []
@@ -154,26 +154,6 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 50
-        y: 50
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c9f11dc70aa5b63459d607aa844692bd
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Groud Halfs and Quarters_4
-      rect:
-        serializedVersion: 2
-        x: 0
         y: 0
         width: 50
         height: 50
@@ -184,27 +164,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 86dcc63d95327334b83df67047ea2489
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Groud Halfs and Quarters_5
-      rect:
-        serializedVersion: 2
-        x: 50
-        y: 0
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1bffa2977e4d6884e9089b60f4a6417b
+      spriteID: 3d6e6b3c0f3a23b4fa63cd228aa82460
       vertices: []
       indices: 
       edges: []
