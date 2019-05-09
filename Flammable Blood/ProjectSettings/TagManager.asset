@@ -12,6 +12,7 @@ TagManager:
   - Enemy
   - Bullet
   - Particles
+  - Enemy/Radar
   layers:
   - Default
   - TransparentFX

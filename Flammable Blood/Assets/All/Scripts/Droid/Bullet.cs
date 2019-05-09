@@ -17,6 +17,8 @@ public class Bullet : MonoBehaviour
     public List<string> particleName;
     public List<GameObject> particles;
 
+    public bool hitEnemy_Flag;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,23 +46,45 @@ public class Bullet : MonoBehaviour
         switch (other.tag)
         {
             case "Ground":
-                switch (other.GetComponent<GroundStats>().particle)
-                {
-                    case "Default":
-                        Instantiate(particles[particleName.IndexOf("Default")], transform.position, Quaternion.identity);
-                        break;
-
-                    default:
-                        Debug.Log("ERR: Unknown particle name [" + other.GetComponent<GroundStats>().particle + "]");
-                        Instantiate(particles[particleName.IndexOf("Default")], transform.position, Quaternion.identity);
-                        break;
-                }
+                SpawnParticles();
                 Destroy(gameObject);
                 break;
+
             default:
+
                 if (!ignoreCollisionTags.Contains(other.tag))
+                    if (other.tag.Contains("Enemy/") && !hitEnemy_Flag)
+                        HitEnemy();
+
                     Destroy(gameObject);
                 break;
+        }
+
+        /////////////////////////// Functions   함수들
+
+        void SpawnParticles()   ///////////// 벽, 땅 등 파편
+        {
+            switch (other.GetComponent<GroundStats>().particle)
+            {
+                case "Default":
+                    Instantiate(particles[particleName.IndexOf("Default")], transform.position, Quaternion.identity);
+                    break;
+
+                default:
+                    Debug.Log("ERR: Unknown particle name [" + other.GetComponent<GroundStats>().particle + "]");
+                    Instantiate(particles[particleName.IndexOf("Default")], transform.position, Quaternion.identity);
+                    break;
+            }
+        }
+
+        void HitEnemy()     ///////////// 적을 맞췄을 때:
+        {
+            Debug.Log("Hit enemy: " + other.gameObject);
+            GameObject enemy = other.gameObject;
+
+            enemy.GetComponent<EnemyStats>().TakeDamage(damage);
+
+            hitEnemy_Flag = true;
         }
     }
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2200773178758553131}
   - component: {fileID: 1725233766854341644}
   m_Layer: 0
-  m_Name: Chunk Particles [Default]
+  m_Name: Chunk Particles [Dirt]
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -222,8 +222,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 1, g: 1, b: 1, a: 0.5254902}
-      maxColor: {r: 0.5188679, g: 0.5188679, b: 0.5188679, a: 1}
+      minColor: {r: 0.103773594, g: 0.103773594, b: 0.103773594, a: 0.5254902}
+      maxColor: {r: 0.4811321, g: 0.3270976, b: 0.111205064, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}

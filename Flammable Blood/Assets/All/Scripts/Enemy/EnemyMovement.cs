@@ -16,12 +16,14 @@ public class EnemyMovement : MonoBehaviour
 
     public bool move = true;
 
+    [Header("Stats 스탯")]
     public float attackDistance;
 
     public float speed_Idle;
     public float speed_Patrol;
     public float speed_Chase;
 
+    [Header("Patrol State 경비 상태")]
     public List<Transform> patrol_MovePos;
     private Transform patrol_ActiveMovePos;
     public float patrol_Delay;

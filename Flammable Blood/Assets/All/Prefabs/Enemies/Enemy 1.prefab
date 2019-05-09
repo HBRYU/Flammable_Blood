@@ -91,6 +91,7 @@ GameObject:
   - component: {fileID: 481672079182624478}
   - component: {fileID: 481672079182624477}
   - component: {fileID: 481672079182624476}
+  - component: {fileID: 2405744051769184117}
   - component: {fileID: 481672079182624472}
   m_Layer: 0
   m_Name: Enemy 1
@@ -209,6 +210,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &2405744051769184117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481672079182624467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9d009b39eb2b374cbf04076453c3fc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  health: 100
 --- !u!114 &481672079182624472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,6 +236,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 636ad1b202338a5468a27069f384ae1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  radar: {fileID: 0}
+  cliffCheck: {fileID: 0}
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 0
+  move: 1
+  attackDistance: 0
   speed_Idle: 0
   speed_Patrol: 5
   speed_Chase: 7
@@ -228,4 +250,5 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   patrol_Delay: 10
+  patrol_Timeout: 0
   state: Patrol
