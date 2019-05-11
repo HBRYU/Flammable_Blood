@@ -10801,6 +10801,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 320247959, guid: 6e15dfedc8681fa45b0a6c6426b9d322, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1729686
+      objectReference: {fileID: 0}
+    - target: {fileID: 320247959, guid: 6e15dfedc8681fa45b0a6c6426b9d322, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.311
+      objectReference: {fileID: 0}
+    - target: {fileID: 492138229, guid: 6e15dfedc8681fa45b0a6c6426b9d322, type: 3}
+      propertyPath: m_TagString
+      value: Enemy/Radar
+      objectReference: {fileID: 0}
+    - target: {fileID: 492138229, guid: 6e15dfedc8681fa45b0a6c6426b9d322, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e15dfedc8681fa45b0a6c6426b9d322, type: 3}
 --- !u!1001 &645454769277604809
