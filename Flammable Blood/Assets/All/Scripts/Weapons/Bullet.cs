@@ -53,10 +53,14 @@ public class Bullet : MonoBehaviour
             default:
 
                 if (!ignoreCollisionTags.Contains(other.tag))
+                {
                     if (other.tag.Contains("Enemy/") && !hitEnemy_Flag)
+                    {
                         HitEnemy();
+                    }
 
                     Destroy(gameObject);
+                }
                 break;
         }
 
@@ -83,7 +87,7 @@ public class Bullet : MonoBehaviour
             GameObject enemy = other.gameObject;
 
             enemy.GetComponent<EnemyStats>().TakeDamage(damage);
-
+            
             hitEnemy_Flag = true;
         }
     }
