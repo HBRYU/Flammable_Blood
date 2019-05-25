@@ -27,6 +27,7 @@ public class EnemyStats : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        Debug.Log("[" + gameObject.name + "] : Taken damage: " + damage);
         health -= damage;
     }
 

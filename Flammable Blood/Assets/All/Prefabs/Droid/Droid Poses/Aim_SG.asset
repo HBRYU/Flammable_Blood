@@ -15,7 +15,7 @@ MonoBehaviour:
   m_PoseEntries:
   - path: Bone_Hip
     localPosition: {x: 0.25083828, y: -0.23337609, z: 0.006591797}
-    localRotation: {x: -0, y: -0, z: 0.70710677, w: 0.7071069}
+    localRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
     localScale: {x: 1, y: 1, z: 1}
   - path: Bone_Hip/Bone_Torso
     localPosition: {x: 0.25098854, y: 0.000000029802322, z: 0}
@@ -31,15 +31,15 @@ MonoBehaviour:
     localScale: {x: 1, y: 1, z: 1}
   - path: Bone_Hip/Bone_Torso/Bone_L_Shoudler
     localPosition: {x: 0.15, y: -0.14126377, z: 0}
-    localRotation: {x: 0, y: -0, z: 0.9793836, w: -0.20200959}
+    localRotation: {x: 0, y: -0, z: 0.9745524, w: -0.22416008}
     localScale: {x: 1, y: 1, z: 1}
   - path: Bone_Hip/Bone_Torso/Bone_L_Shoudler/Bone_L_Arm
-    localPosition: {x: 0.29420203, y: 0.0000000013969839, z: 0}
-    localRotation: {x: 0, y: 0, z: 0.68538004, w: 0.7281856}
+    localPosition: {x: 0.27877876, y: 0.00000011920929, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.73356384, w: 0.67962056}
     localScale: {x: 1, y: 1, z: 1}
   - path: Bone_Hip/Bone_Torso/Bone_L_Shoudler/Bone_L_Arm/Bone_L_Hand
-    localPosition: {x: 0.18399462, y: -0.00000008940697, z: 0}
-    localRotation: {x: 0, y: 0, z: 0.596239, w: 0.80280703}
+    localPosition: {x: 0.2026048, y: -0.00000008940697, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.50798184, w: 0.86136776}
     localScale: {x: 1, y: 1, z: 1}
   - path: Bone_Hip/Bone_Torso/Bone_R_Shoulder
     localPosition: {x: 0.15, y: 0.17, z: 0}

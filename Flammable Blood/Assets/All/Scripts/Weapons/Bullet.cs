@@ -54,7 +54,8 @@ public class Bullet : MonoBehaviour
 
                 if (!ignoreCollisionTags.Contains(other.tag))
                 {
-                    if (other.tag.Contains("Enemy/") && !hitEnemy_Flag)
+                    Debug.Log(other.tag);
+                    if (other.CompareTag("Enemy") && !hitEnemy_Flag)
                     {
                         HitEnemy();
                     }

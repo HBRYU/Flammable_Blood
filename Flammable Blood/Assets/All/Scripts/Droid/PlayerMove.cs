@@ -15,7 +15,7 @@ public class PlayerMove : MonoBehaviour
     public float jumpForce;
 
     [HideInInspector]
-    public bool jumped, hadJumped;
+    public bool jumped, hadJumped, crouched;
 
     private bool facingRight = true;
     private float moveInput;
@@ -53,6 +53,15 @@ public class PlayerMove : MonoBehaviour
         if(Input.GetKey("a") && Input.GetKey("d"))      //A랑 D 같이 누르면 멈추기
         {
             speed = 0;
+        }
+        if(Input.GetKey("s") && onGround == true)
+        {
+            crouched = true;
+            speed = 0;
+        }
+        else
+        {
+            crouched = false;
         }
 
 

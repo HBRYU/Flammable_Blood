@@ -14,10 +14,14 @@ public class PlayerWeaponManager : MonoBehaviour
 
     private MasterWeaponManagement _WM_;
 
-    public GameObject gunFolder;
     public int maxWeaponCount;
     private Animator anim;
     private PlayerAnimControl ac;
+    private PlayerMove pm;
+
+    public Transform gunFolder_Default;
+    public Transform gunFolder_Crouched;
+    public Transform activeGunFolder;
 
     public List<GameObject> weapons;
     public GameObject activeWeapon;
@@ -38,6 +42,8 @@ public class PlayerWeaponManager : MonoBehaviour
         _WM_ = GameObject.FindGameObjectWithTag("GM").GetComponent<MasterWeaponManagement>();   //  마스터 무기 매니저 스크립트
         anim = GetComponent<Animator>();    // 플레이어 애니메이터
         ac = GetComponent<PlayerAnimControl>();     // 플레이어 애니메이션 매니저 스크립트
+        pm = GetComponent<PlayerMove>();
+        activeGunFolder = gunFolder_Default;
 
         //  무기 수 제한
         while(weapons.Count > maxWeaponCount)
@@ -56,6 +62,29 @@ public class PlayerWeaponManager : MonoBehaviour
     void Update()   ///////////////////////     업데이트        /////////////////////////
     {
         if(weapons.Count == 0) { activeWeapon = null; }
+
+        if (pm.crouched)
+        {
+            activeGunFolder = gunFolder_Crouched;
+            foreach(GameObject weapon in weapons)
+            {
+                weapon.transform.parent = activeGunFolder;
+                weapon.transform.position = activeGunFolder.position;
+                weapon.transform.rotation = activeGunFolder.rotation;
+                weapon.transform.localScale = activeGunFolder.localScale;
+            }
+        }
+        else
+        {
+            activeGunFolder = gunFolder_Default;
+            foreach (GameObject weapon in weapons)
+            {
+                weapon.transform.parent = activeGunFolder;
+                weapon.transform.position = activeGunFolder.position;
+                weapon.transform.rotation = activeGunFolder.rotation;
+                weapon.transform.localScale = activeGunFolder.localScale;
+            }
+        }
 
         // 총 발사하고 있다면 발사 애니메이션 플레이
         if(activeWeapon != null)
