@@ -31,8 +31,8 @@ TagManager:
   - Enemy/1
   - Enemy/Radar
   - Ground
-  - 
-  - 
+  - Prop/NoSelfCollision
+  - Prop
   - 
   - 
   - 

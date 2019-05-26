@@ -54,7 +54,8 @@ public class PlayerMove : MonoBehaviour
         {
             speed = 0;
         }
-        if(Input.GetKey("s") && onGround == true)
+
+        if(Input.GetKey("s") && onGround == true)   //S 누르고 땅에 있으면 움츠리고 멈추기
         {
             crouched = true;
             speed = 0;
