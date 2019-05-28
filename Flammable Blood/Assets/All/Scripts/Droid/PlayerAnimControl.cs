@@ -48,6 +48,30 @@ public class PlayerAnimControl : MonoBehaviour
             }
             else { anim.SetInteger("Speed", 0); }
 
+            if (pm.faceMouseMovement)
+            {
+                int moveInput_Int;
+
+                if (Input.GetAxis("Horizontal") > 0)
+                    moveInput_Int = 1;
+                else if (Input.GetAxis("Horizontal") < 0)
+                    moveInput_Int = -1;
+                else
+                    moveInput_Int = 0;
+
+                Debug.Log(moveInput_Int);
+
+                if (transform.localScale.x != moveInput_Int && moveInput_Int != 0)
+                {
+                    Debug.Log("HeeHee");
+                    anim.SetBool("MoonWalk", true);
+                }
+                else
+                {
+                    Debug.Log("No");
+                    anim.SetBool("MoonWalk", false);
+                }
+            }
         }
 
         ///////////////////////// Jump Input    점프 인풋

@@ -8,6 +8,7 @@ public class PlayerMove : MonoBehaviour
     private PlayerAnimControl anim;
 
     public bool rawMovement;
+    public bool faceMouseMovement;
 
     public float runSpeed;
     public float walkSpeed;
@@ -38,22 +39,19 @@ public class PlayerMove : MonoBehaviour
     {
         //////////////////////////////////// 좌우 움직임
         if(rawMovement == true)
-        {
             moveInput = Input.GetAxisRaw("Horizontal");    //D 누르면 1, A 누르면 -1
-        }
         else
-        {
             moveInput = Input.GetAxis("Horizontal");    //D 누르면 1로 서서히 변환, A 누르면 -1로 서서히 변환
-        }
         
 
-        if(Input.GetKey("left shift")) { speed = runSpeed; }    //Shift 누르면 스피드는 달리기 속도
-        else { speed = walkSpeed; } //아니면 스피드는 일반 속도
+        if(Input.GetKey("left shift"))
+            speed = runSpeed;   //Shift 누르면 스피드는 달리기 속도
+        else
+            speed = walkSpeed;  //아니면 스피드는 일반 속도
+
 
         if(Input.GetKey("a") && Input.GetKey("d"))      //A랑 D 같이 누르면 멈추기
-        {
             speed = 0;
-        }
 
         if(Input.GetKey("s") && onGround == true)   //S 누르고 땅에 있으면 움츠리고 멈추기
         {
@@ -61,22 +59,30 @@ public class PlayerMove : MonoBehaviour
             speed = 0;
         }
         else
-        {
             crouched = false;
-        }
 
 
         rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
-        
+
         /////////////////////////////////// 좌우 반전
-        if(facingRight && moveInput < 0)
+        if (faceMouseMovement)
         {
-            Flip();     
+            Vector3 mousePos = Input.mousePosition;
+            mousePos = Camera.main.ScreenToWorldPoint(mousePos);
+            
+            if(mousePos.x >= Camera.main.transform.position.x)
+                FaceInDirection(true);
+            else
+                FaceInDirection(false);
         }
-        else if (!facingRight && moveInput > 0)
+        else
         {
-            Flip();
+            if (facingRight && moveInput < 0)
+                Flip();
+            else if (!facingRight && moveInput > 0)
+                Flip();
         }
+        
     }
 
     private void Update()
@@ -92,9 +98,7 @@ public class PlayerMove : MonoBehaviour
         }
 
         if(rb.velocity.y == 0 && onGround == true)
-        {
             jumped = false;
-        }
 
     }
     /////////////////////////////////// 좌우 반전 함수
@@ -104,5 +108,13 @@ public class PlayerMove : MonoBehaviour
         Vector2 scaler = transform.localScale;
         scaler.x *= -1;
         transform.localScale = scaler;
+    }
+
+    void FaceInDirection(bool faceRight)
+    {
+        if (faceRight)
+            transform.localScale = new Vector3(1, 1, 1);
+        else
+            transform.localScale = new Vector3(-1, 1, 1);
     }
 }
