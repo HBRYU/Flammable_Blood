@@ -34,20 +34,6 @@ public class PlayerAnimControl : MonoBehaviour
         {
             anim.SetBool("Crouched", false);
 
-            //////////////////////////// Movement Input     좌 우 움직임 인풋
-            if (Input.GetAxisRaw("Horizontal") != 0)
-            {
-                if (Input.GetKey("left shift"))
-                {
-                    anim.SetInteger("Speed", 2);
-                }
-                else
-                {
-                    anim.SetInteger("Speed", 1);
-                }
-            }
-            else { anim.SetInteger("Speed", 0); }
-
             if (pm.faceMouseMovement)
             {
                 int moveInput_Int;
@@ -72,6 +58,22 @@ public class PlayerAnimControl : MonoBehaviour
                     anim.SetBool("MoonWalk", false);
                 }
             }
+
+            //////////////////////////// Movement Input     좌 우 움직임 인풋
+            if (Input.GetAxisRaw("Horizontal") != 0)
+            {
+                if (Input.GetKey("left shift"))
+                {
+                    anim.SetInteger("Speed", 2);
+                }
+                else
+                {
+                    anim.SetInteger("Speed", 1);
+                }
+            }
+            else { anim.SetInteger("Speed", 0); }
+
+           
         }
 
         ///////////////////////// Jump Input    점프 인풋
