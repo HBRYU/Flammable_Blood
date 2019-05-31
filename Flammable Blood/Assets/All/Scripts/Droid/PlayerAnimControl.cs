@@ -45,16 +45,12 @@ public class PlayerAnimControl : MonoBehaviour
                 else
                     moveInput_Int = 0;
 
-                Debug.Log(moveInput_Int);
-
                 if (transform.localScale.x != moveInput_Int && moveInput_Int != 0)
                 {
-                    Debug.Log("HeeHee");
                     anim.SetBool("MoonWalk", true);
                 }
                 else
                 {
-                    Debug.Log("No");
                     anim.SetBool("MoonWalk", false);
                 }
             }
