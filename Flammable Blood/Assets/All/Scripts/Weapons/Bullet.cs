@@ -54,7 +54,6 @@ public class Bullet : MonoBehaviour
 
                 if (!ignoreCollisionTags.Contains(other.tag))
                 {
-                    Debug.Log(other.tag);
                     if (other.CompareTag("Enemy") && !hitEnemy_Flag)
                     {
                         HitEnemy();
@@ -82,9 +81,8 @@ public class Bullet : MonoBehaviour
             }
         }
 
-        void HitEnemy()     ///////////// 적을 맞췄을 때:
+        void HitEnemy()     ///////////// 적을 맞췄을 때: 
         {
-            Debug.Log("Hit enemy: " + other.gameObject);
             GameObject enemy = other.gameObject;
 
             enemy.GetComponent<EnemyStats>().TakeDamage(damage);
