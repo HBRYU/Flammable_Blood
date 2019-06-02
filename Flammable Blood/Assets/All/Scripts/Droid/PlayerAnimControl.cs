@@ -34,53 +34,71 @@ public class PlayerAnimControl : MonoBehaviour
         {
             anim.SetBool("Crouched", false);
 
-            if (pm.faceMouseMovement)
-            {
-                int moveInput_Int;
+            Move();
 
-                if (Input.GetAxis("Horizontal") > 0)
-                    moveInput_Int = 1;
-                else if (Input.GetAxis("Horizontal") < 0)
-                    moveInput_Int = -1;
-                else
-                    moveInput_Int = 0;
-
-                if (transform.localScale.x != moveInput_Int && moveInput_Int != 0)
-                {
-                    anim.SetBool("MoonWalk", true);
-                }
-                else
-                {
-                    anim.SetBool("MoonWalk", false);
-                }
-            }
-
-            //////////////////////////// Movement Input     좌 우 움직임 인풋
-            if (Input.GetAxisRaw("Horizontal") != 0)
-            {
-                if (Input.GetKey("left shift"))
-                {
-                    anim.SetInteger("Speed", 2);
-                }
-                else
-                {
-                    anim.SetInteger("Speed", 1);
-                }
-            }
-            else { anim.SetInteger("Speed", 0); }
-
-           
         }
 
         ///////////////////////// Jump Input    점프 인풋
         bool onGround;
-        if (pm.onGround != null) { onGround = true; }
-        else { onGround = false; }
+
+        if (pm.onGround != null)
+            onGround = true;
+        else
+            onGround = false;
 
         anim.SetBool("OnGround", onGround);
         anim.SetFloat("YVel", rb.velocity.y);
     }
     
+    void Move()
+    {
+        if (pm.faceMouseMovement)
+        {
+            int moveInput_Int;
+
+            if (Input.GetAxis("Horizontal") > 0)
+                moveInput_Int = 1;
+            else if (Input.GetAxis("Horizontal") < 0)
+                moveInput_Int = -1;
+            else
+                moveInput_Int = 0;
+
+            if(Input.GetAxisRaw("Horizontal") == 0)
+            {
+                anim.SetInteger("Speed", 0);
+            }
+            else if (transform.localScale.x != moveInput_Int && moveInput_Int != 0)
+            {
+                //anim.SetBool("MoonWalk", true);
+                if (Input.GetKey("left shift"))
+                    anim.SetInteger("Speed", -2);
+                else
+                    anim.SetInteger("Speed", -1);
+                }
+            else
+            {
+                //anim.SetBool("MoonWalk", false);
+                if (Input.GetKey("left shift"))
+                    anim.SetInteger("Speed", 2);
+                else
+                    anim.SetInteger("Speed", 1);
+            }
+        }
+        else
+        {
+            //////////////////////////// Movement Input     좌 우 움직임 인풋
+            if (Input.GetAxisRaw("Horizontal") != 0)
+            {
+                if (Input.GetKey("left shift"))
+                    anim.SetInteger("Speed", 2);
+                else
+                    anim.SetInteger("Speed", 1);
+            }
+            else
+                anim.SetInteger("Speed", 0);
+
+        }
+    }
 
     public void Jump()
     {
@@ -117,13 +135,9 @@ public class PlayerAnimControl : MonoBehaviour
     public void Aim(bool aim)
     {
         if(aim == true)
-        {
             anim.SetBool("Aim", true);
-        }
         else
-        {
             anim.SetBool("Aim", false);
-        }
     }
 
 }
