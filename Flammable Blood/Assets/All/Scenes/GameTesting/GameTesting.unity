@@ -9319,7 +9319,6 @@ GameObject:
   m_Component:
   - component: {fileID: 570840552}
   - component: {fileID: 570840551}
-  - component: {fileID: 570840553}
   m_Layer: 0
   m_Name: Stun
   m_TagString: Untagged
@@ -9343,6 +9342,7 @@ MonoBehaviour:
   category: Stun
   gun: {fileID: 2041693300}
   rapidFire: 0
+  hideOnEquip: 0
   reloadAnimDelay: 0
   ID: 0
   is_shooting: 0
@@ -9364,25 +9364,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &570840553
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 570840550}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c01fbe81ed847d644b05ce4b0f0d8d13, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &762385868
 PrefabInstance:
   m_ObjectHideFlags: 0
