@@ -22,7 +22,7 @@ public class WeaponStats : MonoBehaviour
     public string category;
     public GameObject gun;
 
-    public bool rapidFire;
+    public bool rapidFire, hideOnEquip;
     public float reloadAnimDelay;
 
     [HideInInspector]
@@ -49,6 +49,8 @@ public class WeaponStats : MonoBehaviour
 
     public void Drop()
     {
+        if (hideOnEquip)
+            GetComponent<SpriteRenderer>().enabled = true;
         transform.parent = null;
         GetComponent<Rigidbody2D>().simulated = true;
         GetComponent<PolygonCollider2D>().enabled = true;
@@ -57,6 +59,8 @@ public class WeaponStats : MonoBehaviour
 
     public void PickUp(Transform parent)
     {
+        if (hideOnEquip)
+            GetComponent<SpriteRenderer>().enabled = false;
         transform.SetParent(parent, true);
         transform.position = parent.position;
         transform.rotation = parent.rotation;

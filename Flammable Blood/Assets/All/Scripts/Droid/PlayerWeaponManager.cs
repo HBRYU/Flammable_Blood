@@ -45,7 +45,6 @@ public class PlayerWeaponManager : MonoBehaviour
         ac = GetComponent<PlayerAnimControl>();     // 플레이어 애니메이션 매니저 스크립트
         pm = GetComponent<PlayerMove>();
         activeGunFolder = gunFolder_Default;
-        weapons[0] = defaultWeapon;
         Arm(defaultWeapon);
 
         //  무기 수 제한
@@ -67,25 +66,15 @@ public class PlayerWeaponManager : MonoBehaviour
 
         if (pm.crouched)
         {
-            activeGunFolder = gunFolder_Crouched;
             foreach(GameObject weapon in weapons)
-            {
-                weapon.transform.parent = activeGunFolder;
-                weapon.transform.position = activeGunFolder.position;
-                weapon.transform.rotation = activeGunFolder.rotation;
-                weapon.transform.localScale = activeGunFolder.localScale;
-            }
+                SetWeaponsFolder(weapon, gunFolder_Crouched);
+            SetWeaponsFolder(defaultWeapon, gunFolder_Crouched);
         }
         else
         {
-            activeGunFolder = gunFolder_Default;
             foreach (GameObject weapon in weapons)
-            {
-                weapon.transform.parent = activeGunFolder;
-                weapon.transform.position = activeGunFolder.position;
-                weapon.transform.rotation = activeGunFolder.rotation;
-                weapon.transform.localScale = activeGunFolder.localScale;
-            }
+                SetWeaponsFolder(weapon, gunFolder_Default);
+            SetWeaponsFolder(defaultWeapon, gunFolder_Default);
         }
 
         // 총 발사하고 있다면 발사 애니메이션 플레이
@@ -118,13 +107,13 @@ public class PlayerWeaponManager : MonoBehaviour
     {
         if(weapons.Count > maxWeaponCount)
         {
-            if (activeWeapon != null)
+            if (activeWeapon != null && activeWeapon != defaultWeapon)
             {
                 activeWeapon.SetActive(true);
                 activeWeapon.GetComponent<WeaponStats>().Drop();
                 weapons.Remove(activeWeapon);
             }
-            else
+            else if(activeWeapon == null)
             {
                 lastActiveWeapon.SetActive(true);
                 lastActiveWeapon.GetComponent<WeaponStats>().Drop();
@@ -159,7 +148,6 @@ public class PlayerWeaponManager : MonoBehaviour
             SetCategoryAnimWeight(anim.GetLayerIndex(AW_category), true);
         }
 
-        /*
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             if(activeWeapon == defaultWeapon)
@@ -172,13 +160,12 @@ public class PlayerWeaponManager : MonoBehaviour
             {
                 activeWeapon.SetActive(false);
                 activeWeapon = defaultWeapon;
-                activeWeapon
+                activeWeapon.SetActive(true);
             }
             SetVariables();
             SetCategoryAnimWeight(anim.GetLayerIndex(AW_category), true);
 
         }
-        */
     }
 
     void SetCategoryAnimWeight(int index, bool useLegs)     //애니메이션 종류 설정
@@ -188,15 +175,18 @@ public class PlayerWeaponManager : MonoBehaviour
             anim.SetLayerWeight(i, 0);
         }
         anim.SetLayerWeight(index, 100);
-        if(useLegs == true) { anim.SetLayerWeight(anim.GetLayerIndex("Legs Only"), 100); }      //다리는 따로 움직이게
+        if(useLegs == true)
+            anim.SetLayerWeight(anim.GetLayerIndex("Legs Only"), 100);   //다리는 따로 움직이게
     }
 
     void Animate()
     {
         if(AW_rapidFire == true)        //연사 발사 애니메이션 플레이
         {
-            if (AW_WS.is_shooting == true)          { ac.Shoot(activeWeapon, true, true); }
-            else                                                           { ac.Shoot(activeWeapon, false, true); }
+            if (AW_WS.is_shooting == true)
+                ac.Shoot(activeWeapon, true, true);
+            else
+                ac.Shoot(activeWeapon, false, true);
         }
         
         if (AW_WS.is_reloading == true)       //일정 딜레이 후 재장전 애니메이션 플레이
@@ -217,8 +207,10 @@ public class PlayerWeaponManager : MonoBehaviour
             reloading = false;
         }
 
-        if(AW_WS.is_aiming == true)       { ac.Aim(true); }
-        else                                                    {ac.Aim(false);}
+        if(AW_WS.is_aiming == true)
+            ac.Aim(true);
+        else
+            ac.Aim(false);
 
     }
 
@@ -233,5 +225,13 @@ public class PlayerWeaponManager : MonoBehaviour
         AW_category = AW_WS.category;
         AW_rapidFire = AW_WS.rapidFire;
         AW_reloadDelay = AW_WS.reloadAnimDelay;
+    }
+
+    void SetWeaponsFolder(GameObject weapon, Transform folder)
+    {
+        weapon.transform.parent = folder;
+        weapon.transform.position = folder.position;
+        weapon.transform.rotation = folder.rotation;
+        weapon.transform.localScale = folder.localScale;
     }
 }

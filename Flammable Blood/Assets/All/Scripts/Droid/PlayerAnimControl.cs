@@ -111,12 +111,22 @@ public class PlayerAnimControl : MonoBehaviour
         {
             if(shoot == true)
             {
-                gun.GetComponent<Animator>().SetBool("Shooting", true);
+                try
+                {
+                    gun.GetComponent<Animator>().SetBool("Shooting", true);
+                }
+                catch
+                { }
                 anim.SetBool("Shooting", true);
             }
             else
             {
-                gun.GetComponent<Animator>().SetBool("Shooting", false);
+                try
+                {
+                    gun.GetComponent<Animator>().SetBool("Shooting", false);
+                }
+                catch
+                { }
                 anim.SetBool("Shooting", false);
             }
         }
