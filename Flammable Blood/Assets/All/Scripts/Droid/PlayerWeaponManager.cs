@@ -26,6 +26,7 @@ public class PlayerWeaponManager : MonoBehaviour
     public List<GameObject> weapons;
     public GameObject activeWeapon;
     private GameObject lastActiveWeapon;
+    public GameObject defaultWeapon;
 
     private bool reloading;
 
@@ -44,14 +45,15 @@ public class PlayerWeaponManager : MonoBehaviour
         ac = GetComponent<PlayerAnimControl>();     // 플레이어 애니메이션 매니저 스크립트
         pm = GetComponent<PlayerMove>();
         activeGunFolder = gunFolder_Default;
+        weapons[0] = defaultWeapon;
+        Arm(defaultWeapon);
 
         //  무기 수 제한
-        while(weapons.Count > maxWeaponCount)
+        while (weapons.Count > maxWeaponCount)
         {
             weapons[weapons.Count - 1].GetComponent<WeaponStats>().Drop();
             weapons.Remove(weapons[weapons.Count - 1]);
         }
-
         // 총이 없을 때
         if (activeWeapon == null)
         {
@@ -129,7 +131,8 @@ public class PlayerWeaponManager : MonoBehaviour
                 weapons.Remove(lastActiveWeapon);
             }
         }
-        else if (activeWeapon != null) { activeWeapon.SetActive(false); }
+        else if (activeWeapon != null)
+            activeWeapon.SetActive(false);
         activeWeapon = weapon;
         SetVariables();
         SetCategoryAnimWeight(anim.GetLayerIndex(AW_category), true);
@@ -155,6 +158,27 @@ public class PlayerWeaponManager : MonoBehaviour
             SetVariables();
             SetCategoryAnimWeight(anim.GetLayerIndex(AW_category), true);
         }
+
+        /*
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            if(activeWeapon == defaultWeapon)
+            {
+                activeWeapon.SetActive(false);
+                activeWeapon = weapons[0];
+                activeWeapon.SetActive(true);
+            }
+            else
+            {
+                activeWeapon.SetActive(false);
+                activeWeapon = defaultWeapon;
+                activeWeapon
+            }
+            SetVariables();
+            SetCategoryAnimWeight(anim.GetLayerIndex(AW_category), true);
+
+        }
+        */
     }
 
     void SetCategoryAnimWeight(int index, bool useLegs)     //애니메이션 종류 설정

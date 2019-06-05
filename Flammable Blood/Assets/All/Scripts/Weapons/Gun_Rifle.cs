@@ -12,7 +12,7 @@ public class Gun_Rifle : MonoBehaviour
     /// </summary>
     private GM _GM_;
     private GameObject player;
-    public WeaponStats ws;
+    private WeaponStats ws;
 
     public bool useAim, autoReload;
 
@@ -43,6 +43,7 @@ public class Gun_Rifle : MonoBehaviour
     {
         _GM_ = GameObject.FindGameObjectWithTag("GM").GetComponent<GM>();
         player = _GM_.player;
+        ws = transform.parent.GetComponent<WeaponStats>();
         ammo = magSize;
     }
 

@@ -55,7 +55,8 @@ public class PlayerPickUp : MonoBehaviour
                     switch (closestItem.GetComponent<ItemPickUp>().targetScript)
                     {
                         case "WeaponStats":
-                            closestItem.GetComponent<ItemPickUp>().PickUp(weaponsFolder.transform);
+                            if(GetComponent<PlayerWeaponManager>().activeWeapon != GetComponent<PlayerWeaponManager>().defaultWeapon)
+                                closestItem.GetComponent<ItemPickUp>().PickUp(weaponsFolder.transform);
                             break;
                         default:
                             closestItem.GetComponent<ItemPickUp>().PickUp(transform);
