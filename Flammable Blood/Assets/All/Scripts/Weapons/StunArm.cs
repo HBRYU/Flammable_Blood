@@ -32,8 +32,11 @@ public class StunArm : MonoBehaviour
     {
         if(recharge_Timer >= rechargeSpeed)
         {
-            Shock();
-            recharge_Timer = 0.0f;
+            if (Input.GetMouseButton(0))
+            {
+                Shock();
+                recharge_Timer = 0.0f;
+            }
         }
         else
         {
@@ -43,6 +46,8 @@ public class StunArm : MonoBehaviour
 
     void Shock()
     {
+        ws.Shoot();
+
         Collider2D[] hit = Physics2D.OverlapCircleAll(damagePoint.position, damageRadius, enemyLayers);
 
         foreach(Collider2D enemy in hit)
@@ -59,8 +64,6 @@ public class StunArm : MonoBehaviour
                     val1 = -1;
 
                 enemyStats.Knockback(knockbackForce, "simpleX", val1);
-
-                ws.Shoot();
             }
         }
     }

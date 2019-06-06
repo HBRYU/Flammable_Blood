@@ -132,7 +132,12 @@ public class PlayerAnimControl : MonoBehaviour
         }
         else
         {
-            gun.GetComponent<Animator>().SetTrigger("Shoot");
+            try
+            {
+                gun.GetComponent<Animator>().SetTrigger("Shoot");
+            }
+            catch
+            { }
             anim.SetTrigger("Shoot");
         }
     }

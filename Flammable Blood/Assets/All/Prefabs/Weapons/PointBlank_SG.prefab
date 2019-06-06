@@ -80,7 +80,7 @@ MonoBehaviour:
   maxPelletCount: 6
   minPelletCount: 4
   barrelEnd: {fileID: 8935129090296667514}
-  bulletSpeed: 25
+  bulletSpeed: 45
   fireRate: 0.5
   accuracy: 13
   damagePerPellet: 5
@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 8935129091349932219}
   m_Layer: 9
   m_Name: PointBlank_SG
-  m_TagString: Player/Inventory/Weapons
+  m_TagString: Weapons
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -282,10 +282,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86637fd7b53f8c4438332560fb34e8be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: PointBlank_SG
   category: SG
   gun: {fileID: 8935129090241572052}
+  collider: {fileID: 8935129091349932215}
   rapidFire: 0
+  hideOnEquip: 0
   reloadAnimDelay: 0
   ID: 0
   is_shooting: 0

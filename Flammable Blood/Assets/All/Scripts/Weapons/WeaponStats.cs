@@ -22,6 +22,8 @@ public class WeaponStats : MonoBehaviour
     public string category;
     public GameObject gun;
 
+    public Collider2D collider;
+
     public bool rapidFire, hideOnEquip;
     public float reloadAnimDelay;
 
@@ -53,7 +55,7 @@ public class WeaponStats : MonoBehaviour
             GetComponent<SpriteRenderer>().enabled = true;
         transform.parent = null;
         GetComponent<Rigidbody2D>().simulated = true;
-        GetComponent<PolygonCollider2D>().enabled = true;
+        collider.enabled = true;
         gun.SetActive(false);
     }
 
@@ -66,7 +68,7 @@ public class WeaponStats : MonoBehaviour
         transform.rotation = parent.rotation;
         transform.localScale = parent.localScale;
         GetComponent<Rigidbody2D>().simulated = false;
-        GetComponent<PolygonCollider2D>().enabled = false;
+        collider.enabled = false;
         gun.SetActive(true);
         _GM_.player.GetComponent<PlayerWeaponManager>().weapons.Add(gameObject);
         _GM_.player.GetComponent<PlayerWeaponManager>().Arm(gameObject);

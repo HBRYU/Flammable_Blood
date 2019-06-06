@@ -103,7 +103,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d7829e9bc5ce3e459411432c941a0bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ws: {fileID: 9168635345387689232}
   useAim: 0
   autoReload: 0
   bullet: {fileID: 1646669890229493766, guid: 83027b3672232174693e1d42facae6a1, type: 3}
@@ -141,7 +140,7 @@ GameObject:
   - component: {fileID: 6244117417124532949}
   m_Layer: 9
   m_Name: Millitary_AR
-  m_TagString: Untagged
+  m_TagString: Weapons
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -227,7 +226,10 @@ MonoBehaviour:
   name: Frontier_AR
   category: AR
   gun: {fileID: 3410695344367587472}
+  collider: {fileID: 5150104150689436769}
   rapidFire: 1
+  hideOnEquip: 0
+  reloadAnimDelay: 0
   ID: 0
   is_shooting: 0
   is_reloading: 0

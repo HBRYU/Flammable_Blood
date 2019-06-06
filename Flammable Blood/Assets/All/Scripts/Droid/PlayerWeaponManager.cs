@@ -45,7 +45,7 @@ public class PlayerWeaponManager : MonoBehaviour
         ac = GetComponent<PlayerAnimControl>();     // 플레이어 애니메이션 매니저 스크립트
         pm = GetComponent<PlayerMove>();
         activeGunFolder = gunFolder_Default;
-        Arm(defaultWeapon);
+        //defaultWeapon.GetComponent<WeaponStats>().PickUp(transform);
 
         //  무기 수 제한
         while (weapons.Count > maxWeaponCount)
@@ -97,6 +97,7 @@ public class PlayerWeaponManager : MonoBehaviour
             if (Input.GetKeyDown("`"))
             {
                 activeWeapon = lastActiveWeapon;
+                Debug.Log(activeWeapon);
                 activeWeapon.SetActive(true);
                 SetCategoryAnimWeight(anim.GetLayerIndex(AW_category), true);
             }
@@ -107,7 +108,7 @@ public class PlayerWeaponManager : MonoBehaviour
     {
         if(weapons.Count > maxWeaponCount)
         {
-            if (activeWeapon != null && activeWeapon != defaultWeapon)
+            if (activeWeapon != null)
             {
                 activeWeapon.SetActive(true);
                 activeWeapon.GetComponent<WeaponStats>().Drop();
@@ -123,6 +124,7 @@ public class PlayerWeaponManager : MonoBehaviour
         else if (activeWeapon != null)
             activeWeapon.SetActive(false);
         activeWeapon = weapon;
+        Debug.Log("Active weapon set");
         SetVariables();
         SetCategoryAnimWeight(anim.GetLayerIndex(AW_category), true);
     }
@@ -216,6 +218,7 @@ public class PlayerWeaponManager : MonoBehaviour
 
     public void Shoot()     //한번 쏘는 애니메이션 플레이
     {
+        Debug.Log("PlayerWeaponManager: Shoot()");
         ac.Shoot(activeWeapon, true, false);
     }
 
