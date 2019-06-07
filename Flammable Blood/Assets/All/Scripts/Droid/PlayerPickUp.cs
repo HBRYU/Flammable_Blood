@@ -11,13 +11,7 @@ public class PlayerPickUp : MonoBehaviour
     private float coolDown_Timer;
 
     public GameObject weaponsFolder;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
         if(coolDown_Timer >= coolDown)

@@ -94,7 +94,7 @@ public class PlayerWeaponManager : MonoBehaviour
         }
         else
         {
-            if (Input.GetKeyDown("`"))
+            if (Input.GetKeyDown("`") && weapons.Count > 0)
             {
                 activeWeapon = lastActiveWeapon;
                 Debug.Log(activeWeapon);
