@@ -68,13 +68,13 @@ public class PlayerWeaponManager : MonoBehaviour
         {
             foreach(GameObject weapon in weapons)
                 SetWeaponsFolder(weapon, gunFolder_Crouched);
-            SetWeaponsFolder(defaultWeapon, gunFolder_Crouched);
+            //SetWeaponsFolder(defaultWeapon, gunFolder_Crouched);
         }
         else
         {
             foreach (GameObject weapon in weapons)
                 SetWeaponsFolder(weapon, gunFolder_Default);
-            SetWeaponsFolder(defaultWeapon, gunFolder_Default);
+            //SetWeaponsFolder(defaultWeapon, gunFolder_Default);
         }
 
         // 총 발사하고 있다면 발사 애니메이션 플레이
@@ -106,15 +106,16 @@ public class PlayerWeaponManager : MonoBehaviour
 
     public void Arm(GameObject weapon)      //무기 줍기
     {
-        if(weapons.Count > maxWeaponCount)
+        if (weapons.Count > maxWeaponCount)
         {
             if (activeWeapon != null)
             {
+                Debug.Log("Dropping :" + activeWeapon.name);
                 activeWeapon.SetActive(true);
                 activeWeapon.GetComponent<WeaponStats>().Drop();
                 weapons.Remove(activeWeapon);
             }
-            else if(activeWeapon == null)
+            else if (activeWeapon == null)
             {
                 lastActiveWeapon.SetActive(true);
                 lastActiveWeapon.GetComponent<WeaponStats>().Drop();
@@ -122,7 +123,10 @@ public class PlayerWeaponManager : MonoBehaviour
             }
         }
         else if (activeWeapon != null)
+        {
+            Debug.Log("Disabling weapon: " + activeWeapon.name);
             activeWeapon.SetActive(false);
+        }
         activeWeapon = weapon;
         Debug.Log("Active weapon set");
         SetVariables();
@@ -218,7 +222,6 @@ public class PlayerWeaponManager : MonoBehaviour
 
     public void Shoot()     //한번 쏘는 애니메이션 플레이
     {
-        Debug.Log("PlayerWeaponManager: Shoot()");
         ac.Shoot(activeWeapon, true, false);
     }
 

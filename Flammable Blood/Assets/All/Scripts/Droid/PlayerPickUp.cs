@@ -37,7 +37,9 @@ public class PlayerPickUp : MonoBehaviour
                 foreach (Collider2D item in checkRadius)
                 {
                     float distance = Vector2.Distance(transform.position, item.transform.position);
-                    if (distance < minDistance)
+                    GameObject itemParent = item.transform.parent.gameObject;
+
+                    if (distance < minDistance && (itemParent.transform.parent == null || !itemParent.transform.parent.tag.Contains("Player/Inventory")))
                     {
                         closestItem = item.gameObject;
                         minDistance = distance;

@@ -93,18 +93,18 @@ TextureImporter:
       name: FB_StunArm_0
       rect:
         serializedVersion: 2
-        x: 33
-        y: 34
-        width: 17
-        height: 27
-      alignment: 9
-      pivot: {x: 1, y: 0.5925926}
+        x: 0
+        y: 200
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6dccdfd0b6ba0a4391ae3bf9914f5fe
+      spriteID: 20be04bdb2fbe354fb48224a3e9b4a5d
       vertices: []
       indices: 
       edges: []
@@ -124,7 +124,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c19e67f624f7c44a96e773f5d2abb59
+      spriteID: 7545f0686f25d224cad01311be5df40c
       vertices: []
       indices: 
       edges: []
@@ -133,18 +133,18 @@ TextureImporter:
       name: FB_StunArm_2
       rect:
         serializedVersion: 2
-        x: 33
-        y: 34
-        width: 17
-        height: 27
-      alignment: 9
-      pivot: {x: 1, y: 0.5925926}
+        x: 0
+        y: 100
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1cabf286bc9794f42a01e117162af47a
+      spriteID: 13a86f4dd62b3d64fae73025bf19ceab
       vertices: []
       indices: 
       edges: []
@@ -153,18 +153,18 @@ TextureImporter:
       name: FB_StunArm_3
       rect:
         serializedVersion: 2
-        x: 33
-        y: 34
-        width: 17
-        height: 27
-      alignment: 9
-      pivot: {x: 1, y: 0.5925926}
+        x: 100
+        y: 100
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 431bdda31b836904b8893f11cbf34f62
+      spriteID: 6687cd4814761254f91e63f4be10ab5b
       vertices: []
       indices: 
       edges: []
@@ -173,18 +173,18 @@ TextureImporter:
       name: FB_StunArm_4
       rect:
         serializedVersion: 2
-        x: 33
-        y: 34
-        width: 17
-        height: 27
-      alignment: 9
-      pivot: {x: 1, y: 0.5925926}
+        x: 0
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d2424b573f5df544bfe2ec620e9a488
+      spriteID: 9ef164c2938ddcb4387697d30c41f135
       vertices: []
       indices: 
       edges: []
@@ -193,18 +193,18 @@ TextureImporter:
       name: FB_StunArm_5
       rect:
         serializedVersion: 2
-        x: 33
-        y: 34
-        width: 17
-        height: 27
-      alignment: 9
-      pivot: {x: 1, y: 0.5925926}
+        x: 100
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc4659ff3cd6fe64eb505e3accd09fda
+      spriteID: 96c800e77a8e97d46a1843523e486f5a
       vertices: []
       indices: 
       edges: []

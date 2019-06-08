@@ -20363,6 +20363,31 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3440588014731138119, guid: 1ac991a6017ca2e4d9cbc9c0d743dd34,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3440588014731138119, guid: 1ac991a6017ca2e4d9cbc9c0d743dd34,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.061005116
+      objectReference: {fileID: 0}
+    - target: {fileID: 3440588014731138119, guid: 1ac991a6017ca2e4d9cbc9c0d743dd34,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.2070932
+      objectReference: {fileID: 0}
+    - target: {fileID: 6852296338917623934, guid: 1ac991a6017ca2e4d9cbc9c0d743dd34,
+        type: 3}
+      propertyPath: defaultWeapon
+      value: 
+      objectReference: {fileID: 570840550}
+    - target: {fileID: 6852296338917623934, guid: 1ac991a6017ca2e4d9cbc9c0d743dd34,
+        type: 3}
+      propertyPath: maxWeaponCount
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6654551699224524421, guid: 1ac991a6017ca2e4d9cbc9c0d743dd34,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -20388,17 +20413,32 @@ PrefabInstance:
       propertyPath: m_LocalRotation.w
       value: 0.7071069
       objectReference: {fileID: 0}
+    - target: {fileID: 9161734258796092610, guid: 1ac991a6017ca2e4d9cbc9c0d743dd34,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9161734258796092610, guid: 1ac991a6017ca2e4d9cbc9c0d743dd34,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6654551697943417673, guid: 1ac991a6017ca2e4d9cbc9c0d743dd34,
+        type: 3}
+      propertyPath: m_SpriteMesh
+      value: 
+      objectReference: {fileID: 11400000, guid: 3a6b9d9347572ef47931ae948430ab09,
+        type: 2}
+    - target: {fileID: 4242115, guid: 1ac991a6017ca2e4d9cbc9c0d743dd34, type: 3}
+      propertyPath: m_Frame
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6654551699180748136, guid: 1ac991a6017ca2e4d9cbc9c0d743dd34,
         type: 3}
       propertyPath: m_SpriteMesh
       value: 
       objectReference: {fileID: 11400000, guid: 991e574a6c1d7414eaffeca2fc2d656e,
         type: 2}
-    - target: {fileID: 6654551699414345420, guid: 1ac991a6017ca2e4d9cbc9c0d743dd34,
-        type: 3}
-      propertyPath: m_Frame
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6654551699799477906, guid: 1ac991a6017ca2e4d9cbc9c0d743dd34,
         type: 3}
       propertyPath: m_LocalRotation.z
@@ -20433,6 +20473,22 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.w
       value: -0.03641043
+      objectReference: {fileID: 0}
+    - target: {fileID: 6654551699275547728, guid: 1ac991a6017ca2e4d9cbc9c0d743dd34,
+        type: 3}
+      propertyPath: m_SpriteMesh
+      value: 
+      objectReference: {fileID: 11400000, guid: ea8a03e7713b5b64ba9a9311ea0dc094,
+        type: 2}
+    - target: {fileID: 6654551699396658014, guid: 1ac991a6017ca2e4d9cbc9c0d743dd34,
+        type: 3}
+      propertyPath: m_SpriteMesh
+      value: 
+      objectReference: {fileID: 11400000, guid: 24f15439f6bf2bf4992df965d113f5d9,
+        type: 2}
+    - target: {fileID: 1933373782, guid: 1ac991a6017ca2e4d9cbc9c0d743dd34, type: 3}
+      propertyPath: m_Frame
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6654551699275291554, guid: 1ac991a6017ca2e4d9cbc9c0d743dd34,
         type: 3}
@@ -20614,39 +20670,8 @@ PrefabInstance:
       propertyPath: m_LocalRotation.w
       value: 0.7713368
       objectReference: {fileID: 0}
-    - target: {fileID: 6852296338917623934, guid: 1ac991a6017ca2e4d9cbc9c0d743dd34,
+    - target: {fileID: 6654551699414345420, guid: 1ac991a6017ca2e4d9cbc9c0d743dd34,
         type: 3}
-      propertyPath: defaultWeapon
-      value: 
-      objectReference: {fileID: 570840550}
-    - target: {fileID: 6852296338917623934, guid: 1ac991a6017ca2e4d9cbc9c0d743dd34,
-        type: 3}
-      propertyPath: maxWeaponCount
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6654551697943417673, guid: 1ac991a6017ca2e4d9cbc9c0d743dd34,
-        type: 3}
-      propertyPath: m_SpriteMesh
-      value: 
-      objectReference: {fileID: 11400000, guid: 3a6b9d9347572ef47931ae948430ab09,
-        type: 2}
-    - target: {fileID: 4242115, guid: 1ac991a6017ca2e4d9cbc9c0d743dd34, type: 3}
-      propertyPath: m_Frame
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6654551699275547728, guid: 1ac991a6017ca2e4d9cbc9c0d743dd34,
-        type: 3}
-      propertyPath: m_SpriteMesh
-      value: 
-      objectReference: {fileID: 11400000, guid: ea8a03e7713b5b64ba9a9311ea0dc094,
-        type: 2}
-    - target: {fileID: 6654551699396658014, guid: 1ac991a6017ca2e4d9cbc9c0d743dd34,
-        type: 3}
-      propertyPath: m_SpriteMesh
-      value: 
-      objectReference: {fileID: 11400000, guid: 24f15439f6bf2bf4992df965d113f5d9,
-        type: 2}
-    - target: {fileID: 1933373782, guid: 1ac991a6017ca2e4d9cbc9c0d743dd34, type: 3}
       propertyPath: m_Frame
       value: 0
       objectReference: {fileID: 0}
@@ -20793,11 +20818,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8953413929767869711, guid: be2670657b676aa4f94789fce9b0c9ac,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be2670657b676aa4f94789fce9b0c9ac, type: 3}
