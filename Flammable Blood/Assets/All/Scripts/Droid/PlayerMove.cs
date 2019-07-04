@@ -16,10 +16,14 @@ public class PlayerMove : MonoBehaviour
     public float jumpForce;
 
     [HideInInspector]
-    public bool jumped, hadJumped, crouched;
+    public bool jumped, hadJumped, crouched, usingJetpack;
 
     private bool facingRight = true;
     private float moveInput;
+    public bool jetpack;
+    public float jetpack_force;
+    public float jetpack_terminalV;
+    public ParticleSystem jetpack_particles;
 
     public Transform groundCheck;
     public float groundCheckRadius;
@@ -32,6 +36,7 @@ public class PlayerMove : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<PlayerAnimControl>();
+        //jetpack_particles.Stop();
     }
 
     // Update is called once per frame
@@ -83,6 +88,23 @@ public class PlayerMove : MonoBehaviour
                 Flip();
         }
         
+        /////////////////////////////////   제트팩
+        if(onGround == false && Input.GetKeyDown("w"))
+        {
+            usingJetpack = true;
+        }
+        if (usingJetpack && Input.GetKey("w"))
+        {
+            Debug.Log("jetpack on, rb.velocity.y: " + rb.velocity.y);
+            if(rb.velocity.y <= jetpack_terminalV)
+                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y + jetpack_force);
+            jetpack_particles.Play();
+        }
+        if (!Input.GetKey("w"))
+        {
+            usingJetpack = false;
+            jetpack_particles.Stop();
+        }
     }
 
     private void Update()
