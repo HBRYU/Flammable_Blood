@@ -95,7 +95,7 @@ public class PlayerMove : MonoBehaviour
         }
         if (usingJetpack && Input.GetKey("w"))
         {
-            Debug.Log("jetpack on, rb.velocity.y: " + rb.velocity.y);
+            //Debug.Log("jetpack on, rb.velocity.y: " + rb.velocity.y);
             if(rb.velocity.y <= jetpack_terminalV)
                 rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y + jetpack_force);
             jetpack_particles.Play();

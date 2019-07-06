@@ -47,14 +47,23 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
+  - name: Ground
+    uniqueID: 3568657287
+    locked: 0
+  - name: Environment
+    uniqueID: 679854283
     locked: 0
   - name: Particles_behind
     uniqueID: 1735168921
     locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
   - name: Player
     uniqueID: 3401767649
+    locked: 0
+  - name: Bullets
+    uniqueID: 1821757851
     locked: 0
   - name: Particles
     uniqueID: 1272334493

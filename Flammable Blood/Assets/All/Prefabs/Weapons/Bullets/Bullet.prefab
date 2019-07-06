@@ -149,8 +149,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1821757851
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: df9df72db7db2b043afc79bb77ab2400, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -265,3 +265,4 @@ MonoBehaviour:
   - Default
   particles:
   - {fileID: 2200773178758553130, guid: 8eb2624af0df7b546bd1dc32b195f0bf, type: 3}
+  hitEnemy_Flag: 0
