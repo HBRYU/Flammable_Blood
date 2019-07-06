@@ -36,7 +36,6 @@ public class Elevator : MonoBehaviour
     {
         if(Vector2.Distance(transform.position, player.transform.position) <= 0.5 && Input.GetKeyDown("e"))
         {
-            Debug.Log("Set move to true");
             move = true;
         }
         if (move)
@@ -64,7 +63,6 @@ public class Elevator : MonoBehaviour
         }
         else
         {
-            Debug.Log("Set move to false");
             move = false;
             if (current_position == Positions[0])
             {

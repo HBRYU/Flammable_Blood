@@ -97,7 +97,6 @@ public class PlayerWeaponManager : MonoBehaviour
             if (Input.GetKeyDown("`") && weapons.Count > 0)
             {
                 activeWeapon = lastActiveWeapon;
-                Debug.Log(activeWeapon);
                 activeWeapon.SetActive(true);
                 SetCategoryAnimWeight(anim.GetLayerIndex(AW_category), true);
             }
@@ -110,7 +109,6 @@ public class PlayerWeaponManager : MonoBehaviour
         {
             if (activeWeapon != null)
             {
-                Debug.Log("Dropping :" + activeWeapon.name);
                 activeWeapon.SetActive(true);
                 activeWeapon.GetComponent<WeaponStats>().Drop();
                 weapons.Remove(activeWeapon);
@@ -124,11 +122,9 @@ public class PlayerWeaponManager : MonoBehaviour
         }
         else if (activeWeapon != null)
         {
-            Debug.Log("Disabling weapon: " + activeWeapon.name);
             activeWeapon.SetActive(false);
         }
         activeWeapon = weapon;
-        Debug.Log("Active weapon set");
         SetVariables();
         SetCategoryAnimWeight(anim.GetLayerIndex(AW_category), true);
     }
