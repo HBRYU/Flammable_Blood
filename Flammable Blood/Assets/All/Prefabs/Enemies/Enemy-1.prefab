@@ -1413,7 +1413,6 @@ GameObject:
   - component: {fileID: 3381913989965174543}
   - component: {fileID: 6058443094310889732}
   - component: {fileID: 51769172509108284}
-  - component: {fileID: 7335635736749610325}
   m_Layer: 14
   m_Name: Enemy-1
   m_TagString: Enemy
@@ -1530,25 +1529,6 @@ MonoBehaviour:
   patrol_Delay: 15
   patrol_Timeout: 100
   state: Patrol
---- !u!95 &7335635736749610325
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2555248439290324023}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ff10b6d89f450f343a392d1a11f8c0a0, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2555248439309546432
 GameObject:
   m_ObjectHideFlags: 0
