@@ -189,7 +189,10 @@ public class EnemyMovement : MonoBehaviour
             if (cliffCheck.IsTouchingLayers(whatIsGround) && Vector2.Distance(transform.position, player.transform.position) > attackDistance)
                 TravelInDirection(speed_Chase, faceRight);
             else
+            {
                 rb.velocity = new Vector2(0, rb.velocity.y);
+                GetComponent<Droid1_Attack>().attack = true;
+            }
         }
     }
 

@@ -67,10 +67,6 @@ public class EnemyStats : MonoBehaviour
 
     public void Die()
     {
-        SpriteRenderer sr = GetComponent<SpriteRenderer>();
-        sr.color = new Color(0, 0, 0, 1);
-        sr.enabled = false;
-
         GetComponent<EnemyMovement>().state = "Idle";
 
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
