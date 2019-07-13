@@ -22,6 +22,7 @@ public class EnemyBullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("Bullet Spawned");
         rb = GetComponent<Rigidbody2D>();
         transform.Rotate(0, 0, Random.Range(-1.0f, 1.0f) * accuracy);
         //Debug.Log("SCALE: " + wielder.transform.localScale.x);
@@ -38,6 +39,7 @@ public class EnemyBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log(other);
         BulletCollision(other);
     }
 
@@ -59,6 +61,7 @@ public class EnemyBullet : MonoBehaviour
                         HitPlayer();
                     }
 
+                    Debug.Log("Bullet Destroyed");
                     Destroy(gameObject);
                 }
                 break;

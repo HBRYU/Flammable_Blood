@@ -13,6 +13,7 @@ TagManager:
   - Bullet
   - Particles
   - Enemy/Radar
+  - Enemy/Hitbox
   layers:
   - Default
   - TransparentFX
@@ -33,7 +34,7 @@ TagManager:
   - Ground
   - Prop/NoSelfCollision
   - Prop
-  - 
+  - EnemyBullet
   - 
   - 
   - 

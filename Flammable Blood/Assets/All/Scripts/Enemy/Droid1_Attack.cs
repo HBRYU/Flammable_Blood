@@ -5,7 +5,10 @@ using UnityEngine;
 public class Droid1_Attack : MonoBehaviour
 {
     public GameObject projectile;
+    public Transform barrelEnd;
     public float damage;
+    public float bulletSpeed;
+
     public float reloadSpeed;
     private float reload_timer;
 
@@ -29,11 +32,14 @@ public class Droid1_Attack : MonoBehaviour
         reload_timer += Time.deltaTime;
         if(reload_timer >= reloadSpeed)
         {
+            Debug.Log("Spawned Bullet");
             GameObject thisBullet= projectile;
             EnemyBullet thisBulletScript = thisBullet.GetComponent<EnemyBullet>();
             thisBulletScript.wielder = gameObject;
             thisBulletScript.damage = damage;
-            Instantiate(thisBullet, transform.position, Quaternion.identity);
+            thisBulletScript.speed = bulletSpeed;
+            Instantiate(thisBullet, barrelEnd.position, Quaternion.identity);
+            reload_timer = 0;
         }
     }
 }

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7745055535231998377}
   - component: {fileID: 2176972188530225898}
-  m_Layer: 13
+  m_Layer: 19
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 8025147952257807476}
   - component: {fileID: 1646669890229493767}
   - component: {fileID: 6282075171652350366}
-  m_Layer: 13
+  m_Layer: 19
   m_Name: LaserBullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -252,13 +252,14 @@ MonoBehaviour:
   accuracy: 0
   speed: 0
   damage: 0
-  life: 0
+  life: 2
   ignoreCollisionTags:
   - Bullet
   - Weapons
   - Particles
   - Enemy/Radar
   - Enemy
+  - Enemy/Hitbox
   particleName:
   - Default
   particles:
