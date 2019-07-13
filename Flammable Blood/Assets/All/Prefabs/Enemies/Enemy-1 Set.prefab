@@ -17,7 +17,7 @@ MonoBehaviour:
   barrelEnd: {fileID: 6578241287478889575}
   damage: 3
   bulletSpeed: 20
-  reloadSpeed: 0.3
+  reloadSpeed: 0.1
   attack: 0
 --- !u!1 &1250951249714167071
 GameObject:
@@ -259,8 +259,7 @@ PrefabInstance:
       propertyPath: m_Length
       value: 0.20602906
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8997048507978016174, guid: a181eff1b09285145bb7e0128c423e8a, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a181eff1b09285145bb7e0128c423e8a, type: 3}
 --- !u!1 &639543261911350753 stripped
 GameObject:

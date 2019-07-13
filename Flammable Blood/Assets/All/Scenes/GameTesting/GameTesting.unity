@@ -9628,18 +9628,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6654551699414345417}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1115790034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1115790033}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e9ad3214e3bcce408a22dbca1be9d7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1300967398
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20223,10 +20211,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy 1 Set
       objectReference: {fileID: 0}
-    - target: {fileID: 7006194716629851, guid: 6e15dfedc8681fa45b0a6c6426b9d322, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7006194716629850, guid: 6e15dfedc8681fa45b0a6c6426b9d322, type: 3}
       propertyPath: m_LocalPosition.x
       value: -65.1
@@ -20483,11 +20467,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3140713043722049997, guid: 4c9d05bbd796af74abc75f9bf818deea,
-        type: 3}
-      propertyPath: reloadSpeed
-      value: 0.1
-      objectReference: {fileID: 0}
     - target: {fileID: 639543262031677941, guid: 4c9d05bbd796af74abc75f9bf818deea,
         type: 3}
       propertyPath: m_Mesh
@@ -20710,16 +20689,6 @@ PrefabInstance:
       propertyPath: _GM_
       value: 
       objectReference: {fileID: 883496824}
-    - target: {fileID: 4665716971153994456, guid: 92e5b7471dd2f4b4781c68656db373a7,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4665716972687968054, guid: 92e5b7471dd2f4b4781c68656db373a7,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92e5b7471dd2f4b4781c68656db373a7, type: 3}
 --- !u!1001 &6654551699414345417

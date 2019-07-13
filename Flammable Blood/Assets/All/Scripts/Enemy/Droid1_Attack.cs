@@ -32,7 +32,6 @@ public class Droid1_Attack : MonoBehaviour
         reload_timer += Time.deltaTime;
         if(reload_timer >= reloadSpeed)
         {
-            Debug.Log("Spawned Bullet");
             GameObject thisBullet= projectile;
             EnemyBullet thisBulletScript = thisBullet.GetComponent<EnemyBullet>();
             thisBulletScript.wielder = gameObject;

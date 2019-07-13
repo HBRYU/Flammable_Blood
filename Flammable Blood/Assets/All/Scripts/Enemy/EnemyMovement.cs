@@ -193,7 +193,6 @@ public class EnemyMovement : MonoBehaviour
             }
             else if (cliffCheck.IsTouchingLayers(whatIsGround) && Vector2.Distance(transform.position, player.transform.position) <= attackDistance)
             {
-                Debug.Log("attack");
                 TravelInDirection(0.0f, faceRight);
                 GetComponent<Droid1_Attack>().attack = true;
             }
