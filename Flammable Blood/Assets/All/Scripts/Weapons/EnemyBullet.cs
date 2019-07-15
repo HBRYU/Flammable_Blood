@@ -56,9 +56,10 @@ public class EnemyBullet : MonoBehaviour
                 {
                     if (other.CompareTag("Player/Hitbox") && !hitPlayer_Flag)
                     {
+                        Debug.Log("Hit Player");
                         HitPlayer();
                     }
-
+                    Destroy(gameObject);
                     Debug.Log("Bullet Destroyed");
                 }
                 break;

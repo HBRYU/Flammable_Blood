@@ -11,7 +11,9 @@ public class EnemyMovement : MonoBehaviour
     private Rigidbody2D rb;
 
     public Collider2D radar;
+    public Collider2D sight;
     public Collider2D cliffCheck;
+    public Transform eyes;
     public LayerMask whatIsGround;
 
     public bool move = true;
@@ -49,12 +51,16 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-        if (radar.IsTouching(player.GetComponent<Collider2D>()))
+        RaycastHit2D inSight = Physics2D.Raycast(eyes.position, player.transform.position - transform.position, 15.0f);
+
+        if (radar.IsTouching(GameObject.FindGameObjectWithTag("Player/Hitbox").GetComponent<Collider2D>()) && inSight)
         {
             state = "Chase";
+            GetComponent<Droid1_Attack>().attack = true;
         }
-        else
+        else if((!radar.IsTouching(GameObject.FindGameObjectWithTag("Player/Hitbox").GetComponent<Collider2D>()) && !sight.IsTouching(GameObject.FindGameObjectWithTag("Player/Hitbox").GetComponent<Collider2D>())) || inSight) 
         {
+            GetComponent<Droid1_Attack>().attack = false;
             if (state == "Chase")
                 state = "Idle";
             else
@@ -189,17 +195,14 @@ public class EnemyMovement : MonoBehaviour
             if (cliffCheck.IsTouchingLayers(whatIsGround) && Vector2.Distance(transform.position, player.transform.position) > attackDistance)
             {
                 TravelInDirection(speed_Chase, faceRight);
-                GetComponent<Droid1_Attack>().attack = false;
             }
             else if (cliffCheck.IsTouchingLayers(whatIsGround) && Vector2.Distance(transform.position, player.transform.position) <= attackDistance)
             {
                 TravelInDirection(0.0f, faceRight);
-                GetComponent<Droid1_Attack>().attack = true;
             }
             else
             {
                 TravelInDirection(0.0f, faceRight);
-                GetComponent<Droid1_Attack>().attack = false;
             }
         }
     }
