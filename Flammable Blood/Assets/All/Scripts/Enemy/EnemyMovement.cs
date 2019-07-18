@@ -51,9 +51,9 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-        RaycastHit2D inSight = Physics2D.Raycast(eyes.position, player.transform.position - transform.position, 15.0f);
+        RaycastHit2D inSight = Physics2D.Raycast(eyes.position, player.transform.position - transform.position, 15.0f, whatIsGround);
 
-        if (radar.IsTouching(GameObject.FindGameObjectWithTag("Player/Hitbox").GetComponent<Collider2D>()) && inSight)
+        if (radar.IsTouching(GameObject.FindGameObjectWithTag("Player/Hitbox").GetComponent<Collider2D>()) && !inSight)
         {
             state = "Chase";
             GetComponent<Droid1_Attack>().attack = true;
