@@ -7,6 +7,8 @@ public class EnemyMovement : MonoBehaviour
 
     private GameObject player;
     private GM _GM_;
+    private Enemy1_Attack e1attack;
+    private Enemy1_Animation e1anim;
 
     private Rigidbody2D rb;
 
@@ -43,6 +45,8 @@ public class EnemyMovement : MonoBehaviour
     {
         _GM_ = GameObject.FindGameObjectWithTag("GM").GetComponent<GM>();
         player = _GM_.player;
+        e1attack = GetComponent<Enemy1_Attack>();
+        e1anim = GetComponent<Enemy1_Animation>();
 
         patrol_ActiveMovePos = patrol_MovePos[0];
 
@@ -51,16 +55,25 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-        RaycastHit2D inSight = Physics2D.Raycast(eyes.position, player.transform.position - transform.position, 15.0f, whatIsGround);
+        RaycastHit2D wallInSight = Physics2D.Raycast(eyes.position, player.transform.position - transform.position, Vector2.Distance(transform.position, player.transform.position), whatIsGround);
 
-        if (radar.IsTouching(GameObject.FindGameObjectWithTag("Player/Hitbox").GetComponent<Collider2D>()) && !inSight)
+        if (radar.IsTouching(GameObject.FindGameObjectWithTag("Player/Hitbox").GetComponent<Collider2D>()) && wallInSight.collider == null)
         {
             state = "Chase";
-            GetComponent<Droid1_Attack>().attack = true;
+            Vector2 xSight = player.transform.position;
+            //xSight.y = eyes.position.y;
+            if (Physics2D.Raycast(eyes.position, transform.right * transform.localScale.x, Mathf.Abs(eyes.position.x - player.transform.position.x), whatIsGround).collider == null)
+            {
+                e1attack.attack = true;
+            }
+            else
+            {
+                e1attack.attack = false;
+            }
         }
-        else if((!radar.IsTouching(GameObject.FindGameObjectWithTag("Player/Hitbox").GetComponent<Collider2D>()) && !sight.IsTouching(GameObject.FindGameObjectWithTag("Player/Hitbox").GetComponent<Collider2D>())) || inSight) 
+        else if((!radar.IsTouching(GameObject.FindGameObjectWithTag("Player/Hitbox").GetComponent<Collider2D>()) && !sight.IsTouching(GameObject.FindGameObjectWithTag("Player/Hitbox").GetComponent<Collider2D>())) || wallInSight.collider != null) 
         {
-            GetComponent<Droid1_Attack>().attack = false;
+            e1attack.attack = false;
             if (state == "Chase")
                 state = "Idle";
             else
@@ -99,6 +112,10 @@ public class EnemyMovement : MonoBehaviour
 
     void TravelInDirection(float speed, bool faceRight) 
     {
+        if(speed != 0)
+            e1anim.Move(true);
+        else
+            e1anim.Move(false);
         if (faceRight)
         {
             rb.velocity = new Vector2(speed, rb.velocity.y);
@@ -140,7 +157,7 @@ public class EnemyMovement : MonoBehaviour
         }
         else
         {
-            rb.velocity = new Vector2(0, rb.velocity.y);
+            TravelInDirection(0, true);
             if (patrol_Delay_Timer >= patrol_Delay)
             {
                 SetNextMovePos();

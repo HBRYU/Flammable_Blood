@@ -1430,6 +1430,7 @@ GameObject:
   - component: {fileID: 3381913989965174543}
   - component: {fileID: 6058443094310889732}
   - component: {fileID: 4236277939696991755}
+  - component: {fileID: 3973229557313134198}
   - component: {fileID: 4236277939696991761}
   - component: {fileID: 51769172509108284}
   - component: {fileID: 8997048507978016174}
@@ -1543,6 +1544,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3973229557313134198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2555248439290324023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a78d025edf65cb46a1701b015e8813e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4236277939696991761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1574,7 +1587,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radar: {fileID: 592288805}
+  sight: {fileID: 0}
   cliffCheck: {fileID: 986326122}
+  eyes: {fileID: 0}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 65536
@@ -1606,7 +1621,11 @@ MonoBehaviour:
   barrelEnd: {fileID: 3752328145543741266}
   damage: 5
   bulletSpeed: 15
+  accuracy: 0
   reloadSpeed: 0.1
+  magSize: 0
+  magReloadSpeed: 0
+  ammo: 0
   attack: 0
 --- !u!1 &2555248439309546432
 GameObject:
