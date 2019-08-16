@@ -25,7 +25,8 @@ public class EnemyBullet : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         transform.Rotate(0, 0, Random.Range(-1.0f, 1.0f) * accuracy);
         //Debug.Log("SCALE: " + wielder.transform.localScale.x);
-        transform.localScale = wielder.transform.localScale;
+        if(wielder != null)
+            transform.localScale = wielder.transform.localScale;
         rb.velocity = transform.right * transform.localScale.x * speed;
     }
 

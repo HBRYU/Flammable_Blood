@@ -35,7 +35,7 @@ TagManager:
   - Prop/NoSelfCollision
   - Prop
   - EnemyBullet
-  - 
+  - Environment
   - 
   - 
   - 
@@ -62,6 +62,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3401767649
+    locked: 0
+  - name: Enemy F
+    uniqueID: 2498572185
     locked: 0
   - name: Bullets
     uniqueID: 1821757851
