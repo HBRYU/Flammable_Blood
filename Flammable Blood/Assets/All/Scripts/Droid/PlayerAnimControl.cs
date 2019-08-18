@@ -144,6 +144,7 @@ public class PlayerAnimControl : MonoBehaviour
 
     public void Reload()
     {
+        Debug.Log("Reload Anim Playing");
         anim.SetTrigger("Reload");
     }
 

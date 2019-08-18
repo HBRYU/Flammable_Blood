@@ -193,11 +193,13 @@ public class PlayerWeaponManager : MonoBehaviour
         
         if (AW_WS.is_reloading == true)       //일정 딜레이 후 재장전 애니메이션 플레이
         {
+            
             if(reloading == false)
             {
                 AW_reloadDelayTimer += Time.deltaTime;
                 if (AW_reloadDelayTimer >= AW_reloadDelay)
                 {
+                    
                     ac.Reload();
                     reloading = true;
                     AW_reloadDelayTimer = 0.0f;

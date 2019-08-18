@@ -7,9 +7,12 @@ public class DroneMovement : MonoBehaviour
     private GM _GM_;
     private Rigidbody2D rb;
     private GameObject player;
+    private DroneAttack attackScript;
+    private DroneAnimation anim;
 
     public LayerMask whatIsGround;
 
+    public bool hover = true;
     public float hoverHeight;
     public float hoverForce;
     public float speed;
@@ -20,6 +23,7 @@ public class DroneMovement : MonoBehaviour
 
     [Header("Chase")]
     public float alertDistance;
+    public float shot_alertDistance;
     public float stopDistance;
     public float retreatDistance;
 
@@ -28,17 +32,27 @@ public class DroneMovement : MonoBehaviour
         _GM_ = GameObject.FindGameObjectWithTag("GM").GetComponent<GM>();
         player = _GM_.player;
         rb = GetComponent<Rigidbody2D>();
+        attackScript = GetComponent<DroneAttack>();
+        anim = GetComponent<DroneAnimation>();
     }
 
     void FixedUpdate()
     {
-        Hover();
+        if(hover)
+            Hover();
 
         RaycastHit2D wallInSight = Physics2D.Raycast(transform.position, player.transform.position - transform.position, Vector2.Distance(transform.position, player.transform.position), whatIsGround);
         if(Vector2.Distance(transform.position, player.transform.position) < alertDistance && wallInSight.collider == null)
         {
             state = "Chasing";
             Chase();
+            attackScript.attack = true;
+            anim.Alerted(true);
+        }
+        else
+        {
+            attackScript.attack = false;
+            anim.Alerted(false);
         }
     }
 
@@ -58,17 +72,18 @@ public class DroneMovement : MonoBehaviour
     {
         bool facingRight;
         //////////////////////////////////Face player
+
         if(player.transform.position.x - transform.position.x <= 0)
         {
             Quaternion rotator = transform.localRotation;
-            rotator.y = 0;
+            rotator.y = 180;
             transform.localRotation = rotator;
             facingRight = false;
         }
         else
         {
             Quaternion rotator = transform.localRotation;
-            rotator.y = 180;
+            rotator.y = 0;
             transform.localRotation = rotator;
             facingRight = true;
         }

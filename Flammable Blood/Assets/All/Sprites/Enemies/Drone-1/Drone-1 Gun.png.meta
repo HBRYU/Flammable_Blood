@@ -88,18 +88,18 @@ TextureImporter:
       name: Drone-1 Gun_0
       rect:
         serializedVersion: 2
-        x: 112
+        x: 204
         y: 136
         width: 84
         height: 24
       alignment: 9
-      pivot: {x: 0.85, y: 0.575}
+      pivot: {x: 0.125, y: 0.58}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4444e2c91103b34409e7f489e4bf6717
+      spriteID: 770e42268813de042b842adc18767465
       vertices: []
       indices: 
       edges: []

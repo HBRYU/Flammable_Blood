@@ -63,7 +63,7 @@ public class StunArm : MonoBehaviour
                 else
                     val1 = -1;
 
-                enemyStats.Knockback(knockbackForce, "simpleX", val1);
+                //enemyStats.Knockback(knockbackForce, "simpleX", val1);
             }
         }
     }
