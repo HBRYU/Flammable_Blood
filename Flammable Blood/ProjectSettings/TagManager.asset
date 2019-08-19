@@ -17,6 +17,7 @@ TagManager:
   - Environment
   - Corpse
   - Effector
+  - PlayerGraphics
   layers:
   - Default
   - TransparentFX

@@ -183,6 +183,7 @@ MonoBehaviour:
   - Particles
   - Enemy/Radar
   - Environment
+  - Effector
   particleName:
   - Default
   particles:

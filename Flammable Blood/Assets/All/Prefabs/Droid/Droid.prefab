@@ -6963,7 +6963,7 @@ MonoBehaviour:
   groundCheckRadius: 0.15
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 81943
+    m_Bits: 1130519
   onGround: {fileID: 0}
 --- !u!114 &2429159295200029096
 MonoBehaviour:

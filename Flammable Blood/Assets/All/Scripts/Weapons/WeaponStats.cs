@@ -33,8 +33,6 @@ public class WeaponStats : MonoBehaviour
     [HideInInspector]
     public bool is_shooting, is_reloading, is_aiming;
 
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -56,6 +54,7 @@ public class WeaponStats : MonoBehaviour
         transform.parent = null;
         GetComponent<Rigidbody2D>().simulated = true;
         collider.enabled = true;
+        GetComponent<Animator>().SetBool("Shooting", false);
         gun.SetActive(false);
     }
 

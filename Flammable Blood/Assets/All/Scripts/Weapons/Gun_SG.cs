@@ -40,6 +40,9 @@ public class Gun_SG : MonoBehaviour
     [HideInInspector]
     public bool reloading;
 
+    public float camShake_force;
+    public float camShake_duration;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -93,6 +96,8 @@ public class Gun_SG : MonoBehaviour
             thisBullet.wielder = player;
             Instantiate(thisBullet, barrelEnd.transform.position, Quaternion.identity);
         }
+
+        _GM_.camShakeManager.CameraShake(camShake_force, camShake_duration, false);
 
         if (autoSpawnBulletShell) { SpawnBulletShell(); }
     }

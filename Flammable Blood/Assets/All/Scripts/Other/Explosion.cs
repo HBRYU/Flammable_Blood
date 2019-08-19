@@ -4,8 +4,18 @@ using UnityEngine;
 
 public class Explosion : MonoBehaviour
 {
+    private GM _GM_;
     public float duration;
     public float lifeSpan;
+
+    public float cameraShake_force;
+    public float cameraShake_duration;
+
+    private void Start()
+    {
+        _GM_ = GameObject.FindGameObjectWithTag("GM").GetComponent<GM>();
+        _GM_.camShakeManager.CameraShake(cameraShake_force, cameraShake_duration, true);
+    }
 
     void FixedUpdate()
     {

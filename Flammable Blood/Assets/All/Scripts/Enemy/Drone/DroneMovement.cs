@@ -12,6 +12,8 @@ public class DroneMovement : MonoBehaviour
 
     public LayerMask whatIsGround;
 
+    public bool active = true;
+
     public bool hover = true;
     public float hoverHeight;
     public float hoverForce;
@@ -41,13 +43,26 @@ public class DroneMovement : MonoBehaviour
         if(hover)
             Hover();
 
-        RaycastHit2D wallInSight = Physics2D.Raycast(transform.position, player.transform.position - transform.position, Vector2.Distance(transform.position, player.transform.position), whatIsGround);
-        if(Vector2.Distance(transform.position, player.transform.position) < alertDistance && wallInSight.collider == null)
+        if(_GM_.playerAlive == false)
         {
-            state = "Chasing";
-            Chase();
-            attackScript.attack = true;
-            anim.Alerted(true);
+            active = false;
+        }
+
+        if (active)
+        {
+            RaycastHit2D wallInSight = Physics2D.Raycast(transform.position, player.transform.position - transform.position, Vector2.Distance(transform.position, player.transform.position), whatIsGround);
+            if (Vector2.Distance(transform.position, player.transform.position) < alertDistance && wallInSight.collider == null)
+            {
+                state = "Chasing";
+                Chase();
+                attackScript.attack = true;
+                anim.Alerted(true);
+            }
+            else
+            {
+                attackScript.attack = false;
+                anim.Alerted(false);
+            }
         }
         else
         {

@@ -4844,6 +4844,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 2
   lifeSpan: 50
+  cameraShake_force: 0.5
+  cameraShake_duration: 7
 --- !u!212 &532864433
 SpriteRenderer:
   m_ObjectHideFlags: 0

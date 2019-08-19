@@ -18,6 +18,7 @@ public class EnemyMovement : MonoBehaviour
     public Transform eyes;
     public LayerMask whatIsGround;
 
+    public bool active = true;
     public bool move = true;
 
     [Header("Stats 스탯")]
@@ -55,6 +56,27 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
+        if (_GM_.playerAlive == false)
+        {
+            active = false;
+        }
+
+        if (active)
+        {
+            SetState();
+        }
+        else
+        {
+            e1attack.attack = false;
+            if (state == "Chase")
+                state = "Idle";
+            else
+                state = "Patrol";
+        }
+    }
+
+    void SetState()
+    {
         RaycastHit2D wallInSight = Physics2D.Raycast(eyes.position, player.transform.position - transform.position, Vector2.Distance(transform.position, player.transform.position), whatIsGround);
 
         if (radar.IsTouching(GameObject.FindGameObjectWithTag("Player/Hitbox").GetComponent<Collider2D>()) && wallInSight.collider == null)
@@ -71,7 +93,7 @@ public class EnemyMovement : MonoBehaviour
                 e1attack.attack = false;
             }
         }
-        else if((!radar.IsTouching(GameObject.FindGameObjectWithTag("Player/Hitbox").GetComponent<Collider2D>()) && !sight.IsTouching(GameObject.FindGameObjectWithTag("Player/Hitbox").GetComponent<Collider2D>())) || wallInSight.collider != null) 
+        else if ((!radar.IsTouching(GameObject.FindGameObjectWithTag("Player/Hitbox").GetComponent<Collider2D>()) && !sight.IsTouching(GameObject.FindGameObjectWithTag("Player/Hitbox").GetComponent<Collider2D>())) || wallInSight.collider != null)
         {
             e1attack.attack = false;
             if (state == "Chase")
