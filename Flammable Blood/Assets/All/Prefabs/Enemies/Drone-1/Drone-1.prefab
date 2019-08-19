@@ -309,7 +309,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 65536
+    m_Bits: 1114112
+  active: 1
   hover: 1
   hoverHeight: 1.5
   hoverForce: 0.5

@@ -18,6 +18,7 @@ TagManager:
   - Corpse
   - Effector
   - PlayerGraphics
+  - PlayerJetpack
   layers:
   - Default
   - TransparentFX

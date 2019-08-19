@@ -69,6 +69,7 @@ public class PlayerStats : MonoBehaviour
 
         ///////////////////     Self Destruct
         GameObject.FindGameObjectWithTag("PlayerGraphics").SetActive(false);
+        GameObject.FindGameObjectWithTag("PlayerJetpack").SetActive(false);
         GetComponent<PlayerMove>().enabled = false;
         GetComponent<PlayerPickUp>().enabled = false;
         GetComponent<PlayerAnimControl>().enabled = false;
