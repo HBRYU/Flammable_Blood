@@ -43,8 +43,8 @@ TagManager:
   - Environment
   - Drone
   - Effector
-  - 
-  - 
+  - Mask
+  - BG
   - 
   - 
   - 
@@ -53,8 +53,11 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Ground
-    uniqueID: 3568657287
+  - name: BG
+    uniqueID: 2647611871
+    locked: 0
+  - name: BG Walls
+    uniqueID: 157069821
     locked: 0
   - name: Environment
     uniqueID: 679854283
@@ -76,4 +79,13 @@ TagManager:
     locked: 0
   - name: Particles
     uniqueID: 1272334493
+    locked: 0
+  - name: Dark
+    uniqueID: 758280963
+    locked: 0
+  - name: Light
+    uniqueID: 4036853293
+    locked: 0
+  - name: Ground
+    uniqueID: 3568657287
     locked: 0
