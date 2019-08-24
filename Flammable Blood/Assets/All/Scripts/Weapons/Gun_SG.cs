@@ -24,7 +24,7 @@ public class Gun_SG : MonoBehaviour
     public float fireRate;
     public float accuracy;
     public float damagePerPellet;
-    public float magSize;
+    public int magSize;
     public float reloadSpeed;
 
     public bool autoSpawnBulletShell;
@@ -35,7 +35,10 @@ public class Gun_SG : MonoBehaviour
     public float bs_RS;
 
     [HideInInspector]
-    public float fire_Timer, reload_Timer, ammo;
+    public float fire_Timer, reload_Timer;
+
+    [HideInInspector]
+    public int ammo;
 
     [HideInInspector]
     public bool reloading;
@@ -43,33 +46,46 @@ public class Gun_SG : MonoBehaviour
     public float camShake_force;
     public float camShake_duration;
 
+    List<int> ammoCount;
+    List<string> ammoType;
+    private int availableAmmo;
+
     // Start is called before the first frame update
     void Start()
     {
         _GM_ = GameObject.FindGameObjectWithTag("GM").GetComponent<GM>();
         player = _GM_.player;
         ammo = magSize;
+        ws.magSize = magSize;
     }
 
     // Update is called once per frame
     void Update()
     {
-        SG();
+        ammoCount = player.GetComponent<PlayerWeaponManager>().ammo_count;
+        ammoType = player.GetComponent<PlayerWeaponManager>().ammo_type;
 
-        if (reloading == true)
-        {
-            Reload();
-        }
-        else
-        {
-            fire_Timer += Time.deltaTime;
+        availableAmmo = ammoCount[ammoType.IndexOf(ws.ammoType)];
 
-            if (Input.GetKeyDown("r") || autoReload == true && ammo <= 0)
+        if(availableAmmo > 0)
+        {
+            SG();
+
+            if (reloading == true)
             {
-                reloading = true;
+                Reload();
+            }
+            else
+            {
+                fire_Timer += Time.deltaTime;
+
+                if (Input.GetKeyDown("r") || autoReload == true && ammo <= 0)
+                {
+                    reloading = true;
+                }
             }
         }
-
+        
         if (useAim == true)
         {
             if (Input.GetMouseButton(1))
@@ -81,6 +97,8 @@ public class Gun_SG : MonoBehaviour
                 ws.is_aiming = false;
             }
         }
+
+        ws.ammoCount = ammo;
     }
 
     void Fire()
@@ -98,6 +116,9 @@ public class Gun_SG : MonoBehaviour
         }
 
         _GM_.camShakeManager.CameraShake(camShake_force, camShake_duration, false);
+
+        ////////    Update ammo count
+        player.GetComponent<PlayerWeaponManager>().ammo_count[ammoType.IndexOf(ws.ammoType)] -= 1;
 
         if (autoSpawnBulletShell) { SpawnBulletShell(); }
     }

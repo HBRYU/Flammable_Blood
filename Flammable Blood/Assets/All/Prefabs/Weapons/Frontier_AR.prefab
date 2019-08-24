@@ -197,12 +197,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Frontier_AR
   category: AR
+  IMG: {fileID: 21300000, guid: d6f62bd8ce76fb042a5991a815425f15, type: 3}
   gun: {fileID: 3070206328322173236}
   collider: {fileID: 5150104150689436769}
+  ammoType: 5.56mm
+  alertAmmoCount: 60
   rapidFire: 1
   hideOnEquip: 0
   reloadAnimDelay: 0
   ID: 0
+  ammoCount: 0
+  magSize: 0
   is_shooting: 0
   is_reloading: 0
   is_aiming: 0
@@ -225,7 +230,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!60 &5150104150689436769
 PolygonCollider2D:

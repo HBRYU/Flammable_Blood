@@ -20,18 +20,22 @@ public class WeaponStats : MonoBehaviour
 
     [Header("Melee, AR, SMG, SG, SR, etc")]
     public string category;
+    public Sprite IMG;
     public GameObject gun;
 
     public Collider2D collider;
 
+    public string ammoType;
+    public int alertAmmoCount;
     public bool rapidFire, hideOnEquip;
     public float reloadAnimDelay;
 
     [HideInInspector]
-    public int ID;
+    public int ID, ammoCount, magSize;
 
     [HideInInspector]
     public bool is_shooting, is_reloading, is_aiming;
+
 
     // Start is called before the first frame update
     void Start()

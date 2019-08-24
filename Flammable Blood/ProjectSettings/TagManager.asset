@@ -19,6 +19,7 @@ TagManager:
   - Effector
   - PlayerGraphics
   - PlayerJetpack
+  - UI
   layers:
   - Default
   - TransparentFX
@@ -88,4 +89,7 @@ TagManager:
     locked: 0
   - name: Ground
     uniqueID: 3568657287
+    locked: 0
+  - name: UI
+    uniqueID: 3079931523
     locked: 0

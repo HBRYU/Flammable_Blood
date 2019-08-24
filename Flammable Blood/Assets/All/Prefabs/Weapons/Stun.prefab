@@ -53,6 +53,7 @@ MonoBehaviour:
   category: Stun
   gun: {fileID: 8953413930952068252}
   collider: {fileID: 8953413929767869699}
+  ammoType: 
   rapidFire: 0
   hideOnEquip: 0
   reloadAnimDelay: 0

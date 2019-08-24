@@ -31,11 +31,18 @@ public class PlayerWeaponManager : MonoBehaviour
     private bool reloading;
 
     //각 무기 애니메이션 변수 설정
-    private WeaponStats AW_WS;
+    [HideInInspector]
+    public WeaponStats AW_WS;
     private string AW_category;
-    public bool AW_rapidFire = true;
+    private bool AW_rapidFire = true;
     private float AW_reloadDelay;
     private float AW_reloadDelayTimer;
+    [HideInInspector]
+    public string AW_ammoType;
+
+    public List<string> ammo_type;
+    public List<int> ammo_count;
+    public List<int> ammo_max;
 
 
     void Start()    ////////////////////////    셋업      //////////////////////////
@@ -193,13 +200,11 @@ public class PlayerWeaponManager : MonoBehaviour
         
         if (AW_WS.is_reloading == true)       //일정 딜레이 후 재장전 애니메이션 플레이
         {
-            
             if(reloading == false)
             {
                 AW_reloadDelayTimer += Time.deltaTime;
                 if (AW_reloadDelayTimer >= AW_reloadDelay)
                 {
-                    
                     ac.Reload();
                     reloading = true;
                     AW_reloadDelayTimer = 0.0f;
@@ -229,6 +234,7 @@ public class PlayerWeaponManager : MonoBehaviour
         AW_category = AW_WS.category;
         AW_rapidFire = AW_WS.rapidFire;
         AW_reloadDelay = AW_WS.reloadAnimDelay;
+        AW_ammoType = AW_WS.ammoType;
     }
 
     void SetWeaponsFolder(GameObject weapon, Transform folder)

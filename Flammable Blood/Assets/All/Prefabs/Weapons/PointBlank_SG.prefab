@@ -75,14 +75,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ws: {fileID: 8935129091349932214}
   useAim: 1
-  autoReload: 0
-  bullet: {fileID: 1646669890229493766, guid: 83027b3672232174693e1d42facae6a1, type: 3}
+  autoReload: 1
+  bullet: {fileID: 1646669890229493766, guid: 33a73cb9a45bffb418f049fc63da2910, type: 3}
   maxPelletCount: 6
-  minPelletCount: 4
+  minPelletCount: 5
   barrelEnd: {fileID: 8935129090296667514}
-  bulletSpeed: 45
-  fireRate: 0.5
-  accuracy: 13
+  bulletSpeed: 65
+  fireRate: 0.2
+  accuracy: 9
   damagePerPellet: 5
   magSize: 4
   reloadSpeed: 1.5
@@ -97,6 +97,8 @@ MonoBehaviour:
   reload_Timer: 0
   ammo: 0
   reloading: 0
+  camShake_force: 2.5
+  camShake_duration: 15
 --- !u!1 &8935129090296667514
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,7 +206,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 7
   m_Sprite: {fileID: 21300000, guid: bb6ae99c6b6bc31409c8248b86faf89c, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -233,7 +235,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!60 &8935129091349932215
 PolygonCollider2D:
@@ -284,12 +286,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: PointBlank_SG
   category: SG
+  IMG: {fileID: 21300000, guid: 3dad46c95af8b66469024730b6c11204, type: 3}
   gun: {fileID: 8935129090241572052}
   collider: {fileID: 8935129091349932215}
+  ammoType: 12-Gauge
+  alertAmmoCount: 20
   rapidFire: 0
   hideOnEquip: 0
   reloadAnimDelay: 0
   ID: 0
+  ammoCount: 0
+  magSize: 0
   is_shooting: 0
   is_reloading: 0
   is_aiming: 0
@@ -389,15 +396,15 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.081400014
       objectReference: {fileID: 0}
-    - target: {fileID: 4205701249611985514, guid: f561580a2f1178b418d7b3625e0f5e3b,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 74940449052052183, guid: f561580a2f1178b418d7b3625e0f5e3b,
         type: 3}
       propertyPath: targetScript
       value: WeaponStats
+      objectReference: {fileID: 0}
+    - target: {fileID: 4205701249611985514, guid: f561580a2f1178b418d7b3625e0f5e3b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f561580a2f1178b418d7b3625e0f5e3b, type: 3}

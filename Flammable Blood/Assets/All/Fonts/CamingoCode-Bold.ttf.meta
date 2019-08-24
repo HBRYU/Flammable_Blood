@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 5986bb305167b3f40b08bb40d33ad0e2
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: CamingoCode
+  fontNames:
+  - CamingoCode
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 23704cc677fefed41b8b968f747b2f40, type: 3}
+  - {fileID: 12800000, guid: 199bc799c9974124399a1f88e6c246fd, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

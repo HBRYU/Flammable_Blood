@@ -22,7 +22,7 @@ public class Gun_Rifle : MonoBehaviour
     public float fireRate;
     public float accuracy;
     public float damage;
-    public float magSize;
+    public int magSize;
     public float reloadSpeed;
 
     public bool spawnBulletShell;
@@ -33,7 +33,10 @@ public class Gun_Rifle : MonoBehaviour
     public float bs_RS;
 
     [HideInInspector]
-    public float fire_Timer, reload_Timer, ammo;
+    public float fire_Timer, reload_Timer;
+
+    [HideInInspector]
+    public int ammo;
 
     [HideInInspector]
     public bool reloading;
@@ -41,6 +44,9 @@ public class Gun_Rifle : MonoBehaviour
     public float camShake_force;
     public float camShake_duration;
 
+    List<int> ammoCount;
+    List<string> ammoType;
+    private int availableAmmo;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,49 +54,57 @@ public class Gun_Rifle : MonoBehaviour
         player = _GM_.player;
         ws = transform.parent.GetComponent<WeaponStats>();
         ammo = magSize;
+        ws.magSize = magSize;
     }
 
     // Update is called once per frame
     void Update()
     {
-        switch (ws.category)
-        {
-            case "AR":
-                AR();
-                break;
-            case "SR":
-                SR();
-                break;
-            default:
-                Debug.Log("ERR: Unknown wsapon category (" + ws.category + "). Using AR function instead");
-                break;
-        }
+        ammoCount = player.GetComponent<PlayerWeaponManager>().ammo_count;
+        ammoType = player.GetComponent<PlayerWeaponManager>().ammo_type;
 
-        if(reloading == true)
-        {
-            Reload();
-        }
-        else
-        {
-            fire_Timer += Time.deltaTime;
+        availableAmmo = ammoCount[ammoType.IndexOf(ws.ammoType)];
 
-            if (Input.GetKeyDown("r") || autoReload == true && ammo <= 0)
+        ////////////////////////    Active when ammo > 0
+
+        if (availableAmmo > 0)
+        {
+            switch (ws.category)
             {
-                reloading = true;
+                case "AR":
+                    AR();
+                    break;
+                case "SR":
+                    SR();
+                    break;
+                default:
+                    Debug.Log("ERR: Unknown wsapon category (" + ws.category + "). Using AR function instead");
+                    break;
             }
-        }
 
-        if(useAim == true)
-        {
-            if (Input.GetMouseButton(1))
-            {
-                ws.is_aiming = true;
-            }
+            if (reloading == true)
+                Reload();
             else
             {
-                ws.is_aiming = false;
+                fire_Timer += Time.deltaTime;
+
+                if (Input.GetKeyDown("r") || autoReload == true && ammo <= 0)
+                    reloading = true;
             }
         }
+        else
+            ws.is_shooting = false;
+        ////////////////////////
+
+        if (useAim == true)
+        {
+            if (Input.GetMouseButton(1))
+                ws.is_aiming = true;
+            else
+                ws.is_aiming = false;
+        }
+
+        ws.ammoCount = ammo;
     }
 
     void Fire()
@@ -104,6 +118,9 @@ public class Gun_Rifle : MonoBehaviour
         Instantiate(thisBullet, barrelEnd.transform.position, Quaternion.identity);
 
         _GM_.camShakeManager.CameraShake(camShake_force, camShake_duration, false);
+
+        //  Update ammo count
+        player.GetComponent<PlayerWeaponManager>().ammo_count[ammoType.IndexOf(ws.ammoType)] -= 1;
 
         if (spawnBulletShell) { SpawnBulletShell(); }
     }
