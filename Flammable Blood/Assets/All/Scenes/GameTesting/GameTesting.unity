@@ -13908,7 +13908,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &640394209
 Transform:
   m_ObjectHideFlags: 0
@@ -103255,11 +103255,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: _GM_
       objectReference: {fileID: 0}
-    - target: {fileID: 1196890604617496534, guid: 2b45686db9c760a46b5edc94d507eb7c,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1115790033}
     - target: {fileID: 1196890604617496529, guid: 2b45686db9c760a46b5edc94d507eb7c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -103315,6 +103310,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1196890604617496534, guid: 2b45686db9c760a46b5edc94d507eb7c,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1115790033}
     - target: {fileID: 1150454885, guid: 2b45686db9c760a46b5edc94d507eb7c, type: 3}
       propertyPath: camPos
       value: 
