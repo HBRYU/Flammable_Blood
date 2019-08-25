@@ -137,7 +137,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 1
   m_SortingLayerID: -1215035773
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -219,7 +219,7 @@ MonoBehaviour:
   defaultIMG: {fileID: 21300000, guid: d6f62bd8ce76fb042a5991a815425f15, type: 3}
   defaultColor: {r: 1, g: 1, b: 1, a: 1}
   alertColor: {r: 1, g: 0.9225782, b: 0.6367924, a: 1}
-  emptyColor: {r: 0.745283, g: 0, b: 0, a: 0.39215687}
+  emptyColor: {r: 0.8490566, g: 0, b: 0, a: 1}
 --- !u!1 &2207976171594386325
 GameObject:
   m_ObjectHideFlags: 0

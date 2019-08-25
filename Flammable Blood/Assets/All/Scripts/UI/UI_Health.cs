@@ -14,6 +14,7 @@ public class UI_Health : MonoBehaviour
 
     public TextMeshProUGUI UI_health;
     public Image image;
+    public GameObject damageMask;
 
     public float alertHealth;
     public float criticalHealth;
@@ -23,11 +24,18 @@ public class UI_Health : MonoBehaviour
     public Color criticalColor;
     public Color deadColor;
 
+    float lastHealth;
+
     // Start is called before the first frame update
     void Start()
     {
         _GM_ = GameObject.FindGameObjectWithTag("GM").GetComponent<GM>();
         player = _GM_.player;
+
+        health = player.GetComponent<PlayerStats>().health;
+        maxHealth = player.GetComponent<PlayerStats>().maxHealth;
+
+        lastHealth = health;
     }
 
     // Update is called once per frame
@@ -35,6 +43,13 @@ public class UI_Health : MonoBehaviour
     {
         health = player.GetComponent<PlayerStats>().health;
         maxHealth = player.GetComponent<PlayerStats>().maxHealth;
+
+        if(health < lastHealth)
+        {
+            damageMask.GetComponent<Animator>().SetTrigger("Damaged");
+        }
+        lastHealth = health;
+        
 
         if (health < 0)
             health = 0;
@@ -59,5 +74,7 @@ public class UI_Health : MonoBehaviour
         {
             image.color = defaultColor;
         }
+
+
     }
 }
