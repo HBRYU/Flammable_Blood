@@ -22,6 +22,7 @@ public class WeaponStats : MonoBehaviour
     public string category;
     public Sprite IMG;
     public GameObject gun;
+    public SpriteRenderer pointer;
 
     public Collider2D collider;
 
@@ -59,6 +60,7 @@ public class WeaponStats : MonoBehaviour
         GetComponent<Rigidbody2D>().simulated = true;
         collider.enabled = true;
         GetComponent<Animator>().SetBool("Shooting", false);
+        pointer.enabled = true;
         gun.SetActive(false);
     }
 
@@ -72,6 +74,7 @@ public class WeaponStats : MonoBehaviour
         transform.localScale = parent.localScale;
         GetComponent<Rigidbody2D>().simulated = false;
         collider.enabled = false;
+        pointer.enabled = false;
         gun.SetActive(true);
         _GM_.player.GetComponent<PlayerWeaponManager>().weapons.Add(gameObject);
         _GM_.player.GetComponent<PlayerWeaponManager>().Arm(gameObject);

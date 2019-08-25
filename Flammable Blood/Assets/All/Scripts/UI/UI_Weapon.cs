@@ -90,7 +90,15 @@ public class UI_Weapon : MonoBehaviour
             }
 
             //////////////      TEXT
-            string displayText = currentAmmo + " / " + availableAmmo;
+            string displayText;
+            if(WM.AW_WS.is_reloading == false)
+            {
+                displayText = currentAmmo + " / " + availableAmmo;
+            }
+            else
+            {
+                displayText =  "- / " + availableAmmo;
+            }
             ammo_text.text = displayText;
             weapon_name.text = WM.AW_WS.name;
 

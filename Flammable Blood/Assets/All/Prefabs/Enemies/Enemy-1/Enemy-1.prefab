@@ -1568,12 +1568,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9d009b39eb2b374cbf04076453c3fc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 200
-  health: 200
+  type: 
+  maxHealth: 100
+  health: 100
   alive: 1
+  destroyOnDeath: 0
   corpse: []
   corpseSpawnOffset: 0
-  corpseExplosionForce: 0
+  explodeOnDeath: 0
+  explosion: {fileID: 0}
+  explosionForce: 0
+  explosionRadius: 0
+  explosionDuration: 0
 --- !u!114 &51769172509108284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1593,6 +1599,7 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 65536
+  active: 1
   move: 1
   attackDistance: 3.5
   speed_Idle: 0

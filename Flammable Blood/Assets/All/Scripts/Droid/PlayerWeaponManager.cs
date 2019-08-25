@@ -26,7 +26,7 @@ public class PlayerWeaponManager : MonoBehaviour
     public List<GameObject> weapons;
     public GameObject activeWeapon;
     private GameObject lastActiveWeapon;
-    public GameObject defaultWeapon;
+    //public GameObject defaultWeapon;
 
     private bool reloading;
 
@@ -91,7 +91,7 @@ public class PlayerWeaponManager : MonoBehaviour
             Animate();
             SwitchWeapons();
 
-            if (Input.GetKeyDown("`"))
+            if (Input.GetKeyDown(KeyCode.Tab))
             {
                 lastActiveWeapon = activeWeapon;
                 activeWeapon.SetActive(false);
@@ -101,7 +101,7 @@ public class PlayerWeaponManager : MonoBehaviour
         }
         else
         {
-            if (Input.GetKeyDown("`") && weapons.Count > 0)
+            if (Input.GetKeyDown(KeyCode.Tab) && weapons.Count > 0)
             {
                 activeWeapon = lastActiveWeapon;
                 activeWeapon.SetActive(true);
@@ -155,25 +155,6 @@ public class PlayerWeaponManager : MonoBehaviour
             }
             SetVariables();
             SetCategoryAnimWeight(anim.GetLayerIndex(AW_category), true);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            if(activeWeapon == defaultWeapon)
-            {
-                activeWeapon.SetActive(false);
-                activeWeapon = weapons[0];
-                activeWeapon.SetActive(true);
-            }
-            else
-            {
-                activeWeapon.SetActive(false);
-                activeWeapon = defaultWeapon;
-                activeWeapon.SetActive(true);
-            }
-            SetVariables();
-            SetCategoryAnimWeight(anim.GetLayerIndex(AW_category), true);
-
         }
     }
 
