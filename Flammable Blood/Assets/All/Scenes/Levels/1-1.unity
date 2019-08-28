@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 299713126}
   - component: {fileID: 299713125}
   - component: {fileID: 299713124}
+  - component: {fileID: 299713128}
   - component: {fileID: 299713123}
   m_Layer: 0
   m_Name: Main Camera
@@ -158,7 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.36
-  target: {fileID: 1560750207}
+  target: {fileID: 1640848127}
 --- !u!81 &299713125
 AudioListener:
   m_ObjectHideFlags: 0
@@ -223,6 +224,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &299713128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299713122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd7d918a9b7bf2340a2ae5264d681b5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camPos: {fileID: 517279775}
+  shake_intensity: 0
+  shake_duration: 0
 --- !u!1001 &517279774
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -535,16 +551,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 1250951249750421653, guid: 4c9d05bbd796af74abc75f9bf818deea,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 2672469980642636903, guid: 4c9d05bbd796af74abc75f9bf818deea,
-        type: 3}
-      propertyPath: attack
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c9d05bbd796af74abc75f9bf818deea, type: 3}
 --- !u!1 &665027936
@@ -603,6 +609,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: _GM_
       objectReference: {fileID: 0}
+    - target: {fileID: 1196890604617496534, guid: 2b45686db9c760a46b5edc94d507eb7c,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1560750207}
     - target: {fileID: 1196890604617496529, guid: 2b45686db9c760a46b5edc94d507eb7c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -658,11 +669,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1196890604617496534, guid: 2b45686db9c760a46b5edc94d507eb7c,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1560750207}
     - target: {fileID: 1150454885, guid: 2b45686db9c760a46b5edc94d507eb7c, type: 3}
       propertyPath: camPos
       value: 
@@ -744,6 +750,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 517279774}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1640848127 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3800470514424294567, guid: 1ac991a6017ca2e4d9cbc9c0d743dd34,
+    type: 3}
+  m_PrefabInstance: {fileID: 517279774}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2029355475
 GameObject:
   m_ObjectHideFlags: 0
@@ -758,8 +770,9 @@ GameObject:
   - component: {fileID: 2029355479}
   - component: {fileID: 2029355478}
   - component: {fileID: 2029355477}
+  - component: {fileID: 2029355482}
   m_Layer: 16
-  m_Name: Tilemap
+  m_Name: Ground_Collision
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40213,6 +40226,19 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &2029355482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029355475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d10a60417e45064b970580c80d2681b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particle: Default
 --- !u!1001 &2144538567
 PrefabInstance:
   m_ObjectHideFlags: 0

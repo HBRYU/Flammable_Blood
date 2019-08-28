@@ -307,6 +307,11 @@ PrefabInstance:
       propertyPath: patrol_Delay
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 51769172509108284, guid: a181eff1b09285145bb7e0128c423e8a,
+        type: 3}
+      propertyPath: faceDirectionDelay
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 4236277939696991761, guid: a181eff1b09285145bb7e0128c423e8a,
         type: 3}
       propertyPath: corpse.Array.size
@@ -435,7 +440,7 @@ PrefabInstance:
     - target: {fileID: 4236277939696991761, guid: a181eff1b09285145bb7e0128c423e8a,
         type: 3}
       propertyPath: explosionForce
-      value: 80
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 4236277939696991761, guid: a181eff1b09285145bb7e0128c423e8a,
         type: 3}

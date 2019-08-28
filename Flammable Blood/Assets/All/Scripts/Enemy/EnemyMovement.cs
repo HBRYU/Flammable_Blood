@@ -42,6 +42,12 @@ public class EnemyMovement : MonoBehaviour
 
     Vector2 movePos;
 
+    bool facingRight;
+    bool lastFacingRight;
+
+    public float faceDirectionDelay;
+    private float faceDirection_timer;
+
     void Start()
     {
         _GM_ = GameObject.FindGameObjectWithTag("GM").GetComponent<GM>();
@@ -220,13 +226,39 @@ public class EnemyMovement : MonoBehaviour
     {
         if (player.transform.position.x > transform.position.x)
         {
-            FaceDirection(true);
-            FollowPlayer(true);
+            facingRight = true;
+            if (lastFacingRight != facingRight)
+            {
+                faceDirection_timer += 1;
+                if (faceDirection_timer >= faceDirectionDelay)
+                {
+                    lastFacingRight = facingRight;
+                    faceDirection_timer = 0;
+                }
+            }
+            else
+            {
+                FaceDirection(true);
+                FollowPlayer(true);
+            }
         }
         else
         {
-            FaceDirection(false);
-            FollowPlayer(false);
+            facingRight = false;
+            if (lastFacingRight != facingRight)
+            {
+                faceDirection_timer += 1;
+                if (faceDirection_timer >= faceDirectionDelay)
+                {
+                    lastFacingRight = facingRight;
+                    faceDirection_timer = 0;
+                }
+            }
+            else
+            {
+                FaceDirection(false);
+                FollowPlayer(false);
+            }
         }
 
         void FollowPlayer(bool faceRight)
