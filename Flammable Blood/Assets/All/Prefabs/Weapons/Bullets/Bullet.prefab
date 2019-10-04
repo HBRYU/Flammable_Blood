@@ -186,8 +186,14 @@ MonoBehaviour:
   - Effector
   particleName:
   - Default
+  - Dirt
+  - Enemy/Hitbox
   particles:
   - {fileID: 2200773178758553130, guid: 8eb2624af0df7b546bd1dc32b195f0bf, type: 3}
+  - {fileID: 2200773178758553130, guid: d52716d3f622c8a418e390f9321e14f1, type: 3}
+  - {fileID: 2200773178758553130, guid: 5fb5d51b8ecf1754eba1e713b9686ca7, type: 3}
+  bulletContact: {fileID: 1976790624822548288, guid: bb1b4feaf456dc84fb9c62d596d92d29,
+    type: 3}
   hitEnemy_Flag: 0
 --- !u!96 &2576363198954427302
 TrailRenderer:

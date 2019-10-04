@@ -267,6 +267,8 @@ MonoBehaviour:
   - Default
   particles:
   - {fileID: 2200773178758553130, guid: 8eb2624af0df7b546bd1dc32b195f0bf, type: 3}
+  bulletContact: {fileID: 1976790624822548288, guid: 9894f1fb0982e6549bc03b9b5b015df8,
+    type: 3}
   hitPlayer_Flag: 0
 --- !u!96 &2209724782832568235
 TrailRenderer:

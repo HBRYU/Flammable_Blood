@@ -9,6 +9,9 @@ public class GM : MonoBehaviour
 
     public bool playerAlive;
 
+    public List<string> chunkParticles_names;
+    public List<GameObject> chunkParticles;
+
     // Start is called before the first frame update
     void Start()
     {

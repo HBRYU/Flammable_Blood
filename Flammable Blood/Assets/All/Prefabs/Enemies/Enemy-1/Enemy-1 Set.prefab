@@ -180,6 +180,19 @@ Transform:
   m_Father: {fileID: 8843796779253167613}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4720288546151913200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8843796779253167614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c72ebe633782a8479ac2420f62df756, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particle: Enemy
 --- !u!1001 &6470945589481017801
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -604,6 +617,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a181eff1b09285145bb7e0128c423e8a, type: 3}
+--- !u!1 &8843796779253167614 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2555248439290324023, guid: a181eff1b09285145bb7e0128c423e8a,
+    type: 3}
+  m_PrefabInstance: {fileID: 6470945589481017801}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8843796779253167613 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2555248439290324020, guid: a181eff1b09285145bb7e0128c423e8a,

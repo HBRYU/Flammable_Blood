@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    private GM _GM_;
     private Rigidbody2D rb;
     public GameObject wielder;
     public float accuracy;
@@ -17,16 +18,22 @@ public class Bullet : MonoBehaviour
     public List<string> particleName;
     public List<GameObject> particles;
 
+    public GameObject bulletContact;
+
     public bool hitEnemy_Flag;
 
     // Start is called before the first frame update
     void Start()
     {
+        _GM_ = GameObject.FindGameObjectWithTag("GM").GetComponent<GM>();
         rb = GetComponent<Rigidbody2D>();
         transform.Rotate(0, 0, Random.Range(-1.0f, 1.0f) * accuracy);
         //Debug.Log("SCALE: " + wielder.transform.localScale.x);
         transform.localScale = wielder.transform.localScale;
         rb.velocity = transform.right * transform.localScale.x * speed;
+
+        particleName = _GM_.chunkParticles_names;
+        particles = _GM_.chunkParticles;
     }
 
     // Update is called once per frame
@@ -43,10 +50,14 @@ public class Bullet : MonoBehaviour
 
     void BulletCollision(Collider2D other)
     {
+        
+        if(other.GetComponent<Particle_Stats>() != null)
+            SpawnParticles();
+
         switch (other.tag)
         {
             case "Ground":
-                SpawnParticles();
+                Instantiate(bulletContact, transform.position, transform.rotation);
                 Destroy(gameObject);
                 break;
 
@@ -56,6 +67,7 @@ public class Bullet : MonoBehaviour
                 {
                     if (other.CompareTag("Enemy") && !hitEnemy_Flag)
                     {
+                        Instantiate(bulletContact, transform.position, transform.rotation);
                         HitEnemy();
                     }
 
@@ -68,17 +80,16 @@ public class Bullet : MonoBehaviour
 
         void SpawnParticles()   ///////////// 벽, 땅 등 파편
         {
-            switch (other.GetComponent<GroundStats>().particle)
+            if (particleName.Contains(other.GetComponent<Particle_Stats>().particle))
             {
-                case "Default":
-                    Instantiate(particles[particleName.IndexOf("Default")], transform.position, Quaternion.identity);
-                    break;
-
-                default:
-                    Debug.Log("ERR: Unknown particle name [" + other.GetComponent<GroundStats>().particle + "]");
-                    Instantiate(particles[particleName.IndexOf("Default")], transform.position, Quaternion.identity);
-                    break;
+                Instantiate(particles[particleName.IndexOf(other.GetComponent<Particle_Stats>().particle)], transform.position, Quaternion.identity);
             }
+            else
+            {
+                Debug.Log("ERR: Unknown particle name [" + other.GetComponent<Particle_Stats>().particle + "]");
+                Instantiate(particles[particleName.IndexOf("Default")], transform.position, Quaternion.identity);
+            }
+
         }
 
         void HitEnemy()     ///////////// 적을 맞췄을 때: 

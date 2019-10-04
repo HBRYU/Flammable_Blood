@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyBullet2 : MonoBehaviour
 {
+    private GM _GM_;
     private Rigidbody2D rb;
     public GameObject wielder;
     public float accuracy;
@@ -16,17 +17,21 @@ public class EnemyBullet2 : MonoBehaviour
 
     public List<string> particleName;
     public List<GameObject> particles;
-
+    public GameObject bulletContact;
     public bool hitPlayer_Flag;
 
     // Start is called before the first frame update
     void Start()
     {
+        _GM_ = GameObject.FindGameObjectWithTag("GM").GetComponent<GM>();
         rb = GetComponent<Rigidbody2D>();
 
         transform.Rotate(0, 0, Random.Range(-1.0f, 1.0f) * accuracy);
 
         rb.velocity = transform.right * speed;
+
+        particleName = _GM_.chunkParticles_names;
+        particles = _GM_.chunkParticles;
     }
 
     // Update is called once per frame
@@ -43,10 +48,14 @@ public class EnemyBullet2 : MonoBehaviour
 
     void BulletCollision(Collider2D other)
     {
+        
+        if (other.GetComponent<Particle_Stats>() != null)
+            SpawnParticles();
+
         switch (other.tag)
         {
             case "Ground":
-                SpawnParticles();
+                Instantiate(bulletContact, transform.position, transform.rotation);
                 Destroy(gameObject);
                 break;
 
@@ -57,6 +66,7 @@ public class EnemyBullet2 : MonoBehaviour
                     if (other.CompareTag("Player/Hitbox") && !hitPlayer_Flag)
                     {
                         //Debug.Log("Hit Player");
+                        Instantiate(bulletContact, transform.position, transform.rotation);
                         HitPlayer();
                     }
                     Destroy(gameObject);
@@ -69,17 +79,16 @@ public class EnemyBullet2 : MonoBehaviour
 
         void SpawnParticles()   ///////////// 벽, 땅 등 파편
         {
-            switch (other.GetComponent<GroundStats>().particle)
+            if (particleName.Contains(other.GetComponent<Particle_Stats>().particle))
             {
-                case "Default":
-                    Instantiate(particles[particleName.IndexOf("Default")], transform.position, Quaternion.identity);
-                    break;
-
-                default:
-                    Debug.Log("ERR: Unknown particle name [" + other.GetComponent<GroundStats>().particle + "]");
-                    Instantiate(particles[particleName.IndexOf("Default")], transform.position, Quaternion.identity);
-                    break;
+                Instantiate(particles[particleName.IndexOf(other.GetComponent<Particle_Stats>().particle)], transform.position, Quaternion.identity);
             }
+            else
+            {
+                Debug.Log("ERR: Unknown particle name [" + other.GetComponent<Particle_Stats>().particle + "]");
+                Instantiate(particles[particleName.IndexOf("Default")], transform.position, Quaternion.identity);
+            }
+
         }
 
         void HitPlayer()     ///////////// 적을 맞췄을 때: 

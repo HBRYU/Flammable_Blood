@@ -207,6 +207,7 @@ GameObject:
   - component: {fileID: 7965439019939927005}
   - component: {fileID: 7394402074266397884}
   - component: {fileID: 241955886}
+  - component: {fileID: 1940657426077770923}
   m_Layer: 21
   m_Name: Drone-1
   m_TagString: Enemy
@@ -432,3 +433,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.15
+--- !u!114 &1940657426077770923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5310759857333475012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c72ebe633782a8479ac2420f62df756, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particle: Enemy
