@@ -91,6 +91,7 @@ public class PlayerMove : MonoBehaviour
         /////////////////////////////////   제트팩
         if(onGround == false && Input.GetKeyDown("w"))
         {
+            GetComponent<PlayerAudioManager>().Jetpack_SFX(true);
             usingJetpack = true;
         }
         if (usingJetpack && Input.GetKey("w"))
@@ -100,9 +101,10 @@ public class PlayerMove : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y + jetpack_force);
             jetpack_particles.Play();
         }
-        if (!Input.GetKey("w"))
+        if (usingJetpack == true && !Input.GetKey("w"))
         {
             usingJetpack = false;
+            GetComponent<PlayerAudioManager>().Jetpack_SFX(false);
             jetpack_particles.Stop();
         }
     }
