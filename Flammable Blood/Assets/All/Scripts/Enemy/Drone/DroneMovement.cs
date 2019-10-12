@@ -14,6 +14,8 @@ public class DroneMovement : MonoBehaviour
 
     public bool active = true;
 
+    public AudioClip alertSFX;
+
     public bool hover = true;
     public float hoverHeight;
     public float hoverForce;
@@ -53,6 +55,9 @@ public class DroneMovement : MonoBehaviour
             RaycastHit2D wallInSight = Physics2D.Raycast(transform.position, player.transform.position - transform.position, Vector2.Distance(transform.position, player.transform.position), whatIsGround);
             if (Vector2.Distance(transform.position, player.transform.position) < alertDistance && wallInSight.collider == null)
             {
+                if (state != "Chasing")
+                    GetComponent<AudioSource>().PlayOneShot(alertSFX);
+
                 state = "Chasing";
                 Chase();
                 attackScript.attack = true;

@@ -25,6 +25,14 @@ public class EnemyStats : MonoBehaviour
     public float explosionRadius;
     public float explosionDuration;
 
+    //STUN effect
+    private float stunDuration;
+    private float stunDamage;
+    private GameObject stun_effect;
+    //FLAME effect
+    private float burnDuration;
+    private float burnDamage;
+    private GameObject burn_effect;
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +51,52 @@ public class EnemyStats : MonoBehaviour
             Die();
             health = 0;
         }
+
+        //Burn effect
+        if(burnDuration > 0)
+        {
+            TakeDamage(burnDamage * Time.deltaTime);
+            burnDuration -= Time.deltaTime;
+        }
+        else
+        {
+            if (burn_effect != null)
+                Destroy(burn_effect);
+            burnDuration = 0;
+            burnDamage = 0;
+        }
+
+        //Stun effect
+        if(stunDuration > 0)
+        {
+            TakeDamage(stunDamage * Time.deltaTime);
+            stunDuration -= Time.deltaTime;
+        }
+        else
+        {
+            if (GetComponent<DroneMovement>() != null)
+            {
+                DroneMovement move = GetComponent<DroneMovement>();
+                move.hover = true;
+
+                GetComponent<DroneAttack>().enabled = true;
+            }
+
+            if (GetComponent<EnemyMovement>() != null)
+            {
+                EnemyMovement move = GetComponent<EnemyMovement>();
+
+                move.active = true;
+                move.move = true;
+
+                GetComponent<Enemy1_Attack>().enabled = true;
+            }
+
+            if (stun_effect != null)
+                Destroy(stun_effect);
+            stunDamage = 0;
+            stunDuration = 0;
+        }
     }
 
     public void TakeDamage(float damage)
@@ -56,31 +110,63 @@ public class EnemyStats : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damage, float stunDuration)
+    public void Stunned(float randomizer, float duration, float damage, GameObject effect)
     {
-        health -= damage;
-        Debug.Log("Stunned for " + stunDuration + "sec");
-    }
-
-    /*
-    public void Knockback(float force, string type, float val1)
-    {
-        switch (type)
+        if (GetComponent<DroneMovement>() != null)
         {
-            case "simpleX":
-                // val1 = wether origin is higher or low X value (1 or -1)
-                force = force * val1;
-                rb.velocity += new Vector2(rb.velocity.x + force, rb.velocity.y);
-                break;
+            DroneMovement move = GetComponent<DroneMovement>();
+            move.hoverForce += Random.Range(-randomizer, randomizer);
+            move.hoverHeight += Random.Range(-randomizer, randomizer);
+            move.speed += Random.Range(-randomizer, randomizer);
+            move.speed += Random.Range(-randomizer, randomizer);
+            move.acceleration += Random.Range(-randomizer, randomizer);
+            move.retreat_acceleration += Random.Range(-randomizer, randomizer);
 
-            default:
-                Debug.Log("Knockback: Unknown knockback type: " + type + ", calling simpleX [" + gameObject.name + "]");
-                force = force * val1;
-                rb.velocity += new Vector2(rb.velocity.x + force, rb.velocity.y);
-                break;
+            move.hover = false;
+
+            GetComponent<DroneAttack>().enabled = false;
+            GetComponent<DroneAttack>().aimSpeed += Random.Range(-randomizer, randomizer);
         }
+
+        if (GetComponent<EnemyMovement>() != null)
+        {
+            EnemyMovement move = GetComponent<EnemyMovement>();
+
+            //Debug.Log("ZAAAP");
+            move.active = false;
+            move.move = false;
+            rb = GetComponent<Rigidbody2D>();
+            rb.velocity = new Vector2(0, rb.velocity.y);
+
+            GetComponent<Enemy1_Attack>().enabled = false;
+            GetComponent<Enemy1_Animation>().Move(false);
+        }
+
+        if (stunDuration <= 0)
+        {
+            stun_effect = Instantiate(effect, transform);
+            stun_effect.transform.parent = transform;
+            stun_effect.transform.localPosition = new Vector2(0, 0);
+        }
+        if (duration > stunDuration)
+            stunDuration = duration;
+        if (damage > stunDamage)
+            stunDamage = damage;
     }
-    */
+
+    public void Burn(float duration, float damage, GameObject effect)
+    {
+        if (burnDuration <= 0)
+        {
+            burn_effect = Instantiate(effect, transform);
+            burn_effect.transform.parent = transform;
+            burn_effect.transform.localPosition = new Vector2(0, 0);
+        }
+        if (duration > burnDuration)
+            burnDuration = duration;
+        if (damage > burnDamage)
+            burnDamage = damage;
+    }
 
     public void Die()
     {

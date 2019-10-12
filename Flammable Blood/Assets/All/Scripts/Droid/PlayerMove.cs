@@ -12,6 +12,7 @@ public class PlayerMove : MonoBehaviour
 
     public float runSpeed;
     public float walkSpeed;
+    public float lackingFuelSpeed_delta;
     private float speed;
     public float jumpForce;
 
@@ -20,6 +21,10 @@ public class PlayerMove : MonoBehaviour
 
     private bool facingRight = true;
     private float moveInput;
+    public float maxFuel;
+    public float fuel;
+    public float move_fuel_efficiency;
+    public float jetpack_fuel_efficiency;
     public bool jetpack;
     public float jetpack_force;
     public float jetpack_terminalV;
@@ -66,8 +71,17 @@ public class PlayerMove : MonoBehaviour
         else
             crouched = false;
 
+        //Debug.Log(speed);
+        if (fuel > 0)
+            fuel -= Mathf.Abs(moveInput) * speed / (move_fuel_efficiency + 1);
+        else
+            fuel = 0;
 
-        rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
+        if(fuel > 0)
+            rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
+        else
+            rb.velocity = new Vector2(moveInput * speed * lackingFuelSpeed_delta, rb.velocity.y);
+
 
         /////////////////////////////////// 좌우 반전
         if (faceMouseMovement)
@@ -89,19 +103,21 @@ public class PlayerMove : MonoBehaviour
         }
         
         /////////////////////////////////   제트팩
-        if(onGround == false && Input.GetKeyDown("w"))
+        if(onGround == false && Input.GetKeyDown("w") && fuel > 0)
         {
             GetComponent<PlayerAudioManager>().Jetpack_SFX(true);
             usingJetpack = true;
         }
-        if (usingJetpack && Input.GetKey("w"))
+        if (usingJetpack && Input.GetKey("w") && fuel > 0)
         {
             //Debug.Log("jetpack on, rb.velocity.y: " + rb.velocity.y);
             if(rb.velocity.y <= jetpack_terminalV)
                 rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y + jetpack_force);
             jetpack_particles.Play();
+
+            fuel -= 1 / (jetpack_fuel_efficiency + 1);
         }
-        if (usingJetpack == true && !Input.GetKey("w"))
+        if ((usingJetpack == true && !Input.GetKey("w")) || (usingJetpack == true && fuel <= 0))
         {
             usingJetpack = false;
             GetComponent<PlayerAudioManager>().Jetpack_SFX(false);

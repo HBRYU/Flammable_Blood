@@ -105,6 +105,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useAim: 1
   autoReload: 1
+  shotSFX: {fileID: 0}
+  reloadSFX: {fileID: 0}
+  audioSource: {fileID: 0}
   bullet: {fileID: 1646669890229493766, guid: 83027b3672232174693e1d42facae6a1, type: 3}
   barrelEnd: {fileID: 1603397538876135330}
   bulletSpeed: 65
@@ -229,6 +232,7 @@ MonoBehaviour:
   category: AR
   IMG: {fileID: 21300000, guid: d6f62bd8ce76fb042a5991a815425f15, type: 3}
   gun: {fileID: 3410695344367587472}
+  pointer: {fileID: 2325541929653501616}
   collider: {fileID: 5150104150689436769}
   ammoType: 5.56mm
   alertAmmoCount: 60
@@ -395,6 +399,12 @@ PrefabInstance:
 --- !u!4 &4541940510443125349 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4205701249611985515, guid: f561580a2f1178b418d7b3625e0f5e3b,
+    type: 3}
+  m_PrefabInstance: {fileID: 384373685301200910}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &2325541929653501616 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 2670755271338833598, guid: f561580a2f1178b418d7b3625e0f5e3b,
     type: 3}
   m_PrefabInstance: {fileID: 384373685301200910}
   m_PrefabAsset: {fileID: 0}

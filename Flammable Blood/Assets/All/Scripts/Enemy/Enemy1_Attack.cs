@@ -6,6 +6,8 @@ public class Enemy1_Attack : MonoBehaviour
 {
     private Enemy1_Animation e1anim;
 
+    public AudioClip shotSFX;
+
     public GameObject projectile;
     public Transform barrelEnd;
     public float damage;
@@ -49,6 +51,9 @@ public class Enemy1_Attack : MonoBehaviour
                 thisBulletScript.speed = bulletSpeed;
                 thisBulletScript.accuracy = accuracy;
                 Instantiate(thisBullet, barrelEnd.position, Quaternion.identity);
+
+                GetComponent<AudioSource>().PlayOneShot(shotSFX);
+
                 ammo -= 1;
                 reload_timer = 0;
             }

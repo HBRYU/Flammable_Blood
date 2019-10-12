@@ -20,6 +20,13 @@ TagManager:
   - PlayerGraphics
   - PlayerJetpack
   - UI
+  - Deployable/Puncture
+  - Deployable/Frag
+  - Deployable/EMP
+  - Deployable/Incendiary
+  - Deployable/HomingMine
+  - Deployable/HomingMineEMP
+  - Deployable/C-4
   layers:
   - Default
   - TransparentFX
@@ -46,7 +53,7 @@ TagManager:
   - Effector
   - Mask
   - BG
-  - 
+  - Deployable
   - 
   - 
   - 

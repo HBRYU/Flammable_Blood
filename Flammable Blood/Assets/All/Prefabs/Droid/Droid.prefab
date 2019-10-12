@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 129578825}
   - component: {fileID: 129578827}
   - component: {fileID: 129578826}
+  - component: {fileID: 6932330}
   m_Layer: 0
   m_Name: Jetpack_particles
   m_TagString: PlayerJetpack
@@ -4698,6 +4699,132 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!82 &6932330
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 129578824}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 5bed635d465c33948b7175c431bf6084, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.82
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!1 &555524473
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 555524474}
+  m_Layer: 8
+  m_Name: Deployables spawnPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &555524474
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555524473}
+  m_LocalRotation: {x: -0, y: -0, z: 0.36347228, w: 0.931605}
+  m_LocalPosition: {x: 0.014, y: 0.245, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6654551699162335451}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 42.627003}
 --- !u!1 &2120352836
 GameObject:
   m_ObjectHideFlags: 0
@@ -5872,7 +5999,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 0.3}
-  m_Length: 0.2942021
+  m_Length: 0.294202
   m_ChildTransform: {fileID: 6654551698136253171}
   m_AttachedIK: {fileID: 0}
 --- !u!1 &6654551698136253168
@@ -5920,7 +6047,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 0.3}
-  m_Length: 0.19909872
+  m_Length: 0.19909866
   m_ChildTransform: {fileID: 6654551698168413986}
   m_AttachedIK: {fileID: 0}
 --- !u!1 &6654551698168413987
@@ -6248,7 +6375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 0.3}
-  m_Length: 0.4000004
+  m_Length: 0.40000045
   m_ChildTransform: {fileID: 6654551698438022697}
   m_AttachedIK: {fileID: 0}
 --- !u!1 &6654551698745361997
@@ -6806,7 +6933,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 0.3}
-  m_Length: 0.2942021
+  m_Length: 0.29420212
   m_ChildTransform: {fileID: 6654551699573364945}
   m_AttachedIK: {fileID: 0}
 --- !u!1 &6654551699162335448
@@ -6829,6 +6956,7 @@ GameObject:
   - component: {fileID: 1115790034}
   - component: {fileID: 1115790045}
   - component: {fileID: 1115790044}
+  - component: {fileID: 1115790046}
   m_Layer: 8
   m_Name: Droid
   m_TagString: Player
@@ -6856,6 +6984,7 @@ Transform:
   - {fileID: 2784348391783028970}
   - {fileID: 1468163067620930368}
   - {fileID: 129578825}
+  - {fileID: 555524474}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6957,14 +7086,19 @@ MonoBehaviour:
   faceMouseMovement: 1
   runSpeed: 7.5
   walkSpeed: 4
+  lackingFuelSpeed_delta: 0.6
   jumpForce: 11.5
   jumped: 0
   hadJumped: 0
   crouched: 0
   usingJetpack: 0
+  maxFuel: 1600
+  fuel: 1600
+  move_fuel_efficiency: 25
+  jetpack_fuel_efficiency: 0
   jetpack: 1
-  jetpack_force: 2
-  jetpack_terminalV: 8
+  jetpack_force: 1.5
+  jetpack_terminalV: 5
   jetpack_particles: {fileID: 129578827}
   groundCheck: {fileID: 3767988285500113068}
   groundCheckRadius: 0.15
@@ -7080,7 +7214,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.35
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -7124,7 +7258,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -7182,7 +7316,30 @@ MonoBehaviour:
   - {fileID: 8300000, guid: bbc0ec9083831d945a52cebef96d8833, type: 3}
   jump: {fileID: 8300000, guid: 37fa2c09dea636f41b7d4e48de808510, type: 3}
   land: {fileID: 8300000, guid: 1cf52bbfe666d7744981a6ff7f5b5408, type: 3}
-  player_audio_jetpack: {fileID: 0}
+  jetpack_end: {fileID: 8300000, guid: aa45722850aac5c43b4854403ce41b69, type: 3}
+  player_audio_jetpack: {fileID: 6932330}
+--- !u!114 &1115790046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6654551699162335448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c7c083f1a4000640929fcde66675aef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPos: {fileID: 555524474}
+  deployables:
+  - {fileID: 1066089497082176495, guid: cc47a08647f2c5144b7fbd60cd3be556, type: 3}
+  - {fileID: 4814746623279647117, guid: 4d13f21b447343e4886c320d1b98c7ff, type: 3}
+  - {fileID: 6293452072621857460, guid: f66a139663e76754f95d9efbc49bce2a, type: 3}
+  - {fileID: 663993632321782434, guid: dd665c36f5270e348b52a8c2fa038dfc, type: 3}
+  - {fileID: 4674184734277033579, guid: 3f41b469ef76aee4a87705fd5c8e30b1, type: 3}
+  - {fileID: 4674184734277033579, guid: ca09d6365278d68499f50e0b344461fb, type: 3}
+  - {fileID: 59740208229896860, guid: 8feb8114e87743d419e5ea402a33bc6c, type: 3}
+  activeDPLYBL: {fileID: 0}
 --- !u!1 &6654551699180748116
 GameObject:
   m_ObjectHideFlags: 0
@@ -7457,7 +7614,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 0.3}
-  m_Length: 0.2509886
+  m_Length: 0.2509885
   m_ChildTransform: {fileID: 6654551699799477906}
   m_AttachedIK: {fileID: 0}
 --- !u!1 &6654551699275291555
@@ -7992,7 +8149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 0.3}
-  m_Length: 0.18296981
+  m_Length: 0.18296975
   m_ChildTransform: {fileID: 6654551698700776721}
   m_AttachedIK: {fileID: 0}
 --- !u!1 &6654551699524049494
@@ -8244,7 +8401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 0.3}
-  m_Length: 0.1990989
+  m_Length: 0.1990988
   m_ChildTransform: {fileID: 6654551697849771269}
   m_AttachedIK: {fileID: 0}
 --- !u!1 &6654551699583420895
@@ -8394,7 +8551,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 0.3}
-  m_Length: 0.40000033
+  m_Length: 0.4000004
   m_ChildTransform: {fileID: 6654551699275291554}
   m_AttachedIK: {fileID: 0}
 --- !u!1 &6654551699799477907
@@ -8444,7 +8601,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 0.3}
-  m_Length: 0.29887027
+  m_Length: 0.29887033
   m_ChildTransform: {fileID: 6654551699495731574}
   m_AttachedIK: {fileID: 0}
 --- !u!1 &7578249519774161299

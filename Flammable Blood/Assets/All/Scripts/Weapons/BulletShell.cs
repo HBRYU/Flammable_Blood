@@ -10,6 +10,8 @@ public class BulletShell : MonoBehaviour
     public float minSpeed;
     public float randomSpeed;
 
+    public AudioClip[] SFXs;
+
     [HideInInspector]
     public GameObject wielder;
     // Start is called before the first frame update
@@ -30,5 +32,10 @@ public class BulletShell : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        GetComponent<AudioSource>().PlayOneShot(SFXs[Random.Range(0, SFXs.Length)]);
     }
 }

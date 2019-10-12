@@ -16,6 +16,10 @@ public class Gun_SG : MonoBehaviour
 
     public bool useAim, autoReload;
 
+    public AudioClip shotSFX;
+    public AudioClip reloadSFX;
+    public AudioSource audioSource;
+
     public Bullet bullet;
     public int maxPelletCount;
     public int minPelletCount;
@@ -79,8 +83,9 @@ public class Gun_SG : MonoBehaviour
             {
                 fire_Timer += Time.deltaTime;
 
-                if (Input.GetKeyDown("r") || autoReload == true && ammo <= 0)
+                if (Input.GetKeyDown("r") || autoReload == true && ammo <= 0 && reloading == false)
                 {
+                    audioSource.PlayOneShot(reloadSFX);
                     reloading = true;
                 }
             }
@@ -114,6 +119,8 @@ public class Gun_SG : MonoBehaviour
             thisBullet.wielder = player;
             Instantiate(thisBullet, barrelEnd.transform.position, Quaternion.identity);
         }
+
+        audioSource.PlayOneShot(shotSFX);
 
         _GM_.camShakeManager.CameraShake(camShake_force, camShake_duration, false);
 

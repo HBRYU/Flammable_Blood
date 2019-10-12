@@ -16,6 +16,10 @@ public class Gun_Rifle : MonoBehaviour
 
     public bool useAim, autoReload;
 
+    public AudioClip shotSFX;
+    public AudioClip reloadSFX;
+    public AudioSource audioSource;
+
     public Bullet bullet;
     public GameObject barrelEnd;
     public float bulletSpeed;
@@ -88,8 +92,12 @@ public class Gun_Rifle : MonoBehaviour
             {
                 fire_Timer += Time.deltaTime;
 
-                if (Input.GetKeyDown("r") || autoReload == true && ammo <= 0)
+                if (Input.GetKeyDown("r") || autoReload == true && ammo <= 0 && reloading == false)
+                {
+                    audioSource.PlayOneShot(reloadSFX);
                     reloading = true;
+                }
+                    
             }
         }
         else
@@ -116,6 +124,8 @@ public class Gun_Rifle : MonoBehaviour
         thisBullet.speed = bulletSpeed;
         thisBullet.wielder = player;
         Instantiate(thisBullet, barrelEnd.transform.position, Quaternion.identity);
+
+        audioSource.PlayOneShot(shotSFX);
 
         _GM_.camShakeManager.CameraShake(camShake_force, camShake_duration, false);
 

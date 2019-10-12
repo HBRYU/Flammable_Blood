@@ -75,6 +75,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useAim: 1
   autoReload: 1
+  shotSFX: {fileID: 8300000, guid: 70712c4199aa1ee47a3da3f29d880e79, type: 3}
+  reloadSFX: {fileID: 8300000, guid: edf47b48719ed644f96cad97f257ed47, type: 3}
+  audioSource: {fileID: 1546248498}
   bullet: {fileID: 1646669890229493766, guid: 83027b3672232174693e1d42facae6a1, type: 3}
   barrelEnd: {fileID: 1603397538876135330}
   bulletSpeed: 60
@@ -110,6 +113,7 @@ GameObject:
   - component: {fileID: 6259814728530220971}
   - component: {fileID: 5150104150689436769}
   - component: {fileID: 6339669185808228082}
+  - component: {fileID: 1546248498}
   m_Layer: 9
   m_Name: Frontier_AR
   m_TagString: Weapons
@@ -199,6 +203,7 @@ MonoBehaviour:
   category: AR
   IMG: {fileID: 21300000, guid: d6f62bd8ce76fb042a5991a815425f15, type: 3}
   gun: {fileID: 3070206328322173236}
+  pointer: {fileID: 2255681932673733800}
   collider: {fileID: 5150104150689436769}
   ammoType: 5.56mm
   alertAmmoCount: 60
@@ -239,7 +244,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4145413342430660310}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -288,6 +293,102 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!82 &1546248498
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4145413342430660310}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 70712c4199aa1ee47a3da3f29d880e79, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.4
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &6466091896848426966
 GameObject:
   m_ObjectHideFlags: 0
@@ -395,6 +496,12 @@ PrefabInstance:
 --- !u!4 &1810239613 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4205701249611985515, guid: f561580a2f1178b418d7b3625e0f5e3b,
+    type: 3}
+  m_PrefabInstance: {fileID: 4205701248117105174}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &2255681932673733800 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 2670755271338833598, guid: f561580a2f1178b418d7b3625e0f5e3b,
     type: 3}
   m_PrefabInstance: {fileID: 4205701248117105174}
   m_PrefabAsset: {fileID: 0}

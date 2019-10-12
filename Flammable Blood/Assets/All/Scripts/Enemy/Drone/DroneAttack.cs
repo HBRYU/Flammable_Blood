@@ -7,6 +7,8 @@ public class DroneAttack : MonoBehaviour
     private GM _GM_;
     private GameObject player;
 
+    public AudioClip shotSFX;
+
     public GameObject gun;
     public GameObject bullet;
     public Transform barrelEnd;
@@ -67,7 +69,7 @@ public class DroneAttack : MonoBehaviour
         targ.y = targ.y - objectPos.y;
 
         float angle = Mathf.Atan2(targ.y, targ.x) * Mathf.Rad2Deg;
-        gun.transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(new Vector3(gun.transform.rotation.x, 0, angle)), aimSpeed);
+        gun.transform.rotation = Quaternion.Lerp(gun.transform.rotation, Quaternion.Euler(new Vector3(gun.transform.rotation.x, 0, angle)), aimSpeed);
     }
 
     void UseGun()
@@ -104,6 +106,8 @@ public class DroneAttack : MonoBehaviour
 
             Vector3 bulletRotation = gun.transform.localEulerAngles;
             bulletRotation.y = 0;
+
+            GetComponent<AudioSource>().PlayOneShot(shotSFX);
 
             Instantiate(thisBullet, barrelEnd.position, Quaternion.Euler(bulletRotation));
         }

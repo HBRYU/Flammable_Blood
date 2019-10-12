@@ -179,11 +179,10 @@ MonoBehaviour:
   - Player/Hitbox
   - Bullet
   - Weapons
-  - Bullet
+  - Effector
   - Particles
   - Enemy/Radar
   - Environment
-  - Effector
   particleName:
   - Default
   - Dirt

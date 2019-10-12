@@ -86,7 +86,7 @@ public class PlayerStats : MonoBehaviour
             weapon.GetComponent<WeaponStats>().Drop();
             weapon.GetComponent<WeaponStats>().is_shooting = false;
             weapon.GetComponent<Animator>().SetBool("Shooting", false);
-            Debug.Log("Weapon dropped");
+            //Debug.Log("Weapon dropped");
         }
 
         _GM_.playerAlive = false;

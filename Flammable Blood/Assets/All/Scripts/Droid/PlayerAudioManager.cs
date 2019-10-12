@@ -47,7 +47,7 @@ public class PlayerAudioManager : MonoBehaviour
     {
         if (play)
         {
-            Debug.Log("PlayingJP SFX");
+            //Debug.Log("PlayingJP SFX");
             player_audio_jetpack.Play();
         }
         else

@@ -55,7 +55,7 @@ public class StunArm : MonoBehaviour
             EnemyStats enemyStats = enemy.gameObject.GetComponent<EnemyStats>();
             if (enemyStats != null)
             {
-                enemyStats.TakeDamage(damage, stunDuration);
+                //enemyStats.TakeDamage(damage, stunDuration);
 
                 int val1 = 0;
                 if (enemy.transform.position.x >= transform.position.x)
