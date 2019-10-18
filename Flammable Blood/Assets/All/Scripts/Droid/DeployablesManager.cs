@@ -33,19 +33,23 @@ public class DeployablesManager : MonoBehaviour
         {
             if(activeDPLYBL != deployables[deployables.Count - 1])
             {
-                int a = 0;  //FAIL SWITCH
+                int a = 1;  //FAIL SWITCH
                 while (true)
                 {
+                    if ((deployables.IndexOf(activeDPLYBL) + 1) > deployables.Count - 1)
+                        break;
+                    a += 1;
                     int count = 0;
                     foreach(int i in dplybles_count)
                         count += i;
                     if (count == 0)
                         break;
-
+                    //Debug.Log("IN LOOP: " + (deployables.IndexOf(activeDPLYBL) + 1));
+                    //Debug.Log("IN: " + a);
                     activeDPLYBL = deployables[deployables.IndexOf(activeDPLYBL) + 1];
-                    if (dplybles_count[deployables.IndexOf(activeDPLYBL)] > 0 || a > 100)
-                        break;
-                    a += 1;
+                    if (dplybles_count[deployables.IndexOf(activeDPLYBL)] > 0)
+                        break; 
+                    
                 }
 
                 if (a > 100)
@@ -56,21 +60,23 @@ public class DeployablesManager : MonoBehaviour
             {
                 activeDPLYBL = deployables[0];
                 int a = 0;  //FAIL SWITCH
-                while (true)
+                while (a < deployables.Count)
                 {
+                    a += 1;
                     int count = 0;
                     foreach (int i in dplybles_count)
                         count += i;
                     if (count == 0)
                         break;
 
-                    if (dplybles_count[deployables.IndexOf(activeDPLYBL)] > 0 || a > 100)
+                    if (dplybles_count[deployables.IndexOf(activeDPLYBL)] > 0)
                         break;
-                    else
+                    else 
                     {
+                        //Debug.Log("OUT OF LOOP: " + (deployables.IndexOf(activeDPLYBL) + 1));
+                        //Debug.Log("OUT: " + a);
                         activeDPLYBL = deployables[deployables.IndexOf(activeDPLYBL) + 1];
                     }
-                    a += 1;
                 }
                 if (a > 100)
                     Debug.Log("Grenades count error: Check script and fix the retarded algorythm");
