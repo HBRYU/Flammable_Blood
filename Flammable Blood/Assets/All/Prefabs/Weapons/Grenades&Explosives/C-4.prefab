@@ -294,10 +294,10 @@ MonoBehaviour:
   delay: 4.5
   throwForce: 5
   fragmentCount: 55
-  fragPositionOffset: 0.3
+  fragPositionOffset: 0.1
   fragLifeTime: 1
   fireCount: 60
-  firePositionOffset: 1
+  firePositionOffset: 0.3
   fireLifeTime: 5
   burnDuration: 10
   fireDamage: 4

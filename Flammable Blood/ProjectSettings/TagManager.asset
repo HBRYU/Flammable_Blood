@@ -27,6 +27,7 @@ TagManager:
   - Deployable/HomingMine
   - Deployable/HomingMineEMP
   - Deployable/C-4
+  - Crate
   layers:
   - Default
   - TransparentFX

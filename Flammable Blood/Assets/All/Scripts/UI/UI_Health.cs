@@ -46,6 +46,7 @@ public class UI_Health : MonoBehaviour
 
         if(health < lastHealth)
         {
+            Debug.Log("H: " + health + ", L: " + lastHealth);
             damageMask.GetComponent<Animator>().SetTrigger("Damaged");
         }
         lastHealth = health;

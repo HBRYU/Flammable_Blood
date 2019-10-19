@@ -142,7 +142,7 @@ MonoBehaviour:
   delay: 3
   damage: 40
   fragmentCount: 35
-  fragPositionOffset: 1
+  fragPositionOffset: 0.1
   fragLifeTime: 0.15
 --- !u!114 &211993551
 MonoBehaviour:

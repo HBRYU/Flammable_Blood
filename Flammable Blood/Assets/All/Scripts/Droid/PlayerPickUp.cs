@@ -53,6 +53,9 @@ public class PlayerPickUp : MonoBehaviour
                         case "WeaponStats":
                             closestItem.GetComponent<ItemPickUp>().PickUp(weaponsFolder.transform);
                             break;
+                        case "Crate":
+                            closestItem.GetComponent<ItemPickUp>().PickUp(null);
+                            break;
                         default:
                             closestItem.GetComponent<ItemPickUp>().PickUp(transform);
                             break;

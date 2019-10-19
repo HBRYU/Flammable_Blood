@@ -33,6 +33,8 @@ public class PlayerStats : MonoBehaviour
             alive = false;
             Die();
         }
+        if (health > maxHealth)
+            health = maxHealth;
     }
 
     public void TakeDamage(float damage)

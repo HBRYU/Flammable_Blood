@@ -63,9 +63,9 @@ public class UI_Weapon : MonoBehaviour
             }
 
             //////////////      WEAPON
+            availableAmmo = ammoCount[ammoType.IndexOf(WM.AW_ammoType)] - WM.AW_WS.magSize;
             if (activeWeapon != lastActiveWeapon || WM.AW_WS.is_reloading == true || ammoCount[ammoType.IndexOf(WM.AW_ammoType)] == 0)
             {
-                availableAmmo = ammoCount[ammoType.IndexOf(WM.AW_ammoType)] - WM.AW_WS.magSize;
                 if (availableAmmo < 0)
                     availableAmmo = 0;
             }
