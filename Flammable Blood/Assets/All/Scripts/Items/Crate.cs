@@ -27,6 +27,8 @@ public class Crate : MonoBehaviour
 
     public void Access()
     {
+        List<Item>  remains = new List<Item>();
+
         foreach(Item item in items)
         {
             switch (item.type)
@@ -40,11 +42,15 @@ public class Crate : MonoBehaviour
                     ps.health += item.count;
                     break;
                 case "Module":
-                    Debug.Log("Module");
+                    PlayerModuleManager mm = player.GetComponent<PlayerModuleManager>();
+                    if(mm.InsertModule(item.module) == false)
+                    {
+                        remains.Add(item);
+                    }
                     break;
             }
         }
 
-        items = new List<Item>();
+        items = remains;
     }
 }

@@ -17,6 +17,9 @@ public class ItemPickUp : MonoBehaviour
             case "Crate":
                 transform.parent.GetComponent<Crate>().Access();
                 break;
+            case "Item_Module":
+                transform.parent.GetComponent<Item_Module>().Access();
+                break;
             default:
                 Debug.Log("ERR: Unknown item target script (" + targetScript +")  [From " + gameObject.name + "]");
                 break;
