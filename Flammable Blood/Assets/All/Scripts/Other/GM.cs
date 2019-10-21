@@ -13,7 +13,7 @@ public class GM : MonoBehaviour
     public List<GameObject> chunkParticles;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         camShakeManager = GetComponent<CameraShakeManager>();
     }

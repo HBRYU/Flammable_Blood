@@ -71,7 +71,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1821757851
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300002, guid: 44b279d02a021b2449165c9a763f68fa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -142,7 +142,7 @@ MonoBehaviour:
   delay: 3
   damage: 40
   fragmentCount: 35
-  fragPositionOffset: 0.1
+  fragPositionOffset: 0.2
   fragLifeTime: 0.15
 --- !u!114 &211993551
 MonoBehaviour:
@@ -268,7 +268,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1821757851
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 3ee7378e21520c04e9c64af3016141af, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.7058824}

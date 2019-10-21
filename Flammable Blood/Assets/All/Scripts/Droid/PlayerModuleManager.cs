@@ -60,6 +60,11 @@ public class PlayerModuleManager : MonoBehaviour
             //SAME MODULE EXISTS WITH LOWER LEVEL
             if (modules_IDs.IndexOf(module.ID) != -1 && modules[modules_IDs.IndexOf(module.ID)].level != module.level)
             {
+                Debug.Log("FUCK");
+                GameObject thisItem = item_module;
+                thisItem.GetComponent<Item_Module>().module = modules[modules_IDs.IndexOf(module.ID)];
+                thisItem.GetComponent<SpriteRenderer>().sprite = modules[modules_IDs.IndexOf(module.ID)].IMG;
+                Instantiate(thisItem, transform.position, transform.rotation);
                 modules.Remove(modules[modules_IDs.IndexOf(module.ID)]);
                 modules_IDs.Remove(modules_IDs[modules_IDs.IndexOf(module.ID)]);
             }
@@ -90,6 +95,11 @@ public class PlayerModuleManager : MonoBehaviour
             //SAME MODULE EXISTS WITH LOWER LEVEL
             if (modules_IDs.IndexOf(module.ID) != -1 && modules[modules_IDs.IndexOf(module.ID)].level != module.level)
             {
+                Debug.Log("FUCK");
+                GameObject thisItem = item_module;
+                thisItem.GetComponent<Item_Module>().module = modules[modules_IDs.IndexOf(module.ID)];
+                thisItem.GetComponent<SpriteRenderer>().sprite = modules[modules_IDs.IndexOf(module.ID)].IMG;
+                Instantiate(thisItem, transform.position, transform.rotation);
                 modules.Remove(modules[modules_IDs.IndexOf(module.ID)]);
                 modules_IDs.Remove(modules_IDs[modules_IDs.IndexOf(module.ID)]);
             }
@@ -120,7 +130,11 @@ public class PlayerModuleManager : MonoBehaviour
             //SAME MODULE EXISTS WITH LOWER LEVEL
             if (modules_IDs.IndexOf(module.ID) != -1 && modules[modules_IDs.IndexOf(module.ID)].level != module.level)
             {
-                
+                Debug.Log("FUCK");
+                GameObject thisItem = item_module;
+                thisItem.GetComponent<Item_Module>().module = modules[modules_IDs.IndexOf(module.ID)];
+                thisItem.GetComponent<SpriteRenderer>().sprite = modules[modules_IDs.IndexOf(module.ID)].IMG;
+                Instantiate(thisItem, transform.position, transform.rotation);
                 modules.Remove(modules[modules_IDs.IndexOf(module.ID)]);
                 modules_IDs.Remove(modules_IDs[modules_IDs.IndexOf(module.ID)]);
             }

@@ -27,6 +27,7 @@ public class Crate : MonoBehaviour
 
     public void Access()
     {
+        Debug.Log("ACCESSING CRATE");
         List<Item>  remains = new List<Item>();
 
         foreach(Item item in items)
@@ -40,6 +41,16 @@ public class Crate : MonoBehaviour
                 case "Health":
                     PlayerStats ps = player.GetComponent<PlayerStats>();
                     ps.health += item.count;
+                    break;
+                case "Fuel":
+                    PlayerMove pm = player.GetComponent<PlayerMove>();
+                    float leftover = pm.AddFuel(item.count);
+                    if (leftover != 0)
+                    {
+                        item.count = leftover;
+                        remains.Add(item);
+                    }
+
                     break;
                 case "Module":
                     PlayerModuleManager mm = player.GetComponent<PlayerModuleManager>();

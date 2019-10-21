@@ -84,6 +84,9 @@ TagManager:
   - name: Enemy F
     uniqueID: 2498572185
     locked: 0
+  - name: Props
+    uniqueID: 4150625579
+    locked: 0
   - name: Bullets
     uniqueID: 1821757851
     locked: 0

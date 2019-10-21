@@ -28,6 +28,12 @@ public class PlayerMove : MonoBehaviour
     public bool jetpack;
     public float jetpack_force;
     public float jetpack_terminalV;
+    public float jetpack_overheat;
+    public bool jetpack_overheated;
+    public float jetpack_heat;
+    public float jetpack_heat_increase;
+    public float jetpack_cooldown;
+    public float jetpack_cooldown_timer;
     public ParticleSystem jetpack_particles;
 
     public Transform groundCheck;
@@ -42,6 +48,8 @@ public class PlayerMove : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<PlayerAnimControl>();
         //jetpack_particles.Stop();
+
+        jetpack_cooldown_timer = jetpack_cooldown;
     }
 
     // Update is called once per frame
@@ -103,12 +111,12 @@ public class PlayerMove : MonoBehaviour
         }
         
         /////////////////////////////////   제트팩
-        if(onGround == false && Input.GetKeyDown("w") && fuel > 0)
+        if(onGround == false && Input.GetKeyDown("w") && fuel > 0 && !jetpack_overheated)
         {
             GetComponent<PlayerAudioManager>().Jetpack_SFX(true);
             usingJetpack = true;
         }
-        if (usingJetpack && Input.GetKey("w") && fuel > 0)
+        if (usingJetpack && Input.GetKey("w") && fuel > 0 && !jetpack_overheated)
         {
             //Debug.Log("jetpack on, rb.velocity.y: " + rb.velocity.y);
             if(rb.velocity.y <= jetpack_terminalV)
@@ -117,12 +125,33 @@ public class PlayerMove : MonoBehaviour
 
             fuel -= 1 / (jetpack_fuel_efficiency + 1);
         }
-        if ((usingJetpack == true && !Input.GetKey("w")) || (usingJetpack == true && fuel <= 0))
+        if ((usingJetpack == true && !Input.GetKey("w")) || (usingJetpack == true && fuel <= 0) || (usingJetpack == true && jetpack_overheated))
         {
             usingJetpack = false;
             GetComponent<PlayerAudioManager>().Jetpack_SFX(false);
             jetpack_particles.Stop();
         }
+
+        if (usingJetpack)
+            jetpack_heat += jetpack_heat_increase;
+        else if(!jetpack_overheated && jetpack_heat > 0)
+            jetpack_heat -= 1;
+        else if (!jetpack_overheated && jetpack_heat <= 0)
+            jetpack_heat -= 0;
+
+        if (jetpack_heat >= jetpack_overheat)
+        {
+            jetpack_overheated = true;
+            jetpack_cooldown_timer -= 1;
+
+            if(jetpack_cooldown_timer <= 0)
+            {
+                jetpack_cooldown_timer = jetpack_cooldown;
+                jetpack_overheated = false;
+                jetpack_heat = 0;
+            }
+        }
+
     }
 
     private void Update()
@@ -156,5 +185,20 @@ public class PlayerMove : MonoBehaviour
             transform.localScale = new Vector3(1, 1, 1);
         else
             transform.localScale = new Vector3(-1, 1, 1);
+    }
+
+    //////////////////////////  EXTERNAL FUNCTIONS
+    public float AddFuel(float amount)
+    {
+        if (fuel + amount > maxFuel)
+        {
+            fuel = maxFuel;
+            return (amount - (maxFuel - fuel));
+        }
+        else
+        {
+            fuel += amount;
+            return (0f);
+        }
     }
 }
