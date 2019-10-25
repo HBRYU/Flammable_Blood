@@ -109,48 +109,10 @@ public class PlayerMove : MonoBehaviour
             else if (!facingRight && moveInput > 0)
                 Flip();
         }
-        
+
         /////////////////////////////////   제트팩
-        if(onGround == false && Input.GetKeyDown("w") && fuel > 0 && !jetpack_overheated)
-        {
-            GetComponent<PlayerAudioManager>().Jetpack_SFX(true);
-            usingJetpack = true;
-        }
-        if (usingJetpack && Input.GetKey("w") && fuel > 0 && !jetpack_overheated)
-        {
-            //Debug.Log("jetpack on, rb.velocity.y: " + rb.velocity.y);
-            if(rb.velocity.y <= jetpack_terminalV)
-                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y + jetpack_force);
-            jetpack_particles.Play();
-
-            fuel -= 1 / (jetpack_fuel_efficiency + 1);
-        }
-        if ((usingJetpack == true && !Input.GetKey("w")) || (usingJetpack == true && fuel <= 0) || (usingJetpack == true && jetpack_overheated))
-        {
-            usingJetpack = false;
-            GetComponent<PlayerAudioManager>().Jetpack_SFX(false);
-            jetpack_particles.Stop();
-        }
-
-        if (usingJetpack)
-            jetpack_heat += jetpack_heat_increase;
-        else if(!jetpack_overheated && jetpack_heat > 0)
-            jetpack_heat -= 1;
-        else if (!jetpack_overheated && jetpack_heat <= 0)
-            jetpack_heat -= 0;
-
-        if (jetpack_heat >= jetpack_overheat)
-        {
-            jetpack_overheated = true;
-            jetpack_cooldown_timer -= 1;
-
-            if(jetpack_cooldown_timer <= 0)
-            {
-                jetpack_cooldown_timer = jetpack_cooldown;
-                jetpack_overheated = false;
-                jetpack_heat = 0;
-            }
-        }
+        if (jetpack)
+            Jetpack();
 
     }
 
@@ -169,6 +131,50 @@ public class PlayerMove : MonoBehaviour
         if(rb.velocity.y == 0 && onGround == true)
             jumped = false;
 
+    }
+
+    void Jetpack()
+    {
+        if (onGround == false && Input.GetKeyDown("w") && fuel > 0 && !jetpack_overheated)
+        {
+            GetComponent<PlayerAudioManager>().Jetpack_SFX(true);
+            usingJetpack = true;
+        }
+        if (usingJetpack && Input.GetKey("w") && fuel > 0 && !jetpack_overheated)
+        {
+            //Debug.Log("jetpack on, rb.velocity.y: " + rb.velocity.y);
+            if (rb.velocity.y <= jetpack_terminalV)
+                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y + jetpack_force);
+            jetpack_particles.Play();
+
+            fuel -= 1 / (jetpack_fuel_efficiency + 1);
+        }
+        if ((usingJetpack == true && !Input.GetKey("w")) || (usingJetpack == true && fuel <= 0) || (usingJetpack == true && jetpack_overheated))
+        {
+            usingJetpack = false;
+            GetComponent<PlayerAudioManager>().Jetpack_SFX(false);
+            jetpack_particles.Stop();
+        }
+
+        if (usingJetpack)
+            jetpack_heat += jetpack_heat_increase;
+        else if (!jetpack_overheated && jetpack_heat > 0)
+            jetpack_heat -= 1;
+        else if (!jetpack_overheated && jetpack_heat <= 0)
+            jetpack_heat -= 0;
+
+        if (jetpack_heat >= jetpack_overheat)
+        {
+            jetpack_overheated = true;
+            jetpack_cooldown_timer -= 1;
+
+            if (jetpack_cooldown_timer <= 0)
+            {
+                jetpack_cooldown_timer = jetpack_cooldown;
+                jetpack_overheated = false;
+                jetpack_heat = 0;
+            }
+        }
     }
     /////////////////////////////////// 좌우 반전 함수
     void Flip()
@@ -196,7 +202,7 @@ public class PlayerMove : MonoBehaviour
             return (amount - (maxFuel - fuel));
         }
         else
-        {
+        { 
             fuel += amount;
             return (0f);
         }

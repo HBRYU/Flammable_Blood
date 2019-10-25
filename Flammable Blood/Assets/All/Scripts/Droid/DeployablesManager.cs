@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class DeployablesManager : MonoBehaviour
 {
+    public bool ACTIVE;
+
     public Transform spawnPos;
 
     public List<GameObject> deployables;
@@ -25,13 +27,20 @@ public class DeployablesManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (ACTIVE)
+            Work();
+
+    }
+
+    void Work()
+    {
         activeDPLYBL_count = dplybles_count[deployables.IndexOf(activeDPLYBL)];
         activeDPLYBL_name = dplybles_name[deployables.IndexOf(activeDPLYBL)];
         activeDPLYBL_IMG = dplybles_IMG[deployables.IndexOf(activeDPLYBL)];
 
         if (Input.GetKeyDown("t"))      //SWITCH DEPLOYABLES WITH 'T'
         {
-            if(activeDPLYBL != deployables[deployables.Count - 1])
+            if (activeDPLYBL != deployables[deployables.Count - 1])
             {
                 int a = 1;  //FAIL SWITCH
                 while (true)
@@ -40,7 +49,7 @@ public class DeployablesManager : MonoBehaviour
                         break;
                     a += 1;
                     int count = 0;
-                    foreach(int i in dplybles_count)
+                    foreach (int i in dplybles_count)
                         count += i;
                     if (count == 0)
                         break;
@@ -48,8 +57,8 @@ public class DeployablesManager : MonoBehaviour
                     //Debug.Log("IN: " + a);
                     activeDPLYBL = deployables[deployables.IndexOf(activeDPLYBL) + 1];
                     if (dplybles_count[deployables.IndexOf(activeDPLYBL)] > 0)
-                        break; 
-                    
+                        break;
+
                 }
 
                 if (a > 100)
@@ -71,7 +80,7 @@ public class DeployablesManager : MonoBehaviour
 
                     if (dplybles_count[deployables.IndexOf(activeDPLYBL)] > 0)
                         break;
-                    else 
+                    else
                     {
                         //Debug.Log("OUT OF LOOP: " + (deployables.IndexOf(activeDPLYBL) + 1));
                         //Debug.Log("OUT: " + a);
@@ -87,7 +96,7 @@ public class DeployablesManager : MonoBehaviour
 
         if (Input.GetMouseButtonDown(2))
         {
-            if(dplybles_count[deployables.IndexOf(activeDPLYBL)] > 0)
+            if (dplybles_count[deployables.IndexOf(activeDPLYBL)] > 0)
             {
                 Quaternion spawnRot = Quaternion.identity;
 
@@ -109,6 +118,5 @@ public class DeployablesManager : MonoBehaviour
                 Debug.Log("Grenades slot empty");
             }
         }
-
     }
 }

@@ -27,7 +27,7 @@ public class Crate : MonoBehaviour
 
     public void Access()
     {
-        Debug.Log("ACCESSING CRATE");
+        //Debug.Log("ACCESSING CRATE");
         List<Item>  remains = new List<Item>();
 
         foreach(Item item in items)
