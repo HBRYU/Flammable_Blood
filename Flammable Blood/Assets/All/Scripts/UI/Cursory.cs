@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Cursory : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class Cursory : MonoBehaviour
     {
         Vector2 movePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
+        //transform.position = movePos;
         transform.position = movePos;
 
         if (Input.GetMouseButton(0))

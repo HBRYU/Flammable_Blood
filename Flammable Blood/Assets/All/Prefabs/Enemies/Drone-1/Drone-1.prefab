@@ -283,6 +283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c081b3526a4ba04fa2c6e559da3bd8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  droneType: 1
   whatIsGround:
     serializedVersion: 2
     m_Bits: 1114112

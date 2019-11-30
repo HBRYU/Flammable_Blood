@@ -74,12 +74,20 @@ public class EnemyStats : MonoBehaviour
         }
         else
         {
-            if (GetComponent<DroneMovement>() != null)
+            if (GetComponent<DroneAttack>() != null)
             {
                 DroneMovement move = GetComponent<DroneMovement>();
                 move.hover = true;
 
                 GetComponent<DroneAttack>().enabled = true;
+            }
+
+            if (GetComponent<Drone2Attack>() != null)
+            {
+                DroneMovement move = GetComponent<DroneMovement>();
+                move.hover = true;
+
+                GetComponent<Drone2Attack>().enabled = true;
             }
 
             if (GetComponent<EnemyMovement>() != null)
@@ -112,7 +120,7 @@ public class EnemyStats : MonoBehaviour
 
     public void Stunned(float randomizer, float duration, float damage, GameObject effect)
     {
-        if (GetComponent<DroneMovement>() != null)
+        if (GetComponent<DroneAttack>() != null)
         {
             DroneMovement move = GetComponent<DroneMovement>();
             move.hoverForce += Random.Range(-randomizer, randomizer);
@@ -126,6 +134,21 @@ public class EnemyStats : MonoBehaviour
 
             GetComponent<DroneAttack>().enabled = false;
             GetComponent<DroneAttack>().aimSpeed += Random.Range(-randomizer, randomizer);
+        }
+
+        if (GetComponent<Drone2Attack>() != null)
+        {
+            DroneMovement move = GetComponent<DroneMovement>();
+            move.hoverForce += Random.Range(-randomizer, randomizer);
+            move.hoverHeight += Random.Range(-randomizer, randomizer);
+            move.speed += Random.Range(-randomizer, randomizer);
+            move.speed += Random.Range(-randomizer, randomizer);
+            move.acceleration += Random.Range(-randomizer, randomizer);
+            move.retreat_acceleration += Random.Range(-randomizer, randomizer);
+
+            move.hover = false;
+
+            GetComponent<Drone2Attack>().enabled = false;
         }
 
         if (GetComponent<EnemyMovement>() != null)
@@ -179,6 +202,12 @@ public class EnemyStats : MonoBehaviour
         {
             GetComponent<DroneMovement>().enabled = false;
             GetComponent<DroneAttack>().enabled = false;
+        }
+        if (type == "Drone2")
+        {
+            GetComponent<DroneMovement>().enabled = false;
+            Destroy(GetComponent<Drone2Attack>().cp);
+            GetComponent<Drone2Attack>().enabled = false;
         }
 
         Rigidbody2D rb = GetComponent<Rigidbody2D>();

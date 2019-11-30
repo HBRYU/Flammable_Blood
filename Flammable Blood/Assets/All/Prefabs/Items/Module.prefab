@@ -143,10 +143,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   module:
-    ID: 
-    level: 0
-    IMG: {fileID: 0}
-    description: 
+    ID: JetpackFuelEfficiency
+    level: 3
+    IMG: {fileID: 21300002, guid: b9bbfdb77facd7c40a3ed3b73dec2b2a, type: 3}
+    accessPanel_ID: 
+    description: Jetpack fuel efficiency level == 0 -> 0.5
 --- !u!1001 &4228558698573923410
 PrefabInstance:
   m_ObjectHideFlags: 0

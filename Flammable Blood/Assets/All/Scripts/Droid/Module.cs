@@ -8,6 +8,7 @@ public class Module
     public string ID;
     public int level;
     public Sprite IMG;
+    public string accessPanel_ID;
     [TextArea]
     public string description;
 }

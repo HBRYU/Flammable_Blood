@@ -93,6 +93,6 @@ public class PlayerStats : MonoBehaviour
 
         _GM_.playerAlive = false;
 
-        this.enabled = false;
+        enabled = false;
     }
 }

@@ -7,6 +7,7 @@ public class PlayerModuleManager : MonoBehaviour
     public List<Module> modules;
     public List<string> modules_IDs;
     public GameObject item_module;
+    public UI_ControlPanel2 controlPanel;
 
     void Awake()
     {
@@ -17,6 +18,7 @@ public class PlayerModuleManager : MonoBehaviour
         {
             modules_IDs.Add(module.ID);
         }
+        controlPanel = GameObject.FindGameObjectWithTag("UI").GetComponent<UI_ControlPanel2>();
     }
 
     void Update()
@@ -26,74 +28,80 @@ public class PlayerModuleManager : MonoBehaviour
 
     public bool InsertModule(Module module)
     {
-        Debug.Log("Inserting module");
+        
         switch (module.ID)
         {
             case "JetpackFuelEfficiency":
                 if (!M_JetpackFuelEfficiency(module))
                     return (false);
                 break;
-            case "MoveFuelEfficiency":
-                if(!M_JetpackFuelEfficiency(module))
+            case "MovementFuelEfficiency":
+                if(!M_MovementFuelEfficiency(module))
                     return (false);
                 break;
             case "FuelCapacity":
-                if(!M_JetpackFuelEfficiency(module))
+                if(!M_FuelCapacity(module))
                     return (false);
                 break;
             case "Jetpack":
-                if (!M_JetpackFuelEfficiency(module))
+                //Debug.Log("FUCK");
+                if (!M_Jetpack(module))
                     return (false);
                 break;
             case "JetpackThermalInsulation":
-                if (!M_JetpackFuelEfficiency(module))
+                if (!M_JetpackThermalInsulation(module))
                     return (false);
                 break;
             case "JetpackThrust":
-                if (!M_JetpackFuelEfficiency(module))
+                if (!M_JetpackThrust(module))
                     return (false);
                 break;
             case "WeaponCapacity":
-                if (!M_JetpackFuelEfficiency(module))
+                if (!M_WeaponCapacity(module))
                     return (false);
                 break;
             case "Deployables":
-                if (!M_JetpackFuelEfficiency(module))
+                if (!M_Deployables(module))
                     return (false);
                 break;
         }
+
+        controlPanel.AddModule(module);
         return (true);
     }
 
-    public void RemoveModule(Module module)
+    public void UpdateModule(Module module, int state)
     {
+        Debug.Log("s: 2: " + module.ID);
         switch (module.ID)
         {
             case "JetpackFuelEfficiency":
-                M_JetpackFuelEfficiency(module, true);
+                M_JetpackFuelEfficiency(module, state);
                 break;
-            case "MoveFuelEfficiency":
-                M_JetpackFuelEfficiency(module, true);
+            case "MovementFuelEfficiency":
+                M_MovementFuelEfficiency(module, state);
                 break;
             case "FuelCapacity":
-                M_JetpackFuelEfficiency(module, true);
+                M_FuelCapacity(module, state);
                 break;
             case "Jetpack":
-                M_JetpackFuelEfficiency(module, true);
+                Debug.Log(1);
+                M_Jetpack(module, state);
                 break;
             case "JetpackThermalInsulation":
-                M_JetpackFuelEfficiency(module, true);
+                M_JetpackThermalInsulation(module, state);
                 break;
             case "JetpackThrust":
-                M_JetpackFuelEfficiency(module, true);
+                M_JetpackThrust(module, state);
                 break;
             case "WeaponCapacity":
-                M_JetpackFuelEfficiency(module, true);
+                M_WeaponCapacity(module, state);
                 break;
             case "Deployables":
-                M_JetpackFuelEfficiency(module, true);
+                M_Deployables(module, state);
                 break;
         }
+        
     }
 
     void SpawnModule(Module module)
@@ -148,10 +156,26 @@ public class PlayerModuleManager : MonoBehaviour
         }
     }
 
-    void M_JetpackFuelEfficiency(Module module, bool remove)
+    void M_JetpackFuelEfficiency(Module module, int state)
     {
-        SpawnModule(module, true);
-        GetComponent<PlayerMove>().jetpack_fuel_efficiency = 0f;
+        if (state == 0)
+        {
+            SpawnModule(module, true);
+            GetComponent<PlayerMove>().jetpack_fuel_efficiency = 0f;
+        }
+        else if(state == 1)
+        {
+            GetComponent<PlayerMove>().jetpack_fuel_efficiency = 0f;
+        }
+        else
+        {
+            if (module.level == 1)
+                GetComponent<PlayerMove>().jetpack_fuel_efficiency = 0.5f;
+            if (module.level == 2)
+                GetComponent<PlayerMove>().jetpack_fuel_efficiency = 0.9f;
+            if (module.level == 3)
+                GetComponent<PlayerMove>().jetpack_fuel_efficiency = 1.2f;
+        }
     }
 
     //-----------------------------------------------------------------
@@ -185,10 +209,26 @@ public class PlayerModuleManager : MonoBehaviour
         }
     }
 
-    void M_MovementFuelEfficiency(Module module, bool remove)
+    void M_MovementFuelEfficiency(Module module, int state)
     {
-        SpawnModule(module, true);
-        GetComponent<PlayerMove>().move_fuel_efficiency = 0f;
+        if (state == 0)
+        {
+            SpawnModule(module, true);
+            GetComponent<PlayerMove>().move_fuel_efficiency = 0f; ;
+        }
+        else if (state == 1)
+        {
+            GetComponent<PlayerMove>().move_fuel_efficiency = 0f;
+        }
+        else
+        {
+            if (module.level == 1)
+                GetComponent<PlayerMove>().move_fuel_efficiency = 35f;
+            if (module.level == 2)
+                GetComponent<PlayerMove>().move_fuel_efficiency = 45f;
+            if (module.level == 3)
+                GetComponent<PlayerMove>().move_fuel_efficiency = 55f;
+        }
     }
 
     //-----------------------------------------------------------------
@@ -226,10 +266,30 @@ public class PlayerModuleManager : MonoBehaviour
         }
     }
 
-    void M_FuelCapacity(Module module, bool remove)
+    void M_FuelCapacity(Module module, int state)
     {
-        SpawnModule(module, true);
-        GetComponent<PlayerMove>().maxFuel = 1200;
+        if (state == 0)
+        {
+            SpawnModule(module, true);
+            GetComponent<PlayerMove>().maxFuel = 1200;
+        }
+        else if (state == 1)
+        {
+            GetComponent<PlayerMove>().maxFuel = 1200;
+        }
+        else
+        {
+            if (module.level == 1)
+                GetComponent<PlayerMove>().maxFuel = 1600;
+            if (module.level == 2)
+                GetComponent<PlayerMove>().maxFuel = 1850;
+            if (module.level == 3)
+                GetComponent<PlayerMove>().maxFuel = 2200;
+            if (module.level == 4)
+                GetComponent<PlayerMove>().maxFuel = 2500;
+            if (module.level == 5)
+                GetComponent<PlayerMove>().maxFuel = 2800;
+        }
     }
 
     //-----------------------------------------------------------------
@@ -240,7 +300,6 @@ public class PlayerModuleManager : MonoBehaviour
         {
             //CHANGE STATS
             GetComponent<PlayerMove>().jetpack = true;
-
             modules.Add(module);
             modules_IDs.Add(module.ID);
             return (true);
@@ -252,10 +311,21 @@ public class PlayerModuleManager : MonoBehaviour
         }
     }
 
-    void M_Jetpack(Module module, bool remove)
+    void M_Jetpack(Module module, int state)
     {
-        SpawnModule(module, true);
-        GetComponent<PlayerMove>().jetpack = true;
+        if (state == 0)
+        {
+            SpawnModule(module, true);
+            GetComponent<PlayerMove>().jetpack = true;
+        }
+        else if (state == 1)
+        {
+            GetComponent<PlayerMove>().jetpack = false;
+        }
+        else
+        {
+            GetComponent<PlayerMove>().jetpack = true;
+        }
     }
 
     //-----------------------------------------------------------------
@@ -289,10 +359,26 @@ public class PlayerModuleManager : MonoBehaviour
         }
     }
 
-    void M_JetpackThermalInsulation(Module module, bool remove)
+    void M_JetpackThermalInsulation(Module module, int state)
     {
-        SpawnModule(module, true);
-        GetComponent<PlayerMove>().jetpack_overheat = 120f;
+        if (state == 0)
+        {
+            SpawnModule(module, true);
+            GetComponent<PlayerMove>().jetpack_overheat = 120f;
+        }
+        else if (state == 1)
+        {
+            GetComponent<PlayerMove>().jetpack_overheat = 120f;
+        }
+        else
+        {
+            if (module.level == 1)
+                GetComponent<PlayerMove>().jetpack_overheat = 160f;
+            if (module.level == 2)
+                GetComponent<PlayerMove>().jetpack_overheat = 190f;
+            if (module.level == 3)
+                GetComponent<PlayerMove>().jetpack_overheat = 210f;
+        }
     }
 
 
@@ -311,15 +397,15 @@ public class PlayerModuleManager : MonoBehaviour
 
             //CHANGE STATS
             if (module.level == 1)
-                GetComponent<PlayerMove>().jetpack_force = 1.75f;
-            if (module.level == 2)
                 GetComponent<PlayerMove>().jetpack_force = 2f;
-            if (module.level == 3)
-                GetComponent<PlayerMove>().jetpack_force = 2.25f;
-            if (module.level == 4)
+            if (module.level == 2)
                 GetComponent<PlayerMove>().jetpack_force = 2.5f;
-            if (module.level == 5)
+            if (module.level == 3)
                 GetComponent<PlayerMove>().jetpack_force = 3f;
+            if (module.level == 4)
+                GetComponent<PlayerMove>().jetpack_force = 3.5f;
+            if (module.level == 5)
+                GetComponent<PlayerMove>().jetpack_force = 4f;
 
             modules.Add(module);
             modules_IDs.Add(module.ID);
@@ -332,10 +418,30 @@ public class PlayerModuleManager : MonoBehaviour
         }
     }
 
-    void M_JetpackThrust(Module module, bool remove)
+    void M_JetpackThrust(Module module, int state)
     {
-        SpawnModule(module, true);
-        GetComponent<PlayerMove>().jetpack_force = 1.5f;
+        if (state == 0)
+        {
+            SpawnModule(module, true);
+            GetComponent<PlayerMove>().jetpack_force = 1.5f;
+        }
+        else if (state == 1)
+        {
+            GetComponent<PlayerMove>().jetpack_force = 1.5f;
+        }
+        else
+        {
+            if (module.level == 1)
+                GetComponent<PlayerMove>().jetpack_force = 2f;
+            if (module.level == 2)
+                GetComponent<PlayerMove>().jetpack_force = 2.5f;
+            if (module.level == 3)
+                GetComponent<PlayerMove>().jetpack_force = 3f;
+            if (module.level == 4)
+                GetComponent<PlayerMove>().jetpack_force = 3.5f;
+            if (module.level == 5)
+                GetComponent<PlayerMove>().jetpack_force = 4f;
+        }
     }
 
     //-----------------------------------------------------------------
@@ -367,10 +473,24 @@ public class PlayerModuleManager : MonoBehaviour
         }
     }
 
-    void M_WeaponCapacity(Module module, bool remove)
+    void M_WeaponCapacity(Module module, int state)
     {
-        SpawnModule(module, true);
-        GetComponent<PlayerWeaponManager>().maxWeaponCount = 2;
+        if (state == 0)
+        {
+            SpawnModule(module, true);
+            GetComponent<PlayerWeaponManager>().maxWeaponCount = 2;
+        }
+        else if (state == 1)
+        {
+            GetComponent<PlayerWeaponManager>().maxWeaponCount = 2;
+        }
+        else
+        {
+            if (module.level == 1)
+                GetComponent<PlayerWeaponManager>().maxWeaponCount = 3;
+            if (module.level == 2)
+                GetComponent<PlayerWeaponManager>().maxWeaponCount = 4;
+        }
     }
 
     //-----------------------------------------------------------------
@@ -394,10 +514,21 @@ public class PlayerModuleManager : MonoBehaviour
         }
     }
 
-    void M_Deployables(Module module, bool remove)
+    void M_Deployables(Module module, int state)
     {
-        SpawnModule(module, true);
-        GetComponent<DeployablesManager>().ACTIVE = false;
+        if (state == 0)
+        {
+            SpawnModule(module, true);
+            GetComponent<DeployablesManager>().ACTIVE = false;
+        }
+        else if (state == 1)
+        {
+            GetComponent<DeployablesManager>().ACTIVE = false;
+        }
+        else
+        {
+            GetComponent<DeployablesManager>().ACTIVE = true;
+        }
     }
 
     //-----------------------------------------------------------------

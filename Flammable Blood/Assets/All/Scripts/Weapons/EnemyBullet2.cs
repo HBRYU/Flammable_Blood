@@ -46,6 +46,11 @@ public class EnemyBullet2 : MonoBehaviour
         BulletCollision(other);
     }
 
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        BulletCollision(other.collider);
+    }
+
     void BulletCollision(Collider2D other)
     {
         

@@ -64,6 +64,12 @@ public class Gun_Rifle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (_GM_.shooting_active)
+            ACTIVE();
+    }
+
+    void ACTIVE()
+    {
         ammoCount = player.GetComponent<PlayerWeaponManager>().ammo_count;
         ammoType = player.GetComponent<PlayerWeaponManager>().ammo_type;
 
@@ -97,7 +103,7 @@ public class Gun_Rifle : MonoBehaviour
                     audioSource.PlayOneShot(reloadSFX);
                     reloading = true;
                 }
-                    
+
             }
         }
         else

@@ -8,11 +8,15 @@ public class DroneMovement : MonoBehaviour
     private Rigidbody2D rb;
     private GameObject player;
     private DroneAttack attackScript;
+    private Drone2Attack attackScript2;
     private DroneAnimation anim;
+
+    public int droneType;
 
     public LayerMask whatIsGround;
 
     public bool active = true;
+    public bool chase = true;
 
     public AudioClip alertSFX;
 
@@ -36,7 +40,11 @@ public class DroneMovement : MonoBehaviour
         _GM_ = GameObject.FindGameObjectWithTag("GM").GetComponent<GM>();
         player = _GM_.player;
         rb = GetComponent<Rigidbody2D>();
-        attackScript = GetComponent<DroneAttack>();
+        if (droneType == 1)
+            attackScript = GetComponent<DroneAttack>();
+        else
+            attackScript2 = GetComponent<Drone2Attack>();
+
         anim = GetComponent<DroneAnimation>();
     }
 
@@ -50,7 +58,7 @@ public class DroneMovement : MonoBehaviour
             active = false;
         }
 
-        if (active)
+        if (active && chase)
         {
             RaycastHit2D wallInSight = Physics2D.Raycast(transform.position, player.transform.position - transform.position, Vector2.Distance(transform.position, player.transform.position), whatIsGround);
             if (Vector2.Distance(transform.position, player.transform.position) < alertDistance && wallInSight.collider == null)
@@ -60,18 +68,30 @@ public class DroneMovement : MonoBehaviour
 
                 state = "Chasing";
                 Chase();
-                attackScript.attack = true;
+                if(droneType == 1)
+                    attackScript.attack = true;
+                else
+                {
+                    attackScript2.attack = true;
+                    attackScript2.ResetTempDir();
+                }
                 anim.Alerted(true);
             }
             else
             {
-                attackScript.attack = false;
+                if (droneType == 1)
+                    attackScript.attack = false;
+                else
+                    attackScript2.attack = false;
                 anim.Alerted(false);
             }
         }
-        else
+        else if(!active)
         {
-            attackScript.attack = false;
+            if (droneType == 1)
+                attackScript.attack = false;
+            else
+                attackScript2.attack = false;
             anim.Alerted(false);
         }
     }

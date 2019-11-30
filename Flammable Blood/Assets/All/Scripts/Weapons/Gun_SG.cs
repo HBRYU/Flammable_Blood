@@ -66,12 +66,18 @@ public class Gun_SG : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (_GM_.shooting_active)
+            ACTIVE();
+    }
+
+    void ACTIVE()
+    {
         ammoCount = player.GetComponent<PlayerWeaponManager>().ammo_count;
         ammoType = player.GetComponent<PlayerWeaponManager>().ammo_type;
 
         availableAmmo = ammoCount[ammoType.IndexOf(ws.ammoType)];
 
-        if(availableAmmo > 0)
+        if (availableAmmo > 0)
         {
             SG();
 
@@ -90,7 +96,7 @@ public class Gun_SG : MonoBehaviour
                 }
             }
         }
-        
+
         if (useAim == true)
         {
             if (Input.GetMouseButton(1))
