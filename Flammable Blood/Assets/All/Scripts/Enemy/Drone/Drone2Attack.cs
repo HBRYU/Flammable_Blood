@@ -102,7 +102,7 @@ public class Drone2Attack : MonoBehaviour
 
                 float angle = Mathf.Atan2(targ.y, targ.x) * Mathf.Rad2Deg;
                 sparkPoint.rotation = Quaternion.Euler(new Vector3(sparkPoint.rotation.x, 0, angle));
-
+                    
                 
                 if (!ps.isPlaying)
                 {
