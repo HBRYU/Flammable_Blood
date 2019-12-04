@@ -91,6 +91,8 @@ public class PlayerStats : MonoBehaviour
             //Debug.Log("Weapon dropped");
         }
 
+        GameObject.FindGameObjectWithTag("UI").GetComponent<UI_Dead>().Dead();
+
         _GM_.playerAlive = false;
 
         enabled = false;

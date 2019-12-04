@@ -9,7 +9,7 @@ public class PlayerModuleManager : MonoBehaviour
     public GameObject item_module;
     public UI_ControlPanel2 controlPanel;
 
-    void Awake()
+    void Start()
     {
         //RESET modules_IDs
         modules_IDs = new List<string>();

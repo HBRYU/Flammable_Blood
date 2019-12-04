@@ -15,7 +15,7 @@ public class UI_ControlPanel2 : MonoBehaviour
     private GM _GM_;
 
     public GameObject panel;
-    public GameObject darken;
+    //public GameObject darken;
 
     public bool opened;
 
@@ -25,10 +25,16 @@ public class UI_ControlPanel2 : MonoBehaviour
     void Start()
     {
         panel.SetActive(false);
-        darken.SetActive(false);
+        //darken.SetActive(false);
         opened = false;
         _GM_ = GameObject.FindGameObjectWithTag("GM").GetComponent<GM>();
         _GM_.shooting_active = true;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.C))
+            OpenClose();
     }
 
     public void AddModule(Module module)
@@ -58,14 +64,14 @@ public class UI_ControlPanel2 : MonoBehaviour
         if (panel.activeInHierarchy == false)
         {
             panel.SetActive(true);
-            darken.SetActive(true);
+            //darken.SetActive(true);
             opened = true;
             _GM_.shooting_active = false;
         }
         else
         {
             panel.SetActive(false);
-            darken.SetActive(false);
+            //darken.SetActive(false);
             opened = false;
             _GM_.shooting_active = true;
         }

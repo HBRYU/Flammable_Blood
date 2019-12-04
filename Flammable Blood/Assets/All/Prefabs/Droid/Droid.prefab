@@ -6490,7 +6490,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6654551698770835079}
   - component: {fileID: 6654551698770835096}
-  - component: {fileID: 6654551698770835078}
+  - component: {fileID: 1933854896}
   m_Layer: 8
   m_Name: R Thigh
   m_TagString: Untagged
@@ -6532,7 +6532,7 @@ MonoBehaviour:
   m_SortingOrder: -3
   m_BoneTransforms:
   - {fileID: 6654551698733199952}
---- !u!137 &6654551698770835078
+--- !u!137 &1933854896
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6579,8 +6579,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 6654551698733199952}
   m_AABB:
-    m_Center: {x: 0.15225911, y: -0.004170969, z: 0}
-    m_Extent: {x: 0.26000002, y: 0.12000005, z: 0}
+    m_Center: {x: 0.15225893, y: -0.004170969, z: 0}
+    m_Extent: {x: 0.2600001, y: 0.120000094, z: 0}
   m_DirtyAABB: 0
 --- !u!1 &6654551698794360282
 GameObject:
@@ -6957,6 +6957,7 @@ GameObject:
   - component: {fileID: 1115790045}
   - component: {fileID: 1115790044}
   - component: {fileID: 1115790046}
+  - component: {fileID: 4717541344641614438}
   m_Layer: 8
   m_Name: Droid
   m_TagString: Player
@@ -7092,13 +7093,19 @@ MonoBehaviour:
   hadJumped: 0
   crouched: 0
   usingJetpack: 0
-  maxFuel: 1600
-  fuel: 1600
+  maxFuel: 1200
+  fuel: 1200
   move_fuel_efficiency: 25
   jetpack_fuel_efficiency: 0
-  jetpack: 1
-  jetpack_force: 1.5
+  jetpack: 0
+  jetpack_force: 3
   jetpack_terminalV: 5
+  jetpack_overheat: 120
+  jetpack_overheated: 0
+  jetpack_heat: 0
+  jetpack_heat_increase: 3
+  jetpack_cooldown: 80
+  jetpack_cooldown_timer: 0
   jetpack_particles: {fileID: 129578827}
   groundCheck: {fileID: 3767988285500113068}
   groundCheckRadius: 0.15
@@ -7330,6 +7337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c7c083f1a4000640929fcde66675aef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ACTIVE: 0
   spawnPos: {fileID: 555524474}
   deployables:
   - {fileID: 1066089497082176495, guid: cc47a08647f2c5144b7fbd60cd3be556, type: 3}
@@ -7339,7 +7347,44 @@ MonoBehaviour:
   - {fileID: 4674184734277033579, guid: 3f41b469ef76aee4a87705fd5c8e30b1, type: 3}
   - {fileID: 4674184734277033579, guid: ca09d6365278d68499f50e0b344461fb, type: 3}
   - {fileID: 59740208229896860, guid: 8feb8114e87743d419e5ea402a33bc6c, type: 3}
+  dplybles_count: e7030000e7030000e7030000e7030000e7030000e7030000e7030000
+  dplybles_name:
+  - Frag_Grenade
+  - Puncture_Grenade
+  - EMP_Grenade
+  - Incendiary
+  - Homing_Mine
+  - Homing_EMP_Mine
+  - C-4
+  dplybles_IMG:
+  - {fileID: 21300000, guid: b65ce888a1fc9974fb7a8fae87ce6ea3, type: 3}
+  - {fileID: 21300002, guid: b65ce888a1fc9974fb7a8fae87ce6ea3, type: 3}
+  - {fileID: 21300004, guid: b65ce888a1fc9974fb7a8fae87ce6ea3, type: 3}
+  - {fileID: 21300006, guid: b65ce888a1fc9974fb7a8fae87ce6ea3, type: 3}
+  - {fileID: 21300008, guid: b65ce888a1fc9974fb7a8fae87ce6ea3, type: 3}
+  - {fileID: 21300010, guid: b65ce888a1fc9974fb7a8fae87ce6ea3, type: 3}
+  - {fileID: 21300012, guid: b65ce888a1fc9974fb7a8fae87ce6ea3, type: 3}
   activeDPLYBL: {fileID: 0}
+  activeDPLYBL_count: 0
+  activeDPLYBL_name: 
+  activeDPLYBL_IMG: {fileID: 0}
+--- !u!114 &4717541344641614438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6654551699162335448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48a52c6c24a9db6419edff01f337e21a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modules: []
+  modules_IDs: []
+  item_module: {fileID: 4228558699772960619, guid: 1c9cd298a8fab3b418ef658ff068454e,
+    type: 3}
+  controlPanel: {fileID: 0}
 --- !u!1 &6654551699180748116
 GameObject:
   m_ObjectHideFlags: 0

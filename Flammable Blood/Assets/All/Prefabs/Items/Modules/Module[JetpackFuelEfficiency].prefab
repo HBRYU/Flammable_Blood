@@ -144,7 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   module:
     ID: JetpackFuelEfficiency
-    level: 1
+    level: 3
     IMG: {fileID: 21300002, guid: b9bbfdb77facd7c40a3ed3b73dec2b2a, type: 3}
     accessPanel_ID: 
     description: Jetpack fuel efficiency level == 0 -> 0.5

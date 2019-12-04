@@ -140,6 +140,7 @@ GameObject:
   - component: {fileID: 6568621632076280715}
   - component: {fileID: 1150454885}
   - component: {fileID: 1784241985}
+  - component: {fileID: 1196890604830112540}
   m_Layer: 0
   m_Name: _GM_
   m_TagString: GM
@@ -177,6 +178,7 @@ MonoBehaviour:
   player: {fileID: 0}
   camShakeManager: {fileID: 1150454885}
   playerAlive: 1
+  shooting_active: 0
   chunkParticles_names:
   - Default
   - Dirt
@@ -247,3 +249,15 @@ MonoBehaviour:
   - {fileID: 0}
   parallaxScales: []
   smoothing: 0.015
+--- !u!114 &1196890604830112540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1196890604617496528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b293e33f73cfa7469a56bce9ffec660, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

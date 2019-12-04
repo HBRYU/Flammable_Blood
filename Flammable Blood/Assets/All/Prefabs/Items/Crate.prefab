@@ -142,8 +142,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f26afb34f6bfcd41bdee4f5bb5ec202, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 
-  items: []
+  ID: Crate
+  items:
+  - name: 5.56mm
+    type: Ammo
+    count: 45
+    obj: {fileID: 0}
+    module:
+      ID: 
+      level: 0
+      IMG: {fileID: 0}
+      accessPanel_ID: 
+      description: 
+  - name: RepairPack
+    type: Health
+    count: 50
+    obj: {fileID: 0}
+    module:
+      ID: 
+      level: 0
+      IMG: {fileID: 0}
+      accessPanel_ID: 
+      description: 
+  - name: MovementFuelEfficiencyModule 2
+    type: Module
+    count: 0
+    obj: {fileID: 0}
+    module:
+      ID: MovementFuelEfficiency
+      level: 2
+      IMG: {fileID: 21300004, guid: b9bbfdb77facd7c40a3ed3b73dec2b2a, type: 3}
+      accessPanel_ID: 
+      description: Movement fuel efficiency is set to (25 -> 35)
 --- !u!1001 &3407140623997821413
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -151,6 +181,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3407140624656403521}
     m_Modifications:
+    - target: {fileID: 4205701249611985517, guid: f561580a2f1178b418d7b3625e0f5e3b,
+        type: 3}
+      propertyPath: m_Name
+      value: PickUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4205701249611985515, guid: f561580a2f1178b418d7b3625e0f5e3b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4205701249611985515, guid: f561580a2f1178b418d7b3625e0f5e3b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4205701249611985515, guid: f561580a2f1178b418d7b3625e0f5e3b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4205701249611985515, guid: f561580a2f1178b418d7b3625e0f5e3b,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -168,12 +218,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4205701249611985515, guid: f561580a2f1178b418d7b3625e0f5e3b,
         type: 3}
-      propertyPath: m_LocalPosition.x
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4205701249611985515, guid: f561580a2f1178b418d7b3625e0f5e3b,
+        type: 3}
+      propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4205701249611985515, guid: f561580a2f1178b418d7b3625e0f5e3b,
         type: 3}
-      propertyPath: m_LocalPosition.y
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4205701249611985515, guid: f561580a2f1178b418d7b3625e0f5e3b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4205701249611985515, guid: f561580a2f1178b418d7b3625e0f5e3b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4205701249611985515, guid: f561580a2f1178b418d7b3625e0f5e3b,
@@ -191,25 +256,15 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.099999994
       objectReference: {fileID: 0}
-    - target: {fileID: 4205701249611985515, guid: f561580a2f1178b418d7b3625e0f5e3b,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 74940449052052183, guid: f561580a2f1178b418d7b3625e0f5e3b,
-        type: 3}
-      propertyPath: targetScript
-      value: Crate
-      objectReference: {fileID: 0}
     - target: {fileID: 1628869377662390853, guid: f561580a2f1178b418d7b3625e0f5e3b,
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.52
       objectReference: {fileID: 0}
-    - target: {fileID: 1677187271328169725, guid: f561580a2f1178b418d7b3625e0f5e3b,
+    - target: {fileID: 74940449052052183, guid: f561580a2f1178b418d7b3625e0f5e3b,
         type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.75
+      propertyPath: targetScript
+      value: Crate
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f561580a2f1178b418d7b3625e0f5e3b, type: 3}

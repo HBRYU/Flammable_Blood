@@ -144,10 +144,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   module:
     ID: JetpackThrust
-    level: 1
+    level: 5
     IMG: {fileID: 21300008, guid: b9bbfdb77facd7c40a3ed3b73dec2b2a, type: 3}
     accessPanel_ID: 
-    description: Maximum jetpack thrust == 1.5 -> 2
+    description: 'Maximum jetpack thrust == 1.5 -> 2
+
+      [1~5]'
 --- !u!1001 &6997088579231866225
 PrefabInstance:
   m_ObjectHideFlags: 0

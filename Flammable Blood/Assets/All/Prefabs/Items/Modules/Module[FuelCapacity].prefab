@@ -144,10 +144,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   module:
     ID: FuelCapacity
-    level: 1
+    level: 5
     IMG: {fileID: 21300006, guid: b9bbfdb77facd7c40a3ed3b73dec2b2a, type: 3}
     accessPanel_ID: 
-    description: FuelCapacity == 1200 -> 1600
+    description: 'FuelCapacity == 1200 -> 1600
+
+      [1~5]'
 --- !u!1001 &6997088579231866225
 PrefabInstance:
   m_ObjectHideFlags: 0

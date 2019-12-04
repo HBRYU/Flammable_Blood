@@ -144,7 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   module:
     ID: JetpackThermalInsulation
-    level: 1
+    level: 3
     IMG: {fileID: 21300012, guid: b9bbfdb77facd7c40a3ed3b73dec2b2a, type: 3}
     accessPanel_ID: 
     description: Jetpack overheat temperature == 120 -> 160

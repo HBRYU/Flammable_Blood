@@ -91,6 +91,10 @@ public class UI_Weapon : MonoBehaviour
 
             //////////////      TEXT
             string displayText;
+
+            if (availableAmmo < 0)
+                availableAmmo = 0;
+
             if(WM.AW_WS.is_reloading == false)
             {
                 displayText = currentAmmo + " / " + availableAmmo;

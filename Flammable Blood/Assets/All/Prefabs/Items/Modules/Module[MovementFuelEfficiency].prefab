@@ -144,7 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   module:
     ID: MovementFuelEfficiency
-    level: 1
+    level: 3
     IMG: {fileID: 21300004, guid: b9bbfdb77facd7c40a3ed3b73dec2b2a, type: 3}
     accessPanel_ID: 
     description: Movement fuel efficiency == 25 -> 35
