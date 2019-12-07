@@ -94,13 +94,16 @@ public class PlayerMove : MonoBehaviour
         /////////////////////////////////// 좌우 반전
         if (faceMouseMovement)
         {
-            Vector3 mousePos = Input.mousePosition;
-            mousePos = Camera.main.ScreenToWorldPoint(mousePos);
-            
-            if(mousePos.x >= Camera.main.transform.position.x)
-                FaceInDirection(true);
-            else
-                FaceInDirection(false);
+            if (!Input.GetKey("e"))
+            {
+                Vector3 mousePos = Input.mousePosition;
+                mousePos = Camera.main.ScreenToWorldPoint(mousePos);
+
+                if (mousePos.x >= Camera.main.transform.position.x)
+                    FaceInDirection(true);
+                else
+                    FaceInDirection(false);
+            }
         }
         else
         {

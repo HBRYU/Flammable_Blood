@@ -19,6 +19,7 @@ public class Cursory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Cursor.visible = false;
         Vector2 movePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         //transform.position = movePos;
@@ -32,5 +33,15 @@ public class Cursory : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().sprite = cursorSprites[cursorState];
         }
+
+        SetStates();
+    }
+
+    void SetStates()
+    {
+        if (Input.GetKey("f"))
+            cursorState = 1;
+        else
+            cursorState = 0;
     }
 }

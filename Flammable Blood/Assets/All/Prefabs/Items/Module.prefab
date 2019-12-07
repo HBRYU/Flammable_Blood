@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: -144341717
   m_SortingLayer: 3
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300006, guid: b9bbfdb77facd7c40a3ed3b73dec2b2a, type: 3}
+  m_Sprite: {fileID: 21300004, guid: b9bbfdb77facd7c40a3ed3b73dec2b2a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -143,13 +143,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   module:
-    ID: FuelCapacity
-    level: 5
-    IMG: {fileID: 21300006, guid: b9bbfdb77facd7c40a3ed3b73dec2b2a, type: 3}
+    ID: MovementFuelEfficiency
+    level: 2
+    IMG: {fileID: 21300004, guid: b9bbfdb77facd7c40a3ed3b73dec2b2a, type: 3}
     accessPanel_ID: 
-    description: 'FuelCapacity == 1200 -> 1600
-
-      [1~5]'
+    description: Movement fuel efficiency is set to (25 -> 35)
 --- !u!1001 &4228558698573923410
 PrefabInstance:
   m_ObjectHideFlags: 0

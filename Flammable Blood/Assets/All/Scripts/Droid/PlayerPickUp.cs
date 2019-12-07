@@ -12,58 +12,79 @@ public class PlayerPickUp : MonoBehaviour
 
     public GameObject weaponsFolder;
 
+    [HideInInspector]
+    public GameObject selectedItem;
+
     void Update()
     {
-        if(coolDown_Timer >= coolDown)
+        Collider2D[] checkRadius = Physics2D.OverlapCircleAll(transform.position, pickUpRadius, pickUp_layer);
+        GameObject closestItem = null;
+        float minDistance = Mathf.Infinity;
+
+        if (checkRadius != null)
         {
-            PickUp();
-        }
-        else
-        {
-            coolDown_Timer += Time.deltaTime;
+            
+            foreach (Collider2D item in checkRadius)
+            {
+                float distance;
+                if (Input.GetKey("f"))
+                {
+                    distance = Vector2.Distance(Camera.main.ScreenToWorldPoint(Input.mousePosition), item.transform.position);
+                }
+
+                else
+                {
+                    distance = Vector2.Distance(transform.position, item.transform.position);
+                }
+                GameObject itemParent = item.transform.parent.gameObject;
+
+                if (distance < minDistance && (itemParent.transform.parent == null || !itemParent.transform.parent.tag.Contains("Player/Inventory")))
+                {
+                    closestItem = item.gameObject;
+                    minDistance = distance;
+                }
+            }
+
+            if (closestItem != null)
+                selectedItem = closestItem.gameObject;
+            else
+                selectedItem = null;
+            //Debug.Log(selectedItem);
+
+            if (coolDown_Timer >= coolDown)
+            {
+                PickUp(closestItem);
+            }
+            else
+            {
+                coolDown_Timer += Time.deltaTime;
+            }
         }
         
+
     }
 
-    void PickUp()
+    void PickUp(GameObject item)
     {
-        if (Input.GetKeyDown("e"))
+        if (Input.GetKeyDown("e") || (Input.GetMouseButtonDown(0) && Input.GetKey("f")))
         {
-            Collider2D[] checkRadius = Physics2D.OverlapCircleAll(transform.position, pickUpRadius, pickUp_layer);
-            if (checkRadius != null)
+            if (item != null)
             {
-                GameObject closestItem = null;
-                float minDistance = Mathf.Infinity;
-                foreach (Collider2D item in checkRadius)
+                switch (item.GetComponent<ItemPickUp>().targetScript)
                 {
-                    float distance = Vector2.Distance(transform.position, item.transform.position);
-                    GameObject itemParent = item.transform.parent.gameObject;
-
-                    if (distance < minDistance && (itemParent.transform.parent == null || !itemParent.transform.parent.tag.Contains("Player/Inventory")))
-                    {
-                        closestItem = item.gameObject;
-                        minDistance = distance;
-                    }
+                    case "WeaponStats":
+                        item.GetComponent<ItemPickUp>().PickUp(weaponsFolder.transform);
+                        break;
+                    case "Crate":
+                        item.GetComponent<ItemPickUp>().PickUp(null);
+                        break;
+                    default:
+                        item.GetComponent<ItemPickUp>().PickUp(transform);
+                        break;
                 }
-
-                if (closestItem != null)
-                {
-                    switch (closestItem.GetComponent<ItemPickUp>().targetScript)
-                    {
-                        case "WeaponStats":
-                            closestItem.GetComponent<ItemPickUp>().PickUp(weaponsFolder.transform);
-                            break;
-                        case "Crate":
-                            closestItem.GetComponent<ItemPickUp>().PickUp(null);
-                            break;
-                        default:
-                            closestItem.GetComponent<ItemPickUp>().PickUp(transform);
-                            break;
-                    }
-                }
-
-                coolDown_Timer = 0.0f;
             }
+
+            coolDown_Timer = 0.0f;
         }
     }
 }

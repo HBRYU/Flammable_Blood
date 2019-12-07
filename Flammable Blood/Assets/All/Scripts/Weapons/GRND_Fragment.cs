@@ -70,10 +70,24 @@ public class GRND_Fragment : MonoBehaviour
                         HitEnemy();
                     }
 
+                    if ((other.tag.Contains("Enemy/")) && !hitEnemy_Flag)
+                    {
+                        Instantiate(bulletContact, transform.position, transform.rotation);
+                        HitEnemy();
+                    }
+
                     if (other.CompareTag("Player/Hitbox") && !hitPlayer_Flag)
                     {
                         //Debug.Log("Hit Player");
                         
+                        Instantiate(bulletContact, transform.position, transform.rotation);
+                        HitPlayer();
+                    }
+
+                    if (other.CompareTag("Player") && !hitPlayer_Flag)
+                    {
+                        //Debug.Log("Hit Player");
+
                         Instantiate(bulletContact, transform.position, transform.rotation);
                         HitPlayer();
                     }
@@ -101,8 +115,11 @@ public class GRND_Fragment : MonoBehaviour
 
         void HitEnemy()     ///////////// 적을 맞췄을 때: 
         {
-            GameObject enemy = other.transform.parent.gameObject;
-
+            GameObject enemy; 
+            if (other.CompareTag("Enemy/Hitbox"))
+                enemy = other.transform.parent.gameObject;
+            else
+                enemy = other.gameObject;
             enemy.GetComponent<EnemyStats>().TakeDamage(damage);
 
             hitEnemy_Flag = true;
@@ -110,8 +127,11 @@ public class GRND_Fragment : MonoBehaviour
 
         void HitPlayer()     ///////////// 적을 맞췄을 때: 
         {
-            GameObject player = _GM_.player;
-
+            GameObject player;
+            if (other.CompareTag("Player/Hitbox"))
+                player = other.transform.parent.gameObject;
+            else
+                player = other.gameObject;
             player.GetComponent<PlayerStats>().TakeDamage(damage);
 
             hitPlayer_Flag = true;

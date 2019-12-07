@@ -70,7 +70,7 @@ public class Bullet : MonoBehaviour
 
                 if (!ignoreCollisionTags.Contains(other.tag))
                 {
-                    if (other.CompareTag("Enemy/Hitbox") && !hitEnemy_Flag)
+                    if ((other.CompareTag("Enemy/Hitbox")) || (other.tag.Contains("Enemy/")) && !hitEnemy_Flag)
                     {
                         Instantiate(bulletContact, transform.position, transform.rotation);
                         HitEnemy();
@@ -99,8 +99,11 @@ public class Bullet : MonoBehaviour
 
         void HitEnemy()     ///////////// 적을 맞췄을 때: 
         {
-            GameObject enemy = other.transform.parent.gameObject;
-
+            GameObject enemy;
+            if (other.CompareTag("Enemy/Hitbox"))
+                enemy = other.transform.parent.gameObject;
+            else
+                enemy = other.gameObject;
             enemy.GetComponent<EnemyStats>().TakeDamage(damage);
             
             hitEnemy_Flag = true;

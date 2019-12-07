@@ -28,6 +28,10 @@ public class UI_Menu : MonoBehaviour
             darken.SetActive(true);
             _GM_.shooting_active = false;
             Time.timeScale = 0.0f;
+
+            GameObject.FindGameObjectWithTag("Cursor").GetComponent<Cursory>().enabled = false;
+            GameObject.FindGameObjectWithTag("Cursor").GetComponent<SpriteRenderer>().enabled = false;
+            Cursor.visible = true;
         }
         else
         {
@@ -35,6 +39,10 @@ public class UI_Menu : MonoBehaviour
             darken.SetActive(false);
             _GM_.shooting_active = true;
             Time.timeScale = 1.0f;
+
+            GameObject.FindGameObjectWithTag("Cursor").GetComponent<Cursory>().enabled = true;
+            GameObject.FindGameObjectWithTag("Cursor").GetComponent<SpriteRenderer>().enabled = true;
+            Cursor.visible = false;
         }
     }
 }

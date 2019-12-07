@@ -99,6 +99,10 @@ public class EnemyStats : MonoBehaviour
 
                 GetComponent<Enemy1_Attack>().enabled = true;
             }
+            if (type == "Turret")
+            {
+                GetComponent<Turret1>().enabled = true;
+            }
 
             if (stun_effect != null)
                 Destroy(stun_effect);
@@ -112,7 +116,7 @@ public class EnemyStats : MonoBehaviour
         //Debug.Log("[" + gameObject.name + "] : Taken damage: " + damage);
         health -= damage;
 
-        if (type == "Drone")
+        if ((type == "Drone" ) || (type == "Drone2"))
         {
             GetComponent<DroneMovement>().alertDistance = GetComponent<DroneMovement>().shot_alertDistance;
         }
@@ -165,6 +169,16 @@ public class EnemyStats : MonoBehaviour
             GetComponent<Enemy1_Animation>().Move(false);
         }
 
+        if(type == "LandMine")
+        {
+            GetComponent<LandMine>().explode = true;
+        }
+
+        if(type == "Turret")
+        {
+            GetComponent<Turret1>().enabled = false;
+        }
+
         if (stunDuration <= 0)
         {
             stun_effect = Instantiate(effect, transform);
@@ -209,17 +223,24 @@ public class EnemyStats : MonoBehaviour
             Destroy(GetComponent<Drone2Attack>().cp);
             GetComponent<Drone2Attack>().enabled = false;
         }
-
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        rb.velocity = new Vector2(0, 0);
-        //rb.simulated = false;
-
-        foreach(GameObject bodyPart in corpse)
+        if(type == "LandMine")
         {
-            //bodyPart.GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(-corpseExplosionForce, corpseExplosionForce), Random.Range(-corpseExplosionForce, corpseExplosionForce));
-            Instantiate(bodyPart, transform.position + new Vector3(Random.Range(-corpseSpawnOffset, corpseSpawnOffset), Random.Range(-corpseSpawnOffset, corpseSpawnOffset), 0.0f), Quaternion.identity);
+            GetComponent<LandMine>().delay = 0;
+            GetComponent<LandMine>().explode = true;
         }
 
+        //Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        //rb.velocity = new Vector2(0, 0);
+        //rb.simulated = false;
+
+        if(corpse != null)
+        {
+            foreach (GameObject bodyPart in corpse)
+            {
+                //bodyPart.GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(-corpseExplosionForce, corpseExplosionForce), Random.Range(-corpseExplosionForce, corpseExplosionForce));
+                Instantiate(bodyPart, transform.position + new Vector3(Random.Range(-corpseSpawnOffset, corpseSpawnOffset), Random.Range(-corpseSpawnOffset, corpseSpawnOffset), 0.0f), Quaternion.identity);
+            }
+        }
         if (explodeOnDeath)
         {
             GameObject thisExplosion = explosion;
