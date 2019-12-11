@@ -4810,7 +4810,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 2.5
+  m_Radius: 3
 --- !u!250 &6629919893089975824
 PointEffector2D:
   m_ObjectHideFlags: 0
@@ -4823,7 +4823,7 @@ PointEffector2D:
   m_ColliderMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_ForceMagnitude: 300
+  m_ForceMagnitude: 250
   m_ForceVariation: 20
   m_DistanceScale: 1
   m_ForceSource: 0
@@ -4843,7 +4843,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05e91804101500b48b67f828f0d4b8b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 2
+  duration: 3
   lifeSpan: 150
   cameraShake_force: 0.5
   cameraShake_duration: 7

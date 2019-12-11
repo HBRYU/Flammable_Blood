@@ -65,6 +65,9 @@ public class Turret1 : MonoBehaviour
 
     private void Update()
     {
+        if (!_GM_.playerAlive)
+            attack = false;
+
         if (attack)
             UseGun();
     }

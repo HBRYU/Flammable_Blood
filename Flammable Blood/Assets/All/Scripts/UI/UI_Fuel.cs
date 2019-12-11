@@ -47,6 +47,7 @@ public class UI_Fuel : MonoBehaviour
         fuel = player.GetComponent<PlayerMove>().fuel;
         maxFuel = player.GetComponent<PlayerMove>().maxFuel;
 
+        /*
         if (fuel < lastFuel)
         {
             bg.color = BG_usingColor;
@@ -56,6 +57,7 @@ public class UI_Fuel : MonoBehaviour
             bg.color = BG_defaultColor;
         }
         lastFuel = fuel;
+        */
 
 
         if (fuel < 0)

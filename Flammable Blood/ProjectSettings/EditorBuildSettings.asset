@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/All/Scenes/GameTesting/GameTesting.unity
     guid: 9c326f44c32ef7646b82a7cd6fb8f71c
+  - enabled: 1
+    path: Assets/All/Scenes/Arcade Levels/1.unity
+    guid: 8c1bb8e1fc82bc44cbd876d2f58873ef
   m_configObjects: {}

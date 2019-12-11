@@ -32,6 +32,7 @@ public class PlayerMove : MonoBehaviour
     public bool jetpack_overheated;
     public float jetpack_heat;
     public float jetpack_heat_increase;
+    public float jetpack_heat_decrease;
     public float jetpack_cooldown;
     public float jetpack_cooldown_timer;
     public ParticleSystem jetpack_particles;
@@ -162,7 +163,7 @@ public class PlayerMove : MonoBehaviour
         if (usingJetpack)
             jetpack_heat += jetpack_heat_increase;
         else if (!jetpack_overheated && jetpack_heat > 0)
-            jetpack_heat -= 1;
+            jetpack_heat -= jetpack_heat_decrease;
         else if (!jetpack_overheated && jetpack_heat <= 0)
             jetpack_heat -= 0;
 

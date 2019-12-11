@@ -87,6 +87,9 @@ public class Gun_Rifle : MonoBehaviour
                 case "SR":
                     SR();
                     break;
+                case "MG":
+                    AR();
+                    break;
                 default:
                     Debug.Log("ERR: Unknown wsapon category (" + ws.category + "). Using AR function instead");
                     break;

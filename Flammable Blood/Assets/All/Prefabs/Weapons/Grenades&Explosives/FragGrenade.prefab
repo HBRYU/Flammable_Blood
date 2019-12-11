@@ -137,10 +137,15 @@ MonoBehaviour:
     type: 3}
   fragment: {fileID: 9138871960466666093, guid: 24b350c09ac5f534db3dc05fe07592f2,
     type: 3}
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 65536
   throwForce: 7
   explosionForce: 500
   delay: 3
-  damage: 40
+  fragDamage: 40
+  damage: 45
+  damageRange: 2.25
   fragmentCount: 35
   fragPositionOffset: 0.2
   fragLifeTime: 0.15
@@ -156,7 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 139647a24d2532e4d84633f2bae50038, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 
+  ID: Frag
 --- !u!1 &2018817924964473682
 GameObject:
   m_ObjectHideFlags: 0

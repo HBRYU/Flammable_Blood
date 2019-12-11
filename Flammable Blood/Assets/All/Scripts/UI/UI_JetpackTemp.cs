@@ -39,8 +39,8 @@ public class UI_JetpackTemp : MonoBehaviour
 
         if (!pm.jetpack_overheated)
         {
+            UI_heat.text = Mathf.RoundToInt(heat).ToString();
             image.fillAmount = heat / maxHeat;
-            UI_heat.text = heat.ToString();
             overheatedText.SetActive(false);
         }
         else
