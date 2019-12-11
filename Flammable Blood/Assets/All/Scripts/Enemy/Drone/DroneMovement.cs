@@ -61,7 +61,7 @@ public class DroneMovement : MonoBehaviour
         if (active && chase)
         {
             RaycastHit2D wallInSight = Physics2D.Raycast(transform.position, player.transform.position - transform.position, Vector2.Distance(transform.position, player.transform.position), whatIsGround);
-            if (Vector2.Distance(transform.position, player.transform.position) < alertDistance && wallInSight.collider == null)
+            if (GM.CompareDistance(transform.position, player.transform.position, alertDistance) <= 0 && wallInSight.collider == null)
             {
                 if (state != "Chasing")
                     GetComponent<AudioSource>().PlayOneShot(alertSFX);
@@ -129,11 +129,11 @@ public class DroneMovement : MonoBehaviour
         }
         ////////////////////////////////////////////////////
 
-        if(Vector2.Distance(transform.position, player.transform.position) > stopDistance)
+        if(GM.CompareDistance(transform.position, player.transform.position, stopDistance) == 1)
         {
             TravelTowardsPlayer();
         }
-        else if(Vector2.Distance(transform.position, player.transform.position) > retreatDistance)
+        else if(GM.CompareDistance(transform.position, player.transform.position, retreatDistance) == 1)
         {
             Stop();
         }

@@ -29,7 +29,7 @@ public class ItemPickUp : MonoBehaviour
                 transform.parent.gameObject.GetComponent<WeaponStats>().PickUp(parent);
                 break;
             case "Crate":
-                transform.parent.GetComponent<Crate>().Access();
+                transform.parent.GetComponent<Crate>().Access(true);
                 break;
             case "Item_Module":
                 transform.parent.GetComponent<Item_Module>().Access();

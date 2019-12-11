@@ -204,7 +204,7 @@ MonoBehaviour:
   IMG: {fileID: 21300000, guid: 4746a6aae3be4e847bcfb41583e17a0a, type: 3}
   gun: {fileID: 3070206328322173236}
   pointer: {fileID: 2255681932673733800}
-  collider: {fileID: 5150104150689436769}
+  col: {fileID: 5150104150689436769}
   ammoType: 5.56mm
   alertAmmoCount: 60
   rapidFire: 1

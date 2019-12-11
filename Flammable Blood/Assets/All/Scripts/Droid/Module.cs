@@ -11,4 +11,13 @@ public class Module
     public string accessPanel_ID;
     [TextArea]
     public string description;
+
+    public void Reset(Module module)
+    {
+        module.ID = string.Empty;
+        module.level = 0;
+        module.IMG = null;
+        module.accessPanel_ID = string.Empty;
+        module.description = string.Empty;
+    }
 }

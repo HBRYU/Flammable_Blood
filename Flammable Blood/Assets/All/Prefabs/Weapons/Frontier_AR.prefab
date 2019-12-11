@@ -120,7 +120,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5646231361646874412
 Transform:
   m_ObjectHideFlags: 0
@@ -128,7 +128,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4145413342430660310}
-  m_LocalRotation: {x: -0, y: -0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.9554043, y: -2.9800007, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -204,7 +204,7 @@ MonoBehaviour:
   IMG: {fileID: 21300000, guid: d6f62bd8ce76fb042a5991a815425f15, type: 3}
   gun: {fileID: 3070206328322173236}
   pointer: {fileID: 2255681932673733800}
-  collider: {fileID: 5150104150689436769}
+  col: {fileID: 5150104150689436769}
   ammoType: 5.56mm
   alertAmmoCount: 60
   rapidFire: 1

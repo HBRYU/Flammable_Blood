@@ -293,7 +293,7 @@ MonoBehaviour:
   IMG: {fileID: 21300000, guid: 3dad46c95af8b66469024730b6c11204, type: 3}
   gun: {fileID: 8935129090241572052}
   pointer: {fileID: 3844220328251469922}
-  collider: {fileID: 8935129091349932215}
+  col: {fileID: 8935129091349932215}
   ammoType: 12-Gauge
   alertAmmoCount: 20
   rapidFire: 0

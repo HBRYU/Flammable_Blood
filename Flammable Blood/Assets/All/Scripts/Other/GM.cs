@@ -31,4 +31,21 @@ public class GM : MonoBehaviour
         float.TryParse(stringValue, out result);
         return result;
     }
+
+    public static int CompareDistance(Vector2 origin, Vector2 target, float sampleDistance)
+    {
+        Vector2 diff = new Vector2((target.x - origin.x), (target.y - origin.y));
+        if (diff.x * diff.x + diff.y * diff.y > sampleDistance * sampleDistance)
+        {
+            return (1);
+        }
+        else if (diff.x * diff.x + diff.y * diff.y == sampleDistance * sampleDistance)
+        {
+            return (0);
+        }
+        else
+        {
+            return (-1);
+        }
+    }
 }

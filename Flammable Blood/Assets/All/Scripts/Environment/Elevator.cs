@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Elevator : MonoBehaviour
 {
-    public GM _GM_;
+    private GM _GM_;
     public List<Transform> Positions;
     public List<GameObject> Sprites;
     public Transform init_position;
