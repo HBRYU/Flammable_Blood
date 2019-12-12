@@ -231,22 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5b8f0d8b72ebdf4b8da4e920813e34c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgrounds:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  backgrounds: []
   parallaxScales: []
   smoothing: 0.015
 --- !u!114 &1196890604830112540

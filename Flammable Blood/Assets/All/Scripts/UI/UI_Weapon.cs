@@ -12,6 +12,7 @@ public class UI_Weapon : MonoBehaviour
     public Image weapon_img;
     public TextMeshProUGUI weapon_name;
     public TextMeshProUGUI ammo_text;
+    public TextMeshProUGUI ammoType_text;
     public Image BG;
     public Sprite defaultIMG;
 
@@ -105,6 +106,7 @@ public class UI_Weapon : MonoBehaviour
             }
             ammo_text.text = displayText;
             weapon_name.text = WM.AW_WS.name;
+            ammoType_text.text = "[" + WM.AW_ammoType + "]";
 
             //////////////      IMAGE
             if (WM.AW_WS.IMG != null)
@@ -116,6 +118,7 @@ public class UI_Weapon : MonoBehaviour
         {
             weapon_name.text = string.Empty;
             ammo_text.text = string.Empty;
+            ammoType_text.text = string.Empty;
             weapon_img.enabled = false;
             BG.enabled = false;
         }

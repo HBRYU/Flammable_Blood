@@ -7107,6 +7107,7 @@ MonoBehaviour:
   jetpack_overheated: 0
   jetpack_heat: 0
   jetpack_heat_increase: 3
+  jetpack_heat_decrease: 0.5
   jetpack_cooldown: 80
   jetpack_cooldown_timer: 0
   jetpack_particles: {fileID: 129578827}

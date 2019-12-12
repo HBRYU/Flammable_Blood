@@ -55,6 +55,7 @@ MonoBehaviour:
   - {fileID: 21300006, guid: c8c927fcb9d508241bb1f4c91044f743, type: 3}
   - {fileID: 21300010, guid: c8c927fcb9d508241bb1f4c91044f743, type: 3}
   cursorState: 0
+  active: 1
 --- !u!212 &4983977605617758834
 SpriteRenderer:
   m_ObjectHideFlags: 0

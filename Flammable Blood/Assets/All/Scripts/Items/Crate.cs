@@ -71,9 +71,10 @@ public class Crate : MonoBehaviour
                 PickUp(7);
             if (Input.GetKeyDown("g"))
             {
-                foreach(Item item in items)
+                int count = items.Count;
+                for(int i = 0; i < count; i++)
                 {
-                    PickUp(items.IndexOf(item));
+                    PickUp(0);
                 }
             }
         }
@@ -85,6 +86,7 @@ public class Crate : MonoBehaviour
         {
             AccessUI.SetActive(true);
             opened = true;
+            RefreshSlots();
         }
         else
         {
@@ -155,7 +157,6 @@ public class Crate : MonoBehaviour
         }
         if (remain)
             items.Add(item);
-
         RefreshSlots();
     }
 
