@@ -122,9 +122,7 @@ public class PlayerWeaponManager : MonoBehaviour
             }
             else if (activeWeapon == null)
             {
-                lastActiveWeapon.SetActive(true);
-                lastActiveWeapon.GetComponent<WeaponStats>().Drop();
-                weapons.Remove(lastActiveWeapon);
+                Drop(lastActiveWeapon);
             }
         }
         else if (activeWeapon != null)
@@ -134,6 +132,24 @@ public class PlayerWeaponManager : MonoBehaviour
         activeWeapon = weapon;
         SetVariables();
         SetCategoryAnimWeight(anim.GetLayerIndex(AW_category), true);
+    }
+
+    public void Drop(GameObject weapon)
+    {
+        if(weapon == activeWeapon)
+        {
+            if (activeWeapon != weapons[0])
+                lastActiveWeapon = weapons[0];
+            else if (weapons.Count == 1)
+                lastActiveWeapon = null;
+
+            activeWeapon = null;
+            SetCategoryAnimWeight(anim.GetLayerIndex("Default [Type-0]"), false);
+        }
+
+        weapon.SetActive(true);
+        weapon.GetComponent<WeaponStats>().Drop();
+        weapons.Remove(weapon);
     }
 
     void SwitchWeapons()        //무기 전환

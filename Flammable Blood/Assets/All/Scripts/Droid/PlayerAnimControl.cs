@@ -11,6 +11,8 @@ public class PlayerAnimControl : MonoBehaviour
     /// -PlayerMove 와 PlayerWeaponManager 등의 스크립트에서 명령하여 애니메이션 플레이
     /// </summary>
 
+    private GM _GM_;
+
     private Animator anim;
     private Rigidbody2D rb;
 
@@ -18,6 +20,7 @@ public class PlayerAnimControl : MonoBehaviour
 
     void Start()
     {
+        _GM_ = GameObject.FindGameObjectWithTag("GM").GetComponent<GM>();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         pm = GetComponent<PlayerMove>();
@@ -109,7 +112,7 @@ public class PlayerAnimControl : MonoBehaviour
     {
         if (repeat == true)
         {
-            if(shoot == true)
+            if(shoot == true && _GM_.shooting_active)
             {
                 try
                 {

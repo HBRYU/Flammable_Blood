@@ -34,7 +34,7 @@ public class Elevator : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(Vector2.Distance(transform.position, player.transform.position) <= 0.5 && Input.GetKeyDown("e"))
+        if(GM.CompareDistance(transform.position, player.transform.position, 0.5f) <= 0 && Input.GetKeyDown("e"))
         {
             move = true;
         }
