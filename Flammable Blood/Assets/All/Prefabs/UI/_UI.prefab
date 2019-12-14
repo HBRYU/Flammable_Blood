@@ -14394,6 +14394,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1957e3dfd1e9964c8684d0a3df8b554, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventoryPanel: {fileID: 581550346}
+  pw: {fileID: 0}
+  dm: {fileID: 0}
   weaponSlots:
   - {fileID: 1488668953}
   - {fileID: 759561415}
@@ -14418,6 +14421,9 @@ MonoBehaviour:
   - {fileID: 340417814}
   - {fileID: 301370723}
   selectPanel: {fileID: 2725262321052781976}
+  selectedWeaponIndex: -1
+  selectedAmmoIndex: -1
+  selectedDeployableIndex: -1
 --- !u!1 &2207976171594386325
 GameObject:
   m_ObjectHideFlags: 0
@@ -16137,7 +16143,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 458, y: -68.49988}
+  m_AnchoredPosition: {x: 458, y: -68.5}
   m_SizeDelta: {x: -988.5, y: -676.61}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &2110849383396673320
@@ -16189,6 +16195,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e91ddbb641797d4b8d834c219ec5209, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UI: {fileID: 606115222894907976}
+  type: 
+  index: 0
+  dropCrate: {fileID: 5340105386844357772, guid: 2cfac310f49c5c04bb15190d69c3ea2b,
+    type: 3}
 --- !u!1 &2726899090541404708
 GameObject:
   m_ObjectHideFlags: 0
@@ -21060,7 +21071,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8779696198562582705}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1701892780}
+        m_MethodName: OnPressDrop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &8948168334666660799
