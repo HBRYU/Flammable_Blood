@@ -28,13 +28,20 @@ public class UI_ControlPanel2 : MonoBehaviour
         //darken.SetActive(false);
         opened = false;
         _GM_ = GameObject.FindGameObjectWithTag("GM").GetComponent<GM>();
-        _GM_.shooting_active = true;
+        _GM_.AddShootingActiveSwitch("UI_ControlPanel2");
+        _GM_.shooting_active_switches[_GM_.shooting_active_keys.IndexOf("UI_ControlPanel2")] = true;
     }
 
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.C))
+        if (Input.GetKeyUp(KeyCode.C) && _GM_.playerAlive)
             OpenClose();
+
+        if (!_GM_.playerAlive)
+        {
+            panel.SetActive(false);
+            _GM_.shooting_active_switches[_GM_.shooting_active_keys.IndexOf("UI_ControlPanel2")] = false;
+        }
     }
 
     public void AddModule(Module module)
@@ -66,7 +73,7 @@ public class UI_ControlPanel2 : MonoBehaviour
             panel.SetActive(true);
             //darken.SetActive(true);
             opened = true;
-            _GM_.shooting_active = false;
+            _GM_.shooting_active_switches[_GM_.shooting_active_keys.IndexOf("UI_ControlPanel2")] = false;
 
             GameObject.FindGameObjectWithTag("Cursor").GetComponent<Cursory>().enabled = false;
             GameObject.FindGameObjectWithTag("Cursor").GetComponent<SpriteRenderer>().enabled = false;
@@ -77,7 +84,7 @@ public class UI_ControlPanel2 : MonoBehaviour
             panel.SetActive(false);
             //darken.SetActive(false);
             opened = false;
-            _GM_.shooting_active = true;
+            _GM_.shooting_active_switches[_GM_.shooting_active_keys.IndexOf("UI_ControlPanel2")] = true;
 
             GameObject.FindGameObjectWithTag("Cursor").GetComponent<Cursory>().enabled = true;
             GameObject.FindGameObjectWithTag("Cursor").GetComponent<SpriteRenderer>().enabled = true;

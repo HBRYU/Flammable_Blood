@@ -25,6 +25,7 @@ public class PlayerMove : MonoBehaviour
     public float fuel;
     public float move_fuel_efficiency;
     public float jetpack_fuel_efficiency;
+    public float jetpack_init_fuel;
     public bool jetpack;
     public float jetpack_force;
     public float jetpack_terminalV;
@@ -32,6 +33,7 @@ public class PlayerMove : MonoBehaviour
     public bool jetpack_overheated;
     public float jetpack_heat;
     public float jetpack_heat_increase;
+    public float jetpack_init_heat_increase;
     public float jetpack_heat_decrease;
     public float jetpack_cooldown;
     public float jetpack_cooldown_timer;
@@ -143,6 +145,8 @@ public class PlayerMove : MonoBehaviour
         {
             GetComponent<PlayerAudioManager>().Jetpack_SFX(true);
             usingJetpack = true;
+            fuel -= jetpack_init_fuel;
+            jetpack_heat += jetpack_init_heat_increase;
         }
         if (usingJetpack && Input.GetKey("w") && fuel > 0 && !jetpack_overheated)
         {

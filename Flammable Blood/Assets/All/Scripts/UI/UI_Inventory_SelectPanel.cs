@@ -15,6 +15,8 @@ public class UI_Inventory_SelectPanel : MonoBehaviour
             OnWeaponPressDrop();
         if (type == "Ammo")
             OnAmmoPressDrop();
+        if (type == "Deployable")
+            OnDeployablePressDrop();
         gameObject.SetActive(false);
     }
 
@@ -25,8 +27,7 @@ public class UI_Inventory_SelectPanel : MonoBehaviour
     }
     void OnAmmoPressDrop()
     {
-        Debug.Log("CUNT");
-        GameObject crate = Instantiate(dropCrate, transform.position, Quaternion.identity);
+        GameObject crate = Instantiate(dropCrate, UI.player.transform.position, Quaternion.identity);
         crate.GetComponent<Crate>().items = new List<Item>();
         Item item = new Item();
         item.name = UI.pw.ammo_type[index];
@@ -35,5 +36,10 @@ public class UI_Inventory_SelectPanel : MonoBehaviour
         item.obj = null;
         item.module = new Module();
         crate.GetComponent<Crate>().items.Add(item);
+        UI.pw.ammo_count[index] = 0;
+    }
+    void OnDeployablePressDrop()
+    {
+
     }
 }

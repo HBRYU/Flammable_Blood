@@ -179,6 +179,8 @@ MonoBehaviour:
   camShakeManager: {fileID: 1150454885}
   playerAlive: 1
   shooting_active: 0
+  shooting_active_switches: 
+  shooting_active_keys: []
   chunkParticles_names:
   - Default
   - Dirt

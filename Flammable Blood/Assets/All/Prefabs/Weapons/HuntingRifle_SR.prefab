@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86637fd7b53f8c4438332560fb34e8be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _GM_: {fileID: 0}
   name: HuntingRifle_SR
   category: SR
   IMG: {fileID: 21300000, guid: a406d67b565aa9f45912ba8868bdee19, type: 3}
@@ -248,7 +249,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.4
+      value: 0.7
       inSlope: 0
       outSlope: 0
       tangentMode: 0

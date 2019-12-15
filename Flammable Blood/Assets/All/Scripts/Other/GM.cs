@@ -9,6 +9,8 @@ public class GM : MonoBehaviour
 
     public bool playerAlive;
     public bool shooting_active;
+    public List<bool> shooting_active_switches;
+    public List<string> shooting_active_keys;
 
     public List<string> chunkParticles_names;
     public List<GameObject> chunkParticles;
@@ -22,7 +24,28 @@ public class GM : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        bool shooting_active_flag = true;
+        for(int i = 0; i < shooting_active_keys.Count; i++)
+        {
+            if (shooting_active_switches[i] == false)
+                shooting_active_flag = false;
+        }
+        if (!shooting_active_flag)
+            shooting_active = false;
+        else
+            shooting_active = true;
+    }
+
+    public static GM GetGM()
+    {
+        GM _GM_ = GameObject.FindGameObjectWithTag("GM").GetComponent<GM>();
+        return (_GM_);
+    }
+
+    public void AddShootingActiveSwitch(string key)
+    {
+        shooting_active_keys.Add(key);
+        shooting_active_switches.Add(true);
     }
 
     public static float GetFloat(string stringValue, float defaultValue)

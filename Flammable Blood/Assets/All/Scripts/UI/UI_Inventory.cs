@@ -7,7 +7,8 @@ using TMPro;
 public class UI_Inventory : MonoBehaviour
 {
     private GM _GM_;
-    private GameObject player;
+    [HideInInspector]
+    public GameObject player;
 
     public GameObject inventoryPanel;
 
@@ -28,6 +29,7 @@ public class UI_Inventory : MonoBehaviour
     void Start()
     {
         _GM_ = GameObject.FindGameObjectWithTag("GM").GetComponent<GM>();
+        _GM_.AddShootingActiveSwitch("UI_Inventory");
         player = _GM_.player;
         pw = player.GetComponent<PlayerWeaponManager>();
         dm = player.GetComponent<DeployablesManager>();
@@ -42,9 +44,15 @@ public class UI_Inventory : MonoBehaviour
         RefreshAmmoSlots();
         RefreshDeployableSlots();
 
-        if (Input.GetKeyDown("y"))
+        if (Input.GetKeyDown("y") && _GM_.playerAlive)
         {
             OpenClose();
+        }
+
+        if (!_GM_.playerAlive)
+        {
+            inventoryPanel.SetActive(false);
+            _GM_.shooting_active_switches[_GM_.shooting_active_keys.IndexOf("UI_Inventory")] = false;
         }
     }
 
@@ -53,12 +61,12 @@ public class UI_Inventory : MonoBehaviour
         if (inventoryPanel.activeInHierarchy)
         {
             inventoryPanel.SetActive(false);
-            _GM_.shooting_active = true;
+            _GM_.shooting_active_switches[_GM_.shooting_active_keys.IndexOf("UI_Inventory")] = true;
         }
         else
         {
             inventoryPanel.SetActive(true);
-            _GM_.shooting_active = false;
+            _GM_.shooting_active_switches[_GM_.shooting_active_keys.IndexOf("UI_Inventory")] = false;
         }
     }
 
@@ -86,8 +94,16 @@ public class UI_Inventory : MonoBehaviour
         {
             try
             {
-                ammoSlots[i].transform.parent.GetComponent<Button>().enabled = true;
-                ammoSlots[i].text = " " + pw.ammo_type[i] + " x (" + pw.ammo_count[i] + ")";
+                if(pw.ammo_count[i] > 0)
+                {
+                    ammoSlots[i].transform.parent.GetComponent<Button>().enabled = true;
+                    ammoSlots[i].text = " " + pw.ammo_type[i] + " x (" + pw.ammo_count[i] + ")";
+                }
+                else
+                {
+                    ammoSlots[i].text = " -";
+                    ammoSlots[i].transform.parent.GetComponent<Button>().enabled = false;
+                }
             }
             catch
             {

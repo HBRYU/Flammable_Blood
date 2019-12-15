@@ -42,7 +42,7 @@ public class GRND_HomingMine : MonoBehaviour
 
         foreach(Collider2D target in col)
         {
-            if(target.tag == "Enemy")
+            if(target.tag.Contains("Enemy"))
             {
                 GetComponent<SpriteRenderer>().sprite = chaseSprite;
                 RaycastHit2D wallInSight = Physics2D.Raycast(transform.position, target.transform.position - transform.position, Vector2.Distance(transform.position, target.transform.position), whatIsGround);

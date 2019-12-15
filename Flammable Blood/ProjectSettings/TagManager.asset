@@ -62,7 +62,7 @@ TagManager:
   - UI FRONT
   - LandMine
   - Turret
-  - 
+  - Prop/SelfCollision
   - 
   - 
   m_SortingLayers:

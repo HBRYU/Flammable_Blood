@@ -25,6 +25,8 @@ public class Item
 public class Crate : MonoBehaviour
 {
     public bool opened;
+    private GM _GM_;
+    private bool opened_flag;
     private GameObject player;
     public float accessDistance;
     public GameObject AccessUI;
@@ -35,22 +37,28 @@ public class Crate : MonoBehaviour
 
     void Start()
     {
+        _GM_ = GM.GetGM();
         player = GameObject.FindGameObjectWithTag("Player");
         RefreshSlots();
     }
 
     private void Update()
     {
-        //Debug.Log(GM.CompareDistance(transform.position, player.transform.position, accessDistance));
+        /*
         if(GM.CompareDistance(transform.position, player.transform.position, accessDistance) <= 0 && Input.GetKeyDown("e") && !opened)
         {
             Access(true);
         }
-        if((GM.CompareDistance(transform.position, player.transform.position, accessDistance) == 1 && opened))
+        */
+        if ((GM.CompareDistance(transform.position, player.transform.position, accessDistance) == 1 && opened) || opened_flag && Input.GetKeyDown("e") || opened_flag && Input.GetKey("f") && Input.GetMouseButtonDown(0) || !_GM_.playerAlive)
         {
             Access(false);
         }
 
+        if (opened)
+            opened_flag = true;
+        else
+            opened_flag = false;
         if (opened)
         {
             if (Input.GetKeyDown("1"))
@@ -72,9 +80,12 @@ public class Crate : MonoBehaviour
             if (Input.GetKeyDown("g"))
             {
                 int count = items.Count;
-                for(int i = 0; i < count; i++)
+                if(count > 0)
                 {
-                    PickUp(0);
+                    for (int i = 0; i < count; i++)
+                    {
+                        PickUp(0);
+                    }
                 }
             }
         }
@@ -113,7 +124,7 @@ public class Crate : MonoBehaviour
 
     public void PickUp(int index)
     {
-        Debug.Log("Picking Up: " + index);
+        //Debug.Log("Picking Up: " + index);
         if (index >= items.Count)
             return;
         Item item = items[index];
@@ -152,6 +163,11 @@ public class Crate : MonoBehaviour
                 GameObject wp = Instantiate((item.obj), transform.position, Quaternion.identity);
                 wp.GetComponent<WeaponStats>()._GM_ = GameObject.FindGameObjectWithTag("GM").GetComponent<GM>();
                 wp.GetComponent<WeaponStats>().PickUp(player.GetComponent<PlayerPickUp>().weaponsFolder.transform);
+                items.Remove(item);
+                break;
+            case "Deployable":
+                DeployablesManager dm = player.GetComponent<DeployablesManager>();
+                dm.dplybles_count[dm.deployables.IndexOf(item.obj)] += (int) item.count;
                 items.Remove(item);
                 break;
         }

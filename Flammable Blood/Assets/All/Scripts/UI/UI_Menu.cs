@@ -11,6 +11,7 @@ public class UI_Menu : MonoBehaviour
     void Start()
     {
         _GM_ = GameObject.FindGameObjectWithTag("GM").GetComponent<GM>();
+        _GM_.AddShootingActiveSwitch("UI_Menu");
     }
 
     void Update()
@@ -26,7 +27,7 @@ public class UI_Menu : MonoBehaviour
         {
             menuPanel.SetActive(true);
             darken.SetActive(true);
-            _GM_.shooting_active = false;
+            _GM_.shooting_active_switches[_GM_.shooting_active_keys.IndexOf("UI_Menu")] = false;
             Time.timeScale = 0.0f;
 
             GameObject.FindGameObjectWithTag("Cursor").GetComponent<Cursory>().enabled = false;
@@ -37,7 +38,7 @@ public class UI_Menu : MonoBehaviour
         {
             menuPanel.SetActive(false);
             darken.SetActive(false);
-            _GM_.shooting_active = true;
+            _GM_.shooting_active_switches[_GM_.shooting_active_keys.IndexOf("UI_Menu")] = true;
             Time.timeScale = 1.0f;
 
             GameObject.FindGameObjectWithTag("Cursor").GetComponent<Cursory>().enabled = true;

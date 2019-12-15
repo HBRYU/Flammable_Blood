@@ -13,6 +13,9 @@ public class PlayerPickUp : MonoBehaviour
     public GameObject weaponsFolder;
 
     [HideInInspector]
+    public Crate activeCrate;
+
+    [HideInInspector]
     public GameObject selectedItem;
 
     void Update()
@@ -77,6 +80,7 @@ public class PlayerPickUp : MonoBehaviour
                         break;
                     case "Crate":
                         item.GetComponent<ItemPickUp>().PickUp(null);
+                        activeCrate = item.transform.parent.GetComponent<Crate>();
                         break;
                     default:
                         item.GetComponent<ItemPickUp>().PickUp(transform);
