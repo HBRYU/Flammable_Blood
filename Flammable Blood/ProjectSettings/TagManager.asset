@@ -63,7 +63,7 @@ TagManager:
   - LandMine
   - Turret
   - Prop/SelfCollision
-  - 
+  - Shield
   - 
   m_SortingLayers:
   - name: BG

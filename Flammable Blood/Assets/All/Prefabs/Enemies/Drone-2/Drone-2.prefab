@@ -4966,6 +4966,9 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 65536
+  laserInteract:
+    serializedVersion: 2
+    m_Bits: 1073807360
   playerLayer:
     serializedVersion: 2
     m_Bits: 256

@@ -7,6 +7,7 @@ public class Drone2Attack : MonoBehaviour
     private GM _GM_;
     private GameObject player;
     public LayerMask whatIsGround;
+    public LayerMask laserInteract;
     public LayerMask playerLayer;
     public Transform sparkPoint;
     public ParticleSystem ps;
@@ -66,7 +67,7 @@ public class Drone2Attack : MonoBehaviour
             {
                 GetComponent<Rigidbody2D>().velocity = new Vector2(0, GetComponent<Rigidbody2D>().velocity.y);
                 GetComponent<DroneMovement>().chase = false;
-                RaycastHit2D hit = Physics2D.Raycast(sparkPoint.position, tempDir, laserLength, whatIsGround);
+                RaycastHit2D hit = Physics2D.Raycast(sparkPoint.position, tempDir, laserLength, laserInteract);
                 if (hit.collider != null)
                 {
                     laserHitPos = hit.point;
@@ -109,11 +110,15 @@ public class Drone2Attack : MonoBehaviour
                     ps.Play();
                     cp = Instantiate(contactParticles, laserHitPos, Quaternion.identity);
                 }
-                cp.transform.position = laserHitPos;
+                try
+                {
+                    cp.transform.position = laserHitPos;
+                }
+                catch { }
 
                 teslarSR.color = teslarOnColor;
 
-                RaycastHit2D hit2 = Physics2D.Raycast(sparkPoint.position, tempDir, laserLength, playerLayer);
+                RaycastHit2D hit2 = Physics2D.Raycast(sparkPoint.position, tempDir, laserLength, laserInteract);
                 if(hit2.collider != null && hit2.collider.tag == "Player")
                 {
                     player.GetComponent<PlayerStats>().TakeDamage(damage * Time.deltaTime);

@@ -288,6 +288,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1114112
   active: 1
+  chase: 1
   alertSFX: {fileID: 8300000, guid: 784e73ad9bd6bc543b38b5fb361ab781, type: 3}
   hover: 1
   hoverHeight: 1.5
@@ -320,7 +321,7 @@ MonoBehaviour:
   aimSpeed: 0.6
   accuracy: 5
   damage: 2
-  bulletSpeed: 55
+  bulletSpeed: 35
   fireRate: 0.15
   maxAmmoCount: 4
   ammoCount: 4
