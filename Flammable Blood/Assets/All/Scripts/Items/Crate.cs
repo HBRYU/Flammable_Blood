@@ -135,11 +135,13 @@ public class Crate : MonoBehaviour
                 PlayerWeaponManager wm = player.GetComponent<PlayerWeaponManager>();
                 wm.ammo_count[wm.ammo_type.IndexOf(item.name)] += Mathf.RoundToInt(item.count);
                 items.Remove(item);
+                GM.DisplayText("Picked up: " + item.name + " x (" + item.count + ")", false);
                 break;
             case "Health":
                 PlayerStats ps = player.GetComponent<PlayerStats>();
                 ps.health += item.count;
                 items.Remove(item);
+                GM.DisplayText("Health += " + item.count, false);
                 break;
             case "Fuel":
                 PlayerMove pm = player.GetComponent<PlayerMove>();
@@ -148,7 +150,10 @@ public class Crate : MonoBehaviour
                 {
                     item.count = leftover;
                     remain = true;
+                    GM.DisplayText("Fuel += " + (item.count - leftover), false);
                 }
+                else
+                    GM.DisplayText("Fuel += " + item.count, false);
                 items.Remove(item);
                 break;
             case "Module":
@@ -157,17 +162,20 @@ public class Crate : MonoBehaviour
                 {
                     remain = true;
                 }
+                GM.DisplayText("Module Added: " + item.module.ID + " [LV. " + item.module.level + "]", false);
                 items.Remove(item);
                 break;
             case "Weapon":
                 GameObject wp = Instantiate((item.obj), transform.position, Quaternion.identity);
                 wp.GetComponent<WeaponStats>()._GM_ = GameObject.FindGameObjectWithTag("GM").GetComponent<GM>();
                 wp.GetComponent<WeaponStats>().PickUp(player.GetComponent<PlayerPickUp>().weaponsFolder.transform);
+                GM.DisplayText("Picked up: " + item.name, false);
                 items.Remove(item);
                 break;
             case "Deployable":
                 DeployablesManager dm = player.GetComponent<DeployablesManager>();
                 dm.dplybles_count[dm.deployables.IndexOf(item.obj)] += (int) item.count;
+                GM.DisplayText("Picked up: " + item.name + " GRND x (" + item.count + ")", false);
                 items.Remove(item);
                 break;
         }

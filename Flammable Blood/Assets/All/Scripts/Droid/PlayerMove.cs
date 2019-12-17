@@ -137,17 +137,18 @@ public class PlayerMove : MonoBehaviour
         if(rb.velocity.y == 0 && onGround == true)
             jumped = false;
 
-    }
 
-    void Jetpack()
-    {
-        if (onGround == false && Input.GetKeyDown("w") && fuel > 0 && !jetpack_overheated)
+        if (jetpack && onGround == false && Input.GetKeyDown("w") && fuel > 0 && !jetpack_overheated)
         {
             GetComponent<PlayerAudioManager>().Jetpack_SFX(true);
             usingJetpack = true;
             fuel -= jetpack_init_fuel;
             jetpack_heat += jetpack_init_heat_increase;
         }
+    }
+
+    void Jetpack()
+    {
         if (usingJetpack && Input.GetKey("w") && fuel > 0 && !jetpack_overheated)
         {
             //Debug.Log("jetpack on, rb.velocity.y: " + rb.velocity.y);

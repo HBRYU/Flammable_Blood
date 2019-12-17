@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GM : MonoBehaviour
 {
@@ -42,6 +43,11 @@ public class GM : MonoBehaviour
         return (_GM_);
     }
 
+    public static GameObject GetUI()
+    {
+        return (GameObject.FindGameObjectWithTag("UI"));
+    }
+
     public void AddShootingActiveSwitch(string key)
     {
         shooting_active_keys.Add(key);
@@ -70,5 +76,15 @@ public class GM : MonoBehaviour
         {
             return (-1);
         }
+    }
+
+    public static void DisplayText(string text, bool clear)
+    {
+        TextMeshProUGUI displayText = GM.GetUI().GetComponent<UI_HelpText>().helpText;
+
+        if (clear)
+            displayText.text = string.Empty;
+
+        GM.GetUI().GetComponent<UI_HelpText>().DisplayText(text);
     }
 }
