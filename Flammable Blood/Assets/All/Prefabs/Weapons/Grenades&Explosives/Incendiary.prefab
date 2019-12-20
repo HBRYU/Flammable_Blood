@@ -288,6 +288,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosion: {fileID: 6629919893089975827, guid: a8ec1cfb0fb729a4b8106aff71c0f48c,
     type: 3}
+  explosionSFX: {fileID: 8300000, guid: 8a57524e09361b145bfa0b7194b17ccf, type: 3}
   fire: {fileID: 4117662043621990068, guid: 5b93b09ba775c9842b43d52d9eb606f4, type: 3}
   throwForce: 7
   explosionForce: 300

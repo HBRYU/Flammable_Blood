@@ -4848,7 +4848,7 @@ MonoBehaviour:
   cameraShake_force: 1
   cameraShake_duration: 10
   SFXs:
-  - {fileID: 8300000, guid: 3f99cf774c1ae314fa1f80fa92887c94, type: 3}
+  - {fileID: 8300000, guid: 14dd90383d0119040beba36721baed38, type: 3}
 --- !u!212 &532864433
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9652,7 +9652,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.6
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -9696,7 +9696,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.8
+      value: 0.4
       inSlope: 0
       outSlope: 0
       tangentMode: 0

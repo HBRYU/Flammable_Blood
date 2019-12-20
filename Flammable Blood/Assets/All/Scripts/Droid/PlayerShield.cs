@@ -7,6 +7,7 @@ public class PlayerShield : MonoBehaviour
     private GM _GM_;
 
     public GameObject shield;
+    public AudioClip shieldOnSFX;
     public bool on;
     private bool on_flag;
     public float duration;
@@ -28,6 +29,9 @@ public class PlayerShield : MonoBehaviour
         if (Input.GetKey("s") && on && delay_timer >= delay && on_flag)
         {
             //_GM_.shooting_active_switches[_GM_.shooting_active_keys.IndexOf("PlayerShield")] = false;
+            if (shield.GetComponent<BoxCollider2D>().enabled == false)
+                shield.GetComponent<AudioSource>().PlayOneShot(shieldOnSFX);
+
             shield.GetComponent<BoxCollider2D>().enabled = true;
             shield.GetComponent<Animator>().SetBool("Shield", true);
             duration_timer += Time.deltaTime;
@@ -52,6 +56,7 @@ public class PlayerShield : MonoBehaviour
 
         if (Input.GetKeyDown("v"))
         {
+            GM.DisplayText("Shield Toggled", false);
             on = !on;
         }
     }

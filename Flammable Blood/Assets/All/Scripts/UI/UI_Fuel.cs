@@ -72,6 +72,7 @@ public class UI_Fuel : MonoBehaviour
         }
         else
         {
+            GM.DisplayText("Fuel Emptied", false);
             UI_fuel.text = "_EMPTY_";
             noFuelText.SetActive(true);
         }

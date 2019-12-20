@@ -64,8 +64,12 @@ public class PlayerModuleManager : MonoBehaviour
                 if (!M_Deployables(module))
                     return (false);
                 break;
+            case "Shield":
+                if (!M_Shield(module))
+                    return (false);
+                break;
         }
-
+        GM.DisplayText("Module Inserted:" + module.ID, false);
         controlPanel.AddModule(module);
         return (true);
     }
@@ -85,7 +89,6 @@ public class PlayerModuleManager : MonoBehaviour
                 M_FuelCapacity(module, state);
                 break;
             case "Jetpack":
-                Debug.Log(1);
                 M_Jetpack(module, state);
                 break;
             case "JetpackThermalInsulation":
@@ -99,6 +102,9 @@ public class PlayerModuleManager : MonoBehaviour
                 break;
             case "Deployables":
                 M_Deployables(module, state);
+                break;
+            case "Shield":
+                M_Shield(module, state);
                 break;
         }
         
@@ -316,7 +322,7 @@ public class PlayerModuleManager : MonoBehaviour
         if (state == 0)
         {
             SpawnModule(module, true);
-            GetComponent<PlayerMove>().jetpack = true;
+            GetComponent<PlayerMove>().jetpack = false;
         }
         else if (state == 1)
         {
@@ -532,4 +538,38 @@ public class PlayerModuleManager : MonoBehaviour
     }
 
     //-----------------------------------------------------------------
+
+    bool M_Shield(Module module)
+    {
+        if (!modules_IDs.Contains(module.ID))
+        {
+            //CHANGE STATS
+            GetComponent<PlayerShield>().enabled = true;
+            modules.Add(module);
+            modules_IDs.Add(module.ID);
+            return (true);
+        }
+        else
+        {
+            Debug.Log("Module (" + module.ID + "_Level " + module.level + ") already exists");
+            return (false);
+        }
+    }
+
+    void M_Shield(Module module, int state)
+    {
+        if (state == 0)
+        {
+            SpawnModule(module, true);
+            GetComponent<PlayerShield>().enabled = false;
+        }
+        else if (state == 1)
+        {
+            GetComponent<PlayerShield>().enabled = false;
+        }
+        else
+        {
+            GetComponent<PlayerShield>().enabled = true;
+        }
+    }
 }

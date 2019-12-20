@@ -112,6 +112,8 @@ public class PlayerWeaponManager : MonoBehaviour
 
     public void Arm(GameObject weapon)      //무기 줍기
     {
+        GM.DisplayText("Weapon picked up:" + weapon.GetComponent<WeaponStats>().name, true);
+
         if (weapons.Count > maxWeaponCount)
         {
             if (activeWeapon != null)

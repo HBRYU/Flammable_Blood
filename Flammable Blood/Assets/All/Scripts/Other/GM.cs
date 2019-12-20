@@ -80,11 +80,14 @@ public class GM : MonoBehaviour
 
     public static void DisplayText(string text, bool clear)
     {
-        TextMeshProUGUI displayText = GM.GetUI().GetComponent<UI_HelpText>().helpText;
+        TextMeshProUGUI displayText = GetUI().GetComponent<UI_HelpText>().helpText;
 
         if (clear)
+        {
             displayText.text = string.Empty;
+            GetUI().GetComponent<UI_HelpText>().line = 0;
+        }
 
-        GM.GetUI().GetComponent<UI_HelpText>().DisplayText(text);
+        GetUI().GetComponent<UI_HelpText>().DisplayText(text);
     }
 }

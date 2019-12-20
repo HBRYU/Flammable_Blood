@@ -5,6 +5,7 @@ using UnityEngine;
 public class GRND_Incendiary : MonoBehaviour
 {
     public GameObject explosion;
+    public AudioClip explosionSFX;
     public GameObject fire;
     public float throwForce;
     public float explosionForce;
@@ -46,8 +47,10 @@ public class GRND_Incendiary : MonoBehaviour
             thisFire.GetComponent<Decay>().lifeSpan = fireLifeTime;
             Instantiate(fire, spawnPos, Quaternion.identity);
         }
+        explosion = Instantiate(explosion, transform.position, transform.rotation);
         explosion.GetComponent<PointEffector2D>().forceMagnitude = explosionForce;
-        Instantiate(explosion, transform.position, transform.rotation);
+        explosion.GetComponent<Explosion>().SFXs = new List<AudioClip>();
+        explosion.GetComponent<Explosion>().SFXs.Add(explosionSFX);
         Destroy(gameObject);
     }
 }
