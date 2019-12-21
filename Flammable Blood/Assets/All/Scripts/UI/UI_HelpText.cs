@@ -31,13 +31,13 @@ public class UI_HelpText : MonoBehaviour
         }
         if (line > lineLimit)
         {
-            Debug.Log("OVER");
-            Debug.Log("INDEX:" + helpText.text.IndexOf("\n"));
+            //Debug.Log("OVER");
+            //Debug.Log("INDEX:" + helpText.text.IndexOf("\n"));
             string txt = helpText.text.Remove(0, helpText.text.IndexOf("\n") + 1);
             helpText.text = txt;
             line --;
         }
-        Debug.Log("LINE:" + line);
+        //Debug.Log("LINE:" + line);
         helpText.color = new Color(helpText.color.r, helpText.color.g, helpText.color.b, fadeTime_timer / fadeTime);
     }
 

@@ -144,7 +144,7 @@ MonoBehaviour:
   triggerDistance: 1
   shockRange: 3
   chaseSprite: {fileID: 21300014, guid: 44b279d02a021b2449165c9a763f68fa, type: 3}
-  shockRandomizer: 0.5
+  shockRandomizer: 0.15
   shockDuration: 5
   remainDuration: 2
   victimEffect: {fileID: 7994391050469438027, guid: e56ef0fc166fe5741a11a1f7795fdddf,

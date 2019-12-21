@@ -4844,7 +4844,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 3
-  lifeSpan: 250
+  lifeSpan: 350
   cameraShake_force: 1
   cameraShake_duration: 10
   SFXs:

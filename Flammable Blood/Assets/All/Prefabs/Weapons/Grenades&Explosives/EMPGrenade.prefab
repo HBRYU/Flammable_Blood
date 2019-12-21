@@ -293,7 +293,7 @@ MonoBehaviour:
   shockDuration: 3
   remainDuration: 2
   shockRange: 3.5
-  shockEffect: 0.5
+  shockEffect: 0.15
   on: 0
   victimEffects: {fileID: 7994391050469438027, guid: e56ef0fc166fe5741a11a1f7795fdddf,
     type: 3}

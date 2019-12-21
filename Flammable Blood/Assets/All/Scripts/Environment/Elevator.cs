@@ -10,6 +10,7 @@ public class Elevator : MonoBehaviour
     public Transform init_position;
     private Transform current_position;
     private GameObject player;
+    public GameObject pressKey;
 
     public float speed;
 
@@ -34,7 +35,12 @@ public class Elevator : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(GM.CompareDistance(transform.position, player.transform.position, 0.5f) <= 0 && Input.GetKeyDown("e"))
+        if (GM.CompareDistance(transform.position, player.transform.position, 0.5f) <= 0 && !move)
+            pressKey.SetActive(true);
+        else
+            pressKey.SetActive(false);
+
+        if (GM.CompareDistance(transform.position, player.transform.position, 0.5f) <= 0 && Input.GetKeyDown("e"))
         {
             move = true;
         }
