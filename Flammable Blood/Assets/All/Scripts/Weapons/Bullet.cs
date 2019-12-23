@@ -76,6 +76,15 @@ public class Bullet : MonoBehaviour
                         HitEnemy();
                     }
 
+                    if((other.gameObject.layer == LayerMask.NameToLayer("Prop/Interactive")))
+                    {
+                        Instantiate(bulletContact, transform.position, transform.rotation);
+                        if(other.GetComponent<BreakableProp>() != null)
+                        {
+                            other.GetComponent<BreakableProp>().TakeDamage(damage);
+                        }
+                    }
+
                     Destroy(gameObject);
                 }
                 break;

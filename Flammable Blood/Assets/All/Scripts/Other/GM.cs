@@ -16,6 +16,12 @@ public class GM : MonoBehaviour
     public List<string> chunkParticles_names;
     public List<GameObject> chunkParticles;
 
+    public List<Item> itemsList;
+    public List<Module> modulesList;
+    //public static List<Module> modulesList;
+    //public static List<GameObject> weaponsList;
+    //public static List<GameObject> deployablesList;
+
     // Start is called before the first frame update
     void Awake()
     {

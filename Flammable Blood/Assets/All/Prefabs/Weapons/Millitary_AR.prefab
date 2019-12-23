@@ -106,7 +106,7 @@ MonoBehaviour:
   useAim: 1
   autoReload: 1
   shotSFX: {fileID: 8300000, guid: 70712c4199aa1ee47a3da3f29d880e79, type: 3}
-  reloadSFX: {fileID: 8300000, guid: edf47b48719ed644f96cad97f257ed47, type: 3}
+  reloadSFX: {fileID: 8300000, guid: 4b8c495538af7044798eac86daaa93b2, type: 3}
   audioSource: {fileID: 828689550}
   bullet: {fileID: 1646669890229493766, guid: 83027b3672232174693e1d42facae6a1, type: 3}
   barrelEnd: {fileID: 1603397538876135330}
@@ -229,12 +229,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86637fd7b53f8c4438332560fb34e8be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _GM_: {fileID: 0}
   name: Millitary_AR
   category: AR
   IMG: {fileID: 21300000, guid: d6f62bd8ce76fb042a5991a815425f15, type: 3}
   gun: {fileID: 3410695344367587472}
   pointer: {fileID: 2325541929653501616}
-  collider: {fileID: 5150104150689436769}
+  col: {fileID: 5150104150689436769}
   ammoType: 5.56mm
   alertAmmoCount: 60
   rapidFire: 1
@@ -274,7 +275,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4145413342430660310}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0

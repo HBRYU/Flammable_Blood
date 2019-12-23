@@ -18,7 +18,8 @@ public class Explosion : MonoBehaviour
         _GM_ = GameObject.FindGameObjectWithTag("GM").GetComponent<GM>();
         _GM_.camShakeManager.CameraShake(cameraShake_force, cameraShake_duration, true);
 
-        GetComponent<AudioSource>().PlayOneShot(SFXs[Random.Range(0, SFXs.Count)]);
+        if(SFXs.Count != 0)
+            GetComponent<AudioSource>().PlayOneShot(SFXs[Random.Range(0, SFXs.Count)]);
     }
 
     void FixedUpdate()

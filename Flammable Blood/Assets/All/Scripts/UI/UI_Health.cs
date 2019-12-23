@@ -44,7 +44,7 @@ public class UI_Health : MonoBehaviour
         health = player.GetComponent<PlayerStats>().health;
         maxHealth = player.GetComponent<PlayerStats>().maxHealth;
 
-        if(health < lastHealth)
+        if(health < lastHealth && health < maxHealth)
         {
             //Debug.Log("H: " + health + ", L: " + lastHealth);
             damageMask.GetComponent<Animator>().SetTrigger("Damaged");

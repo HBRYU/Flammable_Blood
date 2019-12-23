@@ -64,7 +64,7 @@ TagManager:
   - Turret
   - Prop/SelfCollision
   - Shield
-  - 
+  - Prop/Interactive
   m_SortingLayers:
   - name: BG
     uniqueID: 2647611871

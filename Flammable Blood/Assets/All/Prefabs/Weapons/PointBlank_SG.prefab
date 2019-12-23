@@ -288,6 +288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86637fd7b53f8c4438332560fb34e8be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _GM_: {fileID: 0}
   name: PointBlank_SG
   category: SG
   IMG: {fileID: 21300000, guid: 3dad46c95af8b66469024730b6c11204, type: 3}
@@ -486,16 +487,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4205701249611985515, guid: f561580a2f1178b418d7b3625e0f5e3b,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.081400014
-      objectReference: {fileID: 0}
-    - target: {fileID: 4205701249611985515, guid: f561580a2f1178b418d7b3625e0f5e3b,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.081400014
       objectReference: {fileID: 0}
     - target: {fileID: 74940449052052183, guid: f561580a2f1178b418d7b3625e0f5e3b,
         type: 3}

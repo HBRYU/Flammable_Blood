@@ -74,6 +74,16 @@ public class EnemyBullet2 : MonoBehaviour
                         Instantiate(bulletContact, transform.position, transform.rotation);
                         HitPlayer();
                     }
+
+                    if (other.gameObject.layer == LayerMask.NameToLayer("Prop/Interactive"))
+                    {
+                        Instantiate(bulletContact, transform.position, transform.rotation);
+                        if (other.GetComponent<BreakableProp>() != null)
+                        {
+                            other.GetComponent<BreakableProp>().TakeDamage(damage);
+                        }
+                    }
+
                     Destroy(gameObject);
                     //Debug.Log("Bullet Destroyed");
                 }

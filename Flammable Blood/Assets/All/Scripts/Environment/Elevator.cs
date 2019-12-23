@@ -11,8 +11,16 @@ public class Elevator : MonoBehaviour
     private Transform current_position;
     private GameObject player;
     public GameObject pressKey;
+    public bool useButton;
+    public GameObject[] buttons;
+    public Sprite buttonOn;
+    public Sprite buttonOff;
 
     public float speed;
+
+    [HideInInspector]
+    public int targetPosition;
+    private int movingPosition;
 
     private bool move;
 
@@ -49,14 +57,45 @@ public class Elevator : MonoBehaviour
             if(current_position == Positions[0])
             {
                 Move(Positions[1].position);
+                movingPosition = 1;
                 Sprites[1].SetActive(true);
                 Sprites[0].SetActive(false);
             }
             else
             {
                 Move(Positions[0].position);
+                movingPosition = 0;
                 Sprites[0].SetActive(true);
                 Sprites[1].SetActive(false);
+            }
+        }
+    }
+
+    private void Update()
+    {
+        if (useButton)
+        {
+            if (GM.CompareDistance(buttons[0].transform.position, player.transform.position, 1.0f) <= 0)
+            {
+                Debug.Log("1");
+                if (Input.GetKeyDown("e") && targetPosition == 1)
+                {
+                    buttons[0].GetComponent<SpriteRenderer>().sprite = buttonOn;
+                    buttons[1].GetComponent<SpriteRenderer>().sprite = buttonOff;
+                    Debug.Log("1E");
+                    move = true;
+                }
+            }
+            if (GM.CompareDistance(buttons[1].transform.position, player.transform.position, 1.0f) <= 0)
+            {
+                Debug.Log("2");
+                if (Input.GetKeyDown("e") && targetPosition == 0)
+                {
+                    buttons[0].GetComponent<SpriteRenderer>().sprite = buttonOff;
+                    buttons[1].GetComponent<SpriteRenderer>().sprite = buttonOn;
+                    Debug.Log("2E");
+                    move = true;
+                }
             }
         }
     }
@@ -73,11 +112,13 @@ public class Elevator : MonoBehaviour
             if (current_position == Positions[0])
             {
                 current_position = Positions[1];
+                targetPosition = 1;
             }
 
             else
             {
                 current_position = Positions[0];
+                targetPosition = 0;
             }
         }
     }

@@ -15,6 +15,7 @@ public class PlayerMove : MonoBehaviour
     public float lackingFuelSpeed_delta;
     private float speed;
     public float jumpForce;
+    public float falling_TerminalV;
 
     [HideInInspector]
     public bool jumped, hadJumped, crouched, usingJetpack;
@@ -120,6 +121,11 @@ public class PlayerMove : MonoBehaviour
         if (jetpack)
             Jetpack();
 
+
+        if(rb.velocity.y < falling_TerminalV)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, falling_TerminalV);
+        }
     }
 
     private void Update()
