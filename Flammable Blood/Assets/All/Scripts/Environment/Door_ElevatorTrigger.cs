@@ -11,11 +11,13 @@ public class Door_ElevatorTrigger : MonoBehaviour
     {
         if(point == elevator.targetPosition)
         {
-            transform.parent.GetComponent<Door>().Open();
+            if (!transform.parent.GetComponent<Door>().opened)
+                transform.parent.GetComponent<Door>().Open();
         }
         else
         {
-            transform.parent.GetComponent<Door>().Close();
+            if(transform.parent.GetComponent<Door>().opened)
+                transform.parent.GetComponent<Door>().Close();
         }
     }
 }

@@ -10,6 +10,7 @@ public class EnemyStats : MonoBehaviour
 
     [Header("Droid, Drone etc")]
     public string type;
+    public bool deathCount;
 
     public float maxHealth;
     public float health;
@@ -256,6 +257,10 @@ public class EnemyStats : MonoBehaviour
         }
 
         if (destroyOnDeath)
+        {
             Destroy(gameObject);
+            if (deathCount)
+                _GM_.killCount++;
+        }
     }
 }

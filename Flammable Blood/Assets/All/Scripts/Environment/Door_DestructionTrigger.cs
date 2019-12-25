@@ -30,6 +30,7 @@ public class Door_DestructionTrigger : MonoBehaviour
         if (!closed)
         {
             GetComponentInParent<Door>().Open();
+            GetComponent<Door_DestructionTrigger>().enabled = false;
         }
     }
 }

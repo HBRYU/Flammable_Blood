@@ -10,6 +10,8 @@ public class Door : MonoBehaviour
     public float delay;
     private float delay_timer;
 
+    public AudioClip SFX;
+
     private void Start()
     {
         if (opened)
@@ -36,6 +38,7 @@ public class Door : MonoBehaviour
             GetComponent<Animator>().SetBool("Opened", true);
             opened = true;
             opened_flag = true;
+            GetComponent<AudioSource>().PlayOneShot(SFX);
         }
     }
     public void Close()
@@ -45,6 +48,7 @@ public class Door : MonoBehaviour
             GetComponent<Animator>().SetBool("Opened", false);
             opened = false;
             opened_flag = true;
+            GetComponent<AudioSource>().PlayOneShot(SFX);
         }
     }
 }

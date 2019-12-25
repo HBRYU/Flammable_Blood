@@ -351,6 +351,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: Drone
+  deathCount: 1
   maxHealth: 15
   health: 15
   alive: 1

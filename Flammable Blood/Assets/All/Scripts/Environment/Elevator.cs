@@ -19,6 +19,8 @@ public class Elevator : MonoBehaviour
 
     public float speed;
 
+    public AudioSource SFX_stop;
+
     [HideInInspector]
     public int targetPosition;
     private int movingPosition;
@@ -111,13 +113,22 @@ public class Elevator : MonoBehaviour
 
     private void Move(Vector2 position)
     {
-        if(Mathf.Abs(transform.position.y - position.y) > 0.05)
+        if (!GetComponent<AudioSource>().isPlaying)
+        {
+            SFX_stop.Stop();
+            GetComponent<AudioSource>().Play();
+        }
+
+        if (Mathf.Abs(transform.position.y - position.y) > 0.05)
         {
             GetComponent<Rigidbody2D>().MovePosition(Vector2.MoveTowards(transform.position, position, speed));
         }
         else
         {
             move = false;
+            GetComponent<AudioSource>().Stop();
+            SFX_stop.Play();
+
             if (current_position == Positions[0])
             {
                 current_position = Positions[1];

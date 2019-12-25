@@ -7,6 +7,8 @@ public class GM : MonoBehaviour
 {
     public GameObject player;
     public CameraShakeManager camShakeManager;
+    public Clock clock;
+    public int killCount;
 
     public bool playerAlive;
     public bool shooting_active;
@@ -26,6 +28,7 @@ public class GM : MonoBehaviour
     void Awake()
     {
         camShakeManager = GetComponent<CameraShakeManager>();
+        clock = GetComponent<Clock>();
     }
 
     // Update is called once per frame

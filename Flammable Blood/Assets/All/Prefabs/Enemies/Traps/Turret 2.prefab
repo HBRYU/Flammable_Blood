@@ -253,6 +253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: Turret
+  deathCount: 1
   maxHealth: 20
   health: 20
   alive: 1
