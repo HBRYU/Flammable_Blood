@@ -101,8 +101,9 @@ public class Gun_Rifle : MonoBehaviour
             {
                 fire_Timer += Time.deltaTime;
 
-                if (Input.GetKeyDown("r") || autoReload == true && ammo <= 0 && reloading == false)
+                if ((Input.GetKeyDown("r") || autoReload == true && ammo <= 0 && reloading == false) && ammo < magSize)
                 {
+                    GM.DisplayText2("RELOADING. . .", true);
                     audioSource.PlayOneShot(reloadSFX);
                     reloading = true;
                 }
@@ -131,8 +132,34 @@ public class Gun_Rifle : MonoBehaviour
         thisBullet.damage = damage;
         thisBullet.accuracy = accuracy;
         thisBullet.speed = bulletSpeed;
-        thisBullet.wielder = player;
-        Instantiate(thisBullet, barrelEnd.transform.position, Quaternion.identity);
+        thisBullet.wielder = player.GetComponent<Gun_Rotation>().pivot.gameObject;
+
+        
+        if (player.transform.localScale.x == -1)
+        {
+            Quaternion scaler = thisBullet.transform.localRotation;
+            scaler.y = 180;
+            thisBullet.transform.localRotation = scaler;
+        }
+        if (player.transform.localScale.x == 1)
+        {
+            Quaternion scaler = thisBullet.transform.localRotation;
+            scaler.y = 0;
+            thisBullet.transform.localRotation = scaler;
+        }
+        
+
+        Vector3 mousePos = Input.mousePosition;
+        mousePos.z = 5.23f;
+
+        Vector3 objectPos = Camera.main.WorldToScreenPoint(player.GetComponent<Gun_Rotation>().pivot.position);
+        mousePos.x = mousePos.x - objectPos.x;
+        mousePos.y = mousePos.y - objectPos.y;
+
+        float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
+        thisBullet.transform.rotation = Quaternion.Euler(new Vector3(0, thisBullet.transform.rotation.y, angle));
+
+        Instantiate(thisBullet, barrelEnd.transform.position, thisBullet.transform.localRotation);
 
         audioSource.PlayOneShot(shotSFX);
 
@@ -151,6 +178,7 @@ public class Gun_Rifle : MonoBehaviour
         reload_Timer += Time.deltaTime;
         if (reload_Timer >= reloadSpeed)
         {
+            GM.DisplayText2(string.Empty, true);
             ammo = magSize;
             reload_Timer = 0;
             reloading = false;

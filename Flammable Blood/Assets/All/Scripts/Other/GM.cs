@@ -96,4 +96,18 @@ public class GM : MonoBehaviour
 
         GetUI().GetComponent<UI_HelpText>().DisplayText(text);
     }
+
+    public static void DisplayText2(string text, bool clear)
+    {
+        TextMeshProUGUI displayText = GameObject.FindGameObjectWithTag("HelpText_2").GetComponent<TextMeshProUGUI>();
+
+        if (clear)
+        {
+            displayText.text = string.Empty;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<UI_HelpText_2>().line = 0;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<UI_HelpText_2>().BG.color = new Color(0, 0, 0, 0);
+        }
+
+        GameObject.FindGameObjectWithTag("Player").GetComponent<UI_HelpText_2>().DisplayText(text);
+    }
 }

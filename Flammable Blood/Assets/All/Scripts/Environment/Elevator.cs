@@ -13,6 +13,7 @@ public class Elevator : MonoBehaviour
     public GameObject pressKey;
     public bool useButton;
     public GameObject[] buttons;
+    public GameObject[] pressKeys;
     public Sprite buttonOn;
     public Sprite buttonOff;
 
@@ -77,25 +78,33 @@ public class Elevator : MonoBehaviour
         {
             if (GM.CompareDistance(buttons[0].transform.position, player.transform.position, 1.0f) <= 0)
             {
-                Debug.Log("1");
+                pressKeys[0].SetActive(true);
                 if (Input.GetKeyDown("e") && targetPosition == 1)
                 {
                     buttons[0].GetComponent<SpriteRenderer>().sprite = buttonOn;
                     buttons[1].GetComponent<SpriteRenderer>().sprite = buttonOff;
-                    Debug.Log("1E");
                     move = true;
+                    GM.DisplayText2("[Elevator called]", true);
                 }
+            }
+            else
+            {
+                pressKeys[0].SetActive(false);
             }
             if (GM.CompareDistance(buttons[1].transform.position, player.transform.position, 1.0f) <= 0)
             {
-                Debug.Log("2");
+                pressKeys[1].SetActive(true);
                 if (Input.GetKeyDown("e") && targetPosition == 0)
                 {
                     buttons[0].GetComponent<SpriteRenderer>().sprite = buttonOff;
                     buttons[1].GetComponent<SpriteRenderer>().sprite = buttonOn;
-                    Debug.Log("2E");
                     move = true;
+                    GM.DisplayText2("[Elevator called]", true);
                 }
+            }
+            else
+            {
+                pressKeys[1].SetActive(false);
             }
         }
     }

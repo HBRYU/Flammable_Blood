@@ -32,6 +32,7 @@ TagManager:
   - Cursor
   - Enemy/Trap/LandMine
   - Enemy/Trap/Turret
+  - HelpText_2
   layers:
   - Default
   - TransparentFX

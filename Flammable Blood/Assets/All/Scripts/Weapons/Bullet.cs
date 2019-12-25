@@ -30,7 +30,7 @@ public class Bullet : MonoBehaviour
         transform.Rotate(0, 0, Random.Range(-1.0f, 1.0f) * accuracy);
         //Debug.Log("SCALE: " + wielder.transform.localScale.x);
         transform.localScale = wielder.transform.localScale;
-        rb.velocity = transform.right * transform.localScale.x * speed;
+        rb.velocity = transform.right * speed;
 
         particleName = _GM_.chunkParticles_names;
         particles = _GM_.chunkParticles;

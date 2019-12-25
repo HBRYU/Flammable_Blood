@@ -304,7 +304,7 @@ MonoBehaviour:
   fireDamage: 4
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 65536
+    m_Bits: 1073807360
   damage: 90
   damageRange: 11
   explosionForce: 700

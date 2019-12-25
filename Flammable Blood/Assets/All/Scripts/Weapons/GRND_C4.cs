@@ -67,6 +67,14 @@ public class GRND_C4 : MonoBehaviour
                     target.GetComponent<EnemyStats>().TakeDamage(damage);
                 }
             }
+            if (target.GetComponent<PlayerStats>() != null)
+            {
+                RaycastHit2D wallInSight = Physics2D.Raycast(transform.position, target.transform.position - transform.position, Vector2.Distance(transform.position, target.transform.position), whatIsGround);
+                if (wallInSight.collider == null)
+                {
+                    target.GetComponent<PlayerStats>().TakeDamage(damage);
+                }
+            }
         }
 
         for (int i = 0; i < fireCount; i++)

@@ -22,6 +22,7 @@ public class PlayerWeaponManager : MonoBehaviour
     public Transform gunFolder_Default;
     public Transform gunFolder_Crouched;
     public Transform activeGunFolder;
+    public Transform GUN;
 
     public List<GameObject> weapons;
     public GameObject activeWeapon;
@@ -84,8 +85,22 @@ public class PlayerWeaponManager : MonoBehaviour
             //SetWeaponsFolder(defaultWeapon, gunFolder_Default);
         }
 
+        // IK
+        /*
+        if (AW_WS != null && !AW_WS.is_reloading)
+        {
+            GetComponent<Gun_Rotation>().Arm();
+            //GUN.parent = GetComponent<Gun_Rotation>().pivot;
+        }
+        else
+        {
+            GetComponent<Gun_Rotation>().Disarm();
+            //GUN.parent = transform;
+        }
+        */
+
         // 총 발사하고 있다면 발사 애니메이션 플레이
-        if(activeWeapon != null)
+        if (activeWeapon != null)
         {
             SetVariables();
             Animate();
@@ -172,7 +187,7 @@ public class PlayerWeaponManager : MonoBehaviour
                 activeWeapon.SetActive(true);
             }
             SetVariables();
-            SetCategoryAnimWeight(anim.GetLayerIndex(AW_category), true);
+            //SetCategoryAnimWeight(anim.GetLayerIndex(AW_category), true);
         }
     }
 
@@ -197,6 +212,7 @@ public class PlayerWeaponManager : MonoBehaviour
                 ac.Shoot(activeWeapon, false, true);
         }
         
+        /*
         if (AW_WS.is_reloading == true)       //일정 딜레이 후 재장전 애니메이션 플레이
         {
             if(reloading == false)
@@ -219,6 +235,7 @@ public class PlayerWeaponManager : MonoBehaviour
             ac.Aim(true);
         else
             ac.Aim(false);
+            */
 
     }
 

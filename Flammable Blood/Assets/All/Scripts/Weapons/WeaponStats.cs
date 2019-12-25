@@ -26,6 +26,9 @@ public class WeaponStats : MonoBehaviour
 
     public Collider2D col;
 
+    public Transform IK_L;
+    public Transform IK_R;
+
     public string ammoType;
     public int alertAmmoCount;
     public bool rapidFire, hideOnEquip;
