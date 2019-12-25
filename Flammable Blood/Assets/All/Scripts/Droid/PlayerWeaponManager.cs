@@ -147,6 +147,7 @@ public class PlayerWeaponManager : MonoBehaviour
             activeWeapon.SetActive(false);
         }
         activeWeapon = weapon;
+        //GetComponent<Gun_Rotation>().pivot.rotation = Quaternion.identity;
         SetVariables();
         SetCategoryAnimWeight(anim.GetLayerIndex(AW_category), true);
     }

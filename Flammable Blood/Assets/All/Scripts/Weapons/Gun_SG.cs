@@ -143,7 +143,7 @@ public class Gun_SG : MonoBehaviour
             Vector3 mousePos = Input.mousePosition;
             mousePos.z = 5.23f;
 
-            Vector3 objectPos = Camera.main.WorldToScreenPoint(player.GetComponent<Gun_Rotation>().pivot.position);
+            Vector3 objectPos = Camera.main.WorldToScreenPoint(barrelEnd.transform.position);
             mousePos.x = mousePos.x - objectPos.x;
             mousePos.y = mousePos.y - objectPos.y;
 
@@ -170,6 +170,7 @@ public class Gun_SG : MonoBehaviour
         reload_Timer += Time.deltaTime;
         if (reload_Timer >= reloadSpeed)
         {
+            GM.DisplayText2(string.Empty, true);
             ammo = magSize;
             reload_Timer = 0;
             reloading = false;

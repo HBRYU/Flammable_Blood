@@ -17,9 +17,9 @@ public class PlayerShield : MonoBehaviour
 
     void Start()
     {
-        //_GM_ = GM.GetGM();
-        //_GM_.AddShootingActiveSwitch("PlayerShield");
-        //_GM_.shooting_active_switches[_GM_.shooting_active_keys.IndexOf("PlayerShield")] = true;
+        _GM_ = GM.GetGM();
+        _GM_.AddShootingActiveSwitch("PlayerShield");
+        _GM_.shooting_active_switches[_GM_.shooting_active_keys.IndexOf("PlayerShield")] = true;
         shield.GetComponent<BoxCollider2D>().enabled = false;
         shield.GetComponent<SpriteRenderer>().enabled = false;
     }
@@ -44,7 +44,7 @@ public class PlayerShield : MonoBehaviour
         }
         else
         {
-            //_GM_.shooting_active_switches[_GM_.shooting_active_keys.IndexOf("PlayerShield")] = true;
+            _GM_.shooting_active_switches[_GM_.shooting_active_keys.IndexOf("PlayerShield")] = true;
             duration_timer = 0;
             shield.GetComponent<BoxCollider2D>().enabled = false;
             shield.GetComponent<Animator>().SetBool("Shield", false);
@@ -56,7 +56,7 @@ public class PlayerShield : MonoBehaviour
 
         if (Input.GetKeyDown("v"))
         {
-            GM.DisplayText("Shield Toggled", false);
+            GM.DisplayText2("Shield Toggled", true);
             on = !on;
         }
     }

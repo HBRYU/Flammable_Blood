@@ -116407,22 +116407,6 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 394035375, guid: 850c3de6271069a44b670c8ea3bf3f4d, type: 3}
-      propertyPath: m_text
-      value: 'Access
-
-        Control_Panel
-
-        [F1]'
-      objectReference: {fileID: 0}
-    - target: {fileID: 394035375, guid: 850c3de6271069a44b670c8ea3bf3f4d, type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 394035375, guid: 850c3de6271069a44b670c8ea3bf3f4d, type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 2137410260, guid: 850c3de6271069a44b670c8ea3bf3f4d, type: 3}
       propertyPath: m_havePropertiesChanged
       value: 1
@@ -116458,11 +116442,6 @@ PrefabInstance:
     - target: {fileID: 2122789376, guid: 850c3de6271069a44b670c8ea3bf3f4d, type: 3}
       propertyPath: m_isInputParsingRequired
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6023849924334012357, guid: 850c3de6271069a44b670c8ea3bf3f4d,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -68.500244
       objectReference: {fileID: 0}
     - target: {fileID: 556154979, guid: 850c3de6271069a44b670c8ea3bf3f4d, type: 3}
       propertyPath: m_havePropertiesChanged
@@ -116764,7 +116743,7 @@ PrefabInstance:
     - target: {fileID: 4983977605617758732, guid: 78520be75063240489f3c825c681b603,
         type: 3}
       propertyPath: active
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78520be75063240489f3c825c681b603, type: 3}
@@ -116965,21 +116944,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 6348768866024674798, guid: 049f453678e03b246841248db80431fc,
-        type: 3}
-      propertyPath: m_SpriteMesh
-      value: 
-      objectReference: {fileID: 11400000, guid: 3a6b9d9347572ef47931ae948430ab09,
-        type: 2}
     - target: {fileID: 6348768866024674576, guid: 049f453678e03b246841248db80431fc,
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 307067374502591588, guid: 049f453678e03b246841248db80431fc,
-        type: 3}
-      propertyPath: m_Frame
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6348768865214169320, guid: 049f453678e03b246841248db80431fc,
         type: 3}

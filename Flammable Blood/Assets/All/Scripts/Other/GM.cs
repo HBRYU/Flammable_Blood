@@ -105,8 +105,11 @@ public class GM : MonoBehaviour
         {
             displayText.text = string.Empty;
             GameObject.FindGameObjectWithTag("Player").GetComponent<UI_HelpText_2>().line = 0;
-            GameObject.FindGameObjectWithTag("Player").GetComponent<UI_HelpText_2>().BG.color = new Color(0, 0, 0, 0);
         }
+
+        GameObject.FindGameObjectWithTag("Player").GetComponent<UI_HelpText_2>().fadeTime_timer = GameObject.FindGameObjectWithTag("Player").GetComponent<UI_HelpText_2>().fadeTime;
+        if (text == string.Empty)
+            GameObject.FindGameObjectWithTag("Player").GetComponent<UI_HelpText_2>().fadeTime_timer = 0;
 
         GameObject.FindGameObjectWithTag("Player").GetComponent<UI_HelpText_2>().DisplayText(text);
     }

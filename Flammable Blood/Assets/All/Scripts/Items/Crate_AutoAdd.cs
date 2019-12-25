@@ -28,7 +28,7 @@ public class Crate_AutoAdd : MonoBehaviour
 
         foreach(SimpleItem i in items)
         {
-            Debug.Log(i.type);
+            //Debug.Log(i.type);
             itemTypes.Add(i.type);
             itemNames.Add(i.name);
             itemCounts.Add(i.count);

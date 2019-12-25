@@ -51,6 +51,5 @@ public class UI_HelpText_2 : MonoBehaviour
         helpText.text += text + "\n";
         line++;
         displayTime_timer = displayTime;
-        fadeTime_timer = fadeTime;
     }
 }

@@ -93,9 +93,9 @@ public class PlayerStats : MonoBehaviour
 
         GameObject.FindGameObjectWithTag("UI").GetComponent<UI_Dead>().Dead();
 
-        GameObject.FindGameObjectWithTag("Cursor").GetComponent<Cursory>().enabled = false;
-        GameObject.FindGameObjectWithTag("Cursor").GetComponent<SpriteRenderer>().enabled = false;
-        Cursor.visible = true;
+        //GameObject.FindGameObjectWithTag("Cursor").GetComponent<Cursory>().enabled = false;
+        //GameObject.FindGameObjectWithTag("Cursor").GetComponent<SpriteRenderer>().enabled = false;
+        //Cursor.visible = true;
 
         _GM_.playerAlive = false;
 

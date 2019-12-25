@@ -33,6 +33,7 @@ TagManager:
   - Enemy/Trap/LandMine
   - Enemy/Trap/Turret
   - HelpText_2
+  - Shield
   layers:
   - Default
   - TransparentFX

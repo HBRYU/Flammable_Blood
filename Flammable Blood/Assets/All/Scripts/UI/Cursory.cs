@@ -26,18 +26,17 @@ public class Cursory : MonoBehaviour
         if (active)
         {
             Cursor.visible = false;
-            Vector2 movePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            //Vector2 movePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-            //transform.position = movePos;
-            transform.position = movePos;
+            transform.position = Input.mousePosition;
 
             if (Input.GetMouseButton(0))
             {
-                GetComponent<SpriteRenderer>().sprite = cursorSprites_Click[cursorState];
+                GetComponent<Image>().sprite = cursorSprites_Click[cursorState];
             }
             else
             {
-                GetComponent<SpriteRenderer>().sprite = cursorSprites[cursorState];
+                GetComponent<Image>().sprite = cursorSprites[cursorState];
             }
 
             SetStates();

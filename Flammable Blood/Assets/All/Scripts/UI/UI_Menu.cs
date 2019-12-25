@@ -30,9 +30,9 @@ public class UI_Menu : MonoBehaviour
             _GM_.shooting_active_switches[_GM_.shooting_active_keys.IndexOf("UI_Menu")] = false;
             Time.timeScale = 0.0f;
 
-            GameObject.FindGameObjectWithTag("Cursor").GetComponent<Cursory>().enabled = false;
-            GameObject.FindGameObjectWithTag("Cursor").GetComponent<SpriteRenderer>().enabled = false;
-            Cursor.visible = true;
+            //GameObject.FindGameObjectWithTag("Cursor").GetComponent<Cursory>().enabled = false;
+            //GameObject.FindGameObjectWithTag("Cursor").GetComponent<SpriteRenderer>().enabled = false;
+            //Cursor.visible = true;
         }
         else
         {
@@ -41,9 +41,9 @@ public class UI_Menu : MonoBehaviour
             _GM_.shooting_active_switches[_GM_.shooting_active_keys.IndexOf("UI_Menu")] = true;
             Time.timeScale = 1.0f;
 
-            GameObject.FindGameObjectWithTag("Cursor").GetComponent<Cursory>().enabled = true;
-            GameObject.FindGameObjectWithTag("Cursor").GetComponent<SpriteRenderer>().enabled = true;
-            Cursor.visible = false;
+            //GameObject.FindGameObjectWithTag("Cursor").GetComponent<Cursory>().enabled = true;
+            //GameObject.FindGameObjectWithTag("Cursor").GetComponent<SpriteRenderer>().enabled = true;
+            //Cursor.visible = false;
         }
     }
 }
