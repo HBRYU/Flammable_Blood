@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 7623248701995880735}
   - component: {fileID: 7623248701995880728}
   - component: {fileID: 1018196178}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Door_Key
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -273,7 +273,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7623248702184432632}
   - component: {fileID: 7623248702184432639}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Press key L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -352,7 +352,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7623248702996980393}
   - component: {fileID: 7623248702996980392}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Key_Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -400,7 +400,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7623248703265024572}
   - component: {fileID: 7623248703265024579}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Press key R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -479,7 +479,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7623248703572388181}
   - component: {fileID: 7623248703572388180}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Collider2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 9034242945205840180}
   - component: {fileID: 9034242945205840179}
   - component: {fileID: 9641569}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Door_Destruction
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -273,7 +273,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9034242944703205758}
   - component: {fileID: 9034242944703205759}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Collider2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -330,7 +330,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9034242945478628006}
   - component: {fileID: 9034242945478628005}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Destruction_Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}

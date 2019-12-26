@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1649638819}
   - component: {fileID: 3232988079351190960}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Elevator_Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   m_Component:
   - component: {fileID: 18062143050957080}
   - component: {fileID: 18062143050957081}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Collider2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,9 +117,9 @@ GameObject:
   - component: {fileID: 18062141405854034}
   - component: {fileID: 18062141405854037}
   - component: {fileID: 561950031}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Door_Elevator
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

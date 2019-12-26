@@ -25,10 +25,12 @@ public class Clock : MonoBehaviour
 
     void Update()
     {
+        
         killsText_score.text = GM.GetGM().killCount.ToString();
         if (started)
         {
-            clockText_score.text = (initTime - Mathf.RoundToInt(remainingTime)).ToString();
+            if (GM.GetGM().playerAlive)
+                clockText_score.text = (initTime - Mathf.RoundToInt(remainingTime)).ToString();
             remainingTime -= Time.deltaTime;
             clockText.text = Mathf.RoundToInt(remainingTime).ToString();
             clockText.color = new Color(1, 1, 1, 1);
