@@ -6,7 +6,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Drone-2
+  m_Name: Drone-2A
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Alerted
@@ -99,7 +99,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 8fed21cd2333232438b57e242870e0c1, type: 2}
+  m_Motion: {fileID: 7400000, guid: 9a78f1ce92ef17c4fbc152e822f44897, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -126,7 +126,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 6c1aa84816f15e34baf09808e4a62420, type: 2}
+  m_Motion: {fileID: 7400000, guid: 11eca807c0c6afc47ac3c11649de1a28, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

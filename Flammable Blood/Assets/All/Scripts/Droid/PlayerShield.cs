@@ -15,6 +15,8 @@ public class PlayerShield : MonoBehaviour
     public float delay;
     private float delay_timer;
 
+    public float fuelConsumption;
+
     void Start()
     {
         _GM_ = GM.GetGM();
@@ -35,6 +37,9 @@ public class PlayerShield : MonoBehaviour
             shield.GetComponent<BoxCollider2D>().enabled = true;
             shield.GetComponent<Animator>().SetBool("Shield", true);
             duration_timer += Time.deltaTime;
+
+            GetComponent<PlayerMove>().fuel -= fuelConsumption * Time.deltaTime;
+
             if(duration_timer >= duration)
             {
                 duration_timer = 0;
