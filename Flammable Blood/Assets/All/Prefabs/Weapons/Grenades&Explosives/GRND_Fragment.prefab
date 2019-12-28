@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8879777527661118610}
   - component: {fileID: 738284700}
   - component: {fileID: 5062427370607993157}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: GRND_Fragment
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -217,7 +217,7 @@ TrailRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1821757851
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Time: 0.02
   m_Parameters:

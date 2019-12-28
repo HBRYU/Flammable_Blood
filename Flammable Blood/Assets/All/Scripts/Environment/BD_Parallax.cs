@@ -6,6 +6,7 @@ public class BD_Parallax : MonoBehaviour
 {
     public Transform[] backgrounds;
     public float[] parallaxScales;
+    public float colorVariationDelta;
     public float smoothing = 1.0f;
 
     private Transform cam;
@@ -21,6 +22,12 @@ public class BD_Parallax : MonoBehaviour
         for (int i = 0; i < backgrounds.Length; i++)
         {
             parallaxScales[i] = backgrounds[i].position.z * -1;
+            Color col = backgrounds[i].gameObject.GetComponent<SpriteRenderer>().color;
+            //Debug.Log(col.r * colorVariationDelta * backgrounds[i].position.z);
+            col.r *= colorVariationDelta * backgrounds[i].position.z;
+            col.g *= colorVariationDelta * backgrounds[i].position.z;
+            col.b *= colorVariationDelta * backgrounds[i].position.z;
+            backgrounds[i].gameObject.GetComponent<SpriteRenderer>().color = col;
         }
     }
 

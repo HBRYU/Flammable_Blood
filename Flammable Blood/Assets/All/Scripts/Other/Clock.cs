@@ -17,6 +17,8 @@ public class Clock : MonoBehaviour
 
     public bool started;
 
+    public bool paused;
+
     void Start()
     {
         remainingTime = initTime;
@@ -31,7 +33,8 @@ public class Clock : MonoBehaviour
         {
             if (GM.GetGM().playerAlive)
                 clockText_score.text = (initTime - Mathf.RoundToInt(remainingTime)).ToString();
-            remainingTime -= Time.deltaTime;
+            if(!paused)
+                remainingTime -= Time.deltaTime;
             clockText.text = Mathf.RoundToInt(remainingTime).ToString();
             clockText.color = new Color(1, 1, 1, 1);
             killsPanel.SetActive(true);

@@ -34,7 +34,7 @@ public class UI_ControlPanel2 : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.F1) && _GM_.playerAlive)
+        if (Input.GetKeyUp(KeyCode.F1) && _GM_.playerAlive && !_GM_.paused)
             OpenClose();
 
         if (!_GM_.playerAlive)

@@ -29,6 +29,7 @@ public class UI_Menu : MonoBehaviour
             darken.SetActive(true);
             _GM_.shooting_active_switches[_GM_.shooting_active_keys.IndexOf("UI_Menu")] = false;
             Time.timeScale = 0.0f;
+            _GM_.paused = true;
 
             //GameObject.FindGameObjectWithTag("Cursor").GetComponent<Cursory>().enabled = false;
             //GameObject.FindGameObjectWithTag("Cursor").GetComponent<SpriteRenderer>().enabled = false;
@@ -40,7 +41,7 @@ public class UI_Menu : MonoBehaviour
             darken.SetActive(false);
             _GM_.shooting_active_switches[_GM_.shooting_active_keys.IndexOf("UI_Menu")] = true;
             Time.timeScale = 1.0f;
-
+            _GM_.paused = false;
             //GameObject.FindGameObjectWithTag("Cursor").GetComponent<Cursory>().enabled = true;
             //GameObject.FindGameObjectWithTag("Cursor").GetComponent<SpriteRenderer>().enabled = true;
             //Cursor.visible = false;

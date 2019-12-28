@@ -34,6 +34,7 @@ TagManager:
   - Enemy/Trap/Turret
   - HelpText_2
   - Shield
+  - Fragment
   layers:
   - Default
   - TransparentFX
@@ -49,7 +50,7 @@ TagManager:
   - Droppable/PickUp
   - Particles
   - Bullet
-  - Enemy/1
+  - Fragment
   - Enemy/Radar
   - Ground
   - Prop/NoSelfCollision

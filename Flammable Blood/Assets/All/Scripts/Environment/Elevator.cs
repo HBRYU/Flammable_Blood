@@ -21,7 +21,7 @@ public class Elevator : MonoBehaviour
 
     public AudioSource SFX_stop;
 
-    [HideInInspector]
+    
     public int targetPosition;
     private int movingPosition;
 

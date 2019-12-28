@@ -44,7 +44,7 @@ public class UI_Inventory : MonoBehaviour
         RefreshAmmoSlots();
         RefreshDeployableSlots();
 
-        if (Input.GetKeyDown("y") && _GM_.playerAlive)
+        if (Input.GetKeyDown("y") && _GM_.playerAlive && !_GM_.paused)
         {
             OpenClose();
         }

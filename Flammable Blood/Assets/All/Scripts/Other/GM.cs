@@ -5,10 +5,14 @@ using TMPro;
 
 public class GM : MonoBehaviour
 {
+    public static string ConfirmPW = "QWERTY";
+
     public GameObject player;
     public CameraShakeManager camShakeManager;
     public Clock clock;
     public int killCount;
+
+    public bool paused;
 
     public bool playerAlive;
     public bool shooting_active;
@@ -50,6 +54,12 @@ public class GM : MonoBehaviour
     {
         GM _GM_ = GameObject.FindGameObjectWithTag("GM").GetComponent<GM>();
         return (_GM_);
+    }
+
+    public static GameObject GetPlayer()
+    {
+        GM _GM_ = GameObject.FindGameObjectWithTag("GM").GetComponent<GM>();
+        return (_GM_.player);
     }
 
     public static GameObject GetUI()
