@@ -5,11 +5,13 @@ using TMPro;
 
 public class GM : MonoBehaviour
 {
-    public static string ConfirmPW = "QWERTY";
+    public string ConfirmPW = "QWERTY";
+    public bool usePW = true;
 
     public GameObject player;
     public CameraShakeManager camShakeManager;
     public Clock clock;
+    public DataManager data;
     public int killCount;
 
     public bool paused;
@@ -33,6 +35,7 @@ public class GM : MonoBehaviour
     {
         camShakeManager = GetComponent<CameraShakeManager>();
         clock = GetComponent<Clock>();
+        data = GetComponent<DataManager>();
     }
 
     // Update is called once per frame

@@ -152,7 +152,7 @@ MonoBehaviour:
   explode: 0
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 1114112
+    m_Bits: 1074855936
   warning: {fileID: 3813782411253895704}
   fragDamage: 25
   damage: 45
@@ -275,6 +275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: LandMine
+  deathCount: 0
   maxHealth: 5
   health: 5
   alive: 1
@@ -286,6 +287,10 @@ MonoBehaviour:
   explosionForce: 0
   explosionRadius: 0
   explosionDuration: 0
+  resistStun: 0
+  stunResistance: 0
+  resistBurn: 0
+  burnResistance: 0
 --- !u!1001 &6966943733732156539
 PrefabInstance:
   m_ObjectHideFlags: 0

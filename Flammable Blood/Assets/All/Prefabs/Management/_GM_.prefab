@@ -141,6 +141,9 @@ GameObject:
   - component: {fileID: 1150454885}
   - component: {fileID: 1784241985}
   - component: {fileID: 1196890604830112540}
+  - component: {fileID: 431062856}
+  - component: {fileID: 431062857}
+  - component: {fileID: 431062860}
   m_Layer: 0
   m_Name: _GM_
   m_TagString: GM
@@ -175,8 +178,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb8b475555de78d48a9a98022cbbb9f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ConfirmPW: QWERTY
+  usePW: 1
   player: {fileID: 0}
   camShakeManager: {fileID: 1150454885}
+  clock: {fileID: 0}
+  data: {fileID: 0}
+  killCount: 0
+  paused: 0
   playerAlive: 1
   shooting_active: 0
   shooting_active_switches: 
@@ -189,6 +198,383 @@ MonoBehaviour:
   - {fileID: 2200773178758553130, guid: 8eb2624af0df7b546bd1dc32b195f0bf, type: 3}
   - {fileID: 2200773178758553130, guid: d52716d3f622c8a418e390f9321e14f1, type: 3}
   - {fileID: 2200773178758553130, guid: 5fb5d51b8ecf1754eba1e713b9686ca7, type: 3}
+  itemsList:
+  - name: Frontier_AR
+    type: Weapon
+    count: 0
+    obj: {fileID: 4145413342430660310, guid: 51ad68d2f1bcc5643a6adf93785a4dbf, type: 3}
+    module:
+      ID: 
+      level: 0
+      IMG: {fileID: 0}
+      accessPanel_ID: 
+      description: 
+  - name: Millitary_AR
+    type: Weapon
+    count: 0
+    obj: {fileID: 4145413342430660310, guid: 1d669edd73c1214478b1c24ae3198a29, type: 3}
+    module:
+      ID: 
+      level: 0
+      IMG: {fileID: 0}
+      accessPanel_ID: 
+      description: 
+  - name: PointBlank_SG
+    type: Weapon
+    count: 0
+    obj: {fileID: 8935129091349932213, guid: b488b0e996c309c4381dd0659a7e6c30, type: 3}
+    module:
+      ID: 
+      level: 0
+      IMG: {fileID: 0}
+      accessPanel_ID: 
+      description: 
+  - name: HuntingRifle_SR
+    type: Weapon
+    count: 0
+    obj: {fileID: 645454768796236044, guid: dd26b388a5507214698f78f72351115b, type: 3}
+    module:
+      ID: 
+      level: 0
+      IMG: {fileID: 0}
+      accessPanel_ID: 
+      description: 
+  - name: Demolision_MG
+    type: Weapon
+    count: 0
+    obj: {fileID: 4145413342430660310, guid: 320f1c0b3808d1a45b7817cac699e3d8, type: 3}
+    module:
+      ID: 
+      level: 0
+      IMG: {fileID: 0}
+      accessPanel_ID: 
+      description: 
+  - name: Frag
+    type: Deployable
+    count: 0
+    obj: {fileID: 1066089497082176495, guid: cc47a08647f2c5144b7fbd60cd3be556, type: 3}
+    module:
+      ID: 
+      level: 0
+      IMG: {fileID: 0}
+      accessPanel_ID: 
+      description: 
+  - name: Puncture
+    type: Deployable
+    count: 0
+    obj: {fileID: 4814746623279647117, guid: 4d13f21b447343e4886c320d1b98c7ff, type: 3}
+    module:
+      ID: 
+      level: 0
+      IMG: {fileID: 0}
+      accessPanel_ID: 
+      description: 
+  - name: EMP
+    type: Deployable
+    count: 0
+    obj: {fileID: 6293452072621857460, guid: f66a139663e76754f95d9efbc49bce2a, type: 3}
+    module:
+      ID: 
+      level: 0
+      IMG: {fileID: 0}
+      accessPanel_ID: 
+      description: 
+  - name: Incendiary
+    type: Deployable
+    count: 0
+    obj: {fileID: 663993632321782434, guid: dd665c36f5270e348b52a8c2fa038dfc, type: 3}
+    module:
+      ID: 
+      level: 0
+      IMG: {fileID: 0}
+      accessPanel_ID: 
+      description: 
+  - name: H_Mine
+    type: Deployable
+    count: 0
+    obj: {fileID: 4674184734277033579, guid: 3f41b469ef76aee4a87705fd5c8e30b1, type: 3}
+    module:
+      ID: 
+      level: 0
+      IMG: {fileID: 0}
+      accessPanel_ID: 
+      description: 
+  - name: H_Mine_EMP
+    type: Deployable
+    count: 0
+    obj: {fileID: 4674184734277033579, guid: ca09d6365278d68499f50e0b344461fb, type: 3}
+    module:
+      ID: 
+      level: 0
+      IMG: {fileID: 0}
+      accessPanel_ID: 
+      description: 
+  - name: C-4
+    type: Deployable
+    count: 0
+    obj: {fileID: 59740208229896860, guid: 8feb8114e87743d419e5ea402a33bc6c, type: 3}
+    module:
+      ID: 
+      level: 0
+      IMG: {fileID: 0}
+      accessPanel_ID: 
+      description: 
+  - name: 
+    type: 
+    count: 0
+    obj: {fileID: 0}
+    module:
+      ID: 
+      level: 0
+      IMG: {fileID: 0}
+      accessPanel_ID: 
+      description: 
+  - name: 
+    type: 
+    count: 0
+    obj: {fileID: 0}
+    module:
+      ID: 
+      level: 0
+      IMG: {fileID: 0}
+      accessPanel_ID: 
+      description: 
+  - name: 
+    type: 
+    count: 0
+    obj: {fileID: 0}
+    module:
+      ID: 
+      level: 0
+      IMG: {fileID: 0}
+      accessPanel_ID: 
+      description: 
+  - name: 
+    type: 
+    count: 0
+    obj: {fileID: 0}
+    module:
+      ID: 
+      level: 0
+      IMG: {fileID: 0}
+      accessPanel_ID: 
+      description: 
+  - name: 
+    type: 
+    count: 0
+    obj: {fileID: 0}
+    module:
+      ID: 
+      level: 0
+      IMG: {fileID: 0}
+      accessPanel_ID: 
+      description: 
+  - name: 
+    type: 
+    count: 0
+    obj: {fileID: 0}
+    module:
+      ID: 
+      level: 0
+      IMG: {fileID: 0}
+      accessPanel_ID: 
+      description: 
+  - name: 
+    type: 
+    count: 0
+    obj: {fileID: 0}
+    module:
+      ID: 
+      level: 0
+      IMG: {fileID: 0}
+      accessPanel_ID: 
+      description: 
+  - name: 
+    type: 
+    count: 0
+    obj: {fileID: 0}
+    module:
+      ID: 
+      level: 0
+      IMG: {fileID: 0}
+      accessPanel_ID: 
+      description: 
+  - name: 
+    type: 
+    count: 0
+    obj: {fileID: 0}
+    module:
+      ID: 
+      level: 0
+      IMG: {fileID: 0}
+      accessPanel_ID: 
+      description: 
+  - name: 
+    type: 
+    count: 0
+    obj: {fileID: 0}
+    module:
+      ID: 
+      level: 0
+      IMG: {fileID: 0}
+      accessPanel_ID: 
+      description: 
+  - name: 
+    type: 
+    count: 0
+    obj: {fileID: 0}
+    module:
+      ID: 
+      level: 0
+      IMG: {fileID: 0}
+      accessPanel_ID: 
+      description: 
+  - name: 
+    type: 
+    count: 0
+    obj: {fileID: 0}
+    module:
+      ID: 
+      level: 0
+      IMG: {fileID: 0}
+      accessPanel_ID: 
+      description: 
+  - name: 
+    type: 
+    count: 0
+    obj: {fileID: 0}
+    module:
+      ID: 
+      level: 0
+      IMG: {fileID: 0}
+      accessPanel_ID: 
+      description: 
+  modulesList:
+  - ID: MovementFuelEfficiency
+    level: 1
+    IMG: {fileID: 21300004, guid: b9bbfdb77facd7c40a3ed3b73dec2b2a, type: 3}
+    accessPanel_ID: 
+    description: Movement fuel efficiency == 25 -> 35
+  - ID: MovementFuelEfficiency
+    level: 2
+    IMG: {fileID: 21300004, guid: b9bbfdb77facd7c40a3ed3b73dec2b2a, type: 3}
+    accessPanel_ID: 
+    description: Movement fuel efficiency == 35 -> 45
+  - ID: MovementFuelEfficiency
+    level: 3
+    IMG: {fileID: 21300004, guid: b9bbfdb77facd7c40a3ed3b73dec2b2a, type: 3}
+    accessPanel_ID: 
+    description: Movement fuel efficiency == 45 -> 55
+  - ID: JetpackFuelEfficiency
+    level: 1
+    IMG: {fileID: 21300002, guid: b9bbfdb77facd7c40a3ed3b73dec2b2a, type: 3}
+    accessPanel_ID: Jetpack
+    description: Jetpack fuel efficiency == 0 -> 0.5
+  - ID: JetpackFuelEfficiency
+    level: 3
+    IMG: {fileID: 21300002, guid: b9bbfdb77facd7c40a3ed3b73dec2b2a, type: 3}
+    accessPanel_ID: Jetpack
+    description: Jetpack fuel efficiency == 0.9 -> 1.2
+  - ID: JetpackFuelEfficiency
+    level: 2
+    IMG: {fileID: 21300002, guid: b9bbfdb77facd7c40a3ed3b73dec2b2a, type: 3}
+    accessPanel_ID: Jetpack
+    description: Jetpack fuel efficiency == 0.5 -> 0.9
+  - ID: FuelCapacity
+    level: 1
+    IMG: {fileID: 21300006, guid: b9bbfdb77facd7c40a3ed3b73dec2b2a, type: 3}
+    accessPanel_ID: 
+    description: Max fuel capacity == 1200 -> 1600
+  - ID: FuelCapacity
+    level: 2
+    IMG: {fileID: 21300006, guid: b9bbfdb77facd7c40a3ed3b73dec2b2a, type: 3}
+    accessPanel_ID: 
+    description: Max fuel capacity == 1600 -> 1850
+  - ID: FuelCapacity
+    level: 3
+    IMG: {fileID: 21300006, guid: b9bbfdb77facd7c40a3ed3b73dec2b2a, type: 3}
+    accessPanel_ID: 
+    description: Max fuel capacity == 1850 -> 2200
+  - ID: FuelCapacity
+    level: 4
+    IMG: {fileID: 21300006, guid: b9bbfdb77facd7c40a3ed3b73dec2b2a, type: 3}
+    accessPanel_ID: 
+    description: Max fuel capacity == 2200 -> 2500
+  - ID: FuelCapacity
+    level: 5
+    IMG: {fileID: 21300006, guid: b9bbfdb77facd7c40a3ed3b73dec2b2a, type: 3}
+    accessPanel_ID: 
+    description: Max fuel capacity == 2500 -> 2800
+  - ID: Jetpack
+    level: 1
+    IMG: {fileID: 21300008, guid: b9bbfdb77facd7c40a3ed3b73dec2b2a, type: 3}
+    accessPanel_ID: Jetpack
+    description: Enables jetpack (Activate with [W] mid-air)
+  - ID: JetpackThrust
+    level: 1
+    IMG: {fileID: 21300010, guid: b9bbfdb77facd7c40a3ed3b73dec2b2a, type: 3}
+    accessPanel_ID: 
+    description: Jetpack thrust == 1.5 -> 2
+  - ID: JetpackThrust
+    level: 2
+    IMG: {fileID: 21300010, guid: b9bbfdb77facd7c40a3ed3b73dec2b2a, type: 3}
+    accessPanel_ID: 
+    description: Jetpack thrust == 2 -> 2.5
+  - ID: JetpackThrust
+    level: 3
+    IMG: {fileID: 21300010, guid: b9bbfdb77facd7c40a3ed3b73dec2b2a, type: 3}
+    accessPanel_ID: 
+    description: Jetpack thrust == 2.5 -> 3
+  - ID: JetpackThrust
+    level: 4
+    IMG: {fileID: 21300010, guid: b9bbfdb77facd7c40a3ed3b73dec2b2a, type: 3}
+    accessPanel_ID: 
+    description: Jetpack thrust == 3 -> 3.5
+  - ID: JetpackThrust
+    level: 5
+    IMG: {fileID: 21300010, guid: b9bbfdb77facd7c40a3ed3b73dec2b2a, type: 3}
+    accessPanel_ID: 
+    description: Jetpack thrust == 3.5 - > 4
+  - ID: JetpackThermalInsulation
+    level: 1
+    IMG: {fileID: 21300012, guid: b9bbfdb77facd7c40a3ed3b73dec2b2a, type: 3}
+    accessPanel_ID: 
+    description: Jetpack overheat temperature == 120 -> 160
+  - ID: JetpackThermalInsulation
+    level: 2
+    IMG: {fileID: 21300012, guid: b9bbfdb77facd7c40a3ed3b73dec2b2a, type: 3}
+    accessPanel_ID: 
+    description: Jetpack overheat temperature == 160 -> 190
+  - ID: JetpackThermalInsulation
+    level: 3
+    IMG: {fileID: 21300012, guid: b9bbfdb77facd7c40a3ed3b73dec2b2a, type: 3}
+    accessPanel_ID: 
+    description: Jetpack overheat temperature == 190 -> 210
+  - ID: Deployables
+    level: 1
+    IMG: {fileID: 21300016, guid: b9bbfdb77facd7c40a3ed3b73dec2b2a, type: 3}
+    accessPanel_ID: 
+    description: Enables deployable weapons (Throw with [MMB], aim with mouse)
+  - ID: WeaponCapacity
+    level: 1
+    IMG: {fileID: 21300014, guid: b9bbfdb77facd7c40a3ed3b73dec2b2a, type: 3}
+    accessPanel_ID: 
+    description: Firearm capacity == 2 -> 3
+  - ID: WeaponCapacity
+    level: 2
+    IMG: {fileID: 21300014, guid: b9bbfdb77facd7c40a3ed3b73dec2b2a, type: 3}
+    accessPanel_ID: 
+    description: Firearm capacity == 3 -> 4
+  - ID: Shield
+    level: 1
+    IMG: {fileID: 21300024, guid: b9bbfdb77facd7c40a3ed3b73dec2b2a, type: 3}
+    accessPanel_ID: 
+    description: Enables shield (Activate with [S](crouch), toggle with [V])
+  - ID: 
+    level: 0
+    IMG: {fileID: 0}
+    accessPanel_ID: 
+    description: 
 --- !u!114 &6568621632076280715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,9 +619,116 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5b8f0d8b72ebdf4b8da4e920813e34c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgrounds: []
+  backgrounds:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   parallaxScales: []
-  smoothing: 0.015
+  enableColorVariation: 1
+  colorVariationDelta: 0.025
+  smoothing: 0.01
 --- !u!114 &1196890604830112540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,3 +741,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b293e33f73cfa7469a56bce9ffec660, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &431062856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1196890604617496528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4274412898d69c438725e08af24e562, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputField: {fileID: 0}
+--- !u!114 &431062857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1196890604617496528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc676d7b996b57b48b9757b37edf62c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  path: 
+--- !u!114 &431062860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1196890604617496528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8a9a2da243bd514199dd12f545ac4b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clockText: {fileID: 0}
+  clockText_score: {fileID: 0}
+  killsText: {fileID: 0}
+  killsText_score: {fileID: 0}
+  killsPanel: {fileID: 0}
+  initTime: 180
+  remainingTime: 180
+  endDisplayText: FINISHED
+  started: 0
+  paused: 0

@@ -5,6 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
+    public int level;
+
+    private void Update()
+    {
+        level = SceneManager.GetActiveScene().buildIndex;
+    }
+
+
     public void LoadLevel(int index)
     {
         SceneManager.LoadScene(index);
@@ -12,6 +20,7 @@ public class LevelManager : MonoBehaviour
 
     public void LoadLevel(string name)
     {
+        Debug.Log("asd");
         if (name == "Self")
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         else

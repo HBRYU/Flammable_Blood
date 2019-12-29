@@ -8,17 +8,14 @@ public class DataManager : MonoBehaviour
 {
     public string path;
 
-    private StreamWriter writer;
-    private StreamReader reader;
+    //private StreamWriter writer;
+    //private StreamReader reader;
     //public StreamWriter writer;
 
     private void Awake()
     {
         path = "Assets/Data/Scores.txt";
-        writer = new StreamWriter(path, true);
-        writer.Close();
-        reader = new StreamReader(path, true);
-        reader.Close();
+        
     }
 
     public void ResetData()
@@ -31,19 +28,27 @@ public class DataManager : MonoBehaviour
     public void SaveData()
     {
         StreamWriter overwrite = new StreamWriter("Assets/Data/Scores save file.txt", false);
-        overwrite.Write(reader.Read());
+        StreamReader reader = new StreamReader(path, true);
+        
+        overwrite.Write(reader.ReadToEnd());
+        reader.Close();
         overwrite.Close();
     }
 
     public void WriteData(string txt)
     {
+        
+        StreamWriter writer = new StreamWriter(path, true);
         writer.WriteLine(txt);
         writer.Close();
     }
 
-    public void ReadData()
+    public string ReadData()
     {
-        
+        StreamReader reader = new StreamReader(path, true);
+        string txt = reader.ReadToEnd();
+        reader.Close();
+        return (txt);
     }
 }
 

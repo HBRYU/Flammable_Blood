@@ -128,6 +128,28 @@ public class Console : MonoBehaviour
                         GM.DisplayText("Unknown command", true);
                     }
                     break;
+                case "scores":
+                    if(coms[1] == "show")
+                    {
+                        GM.GetUI().GetComponent<UI_Scores>().Show();
+                    }
+                    if(coms[1] == "hide")
+                    {
+                        GM.GetUI().GetComponent<UI_Scores>().Hide();
+                    }
+                    if (coms[1] == "save")
+                    {
+                        GM.GetGM().data.SaveData();
+                    }
+                    if(coms[1] == "clear")
+                    {
+                        GM.GetGM().data.ResetData();
+                    }
+                    if(coms[1] == "pw")
+                    {
+                        GM.DisplayText("QWERTY", true);
+                    }
+                    break;
                 default:
                     GM.DisplayText("Unknown command", true);
                     break;
