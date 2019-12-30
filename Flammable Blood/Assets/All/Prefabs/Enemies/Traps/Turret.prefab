@@ -135,6 +135,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 65536
   alertDistance: 7
+  alertDistance_shot: 9
   attackDistance: 10
   aimSpeed: 0.1
   accuracy: 2

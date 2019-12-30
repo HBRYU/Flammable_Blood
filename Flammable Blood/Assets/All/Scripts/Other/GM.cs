@@ -15,6 +15,7 @@ public class GM : MonoBehaviour
     public int killCount;
 
     public bool paused;
+    public bool useDeathConfirm;
 
     public bool playerAlive;
     public bool shooting_active;

@@ -88,7 +88,7 @@ public class Crate_AutoAdd : MonoBehaviour
                     }
                     break;
                 default:
-                    Debug.Log("ERR: Unknown module type. Fuck?");
+                    Debug.Log("ERR: Unknown item type. Fuck?");
                     break;
 
             }

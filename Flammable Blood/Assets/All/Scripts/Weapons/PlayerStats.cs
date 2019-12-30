@@ -6,6 +6,8 @@ public class PlayerStats : MonoBehaviour
 {
     private GM _GM_;
 
+    public bool god;
+
     public float maxHealth;
     public float health;
     public bool alive = true;
@@ -39,7 +41,7 @@ public class PlayerStats : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        if(health > 0)
+        if(health > 0 && !god)
             health -= damage;
     }
 

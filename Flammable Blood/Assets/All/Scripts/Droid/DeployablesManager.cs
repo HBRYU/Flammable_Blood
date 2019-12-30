@@ -53,6 +53,7 @@ public class DeployablesManager : MonoBehaviour
                         count += i;
                     if (count == 0)
                         break;
+                    else
                     //Debug.Log("IN LOOP: " + (deployables.IndexOf(activeDPLYBL) + 1));
                     //Debug.Log("IN: " + a);
                     activeDPLYBL = deployables[deployables.IndexOf(activeDPLYBL) + 1];

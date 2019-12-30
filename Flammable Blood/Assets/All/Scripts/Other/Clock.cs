@@ -12,9 +12,11 @@ public class Clock : MonoBehaviour
     public GameObject killsPanel;
     public int initTime;
     public float remainingTime;
+    public float timeElapsed;
 
     public string endDisplayText;
 
+    public bool useClock;
     public bool started;
 
     public bool paused;
@@ -32,10 +34,17 @@ public class Clock : MonoBehaviour
         if (started)
         {
             if (GM.GetGM().playerAlive)
-                clockText_score.text = (initTime - Mathf.RoundToInt(remainingTime)).ToString();
-            if(!paused)
-                remainingTime -= Time.deltaTime;
-            clockText.text = Mathf.RoundToInt(remainingTime).ToString();
+                clockText_score.text = (timeElapsed).ToString();
+            if (!paused)
+            {
+                if(useClock)
+                    remainingTime -= Time.deltaTime;
+                timeElapsed += Time.deltaTime;
+            }
+            if(useClock)
+                clockText.text = Mathf.RoundToInt(remainingTime).ToString();
+            else
+                clockText.text = Mathf.RoundToInt(timeElapsed).ToString();
             clockText.color = new Color(1, 1, 1, 1);
             killsPanel.SetActive(true);
             killsText.text = GM.GetGM().killCount.ToString();

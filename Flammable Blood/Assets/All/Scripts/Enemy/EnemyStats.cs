@@ -130,6 +130,10 @@ public class EnemyStats : MonoBehaviour
         {
             GetComponent<DroneMovement>().alertDistance = GetComponent<DroneMovement>().shot_alertDistance;
         }
+        if((type == "Turret"))
+        {
+            GetComponent<Turret1>().alertDistance = GetComponent<Turret1>().alertDistance_shot;
+        }
     }
 
     public void Stunned(float randomizer, float duration, float damage, GameObject effect)

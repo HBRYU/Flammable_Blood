@@ -24,12 +24,12 @@ public class CameraMan : MonoBehaviour
         if (!Input.GetKey("f"))
         {
             movePos = Vector3.Lerp(transform.position, target.transform.position, speed * Time.deltaTime);
-            _GM_.shooting_active_switches[_GM_.shooting_active_keys.IndexOf("CameraMan")] = true;
+            //_GM_.shooting_active_switches[_GM_.shooting_active_keys.IndexOf("CameraMan")] = true;
         }
         else
         {
             movePos = Vector3.Lerp(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position, speed * Time.deltaTime);
-            _GM_.shooting_active_switches[_GM_.shooting_active_keys.IndexOf("CameraMan")] = false;
+            //_GM_.shooting_active_switches[_GM_.shooting_active_keys.IndexOf("CameraMan")] = false;
         }
         
         movePos.z = transform.position.z;

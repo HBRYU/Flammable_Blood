@@ -6,19 +6,28 @@ using TMPro;
 public class TextAlternator : MonoBehaviour
 {
     public List<string> texts;
+    public List<string> texts_variants;
     public float interval;
     private float interval_timer;
+    private bool flag;
+    public int index;
+
+    private void Start()
+    {
+        index = Random.Range(0, texts.Count - 1);
+    }
 
     void Update()
     {
         interval_timer += Time.deltaTime;
         if(interval_timer >= interval)
         {
-            if (texts.IndexOf(GetComponent<TextMeshProUGUI>().text) + 1 < texts.Count)
-                GetComponent<TextMeshProUGUI>().text = texts[texts.IndexOf(GetComponent<TextMeshProUGUI>().text) + 1];
+            if (flag)
+                GetComponent<TextMeshProUGUI>().text = texts[index];
             else
-                GetComponent<TextMeshProUGUI>().text = texts[0];
+                GetComponent<TextMeshProUGUI>().text = texts_variants[index];
             interval_timer = 0;
+            flag = !flag;
         }
     }
 }

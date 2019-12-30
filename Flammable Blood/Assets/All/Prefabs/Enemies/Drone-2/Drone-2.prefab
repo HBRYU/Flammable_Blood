@@ -4986,7 +4986,7 @@ MonoBehaviour:
   delay: 1
   delay2: 0.35
   laserDuration: 1.2
-  damage: 50
+  damage: 35
   tempDir: {x: 0, y: 0, z: 0}
   cp: {fileID: 0}
 --- !u!114 &745498542
@@ -5032,6 +5032,10 @@ MonoBehaviour:
   explosionForce: 300
   explosionRadius: 2.5
   explosionDuration: 2
+  resistStun: 0
+  stunResistance: 0
+  resistBurn: 0
+  burnResistance: 0
 --- !u!58 &241955886
 CircleCollider2D:
   m_ObjectHideFlags: 0

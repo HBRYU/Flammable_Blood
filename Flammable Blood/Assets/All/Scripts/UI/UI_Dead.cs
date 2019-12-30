@@ -6,22 +6,32 @@ using TMPro;
 public class UI_Dead : MonoBehaviour
 {
     public GameObject deathMenu;
+    //public GameObject deathMenu2;
     public GameObject darken;
 
     public GameObject[] buttons;
     public TMP_InputField PW;
     public TMP_InputField INFO;
+    public TextMeshProUGUI taunt;
 
     private void Awake()
     {
-        buttons[0].SetActive(false);
-        buttons[1].SetActive(false);
+        if (GM.GetGM().useDeathConfirm)
+        {
+            buttons[0].SetActive(false);
+            buttons[1].SetActive(false);
+        }
+        else
+        {
+            PW.gameObject.SetActive(false);
+            INFO.gameObject.SetActive(false);
+        }
     }
 
     public void Dead()
     {
-        darken.SetActive(true);
         deathMenu.SetActive(true);
+        darken.SetActive(true);
     }
 
     public void PWEntered()

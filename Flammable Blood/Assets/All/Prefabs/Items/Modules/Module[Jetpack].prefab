@@ -147,7 +147,7 @@ MonoBehaviour:
     level: 0
     IMG: {fileID: 21300008, guid: b9bbfdb77facd7c40a3ed3b73dec2b2a, type: 3}
     accessPanel_ID: Jetpack
-    description: Enables jetpack
+    description: Jetpack enabled
 --- !u!1001 &6997088579231866225
 PrefabInstance:
   m_ObjectHideFlags: 0

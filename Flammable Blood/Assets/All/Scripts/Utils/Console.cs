@@ -51,6 +51,14 @@ public class Console : MonoBehaviour
                             GM.GetGM().player.GetComponent<PlayerMove>().maxFuel = GM.GetFloat(coms[2], GM.GetGM().player.GetComponent<PlayerMove>().maxFuel);
                             GM.DisplayText("Command entered.", true);
                             break;
+                        case "god":
+                            if(coms[2] == "enable")
+                                GM.GetPlayer().GetComponent<PlayerStats>().god = true;
+                            if(coms[2] == "disable")
+                                GM.GetPlayer().GetComponent<PlayerStats>().god = false;
+                            else
+                                GM.DisplayText("Invalid command", true);
+                            break;
                         default:
                             GM.DisplayText("Unknown command", true);
                             break;
@@ -148,6 +156,10 @@ public class Console : MonoBehaviour
                     if(coms[1] == "pw")
                     {
                         GM.DisplayText("QWERTY", true);
+                    }
+                    else
+                    {
+                        GM.DisplayText("Unknown command", true);
                     }
                     break;
                 default:

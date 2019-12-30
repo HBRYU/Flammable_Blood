@@ -325,7 +325,7 @@ MonoBehaviour:
   fireRate: 0.15
   maxAmmoCount: 4
   ammoCount: 4
-  reloadSpeed: 1.2
+  reloadSpeed: 1.6
 --- !u!114 &745498542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -370,6 +370,10 @@ MonoBehaviour:
   explosionForce: 300
   explosionRadius: 2.5
   explosionDuration: 2
+  resistStun: 0
+  stunResistance: 0
+  resistBurn: 0
+  burnResistance: 0
 --- !u!58 &241955886
 CircleCollider2D:
   m_ObjectHideFlags: 0

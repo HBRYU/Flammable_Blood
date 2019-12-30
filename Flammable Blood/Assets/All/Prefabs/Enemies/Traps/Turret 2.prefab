@@ -134,13 +134,14 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 65536
-  alertDistance: 5.5
+  alertDistance: 6.5
+  alertDistance_shot: 8.5
   attackDistance: 10
   aimSpeed: 0.05
   accuracy: 5
-  damage: 5
+  damage: 3
   bulletSpeed: 40
-  fireRate: 0.03
+  fireRate: 0.05
   maxAmmoCount: 12
   ammoCount: 12
   reloadSpeed: 2
@@ -269,6 +270,10 @@ MonoBehaviour:
   explosionForce: 300
   explosionRadius: 2.5
   explosionDuration: 2
+  resistStun: 0
+  stunResistance: 0
+  resistBurn: 0
+  burnResistance: 0
 --- !u!61 &811115781
 BoxCollider2D:
   m_ObjectHideFlags: 0

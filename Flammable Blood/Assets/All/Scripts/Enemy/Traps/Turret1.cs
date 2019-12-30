@@ -16,6 +16,7 @@ public class Turret1 : MonoBehaviour
     public bool attack;
     public LayerMask whatIsGround;
     public float alertDistance;
+    public float alertDistance_shot;
     public float attackDistance;
 
     private Quaternion gunInitRot;

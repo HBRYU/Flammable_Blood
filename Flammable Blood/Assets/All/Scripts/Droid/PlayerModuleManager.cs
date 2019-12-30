@@ -70,6 +70,7 @@ public class PlayerModuleManager : MonoBehaviour
                 break;
         }
         GM.DisplayText("Module Inserted:" + module.ID, false);
+        //GM.DisplayText2(module.description, false);
         controlPanel.AddModule(module);
         return (true);
     }

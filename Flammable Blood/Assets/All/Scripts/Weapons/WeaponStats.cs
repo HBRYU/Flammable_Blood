@@ -69,18 +69,34 @@ public class WeaponStats : MonoBehaviour
 
     public void PickUp(Transform parent)
     {
-        if (hideOnEquip)
-            GetComponent<SpriteRenderer>().enabled = false;
-        transform.SetParent(parent, true);
-        transform.position = parent.position;
-        transform.rotation = parent.rotation;
-        transform.localScale = parent.localScale;
-        GetComponent<Rigidbody2D>().simulated = false;
-        col.enabled = false;
-        pointer.enabled = false;
-        gun.SetActive(true);
-        _GM_.player.GetComponent<PlayerWeaponManager>().weapons.Add(gameObject);
-        _GM_.player.GetComponent<PlayerWeaponManager>().Arm(gameObject);
+        //Debug.Log(_GM_.player.GetComponent<PlayerWeaponManager>().weapons.IndexOf(gameObject));
+        bool exists = false;
+        foreach(GameObject gun in _GM_.player.GetComponent<PlayerWeaponManager>().weapons)
+        {
+            if(gun.GetComponent<WeaponStats>().ID == ID)
+            {
+                exists = true;
+            }
+        }
+        if (!exists)
+        {
+            if (hideOnEquip)
+                GetComponent<SpriteRenderer>().enabled = false;
+            transform.SetParent(parent, true);
+            transform.position = parent.position;
+            transform.rotation = parent.rotation;
+            transform.localScale = parent.localScale;
+            GetComponent<Rigidbody2D>().simulated = false;
+            col.enabled = false;
+            pointer.enabled = false;
+            gun.SetActive(true);
+            _GM_.player.GetComponent<PlayerWeaponManager>().weapons.Add(gameObject);
+            _GM_.player.GetComponent<PlayerWeaponManager>().Arm(gameObject);
+        }
+        else
+        {
+            GM.DisplayText("Weapon already exists", false);
+        }
     }
 
     public void Shoot()

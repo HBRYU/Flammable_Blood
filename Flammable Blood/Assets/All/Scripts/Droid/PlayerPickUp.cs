@@ -69,7 +69,7 @@ public class PlayerPickUp : MonoBehaviour
 
     void PickUp(GameObject item)
     {
-        if (Input.GetKeyDown("e") || (Input.GetMouseButtonDown(0) && Input.GetKey("f")))
+        if (Input.GetKeyDown("e") || (Input.GetMouseButtonDown(1) && Input.GetKey("f")))
         {
             if (item != null)
             {
