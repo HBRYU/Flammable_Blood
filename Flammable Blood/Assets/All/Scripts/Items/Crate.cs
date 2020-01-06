@@ -148,12 +148,17 @@ public class Crate : MonoBehaviour
                 float leftover = pm.AddFuel(item.count);
                 if (leftover != 0)
                 {
-                    item.count = leftover;
-                    remain = true;
-                    GM.DisplayText("Fuel += " + (item.count - leftover), false);
+                    if (leftover == item.count)
+                        GM.DisplayText("Maximum fuel capacity reached", false);
+                    else
+                    {
+                        item.count = leftover;
+                        remain = true;
+                        GM.DisplayText("Fuel += " + (item.count - leftover) + "mL", false);
+                    }
                 }
                 else
-                    GM.DisplayText("Fuel += " + item.count, false);
+                    GM.DisplayText("Fuel += " + item.count + "mL", false);
                 items.Remove(item);
                 break;
             case "Module":

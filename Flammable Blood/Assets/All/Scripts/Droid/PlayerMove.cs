@@ -7,6 +7,8 @@ public class PlayerMove : MonoBehaviour
     private Rigidbody2D rb;
     private PlayerAnimControl anim;
 
+    public bool move = true;
+
     public bool rawMovement;
     public bool faceMouseMovement;
 
@@ -59,23 +61,29 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (move)
+            Move();
+    }
+
+    private void Move()
+    {
         //////////////////////////////////// 좌우 움직임
-        if(rawMovement == true)
+        if (rawMovement == true)
             moveInput = Input.GetAxisRaw("Horizontal");    //D 누르면 1, A 누르면 -1
         else
             moveInput = Input.GetAxis("Horizontal");    //D 누르면 1로 서서히 변환, A 누르면 -1로 서서히 변환
-        
 
-        if(Input.GetKey("left shift"))
+
+        if (Input.GetKey("left shift"))
             speed = runSpeed;   //Shift 누르면 스피드는 달리기 속도
         else
             speed = walkSpeed;  //아니면 스피드는 일반 속도
 
 
-        if(Input.GetKey("a") && Input.GetKey("d"))      //A랑 D 같이 누르면 멈추기
+        if (Input.GetKey("a") && Input.GetKey("d"))      //A랑 D 같이 누르면 멈추기
             speed = 0;
 
-        if(Input.GetKey("s") && onGround == true)   //S 누르고 땅에 있으면 움츠리고 멈추기
+        if (Input.GetKey("s") && onGround == true)   //S 누르고 땅에 있으면 움츠리고 멈추기
         {
             crouched = true;
             speed = 0;
@@ -89,7 +97,7 @@ public class PlayerMove : MonoBehaviour
         else
             fuel = 0;
 
-        if(fuel > 0)
+        if (fuel > 0)
             rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
         else
             rb.velocity = new Vector2(moveInput * speed * lackingFuelSpeed_delta, rb.velocity.y);
@@ -122,7 +130,7 @@ public class PlayerMove : MonoBehaviour
             Jetpack();
 
 
-        if(rb.velocity.y < falling_TerminalV)
+        if (rb.velocity.y < falling_TerminalV)
         {
             rb.velocity = new Vector2(rb.velocity.x, falling_TerminalV);
         }
@@ -130,26 +138,29 @@ public class PlayerMove : MonoBehaviour
 
     private void Update()
     {
-        //////////////////////////////////// 점프
-        onGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
-
-        if (Input.GetKeyDown("w") && onGround == true)
+        if (move)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-            jumped = true;
-            anim.Jump();
-        }
+            //////////////////////////////////// 점프
+            onGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
 
-        if(rb.velocity.y == 0 && onGround == true)
-            jumped = false;
+            if (Input.GetKeyDown("w") && onGround == true)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                jumped = true;
+                anim.Jump();
+            }
+
+            if (rb.velocity.y == 0 && onGround == true)
+                jumped = false;
 
 
-        if (jetpack && onGround == false && Input.GetKeyDown("w") && fuel > 0 && !jetpack_overheated)
-        {
-            GetComponent<PlayerAudioManager>().Jetpack_SFX(true);
-            usingJetpack = true;
-            fuel -= jetpack_init_fuel;
-            jetpack_heat += jetpack_init_heat_increase;
+            if (jetpack && onGround == false && Input.GetKeyDown("w") && fuel > 0 && !jetpack_overheated)
+            {
+                GetComponent<PlayerAudioManager>().Jetpack_SFX(true);
+                usingJetpack = true;
+                fuel -= jetpack_init_fuel;
+                jetpack_heat += jetpack_init_heat_increase;
+            }
         }
     }
 

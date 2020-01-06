@@ -8,6 +8,7 @@ public class UI_Deployables : MonoBehaviour
 {
     private DeployablesManager source;
 
+    public GameObject panel;
     public TextMeshProUGUI name_text;
     public TextMeshProUGUI count_text;
     public Image icon;
@@ -22,6 +23,11 @@ public class UI_Deployables : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!source.ACTIVE)
+            panel.SetActive(false);
+        else
+            panel.SetActive(true);
+
         if(source.activeDPLYBL_count > 0)
         {
             name_text.text = source.activeDPLYBL_name;

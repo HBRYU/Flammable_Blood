@@ -10,7 +10,7 @@ public class UI_Menu : MonoBehaviour
 
     void Start()
     {
-        _GM_ = GameObject.FindGameObjectWithTag("GM").GetComponent<GM>();
+        _GM_ = GM.GetGM();
         _GM_.AddShootingActiveSwitch("UI_Menu");
     }
 

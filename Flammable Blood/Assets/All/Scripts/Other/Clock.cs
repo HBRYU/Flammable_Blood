@@ -50,10 +50,7 @@ public class Clock : MonoBehaviour
             killsText.text = GM.GetGM().killCount.ToString();
             if(remainingTime <= 0)
             {
-                clockText.text = endDisplayText;
-                GM.DisplayText("TIME UP", true);
-                GM.GetGM().player.GetComponent<PlayerStats>().TakeDamage(999999999);
-                started = false;
+                End();
             }
         }
     }
@@ -61,5 +58,13 @@ public class Clock : MonoBehaviour
     public void Begin()
     {
         started = true;
+    }
+
+    public void End()
+    {
+        clockText.text = endDisplayText;
+        GM.DisplayText("TIME UP", true);
+        GM.GetGM().player.GetComponent<PlayerStats>().TakeDamage(999999999);
+        started = false;
     }
 }

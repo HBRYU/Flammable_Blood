@@ -12,12 +12,22 @@ public class ItemPickUp : MonoBehaviour
     {
         if(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerPickUp>().selectedItem == gameObject)
         {
-            if(!Input.GetKey("e"))
+            if (!Input.GetKey("e"))
+            {
                 pressKey.GetComponent<SpriteRenderer>().enabled = true;
+                if(targetScript == "PickableItem" && GetComponentInParent<PickableItem>().useUI)
+                {
+                    GetComponentInParent<PickableItem>().UI.SetActive(true);
+                }
+            }
         }
         else
         {
             pressKey.GetComponent<SpriteRenderer>().enabled = false;
+            if (targetScript == "PickableItem" && GetComponentInParent<PickableItem>().useUI)
+            {
+                GetComponentInParent<PickableItem>().UI.SetActive(false);
+            }
         }
     }
 
@@ -33,6 +43,9 @@ public class ItemPickUp : MonoBehaviour
                 break;
             case "Item_Module":
                 transform.parent.GetComponent<Item_Module>().Access();
+                break;
+            case "PickableItem":
+                GetComponentInParent<PickableItem>().Access();
                 break;
             default:
                 Debug.Log("ERR: Unknown item target script (" + targetScript +")  [From " + gameObject.name + "]");

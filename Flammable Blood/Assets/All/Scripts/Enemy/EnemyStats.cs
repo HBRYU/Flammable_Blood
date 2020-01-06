@@ -50,6 +50,8 @@ public class EnemyStats : MonoBehaviour
         _GM_ = GameObject.FindGameObjectWithTag("GM").GetComponent<GM>();
         player = _GM_.player;
         rb = GetComponent<Rigidbody2D>();
+
+        //TakeDamage(999999999);
     }
 
     // Update is called once per frame

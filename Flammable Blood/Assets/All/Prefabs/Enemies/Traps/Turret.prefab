@@ -133,7 +133,7 @@ MonoBehaviour:
   attack: 1
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 65536
+    m_Bits: 1114112
   alertDistance: 7
   alertDistance_shot: 9
   attackDistance: 10
