@@ -4941,7 +4941,7 @@ MonoBehaviour:
   chase: 1
   alertSFX: {fileID: 8300000, guid: 09191c29ec91fcb48b78d23f6aaa18e8, type: 3}
   hover: 1
-  hoverHeight: 1.4
+  hoverHeight: 1.65
   hoverForce: 0.5
   speed: 5
   acceleration: 1

@@ -11,6 +11,8 @@ public class PlayerAnimControl : MonoBehaviour
     /// -PlayerMove 와 PlayerWeaponManager 등의 스크립트에서 명령하여 애니메이션 플레이
     /// </summary>
 
+    public bool disableAnimation;
+
     private GM _GM_;
 
     private Animator anim;
@@ -29,28 +31,31 @@ public class PlayerAnimControl : MonoBehaviour
 
     void Update()
     {
-        if (pm.crouched)
+        if (!disableAnimation)
         {
-            anim.SetBool("Crouched", true);
+            if (pm.crouched)
+            {
+                anim.SetBool("Crouched", true);
+            }
+            else
+            {
+                anim.SetBool("Crouched", false);
+
+                Move();
+
+            }
+
+            ///////////////////////// Jump Input    점프 인풋
+            bool onGround;
+
+            if (pm.onGround != null)
+                onGround = true;
+            else
+                onGround = false;
+
+            anim.SetBool("OnGround", onGround);
+            anim.SetFloat("YVel", rb.velocity.y);
         }
-        else
-        {
-            anim.SetBool("Crouched", false);
-
-            Move();
-
-        }
-
-        ///////////////////////// Jump Input    점프 인풋
-        bool onGround;
-
-        if (pm.onGround != null)
-            onGround = true;
-        else
-            onGround = false;
-
-        anim.SetBool("OnGround", onGround);
-        anim.SetFloat("YVel", rb.velocity.y);
     }
     
     void Move()
@@ -105,57 +110,65 @@ public class PlayerAnimControl : MonoBehaviour
 
     public void Jump()
     {
-        anim.SetTrigger("Jump");
+        if(!disableAnimation)
+            anim.SetTrigger("Jump");
     }
 
     public void Shoot(GameObject gun, bool shoot, bool repeat)
     {
-        if (repeat == true)
+        if (!disableAnimation)
         {
-            if(shoot == true && _GM_.shooting_active)
+            if (repeat == true)
             {
-                try
+                if (shoot == true && _GM_.shooting_active)
                 {
-                    gun.GetComponent<Animator>().SetBool("Shooting", true);
+                    try
+                    {
+                        gun.GetComponent<Animator>().SetBool("Shooting", true);
+                    }
+                    catch
+                    { }
+                    anim.SetBool("Shooting", true);
                 }
-                catch
-                { }
-                anim.SetBool("Shooting", true);
+                else
+                {
+                    try
+                    {
+                        gun.GetComponent<Animator>().SetBool("Shooting", false);
+                    }
+                    catch
+                    { }
+                    anim.SetBool("Shooting", false);
+                }
             }
             else
             {
                 try
                 {
-                    gun.GetComponent<Animator>().SetBool("Shooting", false);
+                    gun.GetComponent<Animator>().SetTrigger("Shoot");
                 }
                 catch
                 { }
-                anim.SetBool("Shooting", false);
+                anim.SetTrigger("Shoot");
             }
-        }
-        else
-        {
-            try
-            {
-                gun.GetComponent<Animator>().SetTrigger("Shoot");
-            }
-            catch
-            { }
-            anim.SetTrigger("Shoot");
         }
     }
 
     public void Reload()
     {
-        anim.SetTrigger("Reload");
+        if(!disableAnimation)
+            anim.SetTrigger("Reload");
     }
 
     public void Aim(bool aim)
     {
-        if(aim == true)
-            anim.SetBool("Aim", true);
-        else
-            anim.SetBool("Aim", false);
+        if (!disableAnimation)
+        {
+            if (aim == true)
+                anim.SetBool("Aim", true);
+            else
+                anim.SetBool("Aim", false);
+        }
     }
 
 }

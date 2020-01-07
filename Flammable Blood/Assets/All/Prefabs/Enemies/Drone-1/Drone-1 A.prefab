@@ -291,7 +291,7 @@ MonoBehaviour:
   chase: 1
   alertSFX: {fileID: 8300000, guid: 784e73ad9bd6bc543b38b5fb361ab781, type: 3}
   hover: 1
-  hoverHeight: 1.5
+  hoverHeight: 1.65
   hoverForce: 0.5
   speed: 6
   acceleration: 1.2
@@ -370,6 +370,10 @@ MonoBehaviour:
   explosionForce: 300
   explosionRadius: 2.5
   explosionDuration: 2
+  resistStun: 0
+  stunResistance: 0
+  resistBurn: 0
+  burnResistance: 0
 --- !u!58 &241955886
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -463,7 +463,7 @@ MonoBehaviour:
   audioSource: {fileID: 2048922916}
   bullet: {fileID: 1646669890229493766, guid: 83027b3672232174693e1d42facae6a1, type: 3}
   barrelEnd: {fileID: 3427086968893306090}
-  bulletSpeed: 75
+  bulletSpeed: 60
   fireRate: 0
   accuracy: 0.5
   damage: 50
@@ -489,6 +489,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 645454768796236047}
     m_Modifications:
+    - target: {fileID: 4205701249611985517, guid: f561580a2f1178b418d7b3625e0f5e3b,
+        type: 3}
+      propertyPath: m_Name
+      value: PickUp
+      objectReference: {fileID: 0}
     - target: {fileID: 4205701249611985515, guid: f561580a2f1178b418d7b3625e0f5e3b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -543,11 +548,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4205701249611985517, guid: f561580a2f1178b418d7b3625e0f5e3b,
-        type: 3}
-      propertyPath: m_Name
-      value: PickUp
       objectReference: {fileID: 0}
     - target: {fileID: 74940449052052183, guid: f561580a2f1178b418d7b3625e0f5e3b,
         type: 3}

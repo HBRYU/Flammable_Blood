@@ -131,10 +131,41 @@ public class EnemyStats : MonoBehaviour
         if ((type == "Drone" ) || (type == "Drone2"))
         {
             GetComponent<DroneMovement>().alertDistance = GetComponent<DroneMovement>().shot_alertDistance;
+
+            Collider2D[] col = Physics2D.OverlapCircleAll(transform.position, GetComponent<DroneMovement>().alertDistance);
+            if (col != null)
+            {
+                foreach (Collider2D obj in col)
+                {
+                    if (obj.GetComponent<DroneMovement>() != null && Physics2D.Raycast(transform.position, obj.transform.position, Vector2.Distance(transform.position, obj.transform.position), GetComponent<DroneMovement>().whatIsGround).collider == null)
+                    {
+                        obj.GetComponent<DroneMovement>().alertDistance = obj.GetComponent<DroneMovement>().shot_alertDistance;
+                    }
+                    if (obj.GetComponent<Turret1>() != null && Physics2D.Raycast(transform.position, obj.transform.position, Vector2.Distance(transform.position, obj.transform.position), GetComponent<DroneMovement>().whatIsGround).collider == null)
+                    {
+                        obj.GetComponent<Turret1>().alertDistance = obj.GetComponent<Turret1>().alertDistance_shot;
+                    }
+                }
+            } 
         }
         if((type == "Turret"))
         {
             GetComponent<Turret1>().alertDistance = GetComponent<Turret1>().alertDistance_shot;
+            Collider2D[] col = Physics2D.OverlapCircleAll(transform.position, GetComponent<Turret1>().alertDistance);
+            if (col != null)
+            {
+                foreach (Collider2D obj in col)
+                {
+                    if (obj.GetComponent<DroneMovement>() != null && Physics2D.Raycast(transform.position, obj.transform.position, Vector2.Distance(transform.position, obj.transform.position), GetComponent<Turret1>().whatIsGround).collider == null)
+                    {
+                        obj.GetComponent<DroneMovement>().alertDistance = obj.GetComponent<DroneMovement>().shot_alertDistance;
+                    }
+                    if (obj.GetComponent<Turret1>() != null && Physics2D.Raycast(transform.position, obj.transform.position, Vector2.Distance(transform.position, obj.transform.position), GetComponent<Turret1>().whatIsGround).collider == null)
+                    {
+                        obj.GetComponent<Turret1>().alertDistance = obj.GetComponent<Turret1>().alertDistance_shot;
+                    }
+                }
+            }
         }
     }
 

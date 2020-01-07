@@ -10,6 +10,10 @@ public class Intro : MonoBehaviour
 
     public int stage = 1;
 
+    public AudioSource _0_Rain;
+    public Transform _0_RainMaxVol;
+    public Transform _0_RainMinVol;
+
     public float _1_Movement_Delay;
     private float _1_Movement_Delay_init;
     public GameObject _1_Darken;
@@ -32,10 +36,26 @@ public class Intro : MonoBehaviour
 
     void Update()
     {
+        if(player.transform.position.x < _0_RainMaxVol.position.x)
+        {
+            float vol = 1 - (Vector2.Distance(player.transform.position, _0_RainMaxVol.position) / Vector2.Distance(_0_RainMinVol.position, _0_RainMaxVol.position));
+            if (vol < 0)
+                vol = 0;
+            _0_Rain.volume = vol;
+            _0_Rain.panStereo = 1-vol;
+        }
+        else
+        {
+            _0_Rain.volume = 1;
+            _0_Rain.panStereo = 0;
+        }
+
+
         if (_1_Movement_Delay > 0)
         {
             _1_Movement_Delay -= Time.deltaTime;
             player.GetComponent<PlayerMove>().move = false;
+            player.GetComponent<PlayerAnimControl>().disableAnimation = true;
             player.GetComponent<Animator>().SetBool("OnGround", true);
             _1_Darken.SetActive(true);
             Color col = _1_Darken.GetComponent<Image>().color;
@@ -46,8 +66,9 @@ public class Intro : MonoBehaviour
             _1_Darken.SetActive(false);
             _1_Darken.GetComponent<Image>().color = _1_Darken_Color;
             player.GetComponent<PlayerMove>().move = true;
-            
-            if(stage == 1)
+            player.GetComponent<PlayerAnimControl>().disableAnimation = false;
+
+            if (stage == 1)
                 stage = 2;
         }
 
@@ -71,7 +92,8 @@ public class Intro : MonoBehaviour
 
         if(_3_Crate.items.Count == 0 && stage == 3)
         {
-            Camera.main.gameObject.GetComponent<CameraMan>().speed = 1.5f;
+            Camera.main.gameObject.GetComponent<CameraMan>().speed = 2f;
+            GM.DisplayText2("Press [W] mid-air\nto activate jetpack", true);
             stage = 4;
         }
 
