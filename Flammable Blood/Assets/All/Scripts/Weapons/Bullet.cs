@@ -19,6 +19,7 @@ public class Bullet : MonoBehaviour
     public List<GameObject> particles;
 
     public GameObject bulletContact;
+    private bool BC_spawn_flag;
 
     public bool hitEnemy_Flag;
 
@@ -57,12 +58,47 @@ public class Bullet : MonoBehaviour
     {
         
         if(other.GetComponent<Particle_Stats>() != null)
+        {
             SpawnParticles();
+            
+        }
+
+        if(other.GetComponent<BulletImpact_Stats>() != null)
+        {
+            GameObject contact = Instantiate(bulletContact, transform.position, transform.rotation);
+            List<AudioClip> sfx = new List<AudioClip>();
+            for (int i = 0; i < contact.GetComponent<BulletContact>().SFXs_names.Count; i++)
+            {
+                if (contact.GetComponent<BulletContact>().SFXs_names[i] == other.GetComponent<BulletImpact_Stats>().type)
+                    sfx.Add(contact.GetComponent<BulletContact>().SFXs[i]);
+            }
+            if (sfx.Count > 0)
+                contact.GetComponent<BulletContact>().SFX = sfx[Random.Range(0, sfx.Count - 1)];
+            else
+                contact.GetComponent<BulletContact>().SFX = null;
+            BC_spawn_flag = true;
+        }
+        if(other.GetComponentInParent<BulletImpact_Stats>() != null)
+        {
+            GameObject contact = Instantiate(bulletContact, transform.position, transform.rotation);
+            List<AudioClip> sfx = new List<AudioClip>();
+            for (int i = 0; i < contact.GetComponent<BulletContact>().SFXs_names.Count; i++)
+            {
+                if (contact.GetComponent<BulletContact>().SFXs_names[i] == other.GetComponentInParent<BulletImpact_Stats>().type)
+                    sfx.Add(contact.GetComponent<BulletContact>().SFXs[i]);
+            }
+            if (sfx.Count > 0)
+                contact.GetComponent<BulletContact>().SFX = sfx[Random.Range(0, sfx.Count - 1)];
+            else
+                contact.GetComponent<BulletContact>().SFX = null;
+            BC_spawn_flag = true;
+        }
 
         switch (other.tag)
         {
             case "Ground":
-                Instantiate(bulletContact, transform.position, transform.rotation);
+                if(!BC_spawn_flag)
+                    Instantiate(bulletContact, transform.position, transform.rotation);
                 Destroy(gameObject);
                 break;
 

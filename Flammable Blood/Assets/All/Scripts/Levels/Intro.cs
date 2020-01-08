@@ -10,9 +10,23 @@ public class Intro : MonoBehaviour
 
     public int stage = 1;
 
+    public Transform trigger_1;
+    public Transform trigger_2;
+
+    public GameObject credits_1;
+    public GameObject credits_2;
+
+    public AudioSource BGM_1;
+    public AudioSource BGM_2;
+    private bool BGM_2_Flag;
+
     public AudioSource _0_Rain;
+    public float _0_Rain_Volume;
     public Transform _0_RainMaxVol;
     public Transform _0_RainMinVol;
+
+    private bool _0_WASD_flag;
+    private bool _0_SHIFT_flag;
 
     public float _1_Movement_Delay;
     private float _1_Movement_Delay_init;
@@ -32,13 +46,31 @@ public class Intro : MonoBehaviour
 
         _1_Movement_Delay_init = _1_Movement_Delay;
         _1_Darken_Color = _1_Darken.GetComponent<Image>().color;
+        GM.GetUI().GetComponent<UI_HelpText>().displayTime = 3.2f;
     }
 
     void Update()
     {
+        if(player.transform.position.x > trigger_1.position.x)
+        {
+            credits_1.SetActive(true);
+            credits_1.GetComponent<Animator>().SetTrigger("Start");
+        }
+        if(player.transform.position.x > trigger_2.position.x)
+        {
+            credits_2.SetActive(true);
+            credits_2.GetComponent<Animator>().SetTrigger("Title");
+            BGM_1.gameObject.GetComponent<Animator>().SetTrigger("Start");
+            if (!BGM_2_Flag)
+            {
+                BGM_2.Play();
+                BGM_2_Flag = true;
+            }
+        }
+
         if(player.transform.position.x < _0_RainMaxVol.position.x)
         {
-            float vol = 1 - (Vector2.Distance(player.transform.position, _0_RainMaxVol.position) / Vector2.Distance(_0_RainMinVol.position, _0_RainMaxVol.position));
+            float vol = _0_Rain_Volume - (Vector2.Distance(player.transform.position, _0_RainMaxVol.position) / Vector2.Distance(_0_RainMinVol.position, _0_RainMaxVol.position));
             if (vol < 0)
                 vol = 0;
             _0_Rain.volume = vol;
@@ -46,10 +78,22 @@ public class Intro : MonoBehaviour
         }
         else
         {
-            _0_Rain.volume = 1;
+            _0_Rain.volume = _0_Rain_Volume;
             _0_Rain.panStereo = 0;
         }
 
+        if(Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d"))
+        {
+            _0_WASD_flag = true;
+        }
+        if (!_0_WASD_flag)
+            GM.DisplayText("Press [W/A/S/D] to move", true);
+        else
+        {
+            if(!_0_SHIFT_flag)
+                GM.DisplayText("Hold [SHIFT] to run", true);
+            _0_SHIFT_flag = true;
+        }
 
         if (_1_Movement_Delay > 0)
         {
@@ -72,10 +116,11 @@ public class Intro : MonoBehaviour
                 stage = 2;
         }
 
+       
         try
         {
-            Item_Module asd = _2_Sight_Module.GetComponent<Item_Module>();
-            string addd = asd.name;
+            if (GM.CompareDistance(player.transform.position, _2_Sight_Module.transform.position, 1.2f) <= 0)
+                GM.DisplayText("Press [E] to pick up or interact with items", true);
         }
         catch
         {
@@ -93,7 +138,8 @@ public class Intro : MonoBehaviour
         if(_3_Crate.items.Count == 0 && stage == 3)
         {
             Camera.main.gameObject.GetComponent<CameraMan>().speed = 2f;
-            GM.DisplayText2("Press [W] mid-air\nto activate jetpack", true);
+            GM.DisplayText("Press [W] mid-air to activate jetpack", true);
+            GM.DisplayText("Be careful not to run out of fuel", false);
             stage = 4;
         }
 
@@ -102,6 +148,8 @@ public class Intro : MonoBehaviour
             player.GetComponent<PlayerMove>().faceMouseMovement = true;
             GM.DisplayText2("Move mouse to look around.", true);
             GM.DisplayText2("Left click to fire.", false);
+
+            GM.GetUI().GetComponent<UI_HelpText>().displayTime = 3f;
 
             stage = 5;
         }

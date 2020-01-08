@@ -135,13 +135,13 @@ public class Crate : MonoBehaviour
                 PlayerWeaponManager wm = player.GetComponent<PlayerWeaponManager>();
                 wm.ammo_count[wm.ammo_type.IndexOf(item.name)] += Mathf.RoundToInt(item.count);
                 items.Remove(item);
-                GM.DisplayText("Picked up: " + item.name + " x (" + item.count + ")", false);
+                GM.DisplayText3("Picked up: " + item.name + " x (" + item.count + ")", false, 0);
                 break;
             case "Health":
                 PlayerStats ps = player.GetComponent<PlayerStats>();
                 ps.health += item.count;
                 items.Remove(item);
-                GM.DisplayText("Health += " + item.count, false);
+                GM.DisplayText3("Health += " + item.count, false, 0);
                 break;
             case "Fuel":
                 PlayerMove pm = player.GetComponent<PlayerMove>();
@@ -149,16 +149,16 @@ public class Crate : MonoBehaviour
                 if (leftover != 0)
                 {
                     if (leftover == item.count)
-                        GM.DisplayText("Maximum fuel capacity reached", false);
+                        GM.DisplayText3("Maximum fuel capacity reached", false, 0);
                     else
                     {
                         item.count = leftover;
                         remain = true;
-                        GM.DisplayText("Fuel += " + (item.count - leftover) + "mL", false);
+                        GM.DisplayText3("Fuel += " + (item.count - leftover) + "mL", false, 0);
                     }
                 }
                 else
-                    GM.DisplayText("Fuel += " + item.count + "mL", false);
+                    GM.DisplayText3("Fuel += " + item.count + "mL", false, 0);
                 items.Remove(item);
                 break;
             case "Module":
@@ -167,6 +167,7 @@ public class Crate : MonoBehaviour
                 {
                     remain = true;
                 }
+                GM.DisplayText3("Module Added: " + item.module.ID + " [LV. " + item.module.level + "]", false, 0);
                 GM.DisplayText("Module Added: " + item.module.ID + " [LV. " + item.module.level + "]", false);
                 items.Remove(item);
                 break;
@@ -175,6 +176,7 @@ public class Crate : MonoBehaviour
                 wp.GetComponent<WeaponStats>()._GM_ = GameObject.FindGameObjectWithTag("GM").GetComponent<GM>();
                 wp.GetComponent<WeaponStats>().PickUp(player.GetComponent<PlayerPickUp>().weaponsFolder.transform);
                 GM.DisplayText("Picked up: " + item.name, false);
+                GM.DisplayText3("Picked up: " + item.name, false, 0);
                 items.Remove(item);
                 break;
             case "Deployable":

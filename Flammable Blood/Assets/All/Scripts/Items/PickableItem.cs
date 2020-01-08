@@ -29,7 +29,7 @@ public class PickableItem : MonoBehaviour
             case "Ammo":
                 PlayerWeaponManager wm = GM.GetPlayer().GetComponent<PlayerWeaponManager>();
                 wm.ammo_count[wm.ammo_type.IndexOf(name)] += Mathf.RoundToInt(count);
-                GM.DisplayText("Picked up: " + name + " x (" + count + ")", false);
+                GM.DisplayText3("Picked up: " + name + " x (" + count + ")", false, 0);
                 break;
             case "Deployable":
                 foreach (Item _GM_I in GM.GetGM().itemsList)
@@ -40,7 +40,7 @@ public class PickableItem : MonoBehaviour
                         a.count = Mathf.RoundToInt(count);
                         DeployablesManager dm = GM.GetPlayer().GetComponent<DeployablesManager>();
                         dm.dplybles_count[dm.deployables.IndexOf(a.obj)] += (int)a.count;
-                        GM.DisplayText("Picked up: " + name + " GRND x (" + count + ")", false);
+                        GM.DisplayText3("Picked up: " + name + " GRND x (" + count + ")", false, 0);
                         break;
                     }
                 }
@@ -49,7 +49,7 @@ public class PickableItem : MonoBehaviour
             case "Health":
                 PlayerStats ps = GM.GetPlayer().GetComponent<PlayerStats>();
                 ps.health += count;
-                GM.DisplayText("Health += " + count, false);
+                GM.DisplayText3("Health += " + count, false, 0);
                 break;
             case "Fuel":
                 PlayerMove pm = GM.GetPlayer().GetComponent<PlayerMove>();
@@ -57,16 +57,16 @@ public class PickableItem : MonoBehaviour
                 if (leftover != 0)
                 {
                     if (leftover == count)
-                        GM.DisplayText("Maximum fuel capacity reached", false);
+                        GM.DisplayText3("Maximum fuel capacity reached", false, 0);
                     else
                     {
-                        GM.DisplayText("Fuel += " + (count - leftover) + "mL", false);
+                        GM.DisplayText3("Fuel += " + (count - leftover) + "mL", false, 0);
                         count = leftover;
                         remain = true;
                     }
                 }
                 else
-                    GM.DisplayText("Fuel += " + count + "mL", false);
+                    GM.DisplayText3("Fuel += " + count + "mL", false, 0);
                 break;
         }
 

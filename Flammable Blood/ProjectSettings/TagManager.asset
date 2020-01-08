@@ -35,6 +35,7 @@ TagManager:
   - HelpText_2
   - Shield
   - Fragment
+  - HelpText_3
   layers:
   - Default
   - TransparentFX

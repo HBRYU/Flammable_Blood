@@ -82,14 +82,20 @@ public class UI_Fuel : MonoBehaviour
 
         if (fuel <= 0)
         {
+            if (image.color != criticalColor)
+                GM.DisplayText3("WARNING: Fuel emptied", true, 1);
             image.color = noneColor;
         }
         else if (fuel <= criticalFuel)
         {
+            if (image.color != criticalColor)
+                GM.DisplayText3("WARNING: Fuel critically low", true, 1);
             image.color = criticalColor;
         }
         else if (fuel <= alertFuel)
         {
+            if (image.color != alertColor)
+                GM.DisplayText3("WARNING: Low fuel", false, 0);
             image.color = alertColor;
         }
         else
