@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Gun_Rotation : MonoBehaviour
 {
+    public bool disableGunRot;
+
     public Transform pivot;
     public Transform gun;
     public float rotSpeed;
@@ -76,13 +78,13 @@ public class Gun_Rotation : MonoBehaviour
             Vector3 mousePos = Input.mousePosition;
             mousePos = Camera.main.ScreenToWorldPoint(mousePos);
 
-            if (mousePos.x >= Camera.main.transform.position.x)
+            if (mousePos.x >= Camera.main.transform.position.x && !disableGunRot)
             {
                 Vector3 scaler = pivot.transform.localScale;
                 scaler.y = 1;
                 pivot.transform.localScale = scaler;
             }
-            if (mousePos.x < Camera.main.transform.position.x)
+            if (mousePos.x < Camera.main.transform.position.x && !disableGunRot)
             {
                 Vector3 scaler = pivot.transform.localScale;
                 scaler.y = -1;
@@ -97,7 +99,8 @@ public class Gun_Rotation : MonoBehaviour
             mousePos.y = mousePos.y - objectPos.y;
 
             float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
-            pivot.rotation = Quaternion.Lerp(pivot.rotation, Quaternion.Euler(new Vector3(0, 0, angle)), rotSpeed * Time.deltaTime);
+            if(!disableGunRot)
+                pivot.rotation = Quaternion.Lerp(pivot.rotation, Quaternion.Euler(new Vector3(0, 0, angle)), rotSpeed * Time.deltaTime);
         } 
     }
 

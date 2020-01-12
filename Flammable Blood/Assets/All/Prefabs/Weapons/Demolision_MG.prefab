@@ -136,14 +136,17 @@ MonoBehaviour:
   useAim: 1
   autoReload: 1
   shotSFX: {fileID: 8300000, guid: 70712c4199aa1ee47a3da3f29d880e79, type: 3}
-  reloadSFX: {fileID: 8300000, guid: edf47b48719ed644f96cad97f257ed47, type: 3}
+  reloadSFX: {fileID: 8300000, guid: 4b8c495538af7044798eac86daaa93b2, type: 3}
   audioSource: {fileID: 1546248498}
+  spawnAudio: 1
+  audioSpawn: {fileID: 3315753068528350867, guid: 489f8f50c5dd42a40a482a659cdd69b7,
+    type: 3}
   bullet: {fileID: 1646669890229493766, guid: 83027b3672232174693e1d42facae6a1, type: 3}
   barrelEnd: {fileID: 1603397538876135330}
   bulletSpeed: 50
   fireRate: 0.045
-  accuracy: 2.75
-  damage: 3
+  accuracy: 5
+  damage: 4
   magSize: 100
   reloadSpeed: 2.5
   spawnBulletShell: 1
@@ -265,6 +268,20 @@ MonoBehaviour:
   name: Demolision_MG
   category: MG
   IMG: {fileID: 21300000, guid: 4746a6aae3be4e847bcfb41583e17a0a, type: 3}
+  UI_IMG: {fileID: 21300000, guid: bc1fcca01e386d94f87c1ff114209405, type: 3}
+  UI_IMG_color: {r: 1, g: 1, b: 1, a: 1}
+  description: '"Not made for demolition, but can be used and is very effective in
+    demolition. Demolision is the weapons manufacturing company name."
+
+
+    Bullet damage: 4
+
+    Fire rate: 1333 RPM
+
+    Accuracy: +- 5 degrees
+
+    Reload time: 2.5 sec'
+  description_scroll_bottom: 0
   gun: {fileID: 3070206328322173236}
   pointer: {fileID: 2255681932673733800}
   col: {fileID: 5150104150689436769}
@@ -502,6 +519,18 @@ Transform:
   m_Father: {fileID: 5646231361646874412}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 128.283}
+--- !u!114 &8505415509853136633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7006947898423493010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bdba22cd16fc2a419c8b19e6e692a22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4205701248117105174
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -509,6 +538,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5646231361646874412}
     m_Modifications:
+    - target: {fileID: 4205701249611985517, guid: f561580a2f1178b418d7b3625e0f5e3b,
+        type: 3}
+      propertyPath: m_Name
+      value: PickUp
+      objectReference: {fileID: 0}
     - target: {fileID: 4205701249611985515, guid: f561580a2f1178b418d7b3625e0f5e3b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -564,11 +598,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4205701249611985517, guid: f561580a2f1178b418d7b3625e0f5e3b,
-        type: 3}
-      propertyPath: m_Name
-      value: PickUp
-      objectReference: {fileID: 0}
     - target: {fileID: 74940449052052183, guid: f561580a2f1178b418d7b3625e0f5e3b,
         type: 3}
       propertyPath: targetScript
@@ -579,6 +608,12 @@ PrefabInstance:
 --- !u!4 &1810239613 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4205701249611985515, guid: f561580a2f1178b418d7b3625e0f5e3b,
+    type: 3}
+  m_PrefabInstance: {fileID: 4205701248117105174}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7006947898423493010 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6584274739649061764, guid: f561580a2f1178b418d7b3625e0f5e3b,
     type: 3}
   m_PrefabInstance: {fileID: 4205701248117105174}
   m_PrefabAsset: {fileID: 0}

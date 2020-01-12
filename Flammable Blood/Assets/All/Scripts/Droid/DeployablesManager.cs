@@ -42,6 +42,7 @@ public class DeployablesManager : MonoBehaviour
         {
             if (activeDPLYBL != deployables[deployables.Count - 1])
             {
+                
                 int a = 1;  //FAIL SWITCH
                 while (true)
                 {
@@ -64,6 +65,13 @@ public class DeployablesManager : MonoBehaviour
 
                 if (a > 100)
                     Debug.Log("Grenades count error: Check script and fix the retarded algorythm");
+                
+                /*
+                for(int i = 0; i < dplybles_count.Count - deployables.IndexOf(activeDPLYBL); i++)
+                {
+                    if()
+                }
+                */
 
             }
             else

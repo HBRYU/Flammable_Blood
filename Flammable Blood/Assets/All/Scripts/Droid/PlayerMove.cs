@@ -138,11 +138,11 @@ public class PlayerMove : MonoBehaviour
 
     private void Update()
     {
+        onGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
+
         if (move)
         {
             //////////////////////////////////// 점프
-            onGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
-
             if (Input.GetKeyDown("w") && onGround == true)
             {
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);

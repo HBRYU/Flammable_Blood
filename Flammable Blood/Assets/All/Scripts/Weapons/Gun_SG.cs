@@ -19,6 +19,8 @@ public class Gun_SG : MonoBehaviour
     public AudioClip shotSFX;
     public AudioClip reloadSFX;
     public AudioSource audioSource;
+    public bool spawnAudio;
+    public GameObject audioSpawn;
 
     public Bullet bullet;
     public int maxPelletCount;
@@ -153,7 +155,19 @@ public class Gun_SG : MonoBehaviour
             Instantiate(thisBullet, barrelEnd.transform.position, thisBullet.transform.localRotation);
         }
 
-        audioSource.PlayOneShot(shotSFX);
+        if (spawnAudio)
+        {
+            AudioSource AS = Instantiate(audioSpawn, transform.position, Quaternion.identity).GetComponent<AudioSource>();
+            AS.clip = audioSource.clip;
+            AS.spatialBlend = audioSource.spatialBlend;
+            AS.panStereo = audioSource.panStereo;
+            AS.volume = audioSource.volume;
+            AS.Play();
+        }
+        else
+        {
+            audioSource.PlayOneShot(shotSFX);
+        }
 
         _GM_.camShakeManager.CameraShake(camShake_force, camShake_duration, false);
 

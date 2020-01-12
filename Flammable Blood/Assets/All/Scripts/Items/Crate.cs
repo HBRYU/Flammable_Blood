@@ -50,7 +50,7 @@ public class Crate : MonoBehaviour
             Access(true);
         }
         */
-        if ((GM.CompareDistance(transform.position, player.transform.position, accessDistance) == 1 && opened) || opened_flag && Input.GetKeyDown("e") || opened_flag && Input.GetKey("f") && Input.GetMouseButtonDown(0) || !_GM_.playerAlive)
+        if ((GM.CompareDistance(transform.position, player.transform.position, accessDistance) == 1 && opened) || opened_flag && Input.GetKeyDown("e") || opened_flag && Input.GetKey("f") && Input.GetMouseButtonDown(1) || !_GM_.playerAlive)
         {
             Access(false);
         }

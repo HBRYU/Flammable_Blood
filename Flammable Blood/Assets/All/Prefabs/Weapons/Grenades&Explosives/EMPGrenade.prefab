@@ -156,6 +156,7 @@ GameObject:
   - component: {fileID: 6293452072621857456}
   - component: {fileID: 6293452072621857457}
   - component: {fileID: 6293452072621857423}
+  - component: {fileID: 1146301876010436779}
   - component: {fileID: 6293452072621857422}
   - component: {fileID: 7228002712572773620}
   m_Layer: 25
@@ -298,6 +299,34 @@ MonoBehaviour:
   victimEffects: {fileID: 7994391050469438027, guid: e56ef0fc166fe5741a11a1f7795fdddf,
     type: 3}
   explosionSprite: {fileID: 21300006, guid: 44b279d02a021b2449165c9a763f68fa, type: 3}
+--- !u!114 &1146301876010436779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6293452072621857460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139647a24d2532e4d84633f2bae50038, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: EMP
+  UI_IMG: {fileID: 21300000, guid: 44b279d02a021b2449165c9a763f68fa, type: 3}
+  description: '"EMP grenade. Stuns your enemies and also deals some damage. It also
+    mangles internal software variables, so enemis can become totally infunctional,
+    or in some cases, utterly fucking terrifying as survived drones fly towards you
+    with incredible speed. Use this carefully."
+
+
+    Effect range: 3.5m
+
+    Damage: 0.1/sec
+
+    Duration: 3 sec
+
+    Software mutilation: 0.15'
+  description_scroll_bottom: -80
 --- !u!82 &6293452072621857422
 AudioSource:
   m_ObjectHideFlags: 0

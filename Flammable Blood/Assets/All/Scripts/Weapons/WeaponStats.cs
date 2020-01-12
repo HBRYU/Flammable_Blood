@@ -18,9 +18,14 @@ public class WeaponStats : MonoBehaviour
 
     public string name;
 
-    [Header("Melee, AR, SMG, SG, SR, etc")]
+    [Header("Melee, AR, SG, SR, MG, etc")]
     public string category;
     public Sprite IMG;
+    public Sprite UI_IMG;
+    public Color UI_IMG_color = new Color(1,1,1,1);
+    [TextArea(5, 10)]
+    public string description;
+    public int description_scroll_bottom;
     public GameObject gun;
     public SpriteRenderer pointer;
 

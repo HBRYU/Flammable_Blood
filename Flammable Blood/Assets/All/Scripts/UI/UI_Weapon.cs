@@ -12,6 +12,7 @@ public class UI_Weapon : MonoBehaviour
     public Image weapon_img;
     public TextMeshProUGUI weapon_name;
     public TextMeshProUGUI ammo_text;
+    public TextMeshProUGUI totalAmmo_text;
     public TextMeshProUGUI ammoType_text;
     public Image BG;
     public Sprite defaultIMG;
@@ -79,18 +80,19 @@ public class UI_Weapon : MonoBehaviour
 
             if (ammoCount[ammoType.IndexOf(WM.AW_ammoType)] <= 0)
             {
-                ammo_text.color = emptyColor;
+                totalAmmo_text.color = emptyColor;
             }
             else if(ammoCount[ammoType.IndexOf(WM.AW_ammoType)] <= alertValue)
             {
-                ammo_text.color = alertColor;
+                totalAmmo_text.color = alertColor;
             }
             else
             {
-                ammo_text.color = defaultColor;
+                totalAmmo_text.color = defaultColor;
             }
 
             //////////////      TEXT
+            /*
             string displayText;
 
             if (availableAmmo < 0)
@@ -107,6 +109,18 @@ public class UI_Weapon : MonoBehaviour
             ammo_text.text = displayText;
             weapon_name.text = WM.AW_WS.name;
             ammoType_text.text = "[" + WM.AW_ammoType + "]";
+            */
+
+            if (WM.AW_WS.is_reloading == false)
+            {
+                ammo_text.text = WM.AW_WS.ammoCount + " / " + WM.AW_WS.magSize;
+            }
+            else
+            {
+                ammo_text.text = " - / " + WM.AW_WS.magSize;
+            }
+            
+            totalAmmo_text.text = "[" + ammoCount[ammoType.IndexOf(WM.AW_ammoType)] + "]";
 
             //////////////      IMAGE
             if (WM.AW_WS.IMG != null)
@@ -118,6 +132,7 @@ public class UI_Weapon : MonoBehaviour
         {
             weapon_name.text = string.Empty;
             ammo_text.text = string.Empty;
+            totalAmmo_text.text = string.Empty;
             ammoType_text.text = string.Empty;
             weapon_img.enabled = false;
             BG.enabled = false;

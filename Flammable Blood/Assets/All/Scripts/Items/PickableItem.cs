@@ -32,6 +32,7 @@ public class PickableItem : MonoBehaviour
                 GM.DisplayText3("Picked up: " + name + " x (" + count + ")", false, 0);
                 break;
             case "Deployable":
+                bool ant = false;
                 foreach (Item _GM_I in GM.GetGM().itemsList)
                 {
                     if (_GM_I.name == name)
@@ -41,10 +42,12 @@ public class PickableItem : MonoBehaviour
                         DeployablesManager dm = GM.GetPlayer().GetComponent<DeployablesManager>();
                         dm.dplybles_count[dm.deployables.IndexOf(a.obj)] += (int)a.count;
                         GM.DisplayText3("Picked up: " + name + " GRND x (" + count + ")", false, 0);
+                        ant = true;
                         break;
                     }
                 }
-                Debug.Log("ERR: Unknown deployable item name");
+                if(!ant)
+                    Debug.Log("ERR: Unknown deployable item name");
                 break;
             case "Health":
                 PlayerStats ps = GM.GetPlayer().GetComponent<PlayerStats>();

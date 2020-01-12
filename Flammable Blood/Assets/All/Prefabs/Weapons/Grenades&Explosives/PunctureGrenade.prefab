@@ -157,6 +157,7 @@ GameObject:
   - component: {fileID: 4814746623279647089}
   - component: {fileID: 4814746623279647090}
   - component: {fileID: 7213736152611335943}
+  - component: {fileID: 742576528121103416}
   m_Layer: 25
   m_Name: PunctureGrenade
   m_TagString: Deployable/Puncture
@@ -388,6 +389,29 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &742576528121103416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4814746623279647117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139647a24d2532e4d84633f2bae50038, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: Puncture
+  UI_IMG: {fileID: 21300004, guid: 44b279d02a021b2449165c9a763f68fa, type: 3}
+  description: '"Puncture grenade. Fragments explode out the two opposite ends dealing
+    focused, terrifying damage to both your enemies and allies. The ones above it
+    are completely safe tho."
+
+
+    Fragment count: 25 * 2
+
+    Fragment damage: 60'
+  description_scroll_bottom: 0
 --- !u!1 &4814746623425742326
 GameObject:
   m_ObjectHideFlags: 0

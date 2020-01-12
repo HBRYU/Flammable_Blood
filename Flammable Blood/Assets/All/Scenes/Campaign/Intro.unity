@@ -30798,6 +30798,22 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 1151737499, guid: 850c3de6271069a44b670c8ea3bf3f4d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 103996168}
+    - target: {fileID: 1151737499, guid: 850c3de6271069a44b670c8ea3bf3f4d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1656747535, guid: 850c3de6271069a44b670c8ea3bf3f4d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 103996168}
+    - target: {fileID: 1656747535, guid: 850c3de6271069a44b670c8ea3bf3f4d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadLevel
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 850c3de6271069a44b670c8ea3bf3f4d, type: 3}
 --- !u!114 &1392580226 stripped
@@ -94034,7 +94050,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 40cdd98636b430349a0b4d5c690c052a, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.9
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 0
   Mute: 0

@@ -5,6 +5,10 @@ using UnityEngine;
 public class Deployable : MonoBehaviour
 {
     public string ID;
+    public Sprite UI_IMG;
+    [TextArea(5,10)]
+    public string description;
+    public int description_scroll_bottom;
     /*
     public GameObject deployable;
 

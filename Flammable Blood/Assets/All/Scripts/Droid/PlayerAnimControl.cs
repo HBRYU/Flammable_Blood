@@ -44,18 +44,17 @@ public class PlayerAnimControl : MonoBehaviour
                 Move();
 
             }
-
-            ///////////////////////// Jump Input    점프 인풋
-            bool onGround;
-
-            if (pm.onGround != null)
-                onGround = true;
-            else
-                onGround = false;
-
-            anim.SetBool("OnGround", onGround);
-            anim.SetFloat("YVel", rb.velocity.y);
         }
+
+        bool onGround;
+
+        if (pm.onGround != null)
+            onGround = true;
+        else
+            onGround = false;
+
+        anim.SetBool("OnGround", onGround);
+        anim.SetFloat("YVel", rb.velocity.y); 
     }
     
     void Move()

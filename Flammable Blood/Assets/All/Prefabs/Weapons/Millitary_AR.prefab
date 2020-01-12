@@ -108,13 +108,16 @@ MonoBehaviour:
   shotSFX: {fileID: 8300000, guid: 70712c4199aa1ee47a3da3f29d880e79, type: 3}
   reloadSFX: {fileID: 8300000, guid: 4b8c495538af7044798eac86daaa93b2, type: 3}
   audioSource: {fileID: 828689550}
+  spawnAudio: 1
+  audioSpawn: {fileID: 3315753068528350867, guid: 489f8f50c5dd42a40a482a659cdd69b7,
+    type: 3}
   bullet: {fileID: 1646669890229493766, guid: 83027b3672232174693e1d42facae6a1, type: 3}
   barrelEnd: {fileID: 1603397538876135330}
-  bulletSpeed: 65
-  fireRate: 0.1
-  accuracy: 0.8
-  damage: 6
-  magSize: 35
+  bulletSpeed: 60
+  fireRate: 0.08
+  accuracy: 0.7
+  damage: 8
+  magSize: 40
   reloadSpeed: 1.75
   spawnBulletShell: 1
   bulletShell: {fileID: 3641742128729214545, guid: 34f4e9ddfa25b1d48bc2de483c8b831e,
@@ -233,9 +236,27 @@ MonoBehaviour:
   name: Millitary_AR
   category: AR
   IMG: {fileID: 21300000, guid: d6f62bd8ce76fb042a5991a815425f15, type: 3}
+  UI_IMG: {fileID: 21300000, guid: 16ddef81e4419b549827a31d42f9eb24, type: 3}
+  UI_IMG_color: {r: 1, g: 0.9957261, b: 0, a: 1}
+  description: '"Alternate millitary version of the Frontier Assault Rifle. Better
+    accuary and damage, also able to be equipped with a higher capacity magazine"
+
+
+    Bullet damage: 8
+
+    Fire rate: 750 RPM
+
+    Accuracy: +- 0.7 degrees
+
+    Reload time: 1.5 sec
+
+    Magazine capacity: 40 rounds'
+  description_scroll_bottom: -30
   gun: {fileID: 3410695344367587472}
   pointer: {fileID: 2325541929653501616}
   col: {fileID: 5150104150689436769}
+  IK_L: {fileID: 0}
+  IK_R: {fileID: 0}
   ammoType: 5.56mm
   alertAmmoCount: 60
   rapidFire: 1
@@ -420,6 +441,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8913641614680981774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6788502614485953418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bdba22cd16fc2a419c8b19e6e692a22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &384373685301200910
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -497,6 +530,12 @@ PrefabInstance:
 --- !u!4 &4541940510443125349 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4205701249611985515, guid: f561580a2f1178b418d7b3625e0f5e3b,
+    type: 3}
+  m_PrefabInstance: {fileID: 384373685301200910}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6788502614485953418 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6584274739649061764, guid: f561580a2f1178b418d7b3625e0f5e3b,
     type: 3}
   m_PrefabInstance: {fileID: 384373685301200910}
   m_PrefabAsset: {fileID: 0}

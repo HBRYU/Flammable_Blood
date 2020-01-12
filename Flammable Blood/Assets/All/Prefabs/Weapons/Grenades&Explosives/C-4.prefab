@@ -156,6 +156,7 @@ GameObject:
   - component: {fileID: 59740208229896857}
   - component: {fileID: 59740208229896856}
   - component: {fileID: 59740208229896858}
+  - component: {fileID: 1472720593578530481}
   - component: {fileID: 59740208229896859}
   - component: {fileID: 32096959672306617}
   m_Layer: 25
@@ -309,6 +310,39 @@ MonoBehaviour:
   damageRange: 11
   explosionForce: 700
   explosionRange: 6
+--- !u!114 &1472720593578530481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59740208229896860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139647a24d2532e4d84633f2bae50038, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: C-4
+  UI_IMG: {fileID: 21300020, guid: 44b279d02a021b2449165c9a763f68fa, type: 3}
+  description: '"Modified C-4. Purposefully overpowered. Explodes into fragments/flames
+    while also dealing terrifyingly large area damage. After you deploy this, you''ll
+    have about 4.5 seconds to GTFO."
+
+
+    Delay: 4.5 sec
+
+    Damage range: 11m
+
+    Area damage: 90
+
+    Fragment count: 55
+
+    Fragment damage: 4
+
+    Flame count: 60
+
+    Flame damage: 4/sec'
+  description_scroll_bottom: -100
 --- !u!82 &59740208229896859
 AudioSource:
   m_ObjectHideFlags: 0

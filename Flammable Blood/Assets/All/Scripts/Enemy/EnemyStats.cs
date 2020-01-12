@@ -67,7 +67,7 @@ public class EnemyStats : MonoBehaviour
         //Burn effect
         if(burnDuration > 0)
         {
-            TakeDamage(burnDamage * Time.deltaTime * (1 - burnResistance));
+            TakeDamage(burnDamage * Time.deltaTime * (1 - burnResistance), true);
             burnDuration -= Time.deltaTime;
         }
         else
@@ -81,7 +81,7 @@ public class EnemyStats : MonoBehaviour
         //Stun effect
         if(stunDuration > 0)
         {
-            TakeDamage(stunDamage * Time.deltaTime * (1 - stunResistance));
+            TakeDamage(stunDamage * Time.deltaTime * (1 - stunResistance), true);
             stunDuration -= Time.deltaTime;
         }
         else
@@ -166,6 +166,21 @@ public class EnemyStats : MonoBehaviour
                     }
                 }
             }
+        }
+    }
+
+    public void TakeDamage(float damage, bool NoAlert)
+    {
+        //Debug.Log("[" + gameObject.name + "] : Taken damage: " + damage);
+        health -= damage;
+
+        if ((type == "Drone") || (type == "Drone2"))
+        {
+            GetComponent<DroneMovement>().alertDistance = GetComponent<DroneMovement>().shot_alertDistance;
+        }
+        if ((type == "Turret"))
+        {
+            GetComponent<Turret1>().alertDistance = GetComponent<Turret1>().alertDistance_shot;
         }
     }
 

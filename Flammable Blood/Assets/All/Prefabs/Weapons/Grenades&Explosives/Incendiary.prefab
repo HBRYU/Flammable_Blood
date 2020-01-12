@@ -156,6 +156,7 @@ GameObject:
   - component: {fileID: 663993632321782437}
   - component: {fileID: 663993632321782438}
   - component: {fileID: 663993632321782425}
+  - component: {fileID: 7253859753134086802}
   - component: {fileID: 8299119875459335607}
   m_Layer: 25
   m_Name: Incendiary
@@ -298,6 +299,29 @@ MonoBehaviour:
   firePositionOffset: 0.3
   fireLifeTime: 1.5
   burnDuration: 15
+--- !u!114 &7253859753134086802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663993632321782434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139647a24d2532e4d84633f2bae50038, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: Incendiary
+  UI_IMG: {fileID: 21300016, guid: 44b279d02a021b2449165c9a763f68fa, type: 3}
+  description: '"Incendiary grenade. Explodes into flames that deal significant continuous
+    damage."
+
+
+    Flame count: 45
+
+    Flame damage: 2/sec
+
+    Burn duration: 15 sec'
 --- !u!96 &8299119875459335607
 TrailRenderer:
   serializedVersion: 2

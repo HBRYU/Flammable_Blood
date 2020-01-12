@@ -25,6 +25,12 @@ public class UI_Inventory : MonoBehaviour
     [HideInInspector]
     public int selectedWeaponIndex = -1, selectedAmmoIndex = -1, selectedDeployableIndex = -1;
 
+    public GameObject statsPanel;
+
+    public TextMeshProUGUI stats_itemName;
+    public TextMeshProUGUI stats_description;
+    public Image stats_IMG;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +41,7 @@ public class UI_Inventory : MonoBehaviour
         dm = player.GetComponent<DeployablesManager>();
         selectPanel.SetActive(false);
         inventoryPanel.SetActive(false);
+        resetStatsPanel();
     }
 
     // Update is called once per frame
@@ -58,20 +65,31 @@ public class UI_Inventory : MonoBehaviour
 
     public void OpenClose()
     {
+        resetStatsPanel();
         if (inventoryPanel.activeInHierarchy)
         {
             inventoryPanel.SetActive(false);
+            selectPanel.SetActive(false);
             _GM_.shooting_active_switches[_GM_.shooting_active_keys.IndexOf("UI_Inventory")] = true;
+            player.GetComponent<PlayerMove>().faceMouseMovement = true;
+            player.GetComponent<PlayerMove>().move = true;
+            player.GetComponent<Gun_Rotation>().disableGunRot = false;
+            player.GetComponent<PlayerAnimControl>().disableAnimation = false;
         }
         else
         {
             inventoryPanel.SetActive(true);
             _GM_.shooting_active_switches[_GM_.shooting_active_keys.IndexOf("UI_Inventory")] = false;
+            player.GetComponent<PlayerMove>().faceMouseMovement = false;
+            player.GetComponent<PlayerMove>().move = false;
+            player.GetComponent<Gun_Rotation>().disableGunRot = true;
+            player.GetComponent<PlayerAnimControl>().disableAnimation = true;
         }
     }
 
     void RefreshWeaponSlots()
     {
+        //resetStatsPanel();
         for (int i = 0; i < weaponSlots.Count; i++)
         {
             try
@@ -115,12 +133,21 @@ public class UI_Inventory : MonoBehaviour
 
     void RefreshDeployableSlots()
     {
+        //resetStatsPanel();
         for (int i = 0; i < deployableSlots.Count; i++)
         {
             try
             {
-                deployableSlots[i].text = " " + dm.dplybles_name[i] + " x (" + dm.dplybles_count[i] + ")";
-                deployableSlots[i].transform.parent.GetComponent<Button>().enabled = true;
+                if(dm.dplybles_count[i] > 0)
+                {
+                    deployableSlots[i].text = " " + dm.dplybles_name[i] + " x (" + dm.dplybles_count[i] + ")";
+                    deployableSlots[i].transform.parent.GetComponent<Button>().enabled = true;
+                }
+                else
+                {
+                    deployableSlots[i].text = " -";
+                    deployableSlots[i].transform.parent.GetComponent<Button>().enabled = false;
+                }
             }
             catch
             {
@@ -140,6 +167,14 @@ public class UI_Inventory : MonoBehaviour
             selectPanel.transform.position = Input.mousePosition;
             selectPanel.GetComponent<UI_Inventory_SelectPanel>().index = index;
             selectPanel.GetComponent<UI_Inventory_SelectPanel>().type = "Weapon";
+
+            //statsPanel.SetActive(true);
+            stats_itemName.text = pw.weapons[index].GetComponent<WeaponStats>().name;
+            stats_IMG.sprite = pw.weapons[index].GetComponent<WeaponStats>().UI_IMG;
+            stats_IMG.color = pw.weapons[index].GetComponent<WeaponStats>().UI_IMG_color;
+            stats_description.text = pw.weapons[index].GetComponent<WeaponStats>().description;
+            stats_description.GetComponent<RectTransform>().offsetMax = new Vector2(0, 0);
+            stats_description.GetComponent<RectTransform>().offsetMin = new Vector2(0, pw.weapons[index].GetComponent<WeaponStats>().description_scroll_bottom);
         }
         else
         {
@@ -173,12 +208,29 @@ public class UI_Inventory : MonoBehaviour
             selectPanel.transform.position = Input.mousePosition;
             selectPanel.GetComponent<UI_Inventory_SelectPanel>().index = index;
             selectPanel.GetComponent<UI_Inventory_SelectPanel>().type = "Deployable";
+
+            statsPanel.SetActive(true);
+            stats_itemName.text = dm.deployables[index].GetComponent<Deployable>().ID;
+            stats_IMG.sprite = dm.deployables[index].GetComponent<Deployable>().UI_IMG;
+            stats_description.text = dm.deployables[index].GetComponent<Deployable>().description;
+            stats_description.GetComponent<RectTransform>().offsetMax = new Vector2(0, 0);
+            stats_description.GetComponent<RectTransform>().offsetMin = new Vector2(0, dm.deployables[index].GetComponent<Deployable>().description_scroll_bottom);
         }
         else
         {
-            selectPanel.SetActive(false);
+            //selectPanel.SetActive(false);
             selectedDeployableIndex = -1;
         }
+    }
+
+    public void resetStatsPanel()
+    {
+        stats_itemName.text = "-";
+        stats_description.text = "-";
+        stats_description.GetComponent<RectTransform>().offsetMax = new Vector2(0, 0);
+        stats_description.GetComponent<RectTransform>().offsetMin = new Vector2(0, 0);
+        stats_IMG.sprite = null;
+        stats_IMG.color = new Color(1, 1, 1, 0);
     }
 
 }

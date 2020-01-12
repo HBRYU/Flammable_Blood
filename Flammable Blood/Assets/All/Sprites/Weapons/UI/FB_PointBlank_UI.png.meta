@@ -1,10 +1,8 @@
 fileFormatVersion: 2
-guid: c5d10a4d72a9f7f4bba345cc90900078
+guid: 85992281c95c50e468222da67840bafb
 TextureImporter:
   fileIDToRecycleName:
-    21300000: ItemPacks_0
-    21300002: ItemPacks_1
-    21300004: ItemPacks_2
+    21300000: FB_PointBlank_UI_0
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -87,13 +85,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ItemPacks_0
+      name: FB_PointBlank_UI_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 35
-        width: 35
-        height: 35
+        x: 6
+        y: 8
+        width: 38
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -101,47 +99,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5babc54350192964e87a5adcee9d7376
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ItemPacks_1
-      rect:
-        serializedVersion: 2
-        x: 35
-        y: 35
-        width: 35
-        height: 35
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 98023c669a496a24183fe3832925d222
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ItemPacks_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 35
-        height: 35
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 85cb7001a7c48144388c68588735886e
+      spriteID: f2862acd4424e3a41929a0c5aa937bda
       vertices: []
       indices: 
       edges: []
@@ -149,7 +107,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: d7880fd1c80610f4496833cc55168464
+    spriteID: 0970aa48f9775b64cb74b0cd1991bd36
     vertices: []
     indices: 
     edges: []

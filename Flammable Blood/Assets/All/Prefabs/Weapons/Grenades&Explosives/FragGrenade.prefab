@@ -163,6 +163,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: Frag
+  UI_IMG: {fileID: 21300002, guid: 44b279d02a021b2449165c9a763f68fa, type: 3}
+  description: '"Explodes into fragments and deals damage to both enemies and allies."
+
+
+    Fragment cound: 35
+
+    Fragment damage: 40
+
+    Damage radius: 2.25m
+
+    Area damage (in radius): 45'
 --- !u!96 &1858162250
 TrailRenderer:
   serializedVersion: 2
