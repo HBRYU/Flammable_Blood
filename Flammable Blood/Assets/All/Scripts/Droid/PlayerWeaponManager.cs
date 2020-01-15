@@ -177,18 +177,20 @@ public class PlayerWeaponManager : MonoBehaviour
             if (activeWeapon != weapons[weapons.Count - 1])
 
             {
+                activeWeapon.GetComponent<Animator>().SetBool("Shooting", false);
                 activeWeapon.SetActive(false);
                 activeWeapon = weapons[weapons.IndexOf(activeWeapon) + 1];
                 activeWeapon.SetActive(true);
             }
             else
             {
+                activeWeapon.GetComponent<Animator>().SetBool("Shooting", false);
                 activeWeapon.SetActive(false);
                 activeWeapon = weapons[0];
                 activeWeapon.SetActive(true);
             }
             SetVariables();
-            //SetCategoryAnimWeight(anim.GetLayerIndex(AW_category), true);
+            SetCategoryAnimWeight(anim.GetLayerIndex(AW_category), true);
         }
     }
 

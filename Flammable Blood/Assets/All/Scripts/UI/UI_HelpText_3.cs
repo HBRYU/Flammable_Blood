@@ -6,7 +6,11 @@ using TMPro;
 public class UI_HelpText_3 : MonoBehaviour
 {
     public TextMeshProUGUI helpText;
+    public float color_alpha;
     public Color[] colors;
+    public float default_alpha;
+
+
     public float displayTime;
     private float displayTime_timer;
     public float fadeTime;
@@ -25,7 +29,7 @@ public class UI_HelpText_3 : MonoBehaviour
                 fadeTime_timer -= Time.deltaTime;
             else
             {
-                helpText.text = string.Empty;
+                //helpText.text = string.Empty;
                 fadeTime_timer = 0;
                 line = 0;
             }
@@ -39,7 +43,10 @@ public class UI_HelpText_3 : MonoBehaviour
             line--;
         }
         //Debug.Log("LINE:" + line);
-        helpText.color = new Color(helpText.color.r, helpText.color.g, helpText.color.b, fadeTime_timer / fadeTime);
+        Debug.Log("DA: " + default_alpha / 255);
+        Debug.Log("OA: " + (fadeTime_timer / fadeTime * (color_alpha / 255)));
+        Debug.Log("Alpha: " + ((fadeTime_timer / fadeTime) * (color_alpha / 255)) + (default_alpha / 255));
+        helpText.color = new Color(helpText.color.r, helpText.color.g, helpText.color.b, ((fadeTime_timer / fadeTime) * (color_alpha/255)) + (default_alpha/255));
     }
 
     public void DisplayText(string text, int col)

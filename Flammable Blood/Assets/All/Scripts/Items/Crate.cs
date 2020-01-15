@@ -167,8 +167,8 @@ public class Crate : MonoBehaviour
                 {
                     remain = true;
                 }
-                GM.DisplayText3("Module Added: " + item.module.ID + " [LV. " + item.module.level + "]", false, 0);
-                GM.DisplayText("Module Added: " + item.module.ID + " [LV. " + item.module.level + "]", false);
+                //GM.DisplayText3("Module Added: " + item.module.ID + " [LV. " + item.module.level + "]", false, 0);
+                //GM.DisplayText("Module Added: " + item.module.ID + " [LV. " + item.module.level + "]", false);
                 items.Remove(item);
                 break;
             case "Weapon":
@@ -182,6 +182,7 @@ public class Crate : MonoBehaviour
             case "Deployable":
                 DeployablesManager dm = player.GetComponent<DeployablesManager>();
                 dm.dplybles_count[dm.deployables.IndexOf(item.obj)] += (int) item.count;
+                GM.DisplayText3("Picked up: " + item.name + " GRND x (" + item.count + ")", false, 0);
                 GM.DisplayText("Picked up: " + item.name + " GRND x (" + item.count + ")", false);
                 items.Remove(item);
                 break;

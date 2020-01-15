@@ -29,7 +29,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1646669890229493765}
-  m_LocalRotation: {x: 0, y: 0, z: -0.70740515, w: 0.7068084}
+  m_LocalRotation: {x: 0, y: 0, z: -0.42405754, w: 0.90563524}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -170,9 +170,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wielder: {fileID: 0}
-  accuracy: 5
-  speed: 50
-  damage: 4
+  accuracy: 1
+  speed: 60
+  damage: 7
   life: 2
   ignoreCollisionTags:
   - Player

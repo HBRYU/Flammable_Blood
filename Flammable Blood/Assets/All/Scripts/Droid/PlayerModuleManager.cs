@@ -70,6 +70,7 @@ public class PlayerModuleManager : MonoBehaviour
                 break;
         }
         GM.DisplayText("Module Inserted:" + module.ID, false);
+        GM.DisplayText3("Module Inserted:\n [" + module.ID + "] LV."+ module.level, false, 0);
         //GM.DisplayText2(module.description, false);
         controlPanel.AddModule(module);
         return (true);
@@ -158,7 +159,7 @@ public class PlayerModuleManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Module (" + module.ID + "_Level " + module.level + ") already exists");
+            GM.DisplayText3("Module [" + module.ID + "] LV.(" + module.level + " or higher) already exsists", false, 0);
             return (false);
         }
     }
@@ -211,7 +212,7 @@ public class PlayerModuleManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Module (" + module.ID + "_Level " + module.level + ") already exists");
+            GM.DisplayText3("Module [" + module.ID + "] LV.(" + module.level + " or higher) already exsists", false, 0);
             return (false);
         }
     }
@@ -268,7 +269,7 @@ public class PlayerModuleManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Module (" + module.ID + "_Level " + module.level + ") already exists");
+            GM.DisplayText3("Module [" + module.ID + "] LV.(" + module.level + " or higher) already exsists", false, 0);
             return (false);
         }
     }
@@ -313,7 +314,7 @@ public class PlayerModuleManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Module (" + module.ID + "_Level " + module.level + ") already exists");
+            GM.DisplayText3("Module [" + module.ID + "] LV.(" + module.level + " or higher) already exsists", false, 0);
             return (false);
         }
     }
@@ -361,7 +362,7 @@ public class PlayerModuleManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Module (" + module.ID + "_Level " + module.level + ") already exists");
+            GM.DisplayText3("Module [" + module.ID + "] LV.(" + module.level + " or higher) already exsists", false, 0);
             return (false);
         }
     }
@@ -420,7 +421,7 @@ public class PlayerModuleManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Module (" + module.ID + "_Level " + module.level + ") already exists");
+            GM.DisplayText3("Module [" + module.ID + "] LV.(" + module.level + " or higher) already exsists", false, 0);
             return (false);
         }
     }
@@ -475,7 +476,7 @@ public class PlayerModuleManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Module (" + module.ID + "_Level " + module.level + ") already exists");
+            GM.DisplayText3("Module [" + module.ID + "] LV.(" + module.level + " or higher) already exsists", false, 0);
             return (false);
         }
     }
@@ -516,7 +517,7 @@ public class PlayerModuleManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Module (" + module.ID + "_Level " + module.level + ") already exists");
+            GM.DisplayText3("Module [" + module.ID + "] LV.(" + module.level + " or higher) already exsists", false, 0);
             return (false);
         }
     }
@@ -552,7 +553,7 @@ public class PlayerModuleManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Module (" + module.ID + "_Level " + module.level + ") already exists");
+            GM.DisplayText3("Module [" + module.ID + "] LV.(" + module.level + " or higher) already exsists", false, 0);
             return (false);
         }
     }

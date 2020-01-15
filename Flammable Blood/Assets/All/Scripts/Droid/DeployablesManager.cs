@@ -42,7 +42,7 @@ public class DeployablesManager : MonoBehaviour
         {
             if (activeDPLYBL != deployables[deployables.Count - 1])
             {
-                
+                /*
                 int a = 1;  //FAIL SWITCH
                 while (true)
                 {
@@ -65,13 +65,16 @@ public class DeployablesManager : MonoBehaviour
 
                 if (a > 100)
                     Debug.Log("Grenades count error: Check script and fix the retarded algorythm");
-                
-                /*
-                for(int i = 0; i < dplybles_count.Count - deployables.IndexOf(activeDPLYBL); i++)
-                {
-                    if()
-                }
                 */
+
+                for (int i = 1; i < dplybles_count.Count - deployables.IndexOf(activeDPLYBL); i++)
+                {
+                    if(dplybles_count[deployables.IndexOf(activeDPLYBL) + i] > 0)
+                    {
+                        activeDPLYBL = deployables[deployables.IndexOf(activeDPLYBL) + i];
+                        break;
+                    }
+                }
 
             }
             else

@@ -113,7 +113,10 @@ public class UI_Weapon : MonoBehaviour
 
             if (WM.AW_WS.is_reloading == false)
             {
-                ammo_text.text = WM.AW_WS.ammoCount + " / " + WM.AW_WS.magSize;
+                if(ammoCount[ammoType.IndexOf(WM.AW_ammoType)] < WM.AW_WS.ammoCount)
+                    ammo_text.text = ammoCount[ammoType.IndexOf(WM.AW_ammoType)] + " / " + WM.AW_WS.magSize;
+                else
+                    ammo_text.text = WM.AW_WS.ammoCount + " / " + WM.AW_WS.magSize;
             }
             else
             {

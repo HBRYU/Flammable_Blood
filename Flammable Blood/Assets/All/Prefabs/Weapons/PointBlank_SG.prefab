@@ -151,7 +151,7 @@ MonoBehaviour:
   shotSFX: {fileID: 8300000, guid: 7bae073e831d9c54ab69d48f9894aeab, type: 3}
   reloadSFX: {fileID: 8300000, guid: edf47b48719ed644f96cad97f257ed47, type: 3}
   audioSource: {fileID: 73751671}
-  spawnAudio: 1
+  spawnAudio: 0
   audioSpawn: {fileID: 3315753068528350867, guid: 489f8f50c5dd42a40a482a659cdd69b7,
     type: 3}
   bullet: {fileID: 1646669890229493766, guid: 33a73cb9a45bffb418f049fc63da2910, type: 3}
