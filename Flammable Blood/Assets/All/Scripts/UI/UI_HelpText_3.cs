@@ -10,18 +10,39 @@ public class UI_HelpText_3 : MonoBehaviour
     public Color[] colors;
     public float default_alpha;
 
+    public AudioClip SFX;
+    public AudioClip typeSFX;
+
+    public AudioSource SFX_audio;
+    public AudioSource typeSFX_audio;
+
+    public string displayText;
 
     public float displayTime;
     private float displayTime_timer;
     public float fadeTime;
     public float fadeTime_timer;
-    public int lineLimit;
+
+    public float typeDelay;
+    private float typeDelay_timer;
+
+    //public int lineLimit;
     [HideInInspector]
     public int line;
 
     void Update()
     {
-        if (displayTime_timer > 0)
+        if (displayText.Length > helpText.text.Length)
+        {
+            typeDelay_timer += Time.deltaTime;
+            if (typeDelay_timer > +typeDelay)
+            {
+                helpText.text += displayText[helpText.text.Length];
+                typeSFX_audio.PlayOneShot(typeSFX);
+                typeDelay_timer = 0;
+            }
+        }
+        else if (displayTime_timer > 0)
             displayTime_timer -= Time.deltaTime;
         else
         {
@@ -34,28 +55,20 @@ public class UI_HelpText_3 : MonoBehaviour
                 line = 0;
             }
         }
-        if (line > lineLimit)
-        {
-            //Debug.Log("OVER");
-            //Debug.Log("INDEX:" + helpText.text.IndexOf("\n"));
-            string txt = helpText.text.Remove(0, helpText.text.IndexOf("\n") + 1);
-            helpText.text = txt;
-            line--;
-        }
-        //Debug.Log("LINE:" + line);
-        Debug.Log("DA: " + default_alpha / 255);
-        Debug.Log("OA: " + (fadeTime_timer / fadeTime * (color_alpha / 255)));
-        Debug.Log("Alpha: " + ((fadeTime_timer / fadeTime) * (color_alpha / 255)) + (default_alpha / 255));
+        
+        
+
         helpText.color = new Color(helpText.color.r, helpText.color.g, helpText.color.b, ((fadeTime_timer / fadeTime) * (color_alpha/255)) + (default_alpha/255));
     }
 
     public void DisplayText(string text, int col)
     {
         //Debug.Log(text);
-        helpText.text += "> " + text + "\n";
+        displayText += "> " + text + "\n";
         helpText.color = colors[col];
         line++;
         displayTime_timer = displayTime;
         fadeTime_timer = fadeTime;
+        SFX_audio.PlayOneShot(SFX);
     }
 }

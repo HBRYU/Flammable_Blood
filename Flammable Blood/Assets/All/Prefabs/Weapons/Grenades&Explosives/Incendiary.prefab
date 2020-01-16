@@ -244,7 +244,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1e0a2912fb31e894bba20ef486219c0a, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -322,6 +322,7 @@ MonoBehaviour:
     Flame damage: 2/sec
 
     Burn duration: 15 sec'
+  description_scroll_bottom: 0
 --- !u!96 &8299119875459335607
 TrailRenderer:
   serializedVersion: 2
