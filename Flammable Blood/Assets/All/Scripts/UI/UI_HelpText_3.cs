@@ -16,6 +16,8 @@ public class UI_HelpText_3 : MonoBehaviour
     public AudioSource SFX_audio;
     public AudioSource typeSFX_audio;
 
+    private bool SFX_playing_flag;
+
     public string displayText;
 
     public float displayTime;
@@ -25,6 +27,7 @@ public class UI_HelpText_3 : MonoBehaviour
 
     public float typeDelay;
     private float typeDelay_timer;
+    public int typeLetters;
 
     //public int lineLimit;
     [HideInInspector]
@@ -32,12 +35,21 @@ public class UI_HelpText_3 : MonoBehaviour
 
     void Update()
     {
+        typeDelay_timer += Time.deltaTime;
+
         if (displayText.Length > helpText.text.Length)
         {
-            typeDelay_timer += Time.deltaTime;
-            if (typeDelay_timer > +typeDelay)
+            
+            if (typeDelay_timer > typeDelay)
             {
-                helpText.text += displayText[helpText.text.Length];
+                for (int i = 0; i < typeLetters; i++)
+                {
+                    try
+                    {
+                        helpText.text += displayText[helpText.text.Length];
+                    }
+                    catch { }
+                }
                 typeSFX_audio.PlayOneShot(typeSFX);
                 typeDelay_timer = 0;
             }
@@ -55,8 +67,8 @@ public class UI_HelpText_3 : MonoBehaviour
                 line = 0;
             }
         }
-        
-        
+
+        SFX_playing_flag = true;
 
         helpText.color = new Color(helpText.color.r, helpText.color.g, helpText.color.b, ((fadeTime_timer / fadeTime) * (color_alpha/255)) + (default_alpha/255));
     }
@@ -69,6 +81,10 @@ public class UI_HelpText_3 : MonoBehaviour
         line++;
         displayTime_timer = displayTime;
         fadeTime_timer = fadeTime;
-        SFX_audio.PlayOneShot(SFX);
+        if (SFX_playing_flag)
+        {
+            SFX_audio.PlayOneShot(SFX);
+            SFX_playing_flag = false;
+        }
     }
 }
