@@ -120,8 +120,7 @@ public class GM : MonoBehaviour
 
         if (clear)
         {
-            displayText.text = string.Empty;
-            GetUI().GetComponent<UI_HelpText_3>().line = 0;
+            Debug.Log("DisplayText3() clear function is unused.");
         }
 
         GetUI().GetComponent<UI_HelpText_3>().DisplayText(text, colorType);
