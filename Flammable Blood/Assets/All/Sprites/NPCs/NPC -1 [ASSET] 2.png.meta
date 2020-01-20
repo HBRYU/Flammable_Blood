@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: d499bf6cc2227bb4992b4451a9b393c3
+guid: 43814b3d4927f7b44ae9f482ef8a8180
 TextureImporter:
   fileIDToRecycleName:
-    21300000: NPC -1 [ASSET]_0
-    21300002: NPC -1 [ASSET]_1
-    21300004: NPC -1 [ASSET]_2
-    21300006: NPC -1 [ASSET]_3
-    21300008: NPC -1 [ASSET]_4
-    21300010: NPC -1 [ASSET]_5
+    21300000: NPC -1 [ASSET] 2_0
+    21300002: NPC -1 [ASSET] 2_1
+    21300004: NPC -1 [ASSET] 2_2
+    21300006: NPC -1 [ASSET] 2_3
+    21300008: NPC -1 [ASSET] 2_4
+    21300010: NPC -1 [ASSET] 2_5
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -90,7 +90,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: NPC -1 [ASSET]_0
+      name: NPC -1 [ASSET] 2_0
       rect:
         serializedVersion: 2
         x: 0
@@ -104,13 +104,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a3204b3427d89c43aef6e3b42f80f74
+      spriteID: e827f23f604f4444e8034501ed124f5d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC -1 [ASSET]_1
+      name: NPC -1 [ASSET] 2_1
       rect:
         serializedVersion: 2
         x: 100
@@ -124,13 +124,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a28229624ab7d746948d429d91c9962
+      spriteID: f90f8d75bd8ad4e428acc879a43ffa4e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC -1 [ASSET]_2
+      name: NPC -1 [ASSET] 2_2
       rect:
         serializedVersion: 2
         x: 0
@@ -144,13 +144,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6627a64b1445e2d48b1f2bdff7299367
+      spriteID: 308f7bb3f5328874b80b66c872b68205
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC -1 [ASSET]_3
+      name: NPC -1 [ASSET] 2_3
       rect:
         serializedVersion: 2
         x: 100
@@ -164,13 +164,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4526e58de11cd4745aeacb9400956c97
+      spriteID: 59fca2a9838a3e644a6ca00bb9ad9a92
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC -1 [ASSET]_4
+      name: NPC -1 [ASSET] 2_4
       rect:
         serializedVersion: 2
         x: 0
@@ -184,13 +184,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 79bd846af9482284c9a7d2d97b18e2bf
+      spriteID: 7fb5ba4cdafdc574cacaf998c529b768
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC -1 [ASSET]_5
+      name: NPC -1 [ASSET] 2_5
       rect:
         serializedVersion: 2
         x: 100
@@ -204,7 +204,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5735cdb711510354a8c8e1f186145b3d
+      spriteID: 5a22520cc03c5384094f4ac5a5a93e4b
       vertices: []
       indices: 
       edges: []
@@ -212,7 +212,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: a258e8fa47564ce458d798ed170810f7
+    spriteID: d565a20410de77e46895c5eccbcba56e
     vertices: []
     indices: 
     edges: []

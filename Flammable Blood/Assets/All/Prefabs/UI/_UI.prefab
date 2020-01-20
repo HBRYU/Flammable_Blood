@@ -4035,10 +4035,10 @@ RectTransform:
   m_Father: {fileID: 5722716787678334017}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.0014715}
-  m_SizeDelta: {x: 360.8, y: 481.32}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0.0014724731}
+  m_SizeDelta: {x: -0.7000122, y: 0.60998535}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &532696870
 CanvasRenderer:
@@ -4097,8 +4097,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -18770,12 +18770,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   helpText: {fileID: 532696869}
-  color_alpha: 100
+  color_alpha: 75
   colors:
   - {r: 0.43867922, g: 1, b: 0.43867922, a: 0.29411766}
   - {r: 1, g: 0, b: 0, a: 0.29411766}
   - {r: 0.6084906, g: 0.9355161, b: 1, a: 0.29411766}
-  default_alpha: 50
+  default_alpha: 35
   SFX: {fileID: 8300000, guid: 8f7823eec34d50b419a6f6ae05e06a4a, type: 3}
   typeSFX: {fileID: 8300000, guid: 52ffcb7c374fc094e9f5eb2de8b27242, type: 3}
   SFX_audio: {fileID: 1408637532475091987}
@@ -23207,10 +23207,10 @@ RectTransform:
   m_Father: {fileID: 2207976170848806923}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 724, y: -0.08996582}
-  m_SizeDelta: {x: -1559.2, y: -598.89}
+  m_AnchoredPosition: {x: -219.29999, y: -9.400024}
+  m_SizeDelta: {x: 327.3, y: -736.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7973801660169515381
 CanvasRenderer:
