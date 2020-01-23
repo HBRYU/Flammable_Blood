@@ -18785,7 +18785,7 @@ MonoBehaviour:
   fadeTime: 0.5
   fadeTime_timer: 0
   typeDelay: 0
-  typeLetters: 0
+  typeLetters: 2
   line: 0
 --- !u!114 &346835090498410721
 MonoBehaviour:

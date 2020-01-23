@@ -47,6 +47,7 @@ public class UI_HelpText_3 : MonoBehaviour
                     try
                     {
                         helpText.text += displayText[helpText.text.Length];
+                        //Debug.Log(displayText[helpText.text.Length]);
                     }
                     catch { }
                 }

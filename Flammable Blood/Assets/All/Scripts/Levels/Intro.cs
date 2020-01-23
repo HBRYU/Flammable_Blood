@@ -39,6 +39,9 @@ public class Intro : MonoBehaviour
     public Crate _3_Crate;
     public GameObject _4_Gun;
 
+    public GameObject[] _5_Enemies;
+    public GameObject _5_Barrier;
+
     void Start()
     {
         _GM_ = GM.GetGM();
@@ -152,6 +155,22 @@ public class Intro : MonoBehaviour
             GM.GetUI().GetComponent<UI_HelpText>().displayTime = 3f;
 
             stage = 5;
+        }
+
+        if(stage == 5)
+        {
+            try
+            {
+                foreach(GameObject g in _5_Enemies)
+                {
+                    g.GetComponent<EnemyStats>().health = g.GetComponent<EnemyStats>().health;
+                }
+            }
+            catch
+            {
+                _5_Barrier.SetActive(false);
+                stage = 6;
+            }
         }
     }
 
