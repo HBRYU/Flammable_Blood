@@ -15,13 +15,13 @@ public class LevelManager : MonoBehaviour
 
     public void LoadLevel(int index)
     {
-        Debug.Log("LoadingLevel");
+        //Debug.Log("LoadingLevel");
         SceneManager.LoadScene(index);
     }
 
     public void LoadLevel(string name)
     {
-        Debug.Log("LoadingLevel");
+        //Debug.Log("LoadingLevel");
         if (name == "Self")
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         else

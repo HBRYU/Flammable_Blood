@@ -75,8 +75,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4284780219
-  m_fontColor: {r: 0.735849, g: 0.55727947, b: 0.3922214, a: 1}
+    rgba: 4290553700
+  m_fontColor: {r: 0.39215687, g: 0.656943, b: 0.7372549, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 1198510922}
   - component: {fileID: 1198510921}
   - component: {fileID: 1198510920}
-  - component: {fileID: 3023416637339167464}
+  - component: {fileID: 9130065135939568459}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -263,7 +263,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &3023416637339167464
+--- !u!114 &9130065135939568459
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -526,7 +526,7 @@ GameObject:
   - component: {fileID: 3788896853206958909}
   - component: {fileID: 9100124042118441417}
   m_Layer: 0
-  m_Name: NPC-1
+  m_Name: NPC-2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -584,7 +584,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 43814b3d4927f7b44ae9f482ef8a8180, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2d1a45373cfe9594589fbd86dc5262d2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -613,7 +613,7 @@ MonoBehaviour:
   - HandUp
   - Guarding
   dialogueSFX: {fileID: 8300000, guid: 52ffcb7c374fc094e9f5eb2de8b27242, type: 3}
-  dialugueColor: {r: 0.73333335, g: 0.5568628, b: 0.3921569, a: 1}
+  dialugueColor: {r: 0.39215687, g: 0.7030356, b: 0.73333335, a: 1}
 --- !u!114 &5410497084886624436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -635,97 +635,7 @@ MonoBehaviour:
   ETI_panel: {fileID: 8139819537550680965}
   ETI_checkDistance: 1.8
   defaultState: 0
-  dialogues:
-  - delay: 0.1
-    intervalDelay: 0.05
-    typeLetterCount: 1
-    text: So...
-    state: 0
-    pressKey: 0
-    clear: 1
-    lockPlayerPosition: 0
-    unlockPlayerPosition: 0
-    facePlayer: 0
-    faceRight: 0
-    faceLeft: 0
-    triggerNPCs: []
-    unpauseNPCs: []
-    pause: 0
-  - delay: 1
-    intervalDelay: 0.05
-    typeLetterCount: 2
-    text: I've been monologing the whole time.
-    state: 0
-    pressKey: 1
-    clear: 0
-    lockPlayerPosition: 0
-    unlockPlayerPosition: 0
-    facePlayer: 0
-    faceRight: 0
-    faceLeft: 0
-    triggerNPCs: []
-    unpauseNPCs: []
-    pause: 0
-  - delay: 1.5
-    intervalDelay: 0.05
-    typeLetterCount: 2
-    text: Well then,
-    state: 0
-    pressKey: 0
-    clear: 1
-    lockPlayerPosition: 0
-    unlockPlayerPosition: 0
-    facePlayer: 0
-    faceRight: 0
-    faceLeft: 0
-    triggerNPCs: []
-    unpauseNPCs: []
-    pause: 0
-  - delay: 0.5
-    intervalDelay: 0.05
-    typeLetterCount: 2
-    text: What the fuck happens now?
-    state: 1
-    pressKey: 1
-    clear: 0
-    lockPlayerPosition: 0
-    unlockPlayerPosition: 0
-    facePlayer: 0
-    faceRight: 0
-    faceLeft: 0
-    triggerNPCs: []
-    unpauseNPCs: []
-    pause: 0
-  - delay: 1
-    intervalDelay: 0.05
-    typeLetterCount: 2
-    text: '*Sigh*'
-    state: 0
-    pressKey: 0
-    clear: 1
-    lockPlayerPosition: 0
-    unlockPlayerPosition: 0
-    facePlayer: 0
-    faceRight: 0
-    faceLeft: 0
-    triggerNPCs: []
-    unpauseNPCs: []
-    pause: 0
-  - delay: 2
-    intervalDelay: 0
-    typeLetterCount: 0
-    text: 
-    state: 0
-    pressKey: 0
-    clear: 0
-    lockPlayerPosition: 0
-    unlockPlayerPosition: 0
-    facePlayer: 0
-    faceRight: 0
-    faceLeft: 0
-    triggerNPCs: []
-    unpauseNPCs: []
-    pause: 0
+  dialogues: []
   index: 0
   delay_timer: 0
   spaceBetweenDialogues: 1
@@ -741,7 +651,7 @@ Animator:
   m_GameObject: {fileID: 3788896853206958896}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 743ddcb9c1200c34e800295b31482790, type: 2}
+  m_Controller: {fileID: 9100000, guid: e4f773b2b51fe5c4ab46c6b8b8261319, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

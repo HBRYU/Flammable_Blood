@@ -13,6 +13,14 @@ public class Dialogue
     public int state;
     public bool pressKey;
     public bool clear;
+    public bool lockPlayerPosition;
+    public bool unlockPlayerPosition;
+    public bool facePlayer;
+    public bool faceRight;
+    public bool faceLeft;
+    public List<GameObject> triggerNPCs;
+    public List<GameObject> unpauseNPCs;
+    public bool pause;
 }
 
 

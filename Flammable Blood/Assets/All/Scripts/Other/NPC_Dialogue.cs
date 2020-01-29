@@ -5,8 +5,14 @@ using TMPro;
 
 public class NPC_Dialogue : MonoBehaviour
 {
-    public GameObject UI;
+    public GameObject dialogue_panel;
+    public GameObject PressKey_panel;
     public bool talk;
+    public bool pause;
+    public bool pause_flag;
+    public bool EToInteract;
+    public GameObject ETI_panel;
+    public float ETI_checkDistance;
     public int defaultState;
 
     public List<Dialogue> dialogues;
@@ -33,13 +39,34 @@ public class NPC_Dialogue : MonoBehaviour
         displayText = dialogues[0].text;
         GetComponent<Animator>().SetInteger("State", dialogues[index].state);
         textBox.text = string.Empty;
+        textBox.color = GetComponent<NPC>().dialugueColor;
+        PressKey_panel.SetActive(false);
+        ETI_panel.SetActive(false);
     }
 
     void Update()
     {
+        if (EToInteract && (GM.CompareDistance(transform.position, GM.GetPlayer().transform.position, ETI_checkDistance) <= 0))
+        {
+            if (!talk)
+            {
+                ETI_panel.SetActive(true);
+            }
+            if (Input.GetKey(KeyCode.E))
+            {
+                ETI_panel.SetActive(false);
+                talk = true;
+            }
+        }
+        else
+        {
+            ETI_panel.SetActive(false);
+        }
+
+
         if (talk)
         {
-            UI.SetActive(true);
+            dialogue_panel.SetActive(true);
             if(delay_timer >= dialogues[index].delay)
             {
                 if (dialogues[index].clear)
@@ -73,24 +100,93 @@ public class NPC_Dialogue : MonoBehaviour
                 }
                 else
                 {
-                    index += 1;
-                    GetComponent<Animator>().SetInteger("State", dialogues[index].state);
-                    if (dialogues.Count - 1 > index)
+                    //  EXIT Dialogue Settings  ----------------------------------
+                    if (dialogues[index].pause && pause_flag == false)
                     {
-                        if (dialogues[index].clear)
+                        pause = true;
+                        pause_flag = true;
+                    }
+                    //------------------------------------------------------------
+
+                    if ((!dialogues[index].pressKey || (dialogues[index].pressKey && Input.GetKey(KeyCode.Space))) &&!pause)
+                    {
+                        PressKey_panel.SetActive(false);
+                        pause_flag = false;
+
+                        index += 1;
+
+                        //  INIT Dialogue Settings   ---------------------------------
+                        if (dialogues[index].lockPlayerPosition)
+                            GM.GetPlayer().GetComponent<PlayerMove>().move = false;
+                        if (dialogues[index].unlockPlayerPosition)
+                            GM.GetPlayer().GetComponent<PlayerMove>().move = true;
+                        if (dialogues[index].facePlayer)
                         {
-                            //displayText = dialogues[index].text;
+                            if(GM.GetPlayer().transform.position.x >= transform.position.x)
+                            {
+                                Quaternion rotator = transform.localRotation;
+                                rotator.y = 180;
+                                transform.rotation = rotator;
+                            }
+                            else
+                            {
+                                Quaternion rotator = transform.localRotation;
+                                rotator.y = 0;
+                                transform.rotation = rotator;
+                            }
+                        }
+                        if (dialogues[index].faceRight)
+                        {
+                            Quaternion rotator = transform.localRotation;
+                            rotator.y = 180;
+                            transform.rotation = rotator;
+                        }
+                        if (dialogues[index].faceLeft)
+                        {
+                            Quaternion rotator = transform.localRotation;
+                            rotator.y = 0;
+                            transform.rotation = rotator;
+                        }
+                        if(dialogues[index].triggerNPCs.Count > 0)
+                        {
+                            foreach(GameObject g in dialogues[index].triggerNPCs)
+                            {
+                                g.GetComponent<NPC_Dialogue>().talk = true;
+                            }
+                        }
+                        if (dialogues[index].unpauseNPCs.Count > 0)
+                        {
+                            foreach (GameObject g in dialogues[index].triggerNPCs)
+                            {
+                                g.GetComponent<NPC_Dialogue>().pause = false;
+                            }
+                        }
+
+                        //--------------------------------------------------------
+
+
+                        GetComponent<Animator>().SetInteger("State", dialogues[index].state);
+                        if (dialogues.Count - 1 > index)
+                        {
+                            if (dialogues[index].clear)
+                            {
+                                //displayText = dialogues[index].text;
+                            }
+                            else
+                            {
+                                displayText += dialogues[index].text;
+                            }
+
+                            delay_timer = 0;
                         }
                         else
                         {
-                            displayText += dialogues[index].text;
+                            talk = false;
                         }
-
-                        delay_timer = 0;
                     }
                     else
                     {
-                        talk = false;
+                        PressKey_panel.SetActive(true);
                     }
                 }
             }
@@ -101,7 +197,7 @@ public class NPC_Dialogue : MonoBehaviour
         }
         else
         {
-            UI.SetActive(false);
+            dialogue_panel.SetActive(false);
             index = 0;
             displayText = string.Empty;
             textBox.text = string.Empty;

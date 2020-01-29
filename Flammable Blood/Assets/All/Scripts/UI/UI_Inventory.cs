@@ -172,6 +172,7 @@ public class UI_Inventory : MonoBehaviour
             stats_itemName.text = pw.weapons[index].GetComponent<WeaponStats>().name;
             stats_IMG.sprite = pw.weapons[index].GetComponent<WeaponStats>().UI_IMG;
             stats_IMG.color = pw.weapons[index].GetComponent<WeaponStats>().UI_IMG_color;
+            //Debug.Log(pw.weapons[index].GetComponent<WeaponStats>().UI_IMG_color + "/" + stats_IMG.color);
             stats_description.text = pw.weapons[index].GetComponent<WeaponStats>().description;
             stats_description.GetComponent<RectTransform>().offsetMax = new Vector2(0, 0);
             stats_description.GetComponent<RectTransform>().offsetMin = new Vector2(0, pw.weapons[index].GetComponent<WeaponStats>().description_scroll_bottom);
@@ -212,13 +213,16 @@ public class UI_Inventory : MonoBehaviour
             statsPanel.SetActive(true);
             stats_itemName.text = dm.deployables[index].GetComponent<Deployable>().ID;
             stats_IMG.sprite = dm.deployables[index].GetComponent<Deployable>().UI_IMG;
+            //stats_IMG.color = dm.deployables[index].GetComponent<Deployable>().UI_IMG_color;
+            stats_IMG.color = new Color(1, 1, 1, 1);
+            //Debug.Log(dm.deployables[index].GetComponent<Deployable>().UI_IMG_color + "/" + stats_IMG.color);
             stats_description.text = dm.deployables[index].GetComponent<Deployable>().description;
             stats_description.GetComponent<RectTransform>().offsetMax = new Vector2(0, 0);
             stats_description.GetComponent<RectTransform>().offsetMin = new Vector2(0, dm.deployables[index].GetComponent<Deployable>().description_scroll_bottom);
         }
         else
         {
-            //selectPanel.SetActive(false);
+            selectPanel.SetActive(false);
             selectedDeployableIndex = -1;
         }
     }
